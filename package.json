@@ -7,16 +7,24 @@
     "dev": "nodemon server/app.js -w server/app.js -w src",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "seed": "node scripts/seed.js"
+
   },
   "dependencies": {
     "axios": "^1.5.0",
     "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "lodash": "^4.17.21",
     "morgan": "^1.10.0",
+    "nodemon": "^3.0.1",
+    "pg": "^8.11.3",
+    "pg-hstore": "^2.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0",
     "sequelize": "^6.33.0",
+    "util": "^0.12.5",
     "vite-express": "^0.10.0"
   },
   "devDependencies": {
