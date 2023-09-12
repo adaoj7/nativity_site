@@ -2,7 +2,15 @@
 
 const Volunteers = () => {
   return (
-    <div>Volunteers</div>
+    <form action="">
+      <input type="text" placeholder='First name' />
+      <input type="text" placeholder='Last name' />
+      <br />
+      <input type="text" placeholder='email' />
+      <input type="tel" placeholder='phone number'/>
+      <br />
+      <button>Submit</button>
+    </form>
   )
 }
 

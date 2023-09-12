@@ -2,7 +2,11 @@
 import morgan from "morgan";
 import ViteExpress from 'vite-express';
 import session from "express-session";
-// import handlerFunctions from './controller.js';
+import handlerFunctions from './controllers/siteCtrlr.js';
+import authCtrlr from './controllers/authCtrlr.js'
+
+// const { login } = handlerFunctions
+const {register,login,user,logout} = authCtrlr
 
 const app = express();
 
@@ -14,26 +18,20 @@ app.use(
     session({
         resave: false,
         saveUninitialized: true,
-        secret: 'what am I hiding?'
+        secret: 'what am I hiding?',
+        cookie:{
+            maxAge: 1000 * 60 * 60 * 24 * 14
+        }
     })
 )
 
-// Login and session info
-app.post('/login', (req, res) => {
-    const sess = req.session;
-    sess.email = req.body.email; // add the user's email to the session
-    // res.render('dashboard.html');
-    console.log('hit the login')
-});
 
-app.get('/', (req, res) => {
-    if (req.session.email) {
-      // A user is logged in, so show their email
-      res.send(`<p>Hello ${req.session.email}!</p><a href="/logout">Logout</a>`);
-    } else {
-      res.send('<a href="/login">Please login.</a>');
-    }
-});
-// app.get('/api/')
+// authentication endpoints
+app.post('/api/register', register);
+app.post('/api/login', login)
+app.get('/api/user',user)
+app.delete('/api/logout',logout)
+
+// volunteer form endpoints
 
 ViteExpress.listen(app,4242,() => console.log('what is the answer? http://localhost:4242'))

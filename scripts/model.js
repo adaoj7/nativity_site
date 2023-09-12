@@ -19,23 +19,31 @@ export class User extends Model {
         },
         fname:{
             type: DataTypes.STRING,
-            allowNull: false,
+            // allowNull: false,
         },
         lname:{
             type: DataTypes.STRING,
-            allowNull: false,
+            // allowNull: false,
         },
         email:{
             type: DataTypes.STRING,
-            allowNull: false,
+            // allowNull: false,
         },  
         phone:{
             type: DataTypes.STRING,
-            allowNull: false,
+            // allowNull: false,
         },
         church:{
             type: DataTypes.STRING,
         },
+        hashedPass:{
+            type: DataTypes.STRING,
+
+        },
+        isAdmin: {
+            type: DataTypes.BOOLEAN
+        }
+
   },
   {
     modelName: 'user',
