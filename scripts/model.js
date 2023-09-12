@@ -110,8 +110,44 @@ Availability.init(
     }
 )
 
-User.hasMany(Availability, {foreignKey: 'userId' })
-Availability.belongsTo(User, {foreignKey: 'userId'})
+export class Volunteer extends Model {
+    [util.inspect.custom]() {
+      return this.toJSON();
+    }
+  }
+
+Volunteer.init(
+    {
+        userId: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+        },
+        fname:{
+            type: DataTypes.STRING,
+            // allowNull: false,
+        },
+        lname:{
+            type: DataTypes.STRING,
+            // allowNull: false,
+        },
+        email:{
+            type: DataTypes.STRING,
+            // allowNull: false,
+        },  
+        phone:{
+            type: DataTypes.STRING,
+            // allowNull: false,
+        },
+    },
+    {
+        modelName: 'volunteer',
+        sequelize: db
+    }
+)    
+
+Volunteer.hasMany(Availability, {foreignKey: 'userId' })
+Availability.belongsTo(Volunteer, {foreignKey: 'userId'})
 
 VolunteerShift.hasMany(Availability, {foreignKey: 'shiftId'})
 Availability.belongsTo(VolunteerShift, {foreignKey: 'shiftId'})

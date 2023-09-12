@@ -1,12 +1,17 @@
-﻿const handlerFunctions = {
+﻿import { Volunteer } from "../../scripts/model.js"
 
-    login: (req, res) => {
-        const sess = req.session;
-        sess.email = req.body.email; // add the user's email to the session
-        // res.render('dashboard.html');
-        console.log('hit the login')
-    },
+export default {
+
+    addVolunteer: async (req,res) => {
+        try {
+            const {fname,lname,email,phone} = req.body
+            const newVolunteer = await Volunteer.create({fname,lname,email,phone})
+            console.log(newVolunteer)
+
+        } catch (theseHands) {
+            console.log(theseHands)
+            res.sendStatus(500)
+        }
+    }
 
 }
-
-export default handlerFunctions

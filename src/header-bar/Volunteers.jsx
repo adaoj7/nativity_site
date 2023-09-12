@@ -9,7 +9,7 @@ const Volunteers = () => {
       <input type="text" placeholder='email' />
       <input type="tel" placeholder='phone number'/>
       <br />
-      <button>Submit</button>
+      <button>Submit`</button>
     </form>
   )
 }

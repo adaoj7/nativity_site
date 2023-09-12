@@ -2,10 +2,10 @@
 import morgan from "morgan";
 import ViteExpress from 'vite-express';
 import session from "express-session";
-import handlerFunctions from './controllers/siteCtrlr.js';
+import siteCtrlr from './controllers/siteCtrlr.js';
 import authCtrlr from './controllers/authCtrlr.js'
 
-// const { login } = handlerFunctions
+const { addVolunteer } = siteCtrlr
 const {register,login,user,logout} = authCtrlr
 
 const app = express();
@@ -33,5 +33,7 @@ app.get('/api/user',user)
 app.delete('/api/logout',logout)
 
 // volunteer form endpoints
+app.post('/api/newVolunteer',addVolunteer)
+
 
 ViteExpress.listen(app,4242,() => console.log('what is the answer? http://localhost:4242'))
