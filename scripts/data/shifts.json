@@ -111,11 +111,6 @@
     },
     {
         "shiftDate": "11/30/2023",
-        "shiftTimeRange": ,
-        "shiftType": "Host"
-    },
-    {
-        "shiftDate": "11/30/2023",
         "shiftTimeRange": "8:00 - 11:00 AM",
         "shiftType": "Host"
     },

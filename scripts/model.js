@@ -79,7 +79,7 @@ VolunteerShift.init(
 
     },
     {
-        modelName: 'volunteer shift',
+        modelName: 'volunteer_shift',
         sequelize: db
     }
 )
