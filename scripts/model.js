@@ -151,3 +151,6 @@ Availability.belongsTo(Volunteer, {foreignKey: 'userId'})
 
 VolunteerShift.hasMany(Availability, {foreignKey: 'shiftId'})
 Availability.belongsTo(VolunteerShift, {foreignKey: 'shiftId'})
+
+User.hasOne(Volunteer, {foreignKey: 'userId'})
+Volunteer.belongsTo(User, {foreignKey: 'userId'})

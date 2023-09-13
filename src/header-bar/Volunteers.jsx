@@ -1,14 +1,49 @@
 ﻿import React from 'react'
-
+import { useState } from 'react'
+import axios from 'axios'
+import HostTimes from './HostTimes'
 const Volunteers = () => {
+  const [fname, setFname] = useState('')
+  const [lname, setLname] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+
+
+  const sendNewVolunteer = async () => {
+    
+    let bodyObj = {
+      fname,
+      lname,
+      email,
+      phone
+    }
+
+    const {data} = await axios.post('/api/newVolunteer', bodyObj)
+    if(!data.error){}
+  }
+
+  const submit = (e) => {
+    e.preventDefault()
+    sendNewVolunteer()
+    setFname('')
+    setLname('')
+    setEmail('')
+    setPhone('')
+  }
+
   return (
-    <form action="">
-      <input type="text" placeholder='First name' />
-      <input type="text" placeholder='Last name' />
-      <br />
-      <input type="text" placeholder='email' />
-      <input type="tel" placeholder='phone number'/>
-      <br />
+    <form onSubmit={submit}>
+      <div>
+        <input type="text" placeholder='First name' value={fname} onChange={(e) => setFname(e.target.value)}/>
+        <input type="text" placeholder='Last name' value={lname} onChange={(e) => setLname(e.target.value)}/>
+        <br />
+        <input type="text" placeholder='email' value={email} onChange={(e) => setEmail(e.target.value)}/>
+        <input type="tel" placeholder='phone number' value={phone} onChange={(e) => setPhone(e.target.value)}/>
+        <br />
+      </div>
+      <div>
+        <HostTimes/>
+      </div>
       <button>Submit`</button>
     </form>
   )
