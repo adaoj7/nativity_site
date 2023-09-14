@@ -2,9 +2,12 @@
 import { useLoaderData } from 'react-router-dom'
 
 const HostTimes = ({allShifts}) => {
+
+  let shifts = allShifts
+
   return (
     <>
-    <div>hello</div>
+    <div>{shifts}</div>
     </>
 
   )

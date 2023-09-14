@@ -10,7 +10,7 @@ const Volunteers = () => {
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
 
-  const { allShifts } = useLoaderData
+  const { allShifts } = useLoaderData()
 
   const sendNewVolunteer = async () => {
     
@@ -46,6 +46,7 @@ const Volunteers = () => {
       </div>
       <div>
         <HostTimes times={allShifts}/>
+        <div>{console.log(allShifts)}</div>
       </div>
       <button>Submit`</button>
     </form>

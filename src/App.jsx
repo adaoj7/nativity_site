@@ -1,14 +1,28 @@
 import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
 import './App.css'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-import HeaderBar from './HeaderBar'
+import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom'
+import Volunteers from './header-bar/Volunteers'
 
 function App() {
-
+console.log('hit app')
   return (
-    <HeaderBar/>
+    <>
+    <header>
+        <nav>
+          <NavLink to='/home'>Home Page</NavLink>
+          <Link to='/about'>About</Link>
+          <NavLink to='/volunteers' >Get Involved</NavLink>
+          <Link to='/thisYear'>This Year</Link>
+          <Link to='/gallery'>Gallery</Link>
+          <Link to='/lightTheWorld'>Light the World</Link>
+          <Link to='/contact'>Contact</Link>
+          <Link to='/products'>Products</Link>
+        </nav>
+        <nav>
+          <Link to='/login'>Log In</Link>
+        </nav>  
+      </header>
+    </>
   )
 }
 
