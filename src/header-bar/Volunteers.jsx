@@ -2,12 +2,15 @@
 import { useState } from 'react'
 import axios from 'axios'
 import HostTimes from './HostTimes'
+import { useLoaderData } from 'react-router-dom'
+
 const Volunteers = () => {
   const [fname, setFname] = useState('')
   const [lname, setLname] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
 
+  const { allShifts } = useLoaderData
 
   const sendNewVolunteer = async () => {
     
@@ -42,7 +45,7 @@ const Volunteers = () => {
         <br />
       </div>
       <div>
-        <HostTimes/>
+        <HostTimes times={allShifts}/>
       </div>
       <button>Submit`</button>
     </form>

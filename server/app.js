@@ -5,7 +5,7 @@ import session from "express-session";
 import siteCtrlr from './controllers/siteCtrlr.js';
 import authCtrlr from './controllers/authCtrlr.js'
 
-const { addVolunteer } = siteCtrlr
+const { addVolunteer,loadShifts } = siteCtrlr
 const {register,login,user,logout} = authCtrlr
 
 const app = express();
@@ -33,6 +33,7 @@ app.get('/api/user',user)
 app.delete('/api/logout',logout)
 
 // volunteer form endpoints
+app.get('/api/volunteers',loadShifts)
 app.post('/api/newVolunteer',addVolunteer)
 
 

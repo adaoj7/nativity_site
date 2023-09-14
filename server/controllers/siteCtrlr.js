@@ -1,7 +1,10 @@
-﻿import { Volunteer } from "../../scripts/model.js"
+﻿import { Volunteer,VolunteerShift } from "../../scripts/model.js"
 
 export default {
-
+    loadShifts: async (req,res) => {
+        const allShifts = await VolunteerShift.findAll()
+        res.json(allShifts)
+    },
     addVolunteer: async (req,res) => {
         try {
             const {fname,lname,email,phone} = req.body
