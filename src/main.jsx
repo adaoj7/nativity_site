@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import axios from 'axios'
-import { createBrowserRouter,createRoutesFromElements,Route,RouterProvider } from 'react-router-dom'
+import { createBrowserRouter,createRoutesFromElements,Route,RouterProvider,Routes } from 'react-router-dom'
 import About from './header-bar/About.jsx'
-import Volunteers from './header-bar/Volunteers.jsx'
+import Volunteers from './header-bar/Volunteers'
 import ThisYear from './header-bar/ThisYear.jsx'
 import Gallery from './header-bar/Gallery.jsx'
 import LightTheWorld from './header-bar/LightTheWorld.jsx'
@@ -17,14 +17,15 @@ import Home from './header-bar/Home.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/' element={<App/>} errorElement={<About/>}>
-        <Route index path='/home' element={<Home/>}/>
+    // <>
+      <Route path='/' element={<App/>} errorElement={<Login/>}>
+        <Route path='/home' element={<Home/>}/>
         <Route path='/about' element={<About/>}/>
         <Route path='/volunteers' element={<Volunteers/>} 
         loader={async () => {
           const res = await axios.get('/api/volunteers')
-          console.log(res.data)
-          return {allShifts: res.data}
+          // console.log(res.data)
+          return {setupShift: res.data}
         }}
         />
         <Route path='/thisYear' element={<ThisYear/>}/>
@@ -33,10 +34,12 @@ const router = createBrowserRouter(
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/products' element={<Products/>}/>
         <Route path='/login' element={<Login/>}/>
-    </Route>
+      </Route>
+    // </>
+    
   )
 )
-
+// console.log(router)
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(

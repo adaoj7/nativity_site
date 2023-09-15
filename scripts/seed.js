@@ -1,14 +1,14 @@
-﻿import { User, VolunteerShift, Availability, db } from "./model.js";
-import shiftData from './data/shifts.json' assert {type: 'json'}
-
+﻿import { User, Availability, db, SetupShift } from "./model.js";
+import setupShifts from './data/setupShifts.json' assert {type: 'json'}
+import hostShifts from './data/hostShifts.json' assert {type: 'json'}
 console.log('Syncing database...')
 await db.sync({force: true})
 
-const shiftsInDB = await Promise.all(
-    shiftData.map((shift) => {
+const setupShiftsInDB = await Promise.all(
+    setupShifts.map((shift) => {
         const {shiftDate, shiftTimeRange, shiftType} = shift
 
-        const newShift = VolunteerShift.create({
+        const newShift = SetupShift.create({
             shiftDate: shiftDate,
             shiftTimeRange: shiftTimeRange,
             shiftType: shiftType
@@ -16,8 +16,21 @@ const shiftsInDB = await Promise.all(
         return newShift
     })
 )
+// const hostShiftsInDB = await Promise.all(
+//     hostShifts.map((shift) => {
+//         const {shiftDate, shiftTimeRange, shiftType} = shift
 
-console.log(shiftsInDB)
+//         const newShift = HostShift.create({
+//             shiftDate: shiftDate,
+//             shiftTimeRange: shiftTimeRange,
+//             shiftType: shiftType
+//         })
+//         return newShift
+//     })
+// )
+
+console.log(setupShiftsInDB)
+// console.log(hostShiftsInDB)
 
 await db.close()
 console.log('Finished seeding database!')

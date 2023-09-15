@@ -51,13 +51,13 @@ export class User extends Model {
   }
 )
 
-export class VolunteerShift extends Model {
+export class SetupShift extends Model {
     [util.inspect.custom]() {
       return this.toJSON();
     }
   }
 
-VolunteerShift.init(
+SetupShift.init(
     {
         shiftId:{
             type: DataTypes.INTEGER,
@@ -79,7 +79,7 @@ VolunteerShift.init(
 
     },
     {
-        modelName: 'volunteer_shift',
+        modelName: 'setup_shift',
         sequelize: db
     }
 )
@@ -149,8 +149,10 @@ Volunteer.init(
 Volunteer.hasMany(Availability, {foreignKey: 'userId' })
 Availability.belongsTo(Volunteer, {foreignKey: 'userId'})
 
-VolunteerShift.hasMany(Availability, {foreignKey: 'shiftId'})
-Availability.belongsTo(VolunteerShift, {foreignKey: 'shiftId'})
+SetupShift.hasMany(Availability, {foreignKey: 'shiftId'})
+Availability.belongsTo(SetupShift, {foreignKey: 'shiftId'})
 
-User.hasOne(Volunteer, {foreignKey: 'userId'})
-Volunteer.belongsTo(User, {foreignKey: 'userId'})
+// unable to increment until users has been established because volunteers will be linked to user and nots the other way around
+
+// User.hasOne(Volunteer, {foreignKey: 'userId'})
+// Volunteer.belongsTo(User, {foreignKey: 'userId'})
