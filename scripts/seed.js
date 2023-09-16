@@ -1,17 +1,43 @@
-﻿import { User, Availability, db, SetupShift } from "./model.js";
-import setupShifts from './data/setupShifts.json' assert {type: 'json'}
-import hostShifts from './data/hostShifts.json' assert {type: 'json'}
+﻿import { User, Availability, db, Shift, Year, Day } from "./model.js";
+import years from './data/years.json' assert {type: 'json'}
+import days from './data/days.json' assert {type: 'json'}
+import shifts from './data/shifts.json' assert {type: 'json'}
+import shiftType from './data/shiftType.json' assert {type: 'json'} 
+
 console.log('Syncing database...')
 await db.sync({force: true})
 
-const setupShiftsInDB = await Promise.all(
-    setupShifts.map((shift) => {
-        const {shiftDate, shiftTimeRange, shiftType} = shift
+const yearsInDB = await Promise.all(
+    years.map((param) => {
+        const { year } = param
 
-        const newShift = SetupShift.create({
-            shiftDate: shiftDate,
-            shiftTimeRange: shiftTimeRange,
-            shiftType: shiftType
+        const newYear = Year.create({
+            year: year
+        })
+        return newYear
+    })
+)
+
+const daysInDB = await Promise.all(
+    days.map((param) => {
+        const {date, year} = param
+
+        const newDay = Day.create({
+            date,
+            // year,
+        })
+        return newDay
+    })
+)
+
+const shiftsInDB = await Promise.all(
+    shifts.map((param) => {
+        const {date, timeRange, shiftType} = param
+
+        const newShift = Shift.create({
+            date,
+            timeRange,
+            shiftType
         })
         return newShift
     })
@@ -29,7 +55,9 @@ const setupShiftsInDB = await Promise.all(
 //     })
 // )
 
-console.log(setupShiftsInDB)
+console.log(yearsInDB)
+console.log(daysInDB)
+console.log(shiftsInDB)
 // console.log(hostShiftsInDB)
 
 await db.close()

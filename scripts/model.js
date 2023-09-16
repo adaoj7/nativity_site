@@ -51,43 +51,96 @@ export class User extends Model {
   }
 )
 
-export class SetupShift extends Model {
+
+export class Year extends Model {
+    [util.inspect.custom]() {
+        return this.toJSON();
+    }
+}
+
+Year.init(
+    {
+        yearId:{
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+        },
+        year:{
+            type: DataTypes.STRING,
+        }
+        
+    },
+    {
+        modelName: 'year',
+        sequelize: db
+    }
+    )
+    
+export class Day extends Model {
+    [util.inspect.custom]() {
+        return this.toJSON();
+    }
+}
+    
+Day.init(
+    {
+        dayId: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+        },
+        date:{
+            type: DataTypes.STRING,
+        },
+        // year:{
+        //     type: DataTypes.STRING,
+        // }
+    
+    },
+    {
+        modelName: 'day',
+        sequelize: db
+    }
+)
+export class Shift extends Model {
     [util.inspect.custom]() {
       return this.toJSON();
     }
-  }
+}
 
-SetupShift.init(
+
+Shift.init(
     {
         shiftId:{
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
         },
-        shiftDate:{
+        timeRange:{
             type: DataTypes.STRING,
-            allowNull: false,
+            // allowNull: false,
         },
-        shiftTimeRange:{
+        date:{
             type: DataTypes.STRING,
-            allowNull: false,
+            // allowNull: false,
         },
         shiftType:{
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
+            type: DataTypes.STRING
+        }
 
     },
     {
-        modelName: 'setup_shift',
+        modelName: 'shift',
         sequelize: db
     }
 )
+
+
 export class Availability extends Model {
     [util.inspect.custom]() {
       return this.toJSON();
     }
-  }
+}
 
 Availability.init(
     {
@@ -109,13 +162,13 @@ Availability.init(
         sequelize: db
     }
 )
-
+    
 export class Volunteer extends Model {
-    [util.inspect.custom]() {
-      return this.toJSON();
-    }
-  }
-
+        [util.inspect.custom]() {
+          return this.toJSON();
+        }
+}
+    
 Volunteer.init(
     {
         userId: {
@@ -144,13 +197,44 @@ Volunteer.init(
         modelName: 'volunteer',
         sequelize: db
     }
-)    
+)
+
+export class ShiftType extends Model {
+    [util.inspect.custom]() {
+      return this.toJSON();
+    }
+}
+
+// ShiftType.init(
+//     {
+//         typeId:{
+//             type: DataTypes.INTEGER,
+//             autoIncrement: true,
+//             allowNull: false
+//         },
+//         shiftType:{
+//             type: DataTypes.STRING
+//         }
+//     },
+//     {
+//         modelName: 'shift_type',
+//         sequelize: db
+//     }
+// )
 
 Volunteer.hasMany(Availability, {foreignKey: 'userId' })
 Availability.belongsTo(Volunteer, {foreignKey: 'userId'})
 
-SetupShift.hasMany(Availability, {foreignKey: 'shiftId'})
-Availability.belongsTo(SetupShift, {foreignKey: 'shiftId'})
+Shift.hasMany(Availability, {foreignKey: 'shiftId'})
+Availability.belongsTo(Shift, {foreignKey: 'shiftId'})
+
+Year.hasMany(Day)
+Day.belongsTo(Year)
+
+// Day.hasMany(Shift,{foreignKey:'day'})
+// Shift.hasMany(Day,{foreignKey:'day'})
+
+
 
 // unable to increment until users has been established because volunteers will be linked to user and nots the other way around
 
