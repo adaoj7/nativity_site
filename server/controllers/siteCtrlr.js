@@ -1,10 +1,12 @@
-﻿import { Volunteer, Shift } from "../../scripts/model.js"
+﻿import { Volunteer, Shift, ShiftType, Day } from "../../scripts/model.js"
 
 export default {
     loadShifts: async (req,res) => {
         const shift = await Shift.findAll()
-        res.json(shift)
-        // console.log(shift)
+        const shiftTypes = await ShiftType.findAll()
+        const shiftDates = await Day.findAll()
+    
+        res.json({shift,shiftTypes,shiftDates})
         console.log('hi')
     },
     addVolunteer: async (req,res) => {

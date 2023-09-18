@@ -5,22 +5,47 @@ import { useLoaderData } from "react-router-dom";
 import React from "react";
 import { Formik, Field, Form } from "formik";
 
+
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const Volunteers = () => {
-    const { shift } = useLoaderData();
-    const setupTimes = shift.map(({ shiftId, dateId, timeRange, typeId }) => {
-        return {
-            id: shiftId,
-            dateId,
-            timeRange,
-            typeId,
-            isVolunteer: false,
-        };
-    });
-    console.log(setupTimes);
-    
-    
+  const { dataAboutShifts } = useLoaderData();
+  // console.log(dataAboutShifts)
+  const shiftTimes = dataAboutShifts.shift.map(({ shiftId, dateId, timeRange, typeId }) => {
+    return {
+      id: shiftId,
+      dateId,
+      timeRange,
+      typeId,
+      isVolunteer: false,
+    };
+  });
+
+  const volunteerTypes = dataAboutShifts.shiftTypes.map(({typeId,shiftType}) => {
+    return {
+      typeId,
+      shiftType
+    }
+  })
+  
+  const setupType = volunteerTypes.filter((ele) => ele.shiftType === 'setup')
+  const setupDays = shiftTimes.filter((ele) => ele.typeId === setupType[0].typeId)
+
+  const shiftDates = dataAboutShifts.shiftDates.map(({dateId, date, yearId}) => {
+    return{
+      dateId,
+      date,
+      yearId
+    }
+  })
+  
+
+  console.log(setupDays)
+  // console.log(shiftTimes)
+  // console.log(setupType)
+  // console.log(shiftDates)
+
+
     return (
         <div>
             <h1>Sign Up</h1>
@@ -30,8 +55,9 @@ const Volunteers = () => {
                     lastName: "",
                     email: "",
                     phone: "",
-                    setup: setupTimes,
+                    setup: setupDays,
                 }}
+
                 onSubmit={async (values, { setSubmitting }) => {
                     console.log(setupTimes);
                     console.log(values);
@@ -54,6 +80,7 @@ const Volunteers = () => {
                         } else {
                             console.log(data.error);
                         }
+                        
                     };
 
                     sendNewVolunteer();
@@ -61,16 +88,7 @@ const Volunteers = () => {
             >
 
 
-                {({
-                    values,
-                    errors,
-                    touched,
-                    handleBlur,
-                    handleChange,
-                    handleSubmit,
-                    handleReset,
-                    isSubmitting,
-                }) => (
+                {({ values,errors,touched,handleBlur,handleChange,handleSubmit,handleReset,isSubmitting,}) => (
                     <Form onSubmit={handleSubmit}>
                         <input
                             type="firstName"
@@ -152,138 +170,6 @@ const Volunteers = () => {
                                         value="Four"
                                     />
                                     {`${values.setup[3].timeRange}`}
-                                </label>
-                            </span>
-                        </ul>
-
-                        <ul role="group" aria-labelledby="checkbox-group">
-                            {`${values.setup[0].shiftDate}`}
-                            <span>
-                                <label>
-                                    <Field
-                                        type="checkbox"
-                                        name="checked"
-                                        value="O"
-                                    />
-                                    {`${values.setup[0].shiftTimeRange}`}
-                                </label>
-                            </span>
-                            <span>
-                                <label>
-                                    <Field
-                                        type="checkbox"
-                                        name="checked"
-                                        value="Two"
-                                    />
-                                    {`${values.setup[1].shiftTimeRange}`}
-                                </label>
-                            </span>
-                            <span>
-                                <label>
-                                    <Field
-                                        type="checkbox"
-                                        name="checked"
-                                        value="Three"
-                                    />
-                                    {`${values.setup[2].shiftTimeRange}`}
-                                </label>
-                            </span>
-                            <span>
-                                <label>
-                                    <Field
-                                        type="checkbox"
-                                        name="checked"
-                                        value="Four"
-                                    />
-                                    {`${values.setup[3].shiftTimeRange}`}
-                                </label>
-                            </span>
-                        </ul>
-
-                        <ul role="group" aria-labelledby="checkbox-group">
-                            {`${values.setup[0].shiftDate}`}
-                            <span>
-                                <label>
-                                    <Field
-                                        type="checkbox"
-                                        name="checked"
-                                        value="One"
-                                    />
-                                    {`${values.setup[0].shiftTimeRange}`}
-                                </label>
-                            </span>
-                            <span>
-                                <label>
-                                    <Field
-                                        type="checkbox"
-                                        name="checked"
-                                        value="Two"
-                                    />
-                                    {`${values.setup[1].shiftTimeRange}`}
-                                </label>
-                            </span>
-                            <span>
-                                <label>
-                                    <Field
-                                        type="checkbox"
-                                        name="checked"
-                                        value="Three"
-                                    />
-                                    {`${values.setup[2].shiftTimeRange}`}
-                                </label>
-                            </span>
-                            <span>
-                                <label>
-                                    <Field
-                                        type="checkbox"
-                                        name="checked"
-                                        value="Four"
-                                    />
-                                    {`${values.setup[3].shiftTimeRange}`}
-                                </label>
-                            </span>
-                        </ul>
-
-                        <ul role="group" aria-labelledby="checkbox-group">
-                            {`${values.setup[0].shiftDate}`}
-                            <span>
-                                <label>
-                                    <Field
-                                        type="checkbox"
-                                        name="checked"
-                                        value="One"
-                                    />
-                                    {`${values.setup[0].shiftTimeRange}`}
-                                </label>
-                            </span>
-                            <span>
-                                <label>
-                                    <Field
-                                        type="checkbox"
-                                        name="checked"
-                                        value="Two"
-                                    />
-                                    {`${values.setup[1].shiftTimeRange}`}
-                                </label>
-                            </span>
-                            <span>
-                                <label>
-                                    <Field
-                                        type="checkbox"
-                                        name="checked"
-                                        value="Three"
-                                    />
-                                    {`${values.setup[2].shiftTimeRange}`}
-                                </label>
-                            </span>
-                            <span>
-                                <label>
-                                    <Field
-                                        type="checkbox"
-                                        name="checked"
-                                        value="Four"
-                                    />
-                                    {`${values.setup[3].shiftTimeRange}`}
                                 </label>
                             </span>
                         </ul>
