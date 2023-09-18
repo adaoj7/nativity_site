@@ -4,7 +4,7 @@ export default {
     loadShifts: async (req,res) => {
         const shift = await Shift.findAll()
         res.json(shift)
-        console.log(shift)
+        // console.log(shift)
         console.log('hi')
     },
     addVolunteer: async (req,res) => {

@@ -84,7 +84,7 @@ export class Day extends Model {
     
 Day.init(
     {
-        dayId: {
+        dateId: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
@@ -92,9 +92,9 @@ Day.init(
         date:{
             type: DataTypes.STRING,
         },
-        // year:{
-        //     type: DataTypes.STRING,
-        // }
+        yearId:{
+            type: DataTypes.INTEGER,
+        }
     
     },
     {
@@ -120,12 +120,12 @@ Shift.init(
             type: DataTypes.STRING,
             // allowNull: false,
         },
-        date:{
-            type: DataTypes.STRING,
+        dateId:{
+            type: DataTypes.INTEGER,
             // allowNull: false,
         },
-        shiftType:{
-            type: DataTypes.STRING
+        typeId:{
+            type: DataTypes.INTEGER
         }
 
     },
@@ -199,28 +199,28 @@ Volunteer.init(
     }
 )
 
-// export class ShiftType extends Model {
-//     [util.inspect.custom]() {
-//       return this.toJSON();
-//     }
-// }
+export class ShiftType extends Model {
+    [util.inspect.custom]() {
+      return this.toJSON();
+    }
+}
 
-// ShiftType.init(
-//     {
-//         typeId:{
-//             type: DataTypes.INTEGER,
-//             autoIncrement: true,
-//             allowNull: false
-//         },
-//         shiftType:{
-//             type: DataTypes.STRING
-//         }
-//     },
-//     {
-//         modelName: 'shift_type',
-//         sequelize: db
-//     }
-// )
+ShiftType.init(
+    {
+        typeId:{
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+        },
+        shiftType:{
+            type: DataTypes.STRING
+        }
+    },
+    {
+        modelName: 'shift_type',
+        sequelize: db
+    }
+)
 
 Volunteer.hasMany(Availability, {foreignKey: 'userId' })
 Availability.belongsTo(Volunteer, {foreignKey: 'userId'})
@@ -228,11 +228,14 @@ Availability.belongsTo(Volunteer, {foreignKey: 'userId'})
 Shift.hasMany(Availability, {foreignKey: 'shiftId'})
 Availability.belongsTo(Shift, {foreignKey: 'shiftId'})
 
-// Year.hasMany(Day)
-// Day.belongsTo(Year)
+Year.hasMany(Day,{foreignKey:'yearId'})
+Day.belongsTo(Year,{foreignKey:'yearId'})
 
-// Day.hasMany(Shift,{foreignKey:'day'})
-// Shift.hasMany(Day,{foreignKey:'day'})
+Day.hasMany(Shift,{foreignKey:'dateId'})
+Shift.hasMany(Day,{foreignKey:'dateId'})
+
+Shift.hasOne(ShiftType,{foreignKey:'typeId'})
+ShiftType.hasMany(Shift,{foreignKey:'typeId'})
 
 
 

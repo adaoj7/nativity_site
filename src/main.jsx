@@ -25,7 +25,7 @@ const router = createBrowserRouter(
         loader={async () => {
           const res = await axios.get('/api/volunteers')
           // console.log(res.data)
-          return {setupShift: res.data}
+          return {shift: res.data}
         }}
         />
         <Route path='/thisYear' element={<ThisYear/>}/>
