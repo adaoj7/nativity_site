@@ -199,11 +199,11 @@ Volunteer.init(
     }
 )
 
-export class ShiftType extends Model {
-    [util.inspect.custom]() {
-      return this.toJSON();
-    }
-}
+// export class ShiftType extends Model {
+//     [util.inspect.custom]() {
+//       return this.toJSON();
+//     }
+// }
 
 // ShiftType.init(
 //     {
@@ -228,8 +228,8 @@ Availability.belongsTo(Volunteer, {foreignKey: 'userId'})
 Shift.hasMany(Availability, {foreignKey: 'shiftId'})
 Availability.belongsTo(Shift, {foreignKey: 'shiftId'})
 
-Year.hasMany(Day)
-Day.belongsTo(Year)
+// Year.hasMany(Day)
+// Day.belongsTo(Year)
 
 // Day.hasMany(Shift,{foreignKey:'day'})
 // Shift.hasMany(Day,{foreignKey:'day'})
