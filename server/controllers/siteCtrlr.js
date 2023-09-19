@@ -1,13 +1,15 @@
 ﻿import { Volunteer, Shift, ShiftType, Day } from "../../scripts/model.js"
+import { Sequelize } from "sequelize"
 
 export default {
     loadShifts: async (req,res) => {
-        const shift = await Shift.findAll()
-        const shiftTypes = await ShiftType.findAll()
-        const shiftDates = await Day.findAll()
+        const shift = await Day.findAll({include: Shift})
+        // const shift = await client.query('select * from shifts full outer join days using (date_id);')
+        // const shiftTypes = await ShiftType.findAll()
+        // const shiftDates = await Day.findAll()
     
-        res.json({shift,shiftTypes,shiftDates})
-        console.log('hi')
+        res.json(shift)
+        // console.log(shift)
     },
     addVolunteer: async (req,res) => {
         try {

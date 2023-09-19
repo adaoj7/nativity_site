@@ -1,6 +1,7 @@
 ﻿import { DataTypes, Model } from "sequelize";
 import util from 'util'
 import connectToDB from './db.js'
+import Sequelize from "sequelize";
 
 export const db = await connectToDB('postgresql:///natsite')
 

@@ -4,46 +4,48 @@ import HostTimes from "../components/HostTimes";
 import { useLoaderData } from "react-router-dom";
 import React from "react";
 import { Formik, Field, Form } from "formik";
+import SetupDatesTime from "./SetupDates";
 
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const Volunteers = () => {
   const { dataAboutShifts } = useLoaderData();
-  // console.log(dataAboutShifts)
-  const shiftTimes = dataAboutShifts.shift.map(({ shiftId, dateId, timeRange, typeId }) => {
+  console.log(dataAboutShifts)
+  const shiftTimes = dataAboutShifts.map(({ shifts, dateId, date, timeRange, typeId }) => {
     return {
-      id: shiftId,
+      date,
       dateId,
-      timeRange,
-      typeId,
-      isVolunteer: false,
+      shifts
     };
   });
 
-  const volunteerTypes = dataAboutShifts.shiftTypes.map(({typeId,shiftType}) => {
-    return {
-      typeId,
-      shiftType
-    }
-  })
-  
-  const setupType = volunteerTypes.filter((ele) => ele.shiftType === 'setup')
-  const setupDays = shiftTimes.filter((ele) => ele.typeId === setupType[0].typeId)
+  // const volunteerTypes = dataAboutShifts.shiftTypes.map(({typeId,shiftType}) => {
+  //   return {
+  //     typeId,
+  //     shiftType
+  //   }
+  // })
 
-  const shiftDates = dataAboutShifts.shiftDates.map(({dateId, date, yearId}) => {
-    return{
-      dateId,
-      date,
-      yearId
-    }
-  })
+  // const shiftDates = dataAboutShifts.shiftDates.map(({dateId, date, yearId}) => {
+  //   return{
+  //     dateId,
+  //     date,
+  //     yearId
+  //   }
+  // })
+  
+  // const setupType = volunteerTypes.filter((ele) => ele.shiftType === 'setup')
+  // const setupShifts = shiftTimes.filter((ele) => ele.typeId === setupType[0].typeId)
+
+  // const setupDays = setupShifts.filter((ele) => ele.dateId === shiftDates.dateId)
+
   
 
-  console.log(setupDays)
-  // console.log(shiftTimes)
-  // console.log(setupType)
+  // console.log(setupShifts)
   // console.log(shiftDates)
+
+  // console.log(setupDays)
 
 
     return (
@@ -55,11 +57,11 @@ const Volunteers = () => {
                     lastName: "",
                     email: "",
                     phone: "",
-                    setup: setupDays,
+                    shiftTimes
                 }}
 
                 onSubmit={async (values, { setSubmitting }) => {
-                    console.log(setupTimes);
+                    // console.log(setupTimes);
                     console.log(values);
                     await sleep(500);
                     alert(JSON.stringify(values, null, 2));
@@ -131,8 +133,8 @@ const Volunteers = () => {
           */}
                         <div id="checkbox-group">Checked</div>
                         <ul role="group" aria-labelledby="checkbox-group">
-                            {`${values.setup[1].dateId}`}
-                            <span>
+                            {`${values}`}
+                            {/* <span>
                                 <label>
                                     <Field
                                         type="checkbox"
@@ -170,8 +172,8 @@ const Volunteers = () => {
                                         value="Four"
                                     />
                                     {`${values.setup[3].timeRange}`}
-                                </label>
-                            </span>
+                                </label> */}
+                            {/* </span> */}
                         </ul>
 
                         <button type="submit">Submit</button>
