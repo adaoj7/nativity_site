@@ -4,48 +4,29 @@ import HostTimes from "../components/HostTimes";
 import { useLoaderData } from "react-router-dom";
 import React from "react";
 import { Formik, Field, Form } from "formik";
-import SetupDatesTime from "./SetupDates";
+import SetupDates from "./SetupDates";
 
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const Volunteers = () => {
+  const volunteerYear = new Date
+  const year = volunteerYear.getFullYear()
+
   const { dataAboutShifts } = useLoaderData();
-  console.log(dataAboutShifts)
-  const shiftTimes = dataAboutShifts.map(({ shifts, dateId, date, timeRange, typeId }) => {
-    return {
-      date,
-      dateId,
-      shifts
-    };
-  });
+  // console.log(dataAboutShifts)
+  const years = dataAboutShifts.filter((ele) => ele.year === year)
+  // console.log(years)
 
-  // const volunteerTypes = dataAboutShifts.shiftTypes.map(({typeId,shiftType}) => {
-  //   return {
-  //     typeId,
-  //     shiftType
-  //   }
-  // })
-
-  // const shiftDates = dataAboutShifts.shiftDates.map(({dateId, date, yearId}) => {
-  //   return{
-  //     dateId,
-  //     date,
-  //     yearId
-  //   }
-  // })
-  
-  // const setupType = volunteerTypes.filter((ele) => ele.shiftType === 'setup')
-  // const setupShifts = shiftTimes.filter((ele) => ele.typeId === setupType[0].typeId)
-
-  // const setupDays = setupShifts.filter((ele) => ele.dateId === shiftDates.dateId)
-
-  
-
-  // console.log(setupShifts)
-  // console.log(shiftDates)
-
-  // console.log(setupDays)
+  const shiftDays = years.map(({days}) => {
+    let dates = days.map(({date,shifts}) => {
+      return{
+        date,shifts
+      }
+    })
+    return {dates}
+  })
+  console.log(shiftDays)
 
 
     return (
@@ -57,7 +38,7 @@ const Volunteers = () => {
                     lastName: "",
                     email: "",
                     phone: "",
-                    shiftTimes
+                    shiftDays
                 }}
 
                 onSubmit={async (values, { setSubmitting }) => {
@@ -133,7 +114,7 @@ const Volunteers = () => {
           */}
                         <div id="checkbox-group">Checked</div>
                         <ul role="group" aria-labelledby="checkbox-group">
-                            {`${values}`}
+                            <SetupDates date={values}/>
                             {/* <span>
                                 <label>
                                     <Field

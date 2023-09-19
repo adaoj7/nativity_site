@@ -1,9 +1,9 @@
 ﻿import React from 'react'
 import { Field } from 'formik'
 
-const SetupDates = () => {
+const SetupDates = ({date}) => {
   return (
-    <div>SetupDatesTime</div>
+    <div>{date}</div>
   )
 }
 

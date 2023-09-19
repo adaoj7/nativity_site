@@ -67,7 +67,7 @@ Year.init(
             primaryKey: true
         },
         year:{
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
         }
         
     },
@@ -235,8 +235,8 @@ Day.belongsTo(Year,{foreignKey:'yearId'})
 Day.hasMany(Shift,{foreignKey:'dateId'})
 Shift.hasMany(Day,{foreignKey:'dateId'})
 
-Shift.hasOne(ShiftType,{foreignKey:'typeId'})
 ShiftType.hasMany(Shift,{foreignKey:'typeId'})
+Shift.belongsTo(ShiftType,{foreignKey:'typeId'})
 
 
 
