@@ -42,7 +42,6 @@ const Volunteers = () => {
                     lastName: "",
                     email: "",
                     phone: "",
-                    shiftDays
                 }}
 
                 onSubmit={async (values, { setSubmitting }) => {
