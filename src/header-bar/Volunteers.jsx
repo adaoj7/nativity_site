@@ -26,7 +26,11 @@ const Volunteers = () => {
     })
     return {dates}
   })
-  console.log(shiftDays)
+  
+  // const setupDays = shiftDays.filter((ele) => ele.dates.filter((ele) => ele.shifts.filter((ele) => ele.shift_type.shiftType === 'setup')))
+  // console.log(shiftDays)
+  // console.log(setupDays)
+  // console.log(shiftDays[0].dates[0].shifts[0].shift_type.shiftType)
 
 
     return (
@@ -114,7 +118,8 @@ const Volunteers = () => {
           */}
                         <div id="checkbox-group">Checked</div>
                         <ul role="group" aria-labelledby="checkbox-group">
-                            <SetupDates date={values}/>
+                            <SetupDates date={shiftDays}/>
+                            {/* {shiftDays} */}
                             {/* <span>
                                 <label>
                                     <Field

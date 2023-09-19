@@ -2,8 +2,19 @@
 import { Field } from 'formik'
 
 const SetupDates = ({date}) => {
-  return (
-    <div>{date}</div>
+  console.log(date)
+  let dateMap = date[0].dates.map((ele) => {
+    let shifts = ele.shifts.map((ele) => ele.timeRange)
+    return (
+      <>
+        {ele.date}
+        {shifts}
+      </>
+    )
+
+  })
+  return(
+    dateMap
   )
 }
 
