@@ -4,6 +4,25 @@ import { useLoaderData } from "react-router-dom";
 import React from "react";
 import { Formik, Field, Form } from "formik";
 import SetupDates from "./SetupDates";
+import * as Yup from 'yup'
+
+
+const phoneRegExp = /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/
+
+
+const SignupSchema = Yup.object().shape({
+    firstName: Yup.string()
+      .min(2, 'Too Short!')
+      .max(50, 'Too Long!')
+      .required('Required'),
+    lastName: Yup.string()
+      .min(2, 'Too Short!')
+      .max(50, 'Too Long!')
+      .required('Required'),
+    email: Yup.string().email('Invalid email').required('Required'),
+    phone: Yup.string().matches(phoneRegExp, 'Phone number is not valid'),
+    checked: Yup.array().min(1)
+  });
 
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -41,7 +60,7 @@ const Volunteers = () => {
                     phone: "",
                     checked: []
                 }}
-
+                validationSchema={SignupSchema}
                 onSubmit={async (values, { setSubmitting,resetForm }) => {
                     // console.log(setupTimes);
                     console.log(values);
@@ -91,6 +110,7 @@ const Volunteers = () => {
                             value={values.firstName}
                             placeholder="first name"
                         />
+                        {errors.firstName && touched.firstName ? (<div>{errors.firstName}</div>) : null}
                         <input
                             type="lastName"
                             name="lastName"
@@ -99,6 +119,7 @@ const Volunteers = () => {
                             value={values.lastName}
                             placeholder="last name"
                         />
+                        {errors.lastName && touched.lastName ? (<div>{errors.lastName}</div>) : null}
                         <input
                             type="email"
                             name="email"
@@ -107,6 +128,7 @@ const Volunteers = () => {
                             value={values.email}
                             placeholder="email"
                         />
+                        {errors.email && touched.email ? (<div>{errors.email}</div>) : null}
                         <input
                             type="phone"
                             name="phone"
@@ -115,18 +137,19 @@ const Volunteers = () => {
                             value={values.phone}
                             placeholder="phone"
                         />
+                        {errors.phone && touched.phone ? (<div>{errors.phone}</div>) : null}
                         {/* 
             Multiple checkboxes with the same name attribute, but different
             value attributes will be considered a "checkbox group". Formik will automagically
             bind the checked values to a single array for your benefit. All the add and remove
             logic will be taken care of for you.
           */}
-                        <div id="checkbox-group">Checked</div>
+                        <h3 id="checkbox-group">Shifts:</h3>
                         <ul role="group" aria-labelledby="checkbox-group">
                             <SetupDates dates={daysOfShifts}/>
                             {/* <component={SetupDates} dates={daysOfShifts}/> */}
                         </ul>
-
+                        {errors.checked && <div>{'Must at least check one availability'}</div>}
                         <button type="submit">Submit</button>
                     </Form>
                 )}
