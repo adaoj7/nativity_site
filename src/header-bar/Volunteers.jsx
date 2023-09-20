@@ -35,7 +35,6 @@ const Volunteers = () => {
   console.log(dataAboutShifts)
 
   const years = dataAboutShifts.filter((ele) => ele.year === year)
-  // console.log(years)
 
   const daysOfShifts = years.map(({days}) => {
     let dates = days.map(({date,shifts}) => {
@@ -46,12 +45,11 @@ const Volunteers = () => {
     return {dates}
   })
   
-  // console.log(shiftDays[0].dates[0].shifts[0].shift_type.shiftType)
 
 
     return (
         <div>
-            <h1>Sign Up</h1>
+            <h1>Setup Form</h1>
             <Formik
                 initialValues={{
                     firstName: "",
@@ -138,12 +136,7 @@ const Volunteers = () => {
                             placeholder="phone"
                         />
                         {errors.phone && touched.phone ? (<div>{errors.phone}</div>) : null}
-                        {/* 
-            Multiple checkboxes with the same name attribute, but different
-            value attributes will be considered a "checkbox group". Formik will automagically
-            bind the checked values to a single array for your benefit. All the add and remove
-            logic will be taken care of for you.
-          */}
+                       
                         <h3 id="checkbox-group">Shifts:</h3>
                         <ul role="group" aria-labelledby="checkbox-group">
                             <SetupDates dates={daysOfShifts}/>
