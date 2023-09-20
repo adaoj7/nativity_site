@@ -1,6 +1,5 @@
 ﻿import { useState } from "react";
 import axios from "axios";
-import HostTimes from "../components/HostTimes";
 import { useLoaderData } from "react-router-dom";
 import React from "react";
 import { Formik, Field, Form } from "formik";
@@ -14,11 +13,12 @@ const Volunteers = () => {
   const year = volunteerYear.getFullYear()
 
   const { dataAboutShifts } = useLoaderData();
-  // console.log(dataAboutShifts)
+  console.log(dataAboutShifts)
+
   const years = dataAboutShifts.filter((ele) => ele.year === year)
   // console.log(years)
 
-  const shiftDays = years.map(({days}) => {
+  const daysOfShifts = years.map(({days}) => {
     let dates = days.map(({date,shifts}) => {
       return{
         date,shifts
@@ -27,9 +27,6 @@ const Volunteers = () => {
     return {dates}
   })
   
-  // const setupDays = shiftDays.filter((ele) => ele.dates.filter((ele) => ele.shifts.filter((ele) => ele.shift_type.shiftType === 'setup')))
-  // console.log(shiftDays)
-  // console.log(setupDays)
   // console.log(shiftDays[0].dates[0].shifts[0].shift_type.shiftType)
 
 
@@ -42,32 +39,41 @@ const Volunteers = () => {
                     lastName: "",
                     email: "",
                     phone: "",
+                    checked: []
                 }}
 
-                onSubmit={async (values, { setSubmitting }) => {
+                onSubmit={async (values, { setSubmitting,resetForm }) => {
                     // console.log(setupTimes);
                     console.log(values);
                     await sleep(500);
                     alert(JSON.stringify(values, null, 2));
-                    setSubmitting(false);
                     const sendNewVolunteer = async () => {
                         let bodyObj = {
                             fname: values.firstName,
                             lname: values.lastName,
                             email: values.email,
                             phone: values.phone,
+                            checked: values.checked
                         };
 
                         const { data } = await axios.post(
                             "/api/newVolunteer",
                             bodyObj
-                        );
-                        if (!data.error) {
-                        } else {
-                            console.log(data.error);
-                        }
-                        
-                    };
+                            );
+                            if (!data.error) {
+                            } else {
+                                console.log(data.error);
+                            }
+                            
+                        };
+                        setSubmitting(false);
+                        resetForm({
+                            firstName: "",
+                            lastName: "",
+                            email: "",
+                            phone: "",
+                            checked: []
+                        })
 
                     sendNewVolunteer();
                 }}
@@ -117,48 +123,8 @@ const Volunteers = () => {
           */}
                         <div id="checkbox-group">Checked</div>
                         <ul role="group" aria-labelledby="checkbox-group">
-                            <SetupDates date={shiftDays}/>
-                            {/* {shiftDays} */}
-                            {/* <span>
-                                <label>
-                                    <Field
-                                        type="checkbox"
-                                        name="checked"
-                                        value="One"
-                                    />
-                                    {`${values.setup[0].timeRange}`}
-                                </label>
-                            </span>
-                            <span>
-                                <label>
-                                    <Field
-                                        type="checkbox"
-                                        name="checked"
-                                        value="Two"
-                                    />
-                                    {`${values.setup[1].timeRange}`}
-                                </label>
-                            </span>
-                            <span>
-                                <label>
-                                    <Field
-                                        type="checkbox"
-                                        name="checked"
-                                        value="Three"
-                                    />
-                                    {`${values.setup[2].timeRange}`}
-                                </label>
-                            </span>
-                            <span>
-                                <label>
-                                    <Field
-                                        type="checkbox"
-                                        name="checked"
-                                        value="Four"
-                                    />
-                                    {`${values.setup[3].timeRange}`}
-                                </label> */}
-                            {/* </span> */}
+                            <SetupDates dates={daysOfShifts}/>
+                            {/* <component={SetupDates} dates={daysOfShifts}/> */}
                         </ul>
 
                         <button type="submit">Submit</button>
@@ -169,55 +135,3 @@ const Volunteers = () => {
     );
 };
 export default Volunteers;
-// const Volunteers = () => {
-//   const [fname, setFname] = useState('')
-//   const [lname, setLname] = useState('')
-//   const [email, setEmail] = useState('')
-//   const [phone, setPhone] = useState('')
-
-//   const { allShifts } = useLoaderData()
-
-//   const sendNewVolunteer = async () => {
-
-//     let bodyObj = {
-//       fname,
-//       lname,
-//       email,
-//       phone
-//     }
-
-//     const {data} = await axios.post('/api/newVolunteer', bodyObj)
-//     if(!data.error){}
-//   }
-
-//   const submit = (e) => {
-//     e.preventDefault()
-//     sendNewVolunteer()
-//     setFname('')
-//     setLname('')
-//     setEmail('')
-//     setPhone('')
-//   }
-
-//   return (
-//     <>
-//     <form onSubmit={submit}>
-//       <div>
-//         <input type="text" placeholder='First name' value={fname} onChange={(e) => setFname(e.target.value)}/>
-//         <input type="text" placeholder='Last name' value={lname} onChange={(e) => setLname(e.target.value)}/>
-//         <br />
-//         <input type="text" placeholder='email' value={email} onChange={(e) => setEmail(e.target.value)}/>
-//         <input type="tel" placeholder='phone number' value={phone} onChange={(e) => setPhone(e.target.value)}/>
-//         <br />
-//       </div>
-//       <div>
-//         <HostTimes/>
-//         {/* <div>{console.log(allShifts)}</div> */}
-//       </div>
-//       <button type='submit'>Submit`</button>
-//     </form>
-//     </>
-//   )
-// }
-
-// export default Volunteers

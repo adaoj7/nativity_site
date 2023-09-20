@@ -1,20 +1,24 @@
 ﻿import React from 'react'
 import { Form,Field } from 'formik'
 import { useState } from 'react'
+import axios from 'axios'
 
-const ShiftTimes = ({date}) => {
-    console.log(date)
+const ShiftTimes = ({shifts}) => {
+    // console.log(shifts)
 
-    const shifts = date.map((ele,i) => {
+    const shift = shifts.map((ele,i) => {
         return(
             <div key={i}>
-                <input type='checkbox' key={ele.shiftId}/>
-                {ele.timeRange}
+                <input type="hidden" />
+                <Field type='checkbox' name='checked' value={ele.shiftId.toString()} key={ele.shiftId.toString()}/>
+                <label htmlFor={ele.shiftId}>{ele.timeRange}</label>
             </div>
     )})
 
     return(
-        <>{shifts}</>
+        <>
+            {shift}
+        </>
     )
 }
 
