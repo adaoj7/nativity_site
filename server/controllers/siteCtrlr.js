@@ -2,7 +2,7 @@
 import { Sequelize } from "sequelize"
 
 export default {
-    loadShifts: async (req,res) => {
+    loadSetupShifts: async (req,res) => {
         const shift = await Year.findAll({
             include: 
                 [{model: Day,
@@ -16,6 +16,28 @@ export default {
                             include: 
                                 [{model: ShiftType,
                                     where: {shiftType: 'setup'}
+                                }]
+                        }]
+                }],            
+            })
+        
+        res.json(shift)
+        // console.log(shift)
+    },
+    loadHostShifts: async (req,res) => {
+        const shift = await Year.findAll({
+            include: 
+                [{model: Day,
+                    separate: true,
+                    order: ['dateId'],
+                    include:
+                        [{model: Shift,
+                            where: {isFull:false},
+                            separate: true,
+                            order: ['shiftId'], 
+                            include: 
+                                [{model: ShiftType,
+                                    where: {shiftType: 'host'}
                                 }]
                         }]
                 }],

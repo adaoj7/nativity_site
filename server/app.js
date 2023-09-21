@@ -5,8 +5,8 @@ import session from "express-session";
 import siteCtrlr from './controllers/siteCtrlr.js';
 import authCtrlr from './controllers/authCtrlr.js'
 
-const { addVolunteer,loadShifts } = siteCtrlr
-const {register,login,user,logout} = authCtrlr
+const { addVolunteer,loadSetupShifts,loadHostShifts } = siteCtrlr
+const {register,login,user,logout,signupQuery} = authCtrlr
 
 const app = express();
 
@@ -31,9 +31,11 @@ app.post('/api/register', register);
 app.post('/api/login', login)
 app.get('/api/user',user)
 app.delete('/api/logout',logout)
+app.post('/api/adminQuery',signupQuery)
 
 // volunteer form endpoints
-app.get('/api/volunteers',loadShifts)
+app.get('/api/setup',loadSetupShifts)
+app.get('/api/host',loadHostShifts)
 app.post('/api/newVolunteer',addVolunteer)
 
 

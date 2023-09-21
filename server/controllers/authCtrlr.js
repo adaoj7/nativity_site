@@ -1,5 +1,6 @@
 ﻿import { User } from "../../scripts/model.js";
 import bcrypt from 'bcryptjs'
+import { Availability,Shift,Day } from "../../scripts/model.js";
 
 export default {
     register: async (req,res) => {
@@ -42,5 +43,21 @@ export default {
     },
     logout: async (req,res) => {
         console.log('logout');
+    },
+    signupQuery: async (req,res) => {
+        console.log(req.body)
+        const {shiftDate, shiftTime, checked} = req.body
+        const volunteers = await Availability.findAll({
+            include: [{
+                model: Shift,
+                where: {timeRange: shiftTime},
+                include:[{
+                    model: Day,
+                    where: {date:shiftDate}
+
+                }]
+            }]
+        })
+        res.json(volunteers)
     }
 }

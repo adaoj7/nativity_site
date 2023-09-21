@@ -3,7 +3,7 @@ import axios from "axios";
 import { useLoaderData } from "react-router-dom";
 import React from "react";
 import { Formik, Field, Form } from "formik";
-import SetupDates from "./SetupDates";
+import SetupDates from "../components/SetupDates";
 import * as Yup from 'yup'
 
 
@@ -82,15 +82,15 @@ const Volunteers = () => {
                                 console.log(data.error);
                             }
                             
-                        };
-                        setSubmitting(false);
-                        resetForm({
-                            firstName: "",
-                            lastName: "",
-                            email: "",
-                            phone: "",
-                            checked: []
-                        })
+                    };
+                    setSubmitting(false);
+                    resetForm({
+                        firstName: "",
+                        lastName: "",
+                        email: "",
+                        phone: "",
+                        checked: []
+                    })
 
                     sendNewVolunteer();
                     location.replace(location.href)
