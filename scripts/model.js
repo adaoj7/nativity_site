@@ -127,6 +127,9 @@ Shift.init(
         },
         typeId:{
             type: DataTypes.INTEGER
+        },
+        isFull:{
+            type: DataTypes.BOOLEAN
         }
 
     },

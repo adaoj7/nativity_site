@@ -32,7 +32,7 @@ const Volunteers = () => {
   const year = volunteerYear.getFullYear()
 
   const { dataAboutShifts } = useLoaderData();
-  console.log(dataAboutShifts)
+//   console.log(dataAboutShifts)
 
   const years = dataAboutShifts.filter((ele) => ele.year === year)
 
@@ -63,7 +63,7 @@ const Volunteers = () => {
                     // console.log(setupTimes);
                     console.log(values);
                     await sleep(500);
-                    alert(JSON.stringify(values, null, 2));
+                    // alert(JSON.stringify(values, null, 2));
                     const sendNewVolunteer = async () => {
                         let bodyObj = {
                             fname: values.firstName,

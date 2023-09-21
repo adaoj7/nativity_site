@@ -1,4 +1,4 @@
-﻿import { User, Availability, db, Shift, Year, Day,ShiftType } from "./model.js";
+﻿import { User, Availability, db, Shift, Year, Day,ShiftType,Volunteer } from "./model.js";
 import years from './data/years.json' assert {type: 'json'}
 import days from './data/days.json' assert {type: 'json'}
 import shifts from './data/shifts.json' assert {type: 'json'}
@@ -43,21 +43,56 @@ const shiftTypesInDB = await Promise.all(
 
 const shiftsInDB = await Promise.all(
     shifts.map((param) => {
-        const {dateId, timeRange, typeId} = param
+        const {dateId, timeRange, typeId, isFull} = param
 
         const newShift = Shift.create({
             dateId,
             timeRange,
-            typeId
+            typeId,
+            isFull
         })
         return newShift
     })
 )
+const usersToCreate = []
+  
+for (let i = 1; i <= 15; i++) {
+  usersToCreate.push({
+    fname: 'Adam',
+    lname: 'Johnson',
+    email: `user${i}@test.com`,
+    phone: '123'
+  })
+}
 
-console.log(yearsInDB)
-console.log(daysInDB)
+const usersInDB = await Promise.all(
+  usersToCreate.map((user) => {
+      return Volunteer.create(user)
+  })
+);
+
+const availToCreate = []
+  
+for (let i = 1; i <= 15; i++) {
+  availToCreate.push({
+    userId: `${i}`,
+    shiftId: '1'
+  })
+}
+
+const availabilityInDB = await Promise.all(
+  availToCreate.map((avail) => {
+      return Availability.create(avail)
+  })
+);
+
+
+console.log(usersInDB)
+console.log(availabilityInDB)
+// console.log(yearsInDB)
+// console.log(daysInDB)
 console.log(shiftsInDB)
-console.log(shiftTypesInDB)
+// console.log(shiftTypesInDB)
 // console.log(hostShiftsInDB)
 
 await db.close()
