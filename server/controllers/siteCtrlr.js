@@ -10,6 +10,7 @@ export default {
                     order: ['dateId'],
                     include:
                         [{model: Shift,
+                            where: {isFull:false},
                             separate: true,
                             order: ['shiftId'], 
                             include: 
@@ -34,21 +35,34 @@ export default {
     addVolunteer: async (req,res) => {
         try {
             const {fname,lname,email,phone,checked} = req.body
-            console.log(checked)
+            // console.log(checked)
             const newVolunteer = await Volunteer.create({fname,lname,email,phone})
             const {userId} = await Volunteer.findOne({
                 order: [['userId', 'DESC']]
             })
+
             if(checked.length > 0){
                 for (const shiftId of checked){
                     const newVolunteerShifts = await Availability.create({userId,shiftId})
-                    console.log(newVolunteerShifts)
+                    // console.log(newVolunteerShifts)
                 }
             } else {
                 const emptyVolunteerShifts = await Availability.create({userId})
                 console.log(emptyVolunteerShifts)
             }
-            console.log(newVolunteer)
+
+            for (const shiftId of checked){
+                console.log(shiftId)
+                console.log(await Availability.count({where:{shiftId:shiftId}}))
+                if (await Availability.count({where:{shiftId:shiftId}}) >= 15){
+                    const shift = await Shift.findByPk(shiftId)
+                    console.log(shift)
+                    // shift.isFull = true
+                    await shift.update({isFull:true})
+                    console.log(shift)
+                }
+            }
+            // console.log(newVolunteer)
             // console.log(checked)
         } catch (theseHands) {
             console.log(theseHands)

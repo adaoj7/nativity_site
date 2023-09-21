@@ -24,7 +24,7 @@ const router = createBrowserRouter(
         <Route path='/volunteers' element={<Volunteers/>} 
         loader={async () => {
           const res = await axios.get('/api/volunteers')
-          // console.log(res.data)
+          console.log(res.data)
           return {dataAboutShifts: res.data}
         }}
         />
@@ -43,7 +43,7 @@ const router = createBrowserRouter(
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-      <React.StrictMode>
+      <React.StrictMode id='home'>
         <RouterProvider router={router}/>
       </React.StrictMode>,
 )
