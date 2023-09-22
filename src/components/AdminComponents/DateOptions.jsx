@@ -14,7 +14,7 @@ const DateOptions = ({dates}) => {
     })
     return(
         <Field name='date' component='select'>
-            <option value='initial' key='random'>Please Select a Date</option>
+            <option key='random'>Please Select a Date</option>
             {dateMap}
         </Field>
   

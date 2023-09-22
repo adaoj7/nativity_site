@@ -5,8 +5,11 @@ import { useLoaderData } from 'react-router-dom'
 import DateOptions from './DateOptions'
 import Admin from '../../header-bar/Admin.jsx'
 import ShiftOptions from './ShiftOptions'
+import QueryResults from './QueryResults'
+import { useState } from 'react'
 
 const AdminLookup = () => {
+    const [newData,setNewData] = useState([])
     const volunteerYear = new Date
     const year = volunteerYear.getFullYear()
   
@@ -31,20 +34,18 @@ const AdminLookup = () => {
           <h1>Search shifts</h1>
           <Formik
             initialValues={{
-              shiftDate: '',
-              shiftTime: '',
               date:'',
               time:'',
-              checked: []
+              checked: [
+              ],
+              data:''
             }}
             onSubmit={async (values) => {
               // alert(JSON.stringify(values, null, 2));
               console.log(values)
-      
+                
               const sendAdminQuery = async () => {
                   let bodyObj = {
-                      shiftDate: values.shiftDate,
-                      shiftTime: values.shiftTime,
                       date: values.date,
                       time: values.time,
                       checked: values.checked
@@ -54,12 +55,14 @@ const AdminLookup = () => {
                       "/api/adminQuery",
                       bodyObj
                       );
-                      console.log(data)
+                    //   console.log(data)
                       if (!data.error) {
                       } else {
                           console.log(data.error);
                       }
                       
+                      setNewData(data)
+                    //   console.log(values)
               };
               sendAdminQuery()
             }}
@@ -90,8 +93,10 @@ const AdminLookup = () => {
                   </div>
       
               <button type="submit">Submit</button>
+              <QueryResults values={newData}/>
             </Form>
              )}
+
           </Formik>
         </div>
   )

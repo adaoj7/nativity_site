@@ -4,9 +4,11 @@ import ViteExpress from 'vite-express';
 import session from "express-session";
 import siteCtrlr from './controllers/siteCtrlr.js';
 import authCtrlr from './controllers/authCtrlr.js'
+import adminCtrlr from "./controllers/adminCtrlr.js";
 
 const { addVolunteer,loadSetupShifts,loadHostShifts } = siteCtrlr
-const {register,login,user,logout,signupQuery,allShifts} = authCtrlr
+const {register,login,user,logout,} = authCtrlr
+const {signupQuery,allShifts} = adminCtrlr
 
 const app = express();
 
