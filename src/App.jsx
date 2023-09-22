@@ -20,7 +20,6 @@ function App() {
         </nav>
         <nav>
           <NavLink to='/login'>Log In</NavLink>
-          <NavLink to='/admin'>Admin</NavLink>
         </nav>  
       </header>
       <Outlet />

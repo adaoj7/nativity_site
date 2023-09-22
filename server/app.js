@@ -6,7 +6,7 @@ import siteCtrlr from './controllers/siteCtrlr.js';
 import authCtrlr from './controllers/authCtrlr.js'
 
 const { addVolunteer,loadSetupShifts,loadHostShifts } = siteCtrlr
-const {register,login,user,logout,signupQuery} = authCtrlr
+const {register,login,user,logout,signupQuery,allShifts} = authCtrlr
 
 const app = express();
 
@@ -31,6 +31,7 @@ app.post('/api/register', register);
 app.post('/api/login', login)
 app.get('/api/user',user)
 app.delete('/api/logout',logout)
+app.get('/api/adminQuery', allShifts)
 app.post('/api/adminQuery',signupQuery)
 
 // volunteer form endpoints

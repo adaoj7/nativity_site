@@ -5,7 +5,7 @@ const Admin = () => {
 
   return (
     <nav>
-        <NavLink to='/adminQuery'>Look up shift times</NavLink>
+        <NavLink to='/betaAndPsi/query'>Look up shift times</NavLink>
     </nav>
   )
 }

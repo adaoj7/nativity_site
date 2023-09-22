@@ -44,8 +44,13 @@ const router = createBrowserRouter(
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/products' element={<Products/>}/>
         <Route path='/login' element={<Login/>}/>
-        <Route path='/admin' element={<Admin/>}/>
-        <Route path='/adminQuery' element={<AdminLookup/>}/>
+        <Route path='/betaAndPsi' element={<Admin/>}/>
+        <Route path='/betaAndPsi/query' element={<AdminLookup/>}
+        loader={async () => {
+          const res = await axios.get('/api/adminQuery')
+          // console.log(res.data)
+          return {dataAboutShifts: res.data}
+        }}/>
       </Route>
     // </>
     

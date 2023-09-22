@@ -20,7 +20,6 @@ export default {
                         }]
                 }],            
             })
-        
         res.json(shift)
         // console.log(shift)
     },
@@ -40,17 +39,8 @@ export default {
                                     where: {shiftType: 'host'}
                                 }]
                         }]
-                }],
-            // order: [
-            //     [Sequelize.literal('date_id'), 'DESC']
-            // ]
-                                
+                }],                
             })
-        // const shift = await Shift.findAll({include: Day})
-        // const shift = await client.query('select * from shifts full outer join days using (date_id);')
-        // const shiftTypes = await ShiftType.findAll()
-        // const shiftDates = await Day.findAll()
-    
         res.json(shift)
         // console.log(shift)
     },
