@@ -55,7 +55,7 @@ const AdminLookup = () => {
                       "/api/adminQuery",
                       bodyObj
                       );
-                    //   console.log(data)
+                      console.log(data)
                       if (!data.error) {
                       } else {
                           console.log(data.error);

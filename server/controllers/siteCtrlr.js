@@ -56,19 +56,19 @@ export default {
             if(checked.length > 0){
                 for (const shiftId of checked){
                     const newVolunteerShifts = await Availability.create({userId,shiftId})
-                    // console.log(newVolunteerShifts)
+                    console.log(newVolunteerShifts)
                 }
             } else {
                 const emptyVolunteerShifts = await Availability.create({userId})
-                console.log(emptyVolunteerShifts)
+                // console.log(emptyVolunteerShifts)
             }
 
             for (const shiftId of checked){
-                console.log(shiftId)
-                console.log(await Availability.count({where:{shiftId:shiftId}}))
+                // console.log(shiftId)
+                // console.log(await Availability.count({where:{shiftId:shiftId}}))
                 if (await Availability.count({where:{shiftId:shiftId}}) >= 15){
                     const shift = await Shift.findByPk(shiftId)
-                    console.log(shift)
+                    // console.log(shift)
                     // shift.isFull = true
                     await shift.update({isFull:true})
                     console.log(shift)

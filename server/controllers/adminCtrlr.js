@@ -17,9 +17,11 @@ export default {
         res.json(shift)
     },    
     signupQuery: async (req,res) => {
-        console.log(req.body)
+        // console.log(req.body)
         const {date, time, checked} = req.body
-        console.log(checked)
+        // console.log(checked)
+        console.log(date)
+        console.log(time)
         const nameArr = checked.filter((e) => e === 'Name')
         const name = nameArr[0]
         const emailArr = checked.filter((e) => e === 'Email')
@@ -39,8 +41,9 @@ export default {
                 }],
             }]
         })
+        console.log(volunteers)
         const volunteersAvail = volunteers.filter((ele) => ele.availabilities.length > 0)
 
-        res.json(volunteersAvail,name,email,phone)
+        res.json({volunteersAvail,name,email,phone})
     }
 }
