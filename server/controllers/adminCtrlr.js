@@ -28,31 +28,21 @@ export default {
         const email = emailArr[0]
         const phoneArr = checked.filter((e) => e === 'Phone')
         const phone = phoneArr[0]
-        const {shiftId} = await Shift.findOne({where: {timeRange:time}})
-        console.log(date)
+        const {dateId} = await Day.findOne({where:{date:date}})
+        console.log(dateId)
+        const {shiftId} = await Shift.findOne({where: {timeRange:time,dateId:dateId}})
         console.log(shiftId)
-        const volunteers = await Volunteer.findAll({
-        
-            // raw: true,
-            // plain: false, 
-            // nest: true,
-            
+        const volunteersAvail = await Volunteer.findAll({
             include:[{
                 model: Availability,
-                include: [{
-                    model: Shift,
-                    required: true,
-                    include:[{
-                        model:Day,
-                        required: true,
-                        where: {date:date}
-                    }],
-                    where: {shiftId:shiftId},
-                }],
-            }]
+                where: {shiftId:shiftId},
+                include:[{
+                    model: Shift, 
+                }]
+            }]    
         })
-        // console.log(volunteers)
-        const volunteersAvail = volunteers.filter((ele) => ele.availabilities.length > 0)
+        for (let i = 0; i < volunteersAvail.length; i++)
+        {console.log(volunteersAvail)}
 
         res.json({volunteersAvail,name,email,phone})
     }
