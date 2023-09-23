@@ -93,7 +93,7 @@ const Volunteers = () => {
                     })
 
                     sendNewVolunteer();
-                    location.replace(location.href)
+                    // location.replace(location.href)
                 }}
             >
 

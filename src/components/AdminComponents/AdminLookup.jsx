@@ -42,7 +42,7 @@ const AdminLookup = () => {
             }}
             onSubmit={async (values) => {
               // alert(JSON.stringify(values, null, 2));
-              console.log(values)
+            //   console.log(values)
                 
               const sendAdminQuery = async () => {
                   let bodyObj = {
@@ -55,13 +55,13 @@ const AdminLookup = () => {
                       "/api/adminQuery",
                       bodyObj
                       );
-                      console.log(data)
                       if (!data.error) {
-                      } else {
-                          console.log(data.error);
-                      }
-                      
-                      setNewData(data)
+                    } else {
+                        console.log(data.error);
+                    }
+                    
+                    console.log(data)
+                    setNewData(data)
                     //   console.log(values)
               };
               sendAdminQuery()

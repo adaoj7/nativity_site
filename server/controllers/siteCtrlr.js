@@ -47,8 +47,9 @@ export default {
     addVolunteer: async (req,res) => {
         try {
             const {fname,lname,email,phone,checked} = req.body
-            // console.log(checked)
+            console.log(checked)
             const newVolunteer = await Volunteer.create({fname,lname,email,phone})
+            console.log(newVolunteer)
             const {userId} = await Volunteer.findOne({
                 order: [['userId', 'DESC']]
             })

@@ -56,7 +56,7 @@ const shiftsInDB = await Promise.all(
 )
 const usersToCreate = []
   
-for (let i = 1; i <= 14; i++) {
+for (let i = 1; i <= 41; i++) {
   usersToCreate.push({
     fname: 'Adam',
     lname: 'Johnson',
@@ -73,10 +73,10 @@ const usersInDB = await Promise.all(
 
 const availToCreate = []
   
-for (let i = 1; i <= 14; i++) {
+for (let i = 1; i <= 41; i++) {
   availToCreate.push({
     userId: `${i}`,
-    shiftId: '1'
+    shiftId: `${i}`
   })
 }
 
