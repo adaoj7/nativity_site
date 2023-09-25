@@ -9,8 +9,7 @@ function App() {
         <nav>
           <NavLink to='/home'>Home Page</NavLink>
           <NavLink to='/about'>About</NavLink>
-          <NavLink to='/setup' >Setup</NavLink>
-          <NavLink to='/host' >Host</NavLink>
+          <NavLink to='/volunteer' >Get Involved</NavLink>
           <NavLink to='/thisYear'>This Year</NavLink>
           <NavLink to='/gallery'>Gallery</NavLink>
           <NavLink to='/lightTheWorld'>Light the World</NavLink>

@@ -3,7 +3,7 @@ import axios from "axios";
 import { useLoaderData } from "react-router-dom";
 import React from "react";
 import { Formik, Field, Form } from "formik";
-import SetupDates from "../components/SetupDates";
+import Dates from "./Dates";
 import * as Yup from 'yup'
 
 
@@ -140,7 +140,7 @@ const Volunteers = () => {
                        
                         <h3 id="checkbox-group">Shifts:</h3>
                         <ul role="group" aria-labelledby="checkbox-group">
-                            <SetupDates dates={daysOfShifts}/>
+                            <Dates dates={daysOfShifts}/>
                             {/* <component={SetupDates} dates={daysOfShifts}/> */}
                         </ul>
                         {errors.checked && <div>{'Must at least check one availability'}</div>}

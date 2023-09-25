@@ -245,5 +245,5 @@ Shift.belongsTo(ShiftType,{foreignKey:'typeId'})
 
 // unable to increment until users has been established because volunteers will be linked to user and nots the other way around
 
-// User.hasOne(Volunteer, {foreignKey: 'userId'})
-// Volunteer.belongsTo(User, {foreignKey: 'userId'})
+User.hasOne(Volunteer, {foreignKey: 'userId'})
+Volunteer.belongsTo(User, {foreignKey: 'userId'})

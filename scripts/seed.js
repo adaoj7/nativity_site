@@ -56,7 +56,7 @@ const shiftsInDB = await Promise.all(
 )
 const usersToCreate = []
   
-for (let i = 1; i <= 41; i++) {
+for (let i = 1; i <= 15; i++) {
   usersToCreate.push({
     fname: 'Adam',
     lname: 'Johnson',
@@ -65,15 +65,21 @@ for (let i = 1; i <= 41; i++) {
   })
 }
 
-const usersInDB = await Promise.all(
+const volunteersInDB = await Promise.all(
   usersToCreate.map((user) => {
       return Volunteer.create(user)
   })
 );
 
+const usersInDB = await Promise.all(
+  usersToCreate.map((user) => {
+      return User.create(user)
+  })
+);
+
 const availToCreate = []
   
-for (let i = 1; i <= 41; i++) {
+for (let i = 1; i <= 15; i++) {
   availToCreate.push({
     userId: `${i}`,
     shiftId: `${i}`
@@ -89,7 +95,7 @@ const availabilityInDB = await Promise.all(
 
 console.log(usersInDB)
 console.log(availabilityInDB)
-// console.log(yearsInDB)
+console.log(volunteersInDB)
 // console.log(daysInDB)
 console.log(shiftsInDB)
 // console.log(shiftTypesInDB)

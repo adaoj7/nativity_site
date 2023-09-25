@@ -1,5 +1,5 @@
 ﻿import React from 'react'
-import ShiftTimes from '../ShiftTimes'
+import ShiftTimes from '../VolunteerComponents/ShiftTimes'
 import { Field } from 'formik'
 
 const DateOptions = ({dates}) => {

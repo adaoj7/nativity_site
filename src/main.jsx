@@ -6,8 +6,9 @@ import axios from 'axios'
 import { createBrowserRouter,createRoutesFromElements,Route,RouterProvider,Routes } from 'react-router-dom'
 import Home from './header-bar/Home.jsx'
 import About from './header-bar/About.jsx'
-import Setup from './header-bar/Setup.jsx'
-import Host from './header-bar/Host.jsx'
+import Volunteer from './header-bar/Volunteer.jsx'
+import Setup from './components/VolunteerComponents/Setup.jsx'
+import Host from './components/VolunteerComponents/Host.jsx'
 import ThisYear from './header-bar/ThisYear.jsx'
 import Gallery from './header-bar/Gallery.jsx'
 import LightTheWorld from './header-bar/LightTheWorld.jsx'
@@ -24,14 +25,15 @@ const router = createBrowserRouter(
       <Route path='/' element={<App/>} errorElement={<Login/>}>
         <Route path='/home' element={<Home/>}/>
         <Route path='/about' element={<About/>}/>
-        <Route path='/setup' element={<Setup/>} 
+        <Route path='/volunteer' element={<Volunteer/>}/>
+        <Route path='/volunteer/setup' element={<Setup/>} 
         loader={async () => {
           const res = await axios.get('/api/setup')
           console.log(res.data)
           return {dataAboutShifts: res.data}
         }}
         />
-        <Route path='/host' element={<Host/>} 
+        <Route path='/volunteer/host' element={<Host/>} 
         loader={async () => {
           const res = await axios.get('/api/host')
           console.log(res.data)

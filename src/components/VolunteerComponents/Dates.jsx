@@ -2,7 +2,7 @@
 import { Field } from 'formik'
 import ShiftTimes from './ShiftTimes'
 
-const SetupDates = ({dates}) => {
+const Dates = ({dates}) => {
   // console.log(date)
   let dateMap = dates[0].dates.map((ele,i) => {
       let shifts = ele.shifts.map((ele) => ele)
@@ -21,4 +21,4 @@ const SetupDates = ({dates}) => {
   )
 }
 
-export default SetupDates
+export default Dates
