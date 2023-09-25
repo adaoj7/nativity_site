@@ -1,8 +1,8 @@
-# React + Vite
+This project is an attempt to rebuild a website for a community nativity festival.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The final project will enable them to manage volunteers, store nativities, and other access other important features making the volunteer work more focused on the end goal of a well run program.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Features that have been implemented so far:
+- The ability to limit volunteers who sign up for a specific shift
+- Pass all those who volunteer for a shift back to the database
+- Allow those in charge to be able to query the database in order to know who has signed up for shifts already
