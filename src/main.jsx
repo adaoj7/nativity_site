@@ -15,8 +15,11 @@ import LightTheWorld from './header-bar/LightTheWorld.jsx'
 import Contact from './header-bar/Contact.jsx'
 import Products from './header-bar/Products.jsx'
 import Login from './header-bar/Login.jsx'
+import Signup from './header-bar/Signup.jsx'
 import Admin from './header-bar/Admin.jsx'
 import AdminLookup from './components/AdminComponents/AdminLookup.jsx'
+import { Provider } from 'react-redux'
+import store from './store/store.js'
 
 
 const router = createBrowserRouter(
@@ -46,6 +49,7 @@ const router = createBrowserRouter(
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/products' element={<Products/>}/>
         <Route path='/login' element={<Login/>}/>
+        <Route path='/signup' element={<Signup/>}/>
         <Route path='/betaAndPsi' element={<Admin/>}/>
         <Route path='/betaAndPsi/query' element={<AdminLookup/>}
         loader={async () => {
@@ -63,7 +67,9 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById('root')).render(
       <React.StrictMode id='home'>
-        <RouterProvider router={router}/>
+        <Provider store={store}>
+          <App/>
+        </Provider>
       </React.StrictMode>,
 )
   

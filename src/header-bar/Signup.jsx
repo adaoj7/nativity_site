@@ -1,29 +1,24 @@
-﻿import React from "react";
-import { useState } from "react";
-import { Formik, Field, Form } from "formik";
-import axios from "axios";
-import Signup from './Signup'
-import { NavLink } from "react-router-dom";
-import App from "../App";
-import { useDispatch } from "react-redux";
+﻿import React from 'react'
+import { useState } from 'react';
+import { Formik,Form,Field, } from 'formik';
+import axios from 'axios';
 
-
-const Login = () => {
-    // const [email, setEmail] = useState("");
-    // const [password, setPassword] = useState("");
+const Signup = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const dispatch = useDispatch()
-
+    
     const togglePassword = (e) => {
         e.preventDefault();
         setShowPassword(!showPassword);
     };
-
-
+  
     return (
-      <>
+    <>
       <Formik
             initialValues={{
+                fname: '',
+                lname: '',
+                phone: '',
+                church: '',
                 email: "",
                 password: "",
             }}
@@ -34,27 +29,31 @@ const Login = () => {
                 // alert(JSON.stringify(values, null, 2));
                 const sendNewVolunteer = async () => {
                     let bodyObj = {
-                        
+                        fname: values.email,
+                        lname: values.email,
+                        phone: values.phone,
+                        church: values.church,
                         email: values.email,
                         password: values.password,
                     };
 
                     const { data } = await axios.post(
-                        "/api/login",
+                        "/api/register",
                         bodyObj
                     );
-                    dispatch({type: 'LOGIN', payload: data.userId})
                     if (!data.error) {
                     } else {
                         console.log(data.error);
                     }
                 };
-                
+                console.log(values.fname)
+                console.log('User created')
                 setSubmitting(false);
                 resetForm({
                     email: "",
                     phone: "",
                 });
+
                 sendNewVolunteer();
                 // location.replace('/home')
             }}
@@ -63,6 +62,10 @@ const Login = () => {
                 values, handleChange,handleBlur
             }) => (
                 <Form>
+                    <Field type='text' name='fname' onChange={handleChange} onBlur={handleBlur} required={true} placeholder='First Name' value={values.fname}/>
+                    <Field type='text' name='lname' onChange={handleChange} onBlur={handleBlur} required={true} placeholder='Last Name' value={values.lname}/>
+                    <Field type='text' name='phone' onChange={handleChange} onBlur={handleBlur} required={true} placeholder='Phone' value={values.phone}/>
+                    <Field type='text' name='church' onChange={handleChange} onBlur={handleBlur} required={true} placeholder='Church' value={values.church}/>
                     <Field
                         type="text"
                         name='email'
@@ -81,14 +84,13 @@ const Login = () => {
                         placeholder="Password"
                         value={values.password}
                     />
-                    <button onClick={togglePassword}>Show Password</button>
-                    <button>Submit</button>
+                    <button type='button' onClick={togglePassword}>Show Password</button>
+                    <button type='submit'>Submit</button>
                 </Form>
             )}
         </Formik>
-        <button onClick={async e => await axios.delete('/api/logout')}>Logout</button>
-        <NavLink to='/signup'>Signup</NavLink>
-        </>
-    );
-  }
-export default Login;
+    </>
+  )
+}
+
+export default Signup

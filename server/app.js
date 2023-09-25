@@ -33,6 +33,8 @@ app.post('/api/register', register);
 app.post('/api/login', login)
 app.get('/api/user',user)
 app.delete('/api/logout',logout)
+
+// admin endpoints
 app.get('/api/adminQuery', allShifts)
 app.post('/api/adminQuery',signupQuery)
 

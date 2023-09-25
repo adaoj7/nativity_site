@@ -6,7 +6,7 @@ export default {
     register: async (req,res) => {
         console.log('register')
         try {
-            const {email,password} = req.body
+            const {fname,lname,email,phone,church,password} = req.body
 
             const foundUser = await User.findOne({where: {email}})
 
@@ -17,13 +17,13 @@ export default {
                 const hash = bcrypt.hashSync(password,salt)
                 console.log(salt)
 
-                const newUser = await User.create({email, hashedPass: hash})
+                const newUser = await User.create({fname,lname,phone,church,email, hashedPass: hash})
                 console.log(newUser)
                 req.session.user = {
                     userId: newUser.userId,
                     email: newUser.email
                 }
-                
+                console.log('User created')
                 res.status(200).send(req.session.user)
             }
 
@@ -33,15 +33,47 @@ export default {
         }
     },
     login: async (req, res) => {
-        const sess = req.session;
-        sess.email = req.body.email; // add the user's email to the session
-        // res.render('dashboard.html');
-        console.log('hit the login')
-    },
+        console.log('login')
+
+        try {
+            const {email, password} = req.body
+
+            const foundUser = await User.findOne({where: {email}})
+
+            if(!foundUser){
+                res.status(400).send('No user was found with that email')
+            } else {
+                const isAuthenticated = bcrypt.compareSync(password, foundUser.hashedPass)
+                if (isAuthenticated){
+                    req.session.user = {
+                        userId: foundUser.userId,
+                        email: foundUser.email
+                    }
+                    
+                    res.status(200).send(req.session.user)
+                    console.log('Hello there')
+                } else {
+                    res.status(401).send('Username or password was incorrect')
+                }
+            }
+
+        } catch (err) {
+            console.log(err)
+            res.sendStatus(500)
+        }
+    },    
     user: async (req,res) => {
         console.log('user');
+        if(req.session.user){
+            res.status(200).send(req.session.user)
+        } else {
+            res.status(400).send('No user is signed in')
+        }
+
     },
     logout: async (req,res) => {
         console.log('logout');
+        req.session.destroy();
+        res.sendStatus(200);
     }
 }
