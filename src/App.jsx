@@ -14,11 +14,15 @@ import LightTheWorld from './header-bar/LightTheWorld.jsx'
 import Contact from './header-bar/Contact.jsx'
 import Products from './header-bar/Products.jsx'
 import Login from './header-bar/Login.jsx'
+import Logout from './header-bar/Logout'
 import Signup from './header-bar/Signup.jsx'
 import Admin from './header-bar/Admin.jsx'
 import AdminLookup from './components/AdminComponents/AdminLookup.jsx'
+import { Navigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 function App() {
+  const userId = useSelector((state) => state.userId)
   const router = createBrowserRouter(
     createRoutesFromElements(
       // <>
@@ -45,8 +49,8 @@ function App() {
           <Route path='/lightTheWorld' element={<LightTheWorld/>}/>
           <Route path='/contact' element={<Contact/>}/>
           <Route path='/products' element={<Products/>}/>
-          <Route path='/login' element={<Login/>}/>
-          <Route path='/signup' element={<Signup/>}/>
+          <Route path='/login' element={userId ? <Navigate to='/home'/> : <Login/>}/>
+          <Route path='/signup' element={userId ? <Navigate to='/home'/> : <Signup/>}/>
           <Route path='/betaAndPsi' element={<Admin/>}/>
           <Route path='/betaAndPsi/query' element={<AdminLookup/>}
           loader={async () => {

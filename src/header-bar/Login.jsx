@@ -81,8 +81,8 @@ const Login = () => {
                         placeholder="Password"
                         value={values.password}
                     />
-                    <button onClick={togglePassword}>Show Password</button>
-                    <button>Submit</button>
+                    <button type='button'onClick={togglePassword}>Show Password</button>
+                    <button type='submit'>Submit</button>
                 </Form>
             )}
         </Formik>
