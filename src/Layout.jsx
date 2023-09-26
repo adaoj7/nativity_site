@@ -5,6 +5,8 @@ import { useSelector,useDispatch } from 'react-redux'
 import axios from 'axios'
 import { useEffect } from 'react'
 
+
+// Layout is needed to get around Browser router functionality bugs
 function Layout() {
 
     const dispatch = useDispatch()
