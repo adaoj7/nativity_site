@@ -86,7 +86,6 @@ const Login = () => {
                 </Form>
             )}
         </Formik>
-        <button onClick={async e => await axios.delete('/api/logout')}>Logout</button>
         <NavLink to='/signup'>Signup</NavLink>
         </>
     );
