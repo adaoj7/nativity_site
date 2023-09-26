@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import Layout from './Layout'
+import Header from './Header'
 import axios from 'axios'
 import { createBrowserRouter,createRoutesFromElements,Route,RouterProvider,Routes } from 'react-router-dom'
 import Home from './header-bar/Home.jsx'
@@ -8,13 +8,13 @@ import About from './header-bar/About.jsx'
 import Volunteer from './header-bar/Volunteer.jsx'
 import Setup from './components/VolunteerComponents/Setup.jsx'
 import Host from './components/VolunteerComponents/Host.jsx'
+import ViewMyShifts from './components/VolunteerComponents/ViewMyShifts'
 import ThisYear from './header-bar/ThisYear.jsx'
 import Gallery from './header-bar/Gallery.jsx'
 import LightTheWorld from './header-bar/LightTheWorld.jsx'
 import Contact from './header-bar/Contact.jsx'
 import Products from './header-bar/Products.jsx'
 import Login from './header-bar/Login.jsx'
-import Logout from './header-bar/Logout'
 import Signup from './header-bar/Signup.jsx'
 import Admin from './header-bar/Admin.jsx'
 import AdminLookup from './components/AdminComponents/AdminLookup.jsx'
@@ -26,18 +26,25 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       // <>
-        <Route path='/' element={<Layout/>} errorElement={<Login/>}>
+        <Route path='/' element={<Header/>} errorElement={<Login/>}>
           <Route path='/home' element={<Home/>}/>
           <Route path='/about' element={<About/>}/>
           <Route path='/volunteer' element={<Volunteer/>}/>
-          <Route path='/volunteer/setup' element={<Setup/>} 
+          <Route path='/volunteer/setup' element={userId ? <Setup/> : <Login/>} 
           loader={async () => {
             const res = await axios.get('/api/setup')
             console.log(res.data)
             return {dataAboutShifts: res.data}
           }}
           />
-          <Route path='/volunteer/host' element={<Host/>} 
+          <Route path='/volunteer/host' element={userId ? <Host/> : <Login/>} 
+          loader={async () => {
+            const res = await axios.get('/api/host')
+            console.log(res.data)
+            return {dataAboutShifts: res.data}
+          }}
+          />
+          <Route path='/volunteer/myShifts' element={<ViewMyShifts/>}
           loader={async () => {
             const res = await axios.get('/api/host')
             console.log(res.data)
@@ -51,8 +58,8 @@ function App() {
           <Route path='/products' element={<Products/>}/>
           <Route path='/login' element={userId ? <Navigate to='/home'/> : <Login/>}/>
           <Route path='/signup' element={userId ? <Navigate to='/home'/> : <Signup/>}/>
-          <Route path='/betaAndPsi' element={<Admin/>}/>
-          <Route path='/betaAndPsi/query' element={<AdminLookup/>}
+          <Route path='/betaAndPsi' element={userId ? <Admin/> : <Login/>}/>
+          <Route path='/betaAndPsi/query' element={userId ? <AdminLookup/> : <Login/>}
           loader={async () => {
             const res = await axios.get('/api/adminQuery')
             // console.log(res.data)

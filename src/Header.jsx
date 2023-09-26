@@ -6,8 +6,8 @@ import axios from 'axios'
 import { useEffect } from 'react'
 
 
-// Layout is needed to get around Browser router functionality bugs
-function Layout() {
+// Header is needed to get around Browser router functionality bugs
+function Header() {
 
     const dispatch = useDispatch()
     const userId = useSelector((state) => state.userId)
@@ -51,4 +51,4 @@ function Layout() {
   )
 }
 
-export default Layout
+export default Header
