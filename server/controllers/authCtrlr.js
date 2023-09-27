@@ -7,7 +7,7 @@ export default {
         console.log('register')
         try {
             const {fname,lname,email,phone,church,password} = req.body
-
+            console.log(fname, lname)
             const foundUser = await User.findOne({where: {email}})
 
             if (foundUser) {
@@ -46,6 +46,8 @@ export default {
                 const isAuthenticated = bcrypt.compareSync(password, foundUser.hashedPass)
                 if (isAuthenticated){
                     req.session.user = {
+                        fname: foundUser.fname,
+                        lname: foundUser.lname,
                         userId: foundUser.userId,
                         email: foundUser.email
                     }

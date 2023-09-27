@@ -5,6 +5,7 @@ import React from "react";
 import { Formik, Field, Form } from "formik";
 import Dates from "./Dates";
 import * as Yup from 'yup'
+import { useSelector } from "react-redux";
 
 
 const phoneRegExp = /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/
@@ -28,6 +29,10 @@ const SignupSchema = Yup.object().shape({
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const Volunteers = () => {
+const fname = useSelector((state) => state.fname)
+const userId = useSelector((state) => state.userId)
+console.log(userId)
+
   const volunteerYear = new Date
   const year = volunteerYear.getFullYear()
 
@@ -44,12 +49,11 @@ const Volunteers = () => {
     })
     return {dates}
   })
-  
-
 
     return (
         <div>
-            <h1>Setup Form</h1>
+            <h1>Setup Shifts</h1>
+            <h3>Hello, {fname}</h3>
             <Formik
                 initialValues={{
                     firstName: "",
