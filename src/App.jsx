@@ -44,10 +44,10 @@ function App() {
             return {dataAboutShifts: res.data}
           }}
           />
-          <Route path='/volunteer/myShifts' element={<ViewMyShifts/>}
+          <Route path='/volunteer/myShifts' element={userId ? <ViewMyShifts/> : <Login/>}
           loader={async () => {
-            const res = await axios.get('/api/host')
-            console.log(res.data)
+            const res = await axios.post('/api/userShifts')
+            // console.log(res.data)
             return {dataAboutShifts: res.data}
           }}
           />

@@ -29,8 +29,8 @@ const Signup = () => {
                 // alert(JSON.stringify(values, null, 2));
                 const sendNewVolunteer = async () => {
                     let bodyObj = {
-                        fname: values.email,
-                        lname: values.email,
+                        fname: values.fname,
+                        lname: values.lname,
                         phone: values.phone,
                         church: values.church,
                         email: values.email,

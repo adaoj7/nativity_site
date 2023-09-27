@@ -1,4 +1,4 @@
-﻿import { Volunteer, Shift, ShiftType, Day, Year, Availability} from "../../scripts/model.js"
+﻿import { Volunteer, Shift, ShiftType, Day, Year, Availability,User} from "../../scripts/model.js"
 import { Sequelize } from "sequelize"
 
 export default {
@@ -43,6 +43,14 @@ export default {
             })
         res.json(shift)
         // console.log(shift)
+    },
+    loadUserName: async (req,res) => {
+        const {userId} = req.body
+        const user = await User.findOne({
+            where: {userId:userId}
+        })
+        console.log(user)
+        res.json(user)
     },
     addVolunteer: async (req,res) => {
         try {

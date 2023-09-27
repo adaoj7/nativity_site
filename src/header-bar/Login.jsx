@@ -34,7 +34,6 @@ const Login = () => {
                 // alert(JSON.stringify(values, null, 2));
                 const sendNewVolunteer = async () => {
                     let bodyObj = {
-                        
                         email: values.email,
                         password: values.password,
                     };
@@ -43,7 +42,8 @@ const Login = () => {
                         "/api/login",
                         bodyObj
                     );
-                    dispatch({type: 'LOGIN', payload: data.userId})
+                    console.log(data)
+                    dispatch({type: 'LOGIN', payload: data})
                     if (!data.error) {
                     } else {
                         console.log(data.error);
