@@ -1,5 +1,7 @@
 ﻿const initialState = {
-    userId: null
+    userId: null,
+    fname: null,
+    lname: null
 }
 
 const LOGIN = 'LOGIN'
@@ -13,7 +15,10 @@ const authReducer = (state = initialState, action) => {
                      lname: action.payload.lname   
             }
         case LOGOUT:
-            return { userId: null}
+            return { userId: null,
+                     fname: null,
+                     lname: null
+            }
         default:
             return state
     }

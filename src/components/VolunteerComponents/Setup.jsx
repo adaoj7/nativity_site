@@ -29,10 +29,9 @@ const SignupSchema = Yup.object().shape({
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const Volunteers = () => {
-const state = useSelector((state) => state)
-// const fname = useSelector((state) => {state})
-
-console.log(state)
+const fname = useSelector((state) => state.fname)
+const userId = useSelector((state) => state.userId)
+console.log(userId)
 
   const volunteerYear = new Date
   const year = volunteerYear.getFullYear()
@@ -50,20 +49,11 @@ console.log(state)
     })
     return {dates}
   })
-  
-  const {data} = async (req,res) => {
-    try {
-        const {data} = await axios.post('/api/userName',{userId: userId})
-        return data
-    } catch (err) {
-        console.log(err)
-    }
-  }
 
     return (
         <div>
             <h1>Setup Shifts</h1>
-            <p>Hello, {state.fname} {state.lname}</p>
+            <h3>Hello, {fname}</h3>
             <Formik
                 initialValues={{
                     firstName: "",

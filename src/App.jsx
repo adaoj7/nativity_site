@@ -23,6 +23,7 @@ import { useSelector } from 'react-redux'
 
 function App() {
   const userId = useSelector((state) => state.userId)
+  // console.log(userId)
   const router = createBrowserRouter(
     createRoutesFromElements(
       // <>

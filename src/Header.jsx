@@ -24,7 +24,7 @@ function Header() {
 
     useEffect(() => {
         axios.get('/api/user')
-          .then(res => dispatch({type: 'LOGIN', payload: res.data.userId}))
+          .then(res => dispatch({type: 'LOGIN', payload: res.data}))
           .catch(err => console.log(err))
     },[])
 
