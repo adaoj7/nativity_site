@@ -55,7 +55,7 @@ const Signup = () => {
                 });
 
                 sendNewVolunteer();
-                // location.replace('/home')
+                location.replace('/home')
             }}
         >
             {({

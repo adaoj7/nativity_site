@@ -20,6 +20,8 @@ export default {
                 const newUser = await User.create({fname,lname,phone,church,email, hashedPass: hash})
                 console.log(newUser)
                 req.session.user = {
+                    fname: newUser.fname,
+                    lname: newUser.lname,
                     userId: newUser.userId,
                     email: newUser.email
                 }
