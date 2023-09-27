@@ -12,16 +12,6 @@ const phoneRegExp = /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?
 
 
 const SignupSchema = Yup.object().shape({
-    firstName: Yup.string()
-      .min(2, 'Too Short!')
-      .max(50, 'Too Long!')
-      .required('Required'),
-    lastName: Yup.string()
-      .min(2, 'Too Short!')
-      .max(50, 'Too Long!')
-      .required('Required'),
-    email: Yup.string().email('Invalid email').required('Required'),
-    phone: Yup.string().matches(phoneRegExp, 'Phone number is not valid'),
     checked: Yup.array().min(1)
   });
 
@@ -30,8 +20,9 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const Volunteers = () => {
 const fname = useSelector((state) => state.fname)
+const lname = useSelector((state) => state.lname)
 const userId = useSelector((state) => state.userId)
-console.log(userId)
+console.log(lname)
 
   const volunteerYear = new Date
   const year = volunteerYear.getFullYear()
@@ -52,14 +43,9 @@ console.log(userId)
 
     return (
         <div>
-            <h1>Setup Shifts</h1>
-            <h3>Hello, {fname}</h3>
+            <h3>Hello, {fname} {lname}</h3>
             <Formik
                 initialValues={{
-                    firstName: "",
-                    lastName: "",
-                    email: "",
-                    phone: "",
                     checked: []
                 }}
                 validationSchema={SignupSchema}
@@ -70,11 +56,9 @@ console.log(userId)
                     // alert(JSON.stringify(values, null, 2));
                     const sendNewVolunteer = async () => {
                         let bodyObj = {
-                            fname: values.firstName,
-                            lname: values.lastName,
-                            email: values.email,
-                            phone: values.phone,
+                            userId: userId,
                             checked: values.checked
+
                         };
 
                         const { data } = await axios.post(
@@ -89,10 +73,6 @@ console.log(userId)
                     };
                     setSubmitting(false);
                     resetForm({
-                        firstName: "",
-                        lastName: "",
-                        email: "",
-                        phone: "",
                         checked: []
                     })
 
@@ -102,47 +82,9 @@ console.log(userId)
             >
 
 
-                {({ values,errors,touched,handleBlur,handleChange,handleSubmit,handleReset,isSubmitting,}) => (
+                {({ errors,handleSubmit}) => (
                     <Form onSubmit={handleSubmit}>
-                        <input
-                            type="firstName"
-                            name="firstName"
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            onReset={handleReset}
-                            value={values.firstName}
-                            placeholder="first name"
-                        />
-                        {errors.firstName && touched.firstName ? (<div>{errors.firstName}</div>) : null}
-                        <input
-                            type="lastName"
-                            name="lastName"
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.lastName}
-                            placeholder="last name"
-                        />
-                        {errors.lastName && touched.lastName ? (<div>{errors.lastName}</div>) : null}
-                        <input
-                            type="email"
-                            name="email"
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.email}
-                            placeholder="email"
-                        />
-                        {errors.email && touched.email ? (<div>{errors.email}</div>) : null}
-                        <input
-                            type="phone"
-                            name="phone"
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.phone}
-                            placeholder="phone"
-                        />
-                        {errors.phone && touched.phone ? (<div>{errors.phone}</div>) : null}
-                       
-                        <h3 id="checkbox-group">Shifts:</h3>
+                        <h3 id="checkbox-group">Setup Shifts:</h3>
                         <ul role="group" aria-labelledby="checkbox-group">
                             <Dates dates={daysOfShifts}/>
                             {/* <component={SetupDates} dates={daysOfShifts}/> */}

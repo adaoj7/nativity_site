@@ -65,11 +65,11 @@ for (let i = 1; i <= 15; i++) {
   })
 }
 
-const volunteersInDB = await Promise.all(
-  usersToCreate.map((user) => {
-      return Volunteer.create(user)
-  })
-);
+// const volunteersInDB = await Promise.all(
+//   usersToCreate.map((user) => {
+//       return Volunteer.create(user)
+//   })
+// );
 
 const usersInDB = await Promise.all(
   usersToCreate.map((user) => {
@@ -95,7 +95,7 @@ const availabilityInDB = await Promise.all(
 
 console.log(usersInDB)
 console.log(availabilityInDB)
-console.log(volunteersInDB)
+// console.log(volunteersInDB)
 // console.log(daysInDB)
 console.log(shiftsInDB)
 // console.log(shiftTypesInDB)

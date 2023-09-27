@@ -1,4 +1,4 @@
-﻿import { Availability,Shift,Day,Year,Volunteer } from "../../scripts/model.js";
+﻿import { Availability,Shift,Day,Year,User } from "../../scripts/model.js";
 import { Op } from "sequelize";
 
 export default {
@@ -32,7 +32,7 @@ export default {
         console.log(dateId)
         const {shiftId} = await Shift.findOne({where: {timeRange:time,dateId:dateId}})
         console.log(shiftId)
-        const volunteersAvail = await Volunteer.findAll({
+        const volunteersAvail = await User.findAll({
             include:[{
                 model: Availability,
                 where: {shiftId:shiftId},
