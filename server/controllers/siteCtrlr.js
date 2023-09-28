@@ -66,6 +66,7 @@ export default {
             
             // Closes shifts if they have 15 volunteers
             for (const shiftId of checked){
+                console.log(await Availability.count({where:{shiftId:shiftId}}) >= 15)
                 if (await Availability.count({where:{shiftId:shiftId}}) >= 15){
                     const shift = await Shift.findByPk(shiftId)
                     await shift.update({isFull:true})

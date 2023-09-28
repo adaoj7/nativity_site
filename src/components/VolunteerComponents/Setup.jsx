@@ -1,4 +1,4 @@
-﻿import { useState } from "react";
+﻿import { useState,useEffect } from "react";
 import axios from "axios";
 import { useLoaderData } from "react-router-dom";
 import React from "react";
@@ -19,27 +19,43 @@ const SignupSchema = Yup.object().shape({
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const Volunteers = () => {
-const fname = useSelector((state) => state.fname)
-const lname = useSelector((state) => state.lname)
-const userId = useSelector((state) => state.userId)
-console.log(lname)
-
-  const volunteerYear = new Date
-  const year = volunteerYear.getFullYear()
-
-  const { dataAboutShifts } = useLoaderData();
-//   console.log(dataAboutShifts)
-
-  const years = dataAboutShifts.filter((ele) => ele.year === year)
-
-  const daysOfShifts = years.map(({days}) => {
-    let dates = days.map(({date,shifts}) => {
-      return{
-        date,shifts
-      }
+    const fname = useSelector((state) => state.fname)
+    const lname = useSelector((state) => state.lname)
+    const userId = useSelector((state) => state.userId)
+    const [data,setData] = useState([])
+    console.log(lname)
+    
+    const volunteerYear = new Date
+    const year = volunteerYear.getFullYear()
+  
+    const { dataAboutShifts } = useLoaderData();
+  //   console.log(dataAboutShifts)
+  
+    const years = dataAboutShifts.filter((ele) => ele.year === year)
+  
+    const daysOfShifts = years.map(({days}) => {
+      let dates = days.map(({date,shifts}) => {
+        return{
+          date,shifts
+        }
+      })
+      return {dates}
     })
-    return {dates}
-  })
+  
+    console.log(daysOfShifts)
+
+    const userShift = async () => {
+        
+    const {data} = await axios.post('/api/userShifts', {userId})
+    // console.log(res)
+    setData(data)
+    }
+    useEffect(() => {
+    userShift()
+    },[])
+
+    const userShiftId = data.map((ele) => ele.shiftId)
+    console.log(userShiftId)
 
     return (
         <div>
@@ -86,7 +102,7 @@ console.log(lname)
                     <Form onSubmit={handleSubmit}>
                         <h3 id="checkbox-group">Setup Shifts:</h3>
                         <ul role="group" aria-labelledby="checkbox-group">
-                            <Dates dates={daysOfShifts}/>
+                            <Dates dates={daysOfShifts} userShifts={userShiftId}/>
                             {/* <component={SetupDates} dates={daysOfShifts}/> */}
                         </ul>
                         {errors.checked && <div>{'Must at least check one availability'}</div>}
