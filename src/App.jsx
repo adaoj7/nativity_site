@@ -16,6 +16,7 @@ import Contact from './header-bar/Contact.jsx'
 import Products from './header-bar/Products.jsx'
 import Login from './header-bar/Login.jsx'
 import Signup from './header-bar/Signup.jsx'
+import MyProfile from './header-bar/MyProfile'
 import Admin from './header-bar/Admin.jsx'
 import AdminLookup from './components/AdminComponents/AdminLookup.jsx'
 import { Navigate } from 'react-router-dom'
@@ -52,6 +53,7 @@ function App() {
             return {dataAboutShifts: res.data}
           }}
           />
+          <Route path='/myProfile' element={userId ? <MyProfile/> : <Login/>}/>
           <Route path='/thisYear' element={<ThisYear/>}/>
           <Route path='/gallery' element={<Gallery/>}/>
           <Route path='/lightTheWorld' element={<LightTheWorld/>}/>

@@ -56,7 +56,7 @@ const shiftsInDB = await Promise.all(
 )
 const usersToCreate = []
   
-for (let i = 1; i <= 15; i++) {
+for (let i = 2; i <= 16; i++) {
   usersToCreate.push({
     fname: 'Adam',
     lname: 'Johnson',
@@ -65,11 +65,13 @@ for (let i = 1; i <= 15; i++) {
   })
 }
 
-// const volunteersInDB = await Promise.all(
-//   usersToCreate.map((user) => {
-//       return Volunteer.create(user)
-//   })
-// );
+const superUser = await Promise.all(
+  
+    User.create({
+        
+    })
+  
+);
 
 const usersInDB = await Promise.all(
   usersToCreate.map((user) => {
