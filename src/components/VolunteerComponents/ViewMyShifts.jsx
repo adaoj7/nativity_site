@@ -3,24 +3,30 @@ import { useLoaderData } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useEffect,useState } from 'react'
 import axios from 'axios'
+import UserShifts from './UserShifts'
 
 
 const ViewMyShifts = () => {
 
     const userId = useSelector((state) => state.userId)
-    const [data,setData] = useState(null)
-
+    const [data,setData] = useState([])
     
+    const userShift = async () => {
+        
+    const {data} = await axios.post('/api/userShifts', {userId})
+    // console.log(res)
+    setData(data)
+    }
     useEffect(() => {
-        const userShift = async () => {
-        const res = await axios.post('/api/userShifts', {userId})
-        setData(res)
-        }
     userShift()
     },[])
-    console.log(data)
+
+    // console.log(data)
     return (
-    <div>{userId}</div>
+    <>
+    <h3>My Shifts:</h3>
+    <UserShifts shifts={data}/>
+    </>
   )
 }
 

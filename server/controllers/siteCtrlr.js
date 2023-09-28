@@ -81,7 +81,17 @@ export default {
     },
     loadUserShifts: async (req,res) => {
         const {userId} = req.body
-        const shifts = await Availability.findAll({where:{userId:userId}})
+        const shifts = await Availability.findAll({
+            where:{userId:userId},
+            include: [{
+                model: Shift,
+                // separate: true,
+                order: ['shiftId'],
+                include: [{
+                    model:Day
+                }]
+            }]
+        })
         res.json(shifts)
         console.log(shifts)
     },

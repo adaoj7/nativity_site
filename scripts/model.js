@@ -236,7 +236,7 @@ Year.hasMany(Day,{foreignKey:'yearId'})
 Day.belongsTo(Year,{foreignKey:'yearId'})
 
 Day.hasMany(Shift,{foreignKey:'dateId'})
-Shift.hasMany(Day,{foreignKey:'dateId'})
+Shift.belongsTo(Day,{foreignKey:'dateId'})
 
 ShiftType.hasMany(Shift,{foreignKey:'typeId'})
 Shift.belongsTo(ShiftType,{foreignKey:'typeId'})

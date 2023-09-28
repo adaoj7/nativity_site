@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import './App.css'
 import Header from './Header'
 import axios from 'axios'
@@ -20,10 +20,16 @@ import MyProfile from './header-bar/MyProfile'
 import Admin from './header-bar/Admin.jsx'
 import AdminLookup from './components/AdminComponents/AdminLookup.jsx'
 import { Navigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
 
 function App() {
   const userId = useSelector((state) => state.userId)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    axios.get('/api/user')
+      .then(res => dispatch({type: 'LOGIN', payload: res.data}))
+      .catch(err => console.log(err))
+},[])
   // console.log(userId)
   const router = createBrowserRouter(
     createRoutesFromElements(

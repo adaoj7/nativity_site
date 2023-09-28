@@ -3,13 +3,19 @@ import './App.css'
 import { BrowserRouter, Routes, Route, Link, NavLink,Outlet } from 'react-router-dom'
 import { useSelector,useDispatch } from 'react-redux'
 import axios from 'axios'
-import { useEffect } from 'react'
+import { useEffect,useLayoutEffect } from 'react'
 
 
 // Header is needed to get around Browser router functionality bugs
 function Header() {
 
   const userId = useSelector((state) => state.userId)
+  const dispatch = useDispatch()
+  useLayoutEffect(() => {
+    axios.get('/api/user')
+      .then(res => dispatch({type: 'LOGIN', payload: res.data}))
+      .catch(err => console.log(err))
+  },[])
     
 
   return (

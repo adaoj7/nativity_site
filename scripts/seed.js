@@ -65,13 +65,13 @@ for (let i = 2; i <= 16; i++) {
   })
 }
 
-const superUser = await Promise.all(
+// const superUser = await Promise.all(
   
-    User.create({
+//     User.create({
         
-    })
+//     })
   
-);
+// );
 
 const usersInDB = await Promise.all(
   usersToCreate.map((user) => {
