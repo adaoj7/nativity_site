@@ -1,27 +1,26 @@
 ﻿import React from 'react'
 import { useLoaderData } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { useEffect,useState } from 'react'
+import axios from 'axios'
+
 
 const ViewMyShifts = () => {
-    const volunteerYear = new Date
-    const year = volunteerYear.getFullYear()
 
-    const { dataAboutShifts } = useLoaderData();
-    // console.log(dataAboutShifts)
+    const userId = useSelector((state) => state.userId)
+    const [data,setData] = useState(null)
 
-    const years = dataAboutShifts.filter((ele) => ele.year === year)
-
-    console.log(years)
-    // const daysOfShifts = years.map(({days}) => {
-    //     let dates = days.map(({date,shifts}) => {
-    //         return{
-    //             date,shifts
-    //         }
-    //     })
-    //     return {dates}
-    // })
-  
+    
+    useEffect(() => {
+        const userShift = async () => {
+        const res = await axios.post('/api/userShifts', {userId})
+        setData(res)
+        }
+    userShift()
+    },[])
+    console.log(data)
     return (
-    <div>ViewMyShifts</div>
+    <div>{userId}</div>
   )
 }
 

@@ -44,14 +44,6 @@ export default {
         res.json(shift)
         // console.log(shift)
     },
-    loadUserName: async (req,res) => {
-        const {userId} = req.body
-        const user = await User.findOne({
-            where: {userId:userId}
-        })
-        console.log(user)
-        res.json(user)
-    },
     addVolunteer: async (req,res) => {
         try {
             // This is the information received from the form 
@@ -88,25 +80,10 @@ export default {
         }
     },
     loadUserShifts: async (req,res) => {
-        const shift = await Year.findAll({
-            include: 
-                [{model: Day,
-                    separate: true,
-                    order: ['dateId'],
-                    include:
-                        [{model: Shift,
-                            where: {isFull:false},
-                            separate: true,
-                            order: ['shiftId'], 
-                            include: 
-                                [{model: ShiftType,
-                                    where: {shiftType: 'host'}
-                                }]
-                        }]
-                }],                
-            })
-        res.json(shift)
-        // console.log(shift)
+        const {userId} = req.body
+        const shifts = await Availability.findAll({where:{userId:userId}})
+        res.json(shifts)
+        console.log(shifts)
     },
 
 }

@@ -41,7 +41,6 @@ app.post('/api/adminQuery',signupQuery)
 // volunteer form endpoints
 app.get('/api/setup',loadSetupShifts)
 app.get('/api/host',loadHostShifts)
-app.post('/api/userName',loadUserName)
 app.post('/api/newVolunteer',addVolunteer)
 app.post('/api/userShifts',loadUserShifts)
 

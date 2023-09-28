@@ -46,13 +46,7 @@ function App() {
             return {dataAboutShifts: res.data}
           }}
           />
-          <Route path='/volunteer/myShifts' element={userId ? <ViewMyShifts/> : <Login/>}
-          loader={async () => {
-            const res = await axios.post('/api/userShifts')
-            // console.log(res.data)
-            return {dataAboutShifts: res.data}
-          }}
-          />
+          <Route path='/volunteer/myShifts' element={userId ? <ViewMyShifts/> : <Login/>}/>
           <Route path='/myProfile' element={userId ? <MyProfile/> : <Login/>}/>
           <Route path='/thisYear' element={<ThisYear/>}/>
           <Route path='/gallery' element={<Gallery/>}/>
