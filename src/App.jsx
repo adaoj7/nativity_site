@@ -24,6 +24,7 @@ import { useSelector,useDispatch } from 'react-redux'
 
 function App() {
   const userId = useSelector((state) => state.userId)
+  const isAdmin = useSelector((state) => state.isAdmin)
   const dispatch = useDispatch()
   useEffect(() => {
     axios.get('/api/user')
@@ -41,14 +42,14 @@ function App() {
           <Route path='/volunteer/setup' element={userId ? <Setup/> : <Login/>} 
           loader={async () => {
             const res = await axios.get('/api/setup')
-            console.log(res.data)
+            // console.log(res.data)
             return {dataAboutShifts: res.data}
           }}
           />
           <Route path='/volunteer/host' element={userId ? <Host/> : <Login/>} 
           loader={async () => {
             const res = await axios.get('/api/host')
-            console.log(res.data)
+            // console.log(res.data)
             return {dataAboutShifts: res.data}
           }}
           />
@@ -61,8 +62,8 @@ function App() {
           <Route path='/products' element={<Products/>}/>
           <Route path='/login' element={userId ? <Navigate to='/home'/> : <Login/>}/>
           <Route path='/signup' element={userId ? <Navigate to='/home'/> : <Signup/>}/>
-          <Route path='/betaAndPsi' element={userId ? <Admin/> : <Login/>}/>
-          <Route path='/betaAndPsi/query' element={userId ? <AdminLookup/> : <Login/>}
+          <Route path='/betaAndPsi' element={userId && isAdmin ? <Admin/> : <Navigate to='/home'/>}/>
+          <Route path='/betaAndPsi/query' element={userId && isAdmin ? <AdminLookup/> : <Navigate to='/home'/>}
           loader={async () => {
             const res = await axios.get('/api/adminQuery')
             // console.log(res.data)

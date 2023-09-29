@@ -1,4 +1,4 @@
-﻿import { useState } from "react";
+﻿import { useState,useEffect } from "react";
 import axios from "axios";
 import { useLoaderData } from "react-router-dom";
 import React from "react";
@@ -23,6 +23,7 @@ const Host = () => {
     const fname = useSelector((state) => state.fname)
     const lname = useSelector((state) => state.lname)
     const userId = useSelector((state) => state.userId)
+    const [data,setData] = useState([])
 
   const volunteerYear = new Date
   const year = volunteerYear.getFullYear()
@@ -41,6 +42,18 @@ const Host = () => {
     return {dates}
   })
   
+  const userShift = async () => {
+        
+    const {data} = await axios.post('/api/userShifts', {userId})
+    // console.log(res)
+    setData(data)
+    }
+    useEffect(() => {
+    userShift()
+    },[])
+
+    const userShiftId = data.map((ele) => ele.shiftId)
+    console.log(userShiftId)
 
 
     return (
@@ -78,7 +91,7 @@ const Host = () => {
                         })
 
                     sendNewVolunteer();
-                    // location.replace(location.href)
+                    location.replace('/volunteer/myShifts')
                 }}
             >
 
@@ -87,7 +100,7 @@ const Host = () => {
                     <Form onSubmit={handleSubmit}>
                         <h3 id="checkbox-group">Host Shifts:</h3>
                         <ul role="group" aria-labelledby="checkbox-group">
-                            <Dates dates={daysOfShifts}/>
+                            <Dates dates={daysOfShifts} userShifts={userShiftId}/>
                             {/* <component={SetupDates} dates={daysOfShifts}/> */}
                         </ul>
                         {errors.checked && <div>{'Must at least check one availability'}</div>}

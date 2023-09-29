@@ -22,7 +22,7 @@ const Volunteers = () => {
     const fname = useSelector((state) => state.fname)
     const lname = useSelector((state) => state.lname)
     const userId = useSelector((state) => state.userId)
-    const [data,setData] = useState([])
+    const [data,setData] = useState([100])
     console.log(lname)
     
     const volunteerYear = new Date
@@ -55,7 +55,7 @@ const Volunteers = () => {
     },[])
 
     const userShiftId = data.map((ele) => ele.shiftId)
-    console.log(userShiftId)
+    // console.log(userShiftId)
 
     return (
         <div>
@@ -93,7 +93,7 @@ const Volunteers = () => {
                     })
 
                     sendNewVolunteer();
-                    // location.replace(location.href)
+                    location.replace('/volunteer/myShifts')
                 }}
             >
 

@@ -26,6 +26,7 @@ const ViewMyShifts = () => {
     <>
     <h3>My Shifts:</h3>
     <UserShifts shifts={data}/>
+    
     </>
   )
 }

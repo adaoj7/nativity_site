@@ -4,7 +4,7 @@ import { useState } from 'react'
 import axios from 'axios'
 
 const ShiftTimes = ({shifts,userShifts}) => {
-    console.log(userShifts)
+    // console.log(userShifts)
 
     const shift = shifts.map((ele,i) => {
         if(!userShifts.includes(ele.shiftId))

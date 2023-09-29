@@ -6,7 +6,7 @@ import siteCtrlr from './controllers/siteCtrlr.js';
 import authCtrlr from './controllers/authCtrlr.js'
 import adminCtrlr from "./controllers/adminCtrlr.js";
 
-const { addVolunteer,loadSetupShifts,loadHostShifts,loadUserShifts,loadUserName } = siteCtrlr
+const { addVolunteer,loadSetupShifts,loadHostShifts,loadUserShifts,deleteUserShift } = siteCtrlr
 const {register,login,user,logout,} = authCtrlr
 const {signupQuery,allShifts} = adminCtrlr
 
@@ -43,6 +43,7 @@ app.get('/api/setup',loadSetupShifts)
 app.get('/api/host',loadHostShifts)
 app.post('/api/newVolunteer',addVolunteer)
 app.post('/api/userShifts',loadUserShifts)
+app.delete('/api/deleteShift',deleteUserShift)
 
 
 ViteExpress.listen(app,4242,() => console.log('what is the answer? http://localhost:4242'))

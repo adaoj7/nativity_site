@@ -48,16 +48,7 @@ export default {
         try {
             // This is the information received from the form 
             const {userId,checked} = req.body
-            // // Checked is the array holding all of the shifts that people signed up for by shiftId
-            // console.log(checked)
-            // // Need to add conditional if someone wants to add a second form that doesn't create a new volunteer
-            // const newVolunteer = await Volunteer.create({fname,lname,email,phone})
-            // console.log(newVolunteer)
-            // // Finds the userId of the most recent user created, however this will need to change if the user is one that has already signed in. Could be accessed from the volunteer form or user form. Could we eliminate the Volunteer table and join the User table instead?
-            // const {userId} = await Volunteer.findOne({
-            //     order: [['userId', 'DESC']]
-            // })
-
+            
             // Creates new shift for each shift that users signed up for
             for (const shiftId of checked){
                 const newVolunteerShifts = await Availability.create({userId,shiftId})
@@ -94,7 +85,16 @@ export default {
             }]
         })
         res.json(shifts)
-        console.log(shifts)
+        // console.log(shifts)
     },
-
+    deleteUserShift: async (req,res) => {
+        console.log(req.body)
+        // console.log(res)
+        
+        // await Availability.destroy({
+        //     where: {
+        //         availabilityId: 
+        //     }
+        // })
+    }
 }

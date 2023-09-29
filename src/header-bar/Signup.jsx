@@ -2,10 +2,12 @@
 import { useState } from 'react';
 import { Formik,Form,Field, } from 'formik';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
 
 const Signup = () => {
     const [showPassword, setShowPassword] = useState(false);
-    
+    const dispatch = useDispatch()
+
     const togglePassword = (e) => {
         e.preventDefault();
         setShowPassword(!showPassword);
@@ -19,8 +21,8 @@ const Signup = () => {
                 lname: '',
                 phone: '',
                 church: '',
-                email: "",
-                password: "",
+                email: '',
+                password: '',
             }}
             onSubmit={async (values, { setSubmitting, resetForm }) => {
                 // console.log(setupTimes);
@@ -41,6 +43,7 @@ const Signup = () => {
                         "/api/register",
                         bodyObj
                     );
+                    dispatch({type: 'LOGIN', payload: data})
                     if (!data.error) {
                     } else {
                         console.log(data.error);

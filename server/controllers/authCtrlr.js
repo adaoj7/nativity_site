@@ -17,13 +17,14 @@ export default {
                 const hash = bcrypt.hashSync(password,salt)
                 console.log(salt)
 
-                const newUser = await User.create({fname,lname,phone,church,email, hashedPass: hash})
+                const newUser = await User.create({fname,lname,phone,church,email, hashedPass: hash, isAdmin: false})
                 console.log(newUser)
                 req.session.user = {
                     fname: newUser.fname,
                     lname: newUser.lname,
                     userId: newUser.userId,
-                    email: newUser.email
+                    email: newUser.email,
+                    isAdmin: newUser.isAdmin
                 }
                 console.log('User created')
                 res.status(200).send(req.session.user)
@@ -51,7 +52,8 @@ export default {
                         fname: foundUser.fname,
                         lname: foundUser.lname,
                         userId: foundUser.userId,
-                        email: foundUser.email
+                        email: foundUser.email,
+                        isAdmin: foundUser.isAdmin
                     }
                     
                     res.status(200).send(req.session.user)
