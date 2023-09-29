@@ -1,39 +1,47 @@
-﻿import React from 'react'
-import axios from 'axios'
+﻿import React from "react";
+import axios from "axios";
 
-const UserShifts = ({shifts}) => {
-    // console.log(shifts)
+const UserShifts = ({ shifts }) => {
 
-    const handleDelete = () => {
-      // preventDefault()
-      axios.delete('/api/deleteShift',{data: {availabilityId:1}})
-    }
+    const handleDelete = (availId, shiftId) => {
+        axios.delete("/api/deleteShift", {
+            data: { 
+              availabilityId: availId, 
+              shiftId: shiftId 
+            },
+        });
+        location.replace(location.href);
+    };
 
     const shift = shifts.map((ele) => {
-      ele.shift.availabilityId = ele.availabilityId
-      return(ele.shift)
-    })
+        ele.shift.availabilityId = ele.availabilityId;
+        return ele.shift;
+    });
 
-    let newArr = []
+    let newArr = [];
     const dateTime = shift.map((ele) => {
-        console.log(ele)
-        newArr.push({date:ele.day.date,time:ele.timeRange,availId:ele.availabilityId})
-    })
-    console.log(newArr)
+        newArr.push({
+            shiftId: ele.shiftId,
+            date: ele.day.date,
+            time: ele.timeRange,
+            availId: ele.availabilityId,
+        });
+    });
 
-    const displayedShifts = newArr.map((ele,i) => {
-       return (
-       <p key={i}>
-          {ele.date} {ele.time}
-          <button onClick={handleDelete}>Delete</button>
-      </p>)
-    })
-    // console.log(displayedShifts)
+    const displayedShifts = newArr.map((ele, i) => {
+        let { date, time, availId, shiftId } = ele;
+        return (
+            <p key={i}>
+                {date} {time}
+                <button key={availId} onClick={() => handleDelete(availId, shiftId)}>
+                    Remove Shift
+                </button>
+            </p>
+        );
+    });
+    
 
+    return <div>{displayedShifts}</div>;
+};
 
-    return (
-    <div>{displayedShifts}</div>
-  )
-}
-
-export default UserShifts
+export default UserShifts;

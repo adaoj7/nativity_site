@@ -8,7 +8,7 @@ import adminCtrlr from "./controllers/adminCtrlr.js";
 
 const { addVolunteer,loadSetupShifts,loadHostShifts,loadUserShifts,deleteUserShift } = siteCtrlr
 const {register,login,user,logout,} = authCtrlr
-const {signupQuery,allShifts} = adminCtrlr
+const {signupQuery,allShifts,addAdmin,removeAdmin} = adminCtrlr
 
 const app = express();
 
@@ -37,6 +37,8 @@ app.delete('/api/logout',logout)
 // admin endpoints
 app.get('/api/adminQuery', allShifts)
 app.post('/api/adminQuery',signupQuery)
+app.post('/api/newAdmin',addAdmin)
+app.post('/api/removeAdmin',removeAdmin)
 
 // volunteer form endpoints
 app.get('/api/setup',loadSetupShifts)

@@ -5,6 +5,7 @@ const Admin = () => {
 
   return (
     <nav>
+        <NavLink to='/betaAndPsi/newAdmin'>Add new Admin</NavLink>
         <NavLink to='/betaAndPsi/query'>Look up shift times</NavLink>
     </nav>
   )

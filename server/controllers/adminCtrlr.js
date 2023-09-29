@@ -45,5 +45,27 @@ export default {
         {console.log(volunteersAvail)}
 
         res.json({volunteersAvail,name,email,phone})
+    },
+    addAdmin: async (req,res) => {
+        const {email} = req.body
+        console.log(email)
+        const newAdmin = await User.findOne({
+            where: {email: email}
+        })
+        await newAdmin.update({isAdmin:true})
+        console.log(newAdmin)
+        res.json(newAdmin)
+    },
+    removeAdmin: async (req,res) => {
+        const {email} = req.body
+        console.log(email)
+        console.log(email)
+        const newAdmin = await User.findOne({
+            where: {email: email}
+        })
+        await newAdmin.update({isAdmin:false})
+        console.log(newAdmin)
+        res.json(newAdmin)
     }
+
 }
