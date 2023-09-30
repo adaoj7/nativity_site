@@ -1,4 +1,4 @@
-﻿import { Availability,Shift,Day,Year,Volunteer } from "../../scripts/model.js";
+﻿import { Availability,Shift,Day,Year,User } from "../../scripts/model.js";
 import { Op } from "sequelize";
 
 export default {
@@ -32,7 +32,7 @@ export default {
         console.log(dateId)
         const {shiftId} = await Shift.findOne({where: {timeRange:time,dateId:dateId}})
         console.log(shiftId)
-        const volunteersAvail = await Volunteer.findAll({
+        const volunteersAvail = await User.findAll({
             include:[{
                 model: Availability,
                 where: {shiftId:shiftId},
@@ -45,5 +45,29 @@ export default {
         {console.log(volunteersAvail)}
 
         res.json({volunteersAvail,name,email,phone})
+    },
+    addAdmin: async (req,res) => {
+        const {email} = req.body
+        console.log(email)
+        const newAdmin = await User.findOne({
+            where: {email: email}
+        })
+        //need to create a check to see if isAdmin is already true
+        await newAdmin.update({isAdmin:true})
+        console.log(newAdmin)
+        res.json(newAdmin)
+    },
+    removeAdmin: async (req,res) => {
+        const {email} = req.body
+        console.log(email)
+        console.log(email)
+        const newAdmin = await User.findOne({
+            where: {email: email}
+        })
+        //need to create a check to see if isAdmin is already false
+        await newAdmin.update({isAdmin:false})
+        console.log(newAdmin)
+        res.json(newAdmin)
     }
+
 }

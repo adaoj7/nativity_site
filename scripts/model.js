@@ -226,8 +226,8 @@ ShiftType.init(
     }
 )
 
-Volunteer.hasMany(Availability, {foreignKey: 'userId' })
-Availability.belongsTo(Volunteer, {foreignKey: 'userId'})
+User.hasMany(Availability, {foreignKey: 'userId' })
+Availability.belongsTo(User, {foreignKey: 'userId'})
 
 Shift.hasMany(Availability, {foreignKey: 'shiftId'})
 Availability.belongsTo(Shift, {foreignKey: 'shiftId'})
@@ -236,7 +236,7 @@ Year.hasMany(Day,{foreignKey:'yearId'})
 Day.belongsTo(Year,{foreignKey:'yearId'})
 
 Day.hasMany(Shift,{foreignKey:'dateId'})
-Shift.hasMany(Day,{foreignKey:'dateId'})
+Shift.belongsTo(Day,{foreignKey:'dateId'})
 
 ShiftType.hasMany(Shift,{foreignKey:'typeId'})
 Shift.belongsTo(ShiftType,{foreignKey:'typeId'})
@@ -245,5 +245,5 @@ Shift.belongsTo(ShiftType,{foreignKey:'typeId'})
 
 // unable to increment until users has been established because volunteers will be linked to user and nots the other way around
 
-User.hasOne(Volunteer, {foreignKey: 'userId'})
-Volunteer.belongsTo(User, {foreignKey: 'userId'})
+// User.hasOne(Volunteer, {foreignKey: 'userId'})
+// Volunteer.belongsTo(User, {foreignKey: 'userId'})

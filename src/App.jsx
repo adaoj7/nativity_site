@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import './App.css'
 import Header from './Header'
 import axios from 'axios'
@@ -16,13 +16,25 @@ import Contact from './header-bar/Contact.jsx'
 import Products from './header-bar/Products.jsx'
 import Login from './header-bar/Login.jsx'
 import Signup from './header-bar/Signup.jsx'
+import MyProfile from './header-bar/MyProfile'
 import Admin from './header-bar/Admin.jsx'
+import NewAdmin from './components/AdminComponents/NewAdmin'
 import AdminLookup from './components/AdminComponents/AdminLookup.jsx'
 import { Navigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
 
 function App() {
   const userId = useSelector((state) => state.userId)
+  const isAdmin = useSelector((state) => state.isAdmin)
+  // const [refresh,se]
+  // console.log(isAdmin)
+
+  const dispatch = useDispatch()
+  useEffect(() => {
+    axios.get('/api/user')
+      .then(res => dispatch({type: 'LOGIN', payload: res.data}))
+      .catch(err => (err))
+},[isAdmin])
   // console.log(userId)
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -34,24 +46,19 @@ function App() {
           <Route path='/volunteer/setup' element={userId ? <Setup/> : <Login/>} 
           loader={async () => {
             const res = await axios.get('/api/setup')
-            console.log(res.data)
+            // console.log(res.data)
             return {dataAboutShifts: res.data}
           }}
           />
           <Route path='/volunteer/host' element={userId ? <Host/> : <Login/>} 
           loader={async () => {
             const res = await axios.get('/api/host')
-            console.log(res.data)
-            return {dataAboutShifts: res.data}
-          }}
-          />
-          <Route path='/volunteer/myShifts' element={userId ? <ViewMyShifts/> : <Login/>}
-          loader={async () => {
-            const res = await axios.post('/api/userShifts')
             // console.log(res.data)
             return {dataAboutShifts: res.data}
           }}
           />
+          <Route path='/volunteer/myShifts' element={userId ? <ViewMyShifts/> : <Login/>}/>
+          <Route path='/myProfile' element={userId ? <MyProfile/> : <Login/>}/>
           <Route path='/thisYear' element={<ThisYear/>}/>
           <Route path='/gallery' element={<Gallery/>}/>
           <Route path='/lightTheWorld' element={<LightTheWorld/>}/>
@@ -59,8 +66,9 @@ function App() {
           <Route path='/products' element={<Products/>}/>
           <Route path='/login' element={userId ? <Navigate to='/home'/> : <Login/>}/>
           <Route path='/signup' element={userId ? <Navigate to='/home'/> : <Signup/>}/>
-          <Route path='/betaAndPsi' element={userId ? <Admin/> : <Login/>}/>
-          <Route path='/betaAndPsi/query' element={userId ? <AdminLookup/> : <Login/>}
+          <Route path='/betaAndPsi' element={isAdmin ? <Admin/> : <Home/>}/>
+          <Route path='/betaAndPsi/newAdmin' element={isAdmin ? <NewAdmin/> : <Navigate to='/home'/>}/>
+          <Route path='/betaAndPsi/query' element={isAdmin ? <AdminLookup/> : <Navigate to='/home'/>}
           loader={async () => {
             const res = await axios.get('/api/adminQuery')
             // console.log(res.data)

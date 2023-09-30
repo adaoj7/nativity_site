@@ -1,26 +1,17 @@
-﻿import { useState } from "react";
+﻿import { useState,useEffect } from "react";
 import axios from "axios";
 import { useLoaderData } from "react-router-dom";
 import React from "react";
 import { Formik, Field, Form } from "formik";
 import Dates from "./Dates";
 import * as Yup from 'yup'
+import { useSelector } from "react-redux";
 
 
 const phoneRegExp = /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/
 
 
 const SignupSchema = Yup.object().shape({
-    firstName: Yup.string()
-      .min(2, 'Too Short!')
-      .max(50, 'Too Long!')
-      .required('Required'),
-    lastName: Yup.string()
-      .min(2, 'Too Short!')
-      .max(50, 'Too Long!')
-      .required('Required'),
-    email: Yup.string().email('Invalid email').required('Required'),
-    phone: Yup.string().matches(phoneRegExp, 'Phone number is not valid'),
     checked: Yup.array().min(1)
   });
 
@@ -28,6 +19,12 @@ const SignupSchema = Yup.object().shape({
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const Host = () => {
+
+    const fname = useSelector((state) => state.fname)
+    const lname = useSelector((state) => state.lname)
+    const userId = useSelector((state) => state.userId)
+    const [data,setData] = useState([])
+
   const volunteerYear = new Date
   const year = volunteerYear.getFullYear()
 
@@ -45,17 +42,25 @@ const Host = () => {
     return {dates}
   })
   
+  const userShift = async () => {
+        
+    const {data} = await axios.post('/api/userShifts', {userId})
+    // console.log(res)
+    setData(data)
+    }
+    useEffect(() => {
+    userShift()
+    },[])
+
+    const userShiftId = data.map((ele) => ele.shiftId)
+    console.log(userShiftId)
 
 
     return (
         <div>
-            <h1>Host Form</h1>
+            <h3>Hello, {fname} {lname}</h3>
             <Formik
                 initialValues={{
-                    firstName: "",
-                    lastName: "",
-                    email: "",
-                    phone: "",
                     checked: []
                 }}
                 validationSchema={SignupSchema}
@@ -66,10 +71,7 @@ const Host = () => {
                     // alert(JSON.stringify(values, null, 2));
                     const sendNewVolunteer = async () => {
                         let bodyObj = {
-                            fname: values.firstName,
-                            lname: values.lastName,
-                            email: values.email,
-                            phone: values.phone,
+                            userId: userId,
                             checked: values.checked
                         };
 
@@ -85,62 +87,20 @@ const Host = () => {
                         };
                         setSubmitting(false);
                         resetForm({
-                            firstName: "",
-                            lastName: "",
-                            email: "",
-                            phone: "",
                             checked: []
                         })
 
                     sendNewVolunteer();
-                    // location.replace(location.href)
+                    location.replace('/volunteer/myShifts')
                 }}
             >
 
 
-                {({ values,errors,touched,handleBlur,handleChange,handleSubmit,handleReset,isSubmitting,}) => (
+                {({ errors,handleSubmit }) => (
                     <Form onSubmit={handleSubmit}>
-                        <input
-                            type="firstName"
-                            name="firstName"
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            onReset={handleReset}
-                            value={values.firstName}
-                            placeholder="first name"
-                        />
-                        {errors.firstName && touched.firstName ? (<div>{errors.firstName}</div>) : null}
-                        <input
-                            type="lastName"
-                            name="lastName"
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.lastName}
-                            placeholder="last name"
-                        />
-                        {errors.lastName && touched.lastName ? (<div>{errors.lastName}</div>) : null}
-                        <input
-                            type="email"
-                            name="email"
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.email}
-                            placeholder="email"
-                        />
-                        {errors.email && touched.email ? (<div>{errors.email}</div>) : null}
-                        <input
-                            type="phone"
-                            name="phone"
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.phone}
-                            placeholder="phone"
-                        />
-                        {errors.phone && touched.phone ? (<div>{errors.phone}</div>) : null}
-                       
-                        <h3 id="checkbox-group">Shifts:</h3>
+                        <h3 id="checkbox-group">Host Shifts:</h3>
                         <ul role="group" aria-labelledby="checkbox-group">
-                            <Dates dates={daysOfShifts}/>
+                            <Dates dates={daysOfShifts} userShifts={userShiftId}/>
                             {/* <component={SetupDates} dates={daysOfShifts}/> */}
                         </ul>
                         {errors.checked && <div>{'Must at least check one availability'}</div>}

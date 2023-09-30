@@ -3,6 +3,7 @@ import years from './data/years.json' assert {type: 'json'}
 import days from './data/days.json' assert {type: 'json'}
 import shifts from './data/shifts.json' assert {type: 'json'}
 import shiftType from './data/shiftType.json' assert {type: 'json'} 
+import bcrypt from 'bcryptjs'
 
 console.log('Syncing database...')
 await db.sync({force: true})
@@ -55,8 +56,19 @@ const shiftsInDB = await Promise.all(
     })
 )
 const usersToCreate = []
-  
-for (let i = 1; i <= 15; i++) {
+
+const salt = bcrypt.genSaltSync(10)
+const hash = bcrypt.hashSync('test',salt)
+usersToCreate.push({
+    fname: 'Adam',
+    lname: 'Johnson',
+    phone: '3853523248',
+    email: 'adamin@test.com',
+    hashedPass: hash,
+    isAdmin: true
+})
+
+for (let i = 2; i <= 16; i++) {
   usersToCreate.push({
     fname: 'Adam',
     lname: 'Johnson',
@@ -65,11 +77,7 @@ for (let i = 1; i <= 15; i++) {
   })
 }
 
-const volunteersInDB = await Promise.all(
-  usersToCreate.map((user) => {
-      return Volunteer.create(user)
-  })
-);
+
 
 const usersInDB = await Promise.all(
   usersToCreate.map((user) => {
@@ -95,7 +103,7 @@ const availabilityInDB = await Promise.all(
 
 console.log(usersInDB)
 console.log(availabilityInDB)
-console.log(volunteersInDB)
+// console.log(volunteersInDB)
 // console.log(daysInDB)
 console.log(shiftsInDB)
 // console.log(shiftTypesInDB)

@@ -1,7 +1,8 @@
 ﻿const initialState = {
     userId: null,
     fname: null,
-    lname: null
+    lname: null,
+    isAdmin: null
 }
 
 const LOGIN = 'LOGIN'
@@ -12,12 +13,14 @@ const authReducer = (state = initialState, action) => {
         case LOGIN:
             return { userId: action.payload.userId,
                      fname: action.payload.fname,
-                     lname: action.payload.lname   
+                     lname: action.payload.lname,
+                     isAdmin: action.payload.isAdmin   
             }
         case LOGOUT:
             return { userId: null,
                      fname: null,
-                     lname: null
+                     lname: null,
+                     isAdmin: null
             }
         default:
             return state
