@@ -52,6 +52,7 @@ export default {
         const newAdmin = await User.findOne({
             where: {email: email}
         })
+        //need to create a check to see if isAdmin is already true
         await newAdmin.update({isAdmin:true})
         console.log(newAdmin)
         res.json(newAdmin)
@@ -63,6 +64,7 @@ export default {
         const newAdmin = await User.findOne({
             where: {email: email}
         })
+        //need to create a check to see if isAdmin is already false
         await newAdmin.update({isAdmin:false})
         console.log(newAdmin)
         res.json(newAdmin)

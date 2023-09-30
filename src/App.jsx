@@ -27,13 +27,13 @@ function App() {
   const userId = useSelector((state) => state.userId)
   const isAdmin = useSelector((state) => state.isAdmin)
   // const [refresh,se]
-  console.log(isAdmin)
+  // console.log(isAdmin)
 
   const dispatch = useDispatch()
   useEffect(() => {
     axios.get('/api/user')
       .then(res => dispatch({type: 'LOGIN', payload: res.data}))
-      .catch(err => console.log(err))
+      .catch(err => (err))
 },[isAdmin])
   // console.log(userId)
   const router = createBrowserRouter(

@@ -14,7 +14,7 @@ function Header() {
   useLayoutEffect(() => {
     axios.get('/api/user')
       .then(res => dispatch({type: 'LOGIN', payload: res.data}))
-      .catch(err => console.log(err))
+      .catch(err => (err))
   },[])
     
 
