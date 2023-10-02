@@ -3,7 +3,14 @@
 const Home = () => {
 
   return (
-    <div>Home Page</div>
+    <>
+      <div>
+        <div>Some text goes here</div>
+      </div>
+      <div>
+        <div>More text goes here</div>
+      </div>
+    </>
   )
 }
 

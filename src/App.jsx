@@ -81,9 +81,9 @@ function App() {
   )
   
   return (
-    <>
+    <div className='bg-first h-screen justify-center overflow-hidden'>
       <RouterProvider router={router}/>
-    </>
+    </div>
   )
 }
 

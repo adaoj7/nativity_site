@@ -3,6 +3,7 @@ This project is an attempt to rebuild a website for a community nativity festiva
 The final project will enable them to manage volunteers, store nativities, and other access other important features making the volunteer work more focused on the end goal of a well run program.
 
 Features that have been implemented so far:
+
 User features:
 - Users can create an account
 - Users can sign up for shifts either of the Setup or Host type
