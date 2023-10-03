@@ -3,6 +3,16 @@ export default {
 content: ["./src/**/*.{html,js,jsx}","./index.htmlrs"],
 mode: 'jit',
   theme: {
+    screens: {
+      'phone': '640px',
+      // => @media (min-width: 640px) { ... }
+
+      'desktop': '1024px',
+      // => @media (min-width: 1024px) { ... }
+
+      'xl': '1280px',
+      // => @media (min-width: 1280px) { ... }
+    },
     extend: {
       colors: {
         first: "#a3a896",

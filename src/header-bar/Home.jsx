@@ -4,9 +4,9 @@ const Home = () => {
 
   return (
     <>
-      <div className='relative z--10'>
+      <div className='phone:relative'>
         <img src="src\assets\107 , Fall Family Showcase 2018-19 -3.jpg "/>
-        <img src="src\assets\CFN White-01.png" className='absolute top-1/2 right-44 h-1/4 w-1/3'/>
+        <img src="src\assets\CFN White-01.png" className='phone:absolute phone:'/>
       </div>
       <div>
         <div>More text goes here</div>
