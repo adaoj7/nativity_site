@@ -4,7 +4,7 @@ content: ["./src/**/*.{html,js,jsx}","./index.htmlrs"],
 mode: 'jit',
   theme: {
     screens: {
-      'phone': '640px',
+      'phone': '300px',
       // => @media (min-width: 640px) { ... }
 
       'desktop': '1024px',
