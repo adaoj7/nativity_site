@@ -82,7 +82,7 @@ const Login = () => {
                             />
                             <div className="flex justify-center">
                                 <button
-                                    className="w-1/3 m-2 border-2 bg-first border-black rounded-full justify-center hover:bg-gray-300"
+                                    className="w-1/3 m-2 border-2 bg-first border-black rounded-full justify-center hover:bg-firstDarkest"
                                     type="button"
                                     onClick={togglePassword}
                                 >

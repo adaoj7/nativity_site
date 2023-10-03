@@ -25,7 +25,7 @@ function Header() {
 
     return (
         <>
-            <header className="flex justify-end w-screen font-bold text-white">
+            <header className="absolute flex justify-end w-screen font-bold text-white z-10">
                 <div className="static">
                     <div className="absolute top-0 left-0">
                         <img src="" />
@@ -34,67 +34,67 @@ function Header() {
                 <nav className="flex bg-second m-2 p-3 rounded-full justify-between w-2/3 h-20">
                     <NavLink
                         to="/home"
-                        className=" flex align-middle p-4 hover:bg-third hover:rounded-full  focus:bg-third focus:rounded-full whitespace-nowrap"
+                        className=" flex align-middle p-4 hover:bg-secondLightest hover:rounded-full  focus:bg-secondLighter focus:rounded-full whitespace-nowrap"
                     >
                         Home Page
                     </NavLink>
                     <NavLink
                         to="/about"
-                        className=" align-middle p-4 hover:bg-third hover:rounded-full hover:align-middle focus:bg-third focus:rounded-full focus:p-4"
+                        className=" align-middle p-4 hover:bg-secondLightest hover:rounded-full hover:align-middle focus:bg-secondLighter focus:rounded-full focus:p-4"
                     >
                         About
                     </NavLink>
                     <NavLink
                         to="/volunteer"
-                        className="align-middle p-4 hover:bg-third hover:rounded-full focus:bg-third focus:rounded-full whitespace-nowrap"
+                        className="align-middle p-4 hover:bg-secondLightest hover:rounded-full focus:bg-secondLighter focus:rounded-full whitespace-nowrap"
                     >
                         Get Involved
                     </NavLink>
                     <NavLink
                         to="/thisYear"
-                        className="align-middle p-4 hover:bg-third hover:rounded-full focus:bg-third focus:rounded-full whitespace-nowrap"
+                        className="align-middle p-4 hover:bg-secondLightest hover:rounded-full focus:bg-secondLighter focus:rounded-full whitespace-nowrap"
                     >
                         This Year
                     </NavLink>
                     <NavLink
                         to="/gallery"
-                        className="align-middle p-4 hover:bg-third hover:rounded-full focus:bg-third focus:rounded-full "
+                        className="align-middle p-4 hover:bg-secondLightest hover:rounded-full focus:bg-secondLighter focus:rounded-full "
                     >
                         Gallery
                     </NavLink>
                     <NavLink
                         to="/lightTheWorld"
-                        className="align-middle p-4 hover:bg-third hover:rounded-full focus:bg-third focus:rounded-full whitespace-nowrap"
+                        className="align-middle p-4 hover:bg-secondLightest hover:rounded-full focus:bg-secondLighter focus:rounded-full whitespace-nowrap"
                     >
                         Light the World
                     </NavLink>
                     <NavLink
                         to="/contact"
-                        className="align-middle p-4 hover:bg-third hover:rounded-full focus:bg-third focus:rounded-full"
+                        className="align-middle p-4 hover:bg-secondLightest hover:rounded-full focus:bg-secondLighter focus:rounded-full"
                     >
                         Contact
                     </NavLink>
                     <NavLink
                         to="/products"
-                        className="align-middle p-4 hover:bg-third hover:rounded-full focus:bg-third focus:rounded-full"
+                        className="align-middle p-4 hover:bg-secondLightest hover:rounded-full focus:bg-secondLighter focus:rounded-full"
                     >
                         Products
                     </NavLink>
                 </nav>
                 <div className="flex whitespace-nowrap">
 
-                <nav className="m-2 p-6 h-20 w-1/12 rounded-full bg-first">
+                <nav className="m-2 p-6 h-20 w-1/12 rounded-full">
                     {userId ? (
                       <NavLink
                       to="/myProfile"
-                      className="align-middle p-4 hover:bg-third hover:rounded-full focus:underline"
+                      className="align-middle p-4 hover:bg-secondLightest hover:rounded-full focus:underline"
                       >
                             My Profile
                         </NavLink>
                     ) : (
                       <NavLink
                       to="/login"
-                      className="align-middle p-4 hover:bg-third hover:rounded-full focus:bg-third focus:rounded-full"
+                      className="align-middle p-4 hover:bg-secondLightest hover:rounded-full focus:bg-secondLighter focus:rounded-full"
                       >
                             Log In
                         </NavLink>
