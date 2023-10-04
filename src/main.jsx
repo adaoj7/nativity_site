@@ -10,7 +10,7 @@ import store from './store/store.js'
 ReactDOM.createRoot(document.getElementById('root')).render(
       <React.StrictMode id='home'>
         <Provider store={store}>
-          <App className='bg-primary'/>
+          <App className='bg-primary h-screen'/>
         </Provider>
       </React.StrictMode> 
 )

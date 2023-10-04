@@ -6,6 +6,7 @@ import Signup from "./Signup";
 import { NavLink } from "react-router-dom";
 import App from "../App";
 import { useDispatch } from "react-redux";
+import NativityLogo from "../components/Elements/NativityLogo";
 
 const Login = () => {
     // const [email, setEmail] = useState("");
@@ -19,6 +20,8 @@ const Login = () => {
     };
 
     return (
+        <>
+        <NativityLogo/>
         <div className="flex p-24 h-full justify-center align-middle">
             <div className="flex flex-col h-1/2 w-1/2 p-6 bg-firstDarker rounded-lg border-2 border-black">
                 <Formik
@@ -36,16 +39,16 @@ const Login = () => {
                                 email: values.email,
                                 password: values.password,
                             };
-
+                            
                             const { data } = await axios.post(
                                 "/api/login",
                                 bodyObj
-                            );
-                            console.log(data);
-                            dispatch({ type: "LOGIN", payload: data });
-                            if (!data.error) {
-                            } else {
-                                console.log(data.error);
+                                );
+                                console.log(data);
+                                dispatch({ type: "LOGIN", payload: data });
+                                if (!data.error) {
+                                } else {
+                                    console.log(data.error);
                             }
                         };
 
@@ -69,7 +72,7 @@ const Login = () => {
                                 placeholder="Email"
                                 value={values.email}
                                 className="border-2 m-2 p-2 border-black"
-                            />
+                                />
                             <Field
                                 type={showPassword ? "text" : "password"}
                                 name="password"
@@ -79,13 +82,13 @@ const Login = () => {
                                 placeholder="Password"
                                 value={values.password}
                                 className="border-2 border-black m-2 p-2"
-                            />
+                                />
                             <div className="flex justify-center">
                                 <button
                                     className="w-1/3 m-2 border-2 bg-first border-black rounded-full justify-center hover:bg-firstDarkest"
                                     type="button"
                                     onClick={togglePassword}
-                                >
+                                    >
                                     Show Password
                                 </button>
                             </div>
@@ -93,7 +96,7 @@ const Login = () => {
                                 <button
                                     className="w-1/3 m-2 border-2 bg-first border-black rounded-full justify-center hover:bg-gray-300"
                                     type="submit"
-                                >
+                                    >
                                     Log In
                                 </button>
                             </div>
@@ -109,6 +112,7 @@ const Login = () => {
                 </div>
             </div>
         </div>
+                    </>
     );
 };
 export default Login;

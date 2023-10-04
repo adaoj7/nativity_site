@@ -1,8 +1,12 @@
 ﻿import React from 'react'
+import NativityLogo from '../components/Elements/NativityLogo'
 
 const Products = () => {
   return (
-    <div>Products</div>
+    <>
+    <NativityLogo/>
+    <div>Contact</div>
+    </>
   )
 }
 

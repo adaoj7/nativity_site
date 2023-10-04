@@ -7,7 +7,7 @@ const Home = () => {
       <div className=''>
       <div className='desktop:hidden phone:flex phone:relative top-0 phone:z--1000'>
         <img src="src\assets\mobile-background-1.jpg" className='z--1000'/>
-        <img src="src\assets\CFN-White-Shadow-01.svg" className= 'invert phone:absolute phone:top-12 phone:right-1/3 phone:h-40 phone:w-60'/>
+        <img src="src\assets\CFN-White-Shadow-01.svg" className= 'invert phone:absolute phone:top-12 phone:right-1/3 phone:h-40 phone:w-60 border-2 border-transparent'/>
       </div>
 
       <div className='hidden desktop:flex desktop:relative top-0 desktop:z--10'>

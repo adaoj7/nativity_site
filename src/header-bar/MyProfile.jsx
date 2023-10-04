@@ -2,6 +2,7 @@
 import axios from 'axios'
 import { useEffect } from 'react'
 import { useSelector,useDispatch } from 'react-redux'
+import Header from '../Header'
 
 const MyProfile = () => {
 
@@ -25,9 +26,14 @@ const MyProfile = () => {
     },[])
 
   return (
-    <nav>
-          {userId ? <button onClick={handleClick}>Logout</button> : <NavLink to='/login'>Log In</NavLink>}
+    <div className='h-screen'>
+    <nav className='desktop::hidden'>
+          {userId ? <button className='flex justify-end p' onClick={handleClick}>Logout</button> : <NavLink to='/login'>Log In</NavLink>}
     </nav>  
+    <nav className='hidden'>
+          {userId ? <button className='flex justify-end p' onClick={handleClick}>Logout</button> : <NavLink to='/login'>Log In</NavLink>}
+    </nav>  
+    </div>
   )
 }
 

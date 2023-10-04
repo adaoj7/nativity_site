@@ -43,21 +43,21 @@ function App() {
           <Route path='/home' element={<Home/>}/>
           <Route path='/about' element={<About/>}/>
           <Route path='/volunteer' element={<Volunteer/>}/>
-          <Route path='/volunteer/setup' element={userId ? <Setup/> : <Login/>} 
+          <Route path='/volunteer/setup' element={userId ? <Setup/> : <Navigate to='/login'/>} 
           loader={async () => {
             const res = await axios.get('/api/setup')
             // console.log(res.data)
             return {dataAboutShifts: res.data}
           }}
           />
-          <Route path='/volunteer/host' element={userId ? <Host/> : <Login/>} 
+          <Route path='/volunteer/host' element={userId ? <Host/> : <Navigate to='/login'/>} 
           loader={async () => {
             const res = await axios.get('/api/host')
             // console.log(res.data)
             return {dataAboutShifts: res.data}
           }}
           />
-          <Route path='/volunteer/myShifts' element={userId ? <ViewMyShifts/> : <Login/>}/>
+          <Route path='/volunteer/myShifts' element={userId ? <ViewMyShifts/> : <Navigate to='/login'/>}/>
           <Route path='/myProfile' element={userId ? <MyProfile/> : <Login/>}/>
           <Route path='/thisYear' element={<ThisYear/>}/>
           <Route path='/gallery' element={<Gallery/>}/>
@@ -81,7 +81,7 @@ function App() {
   )
   
   return (
-    <div className='bg-first h-auto justify-center overflow-x-hidden'>
+    <div className='bg-first h-screen justify-center overflow-x-hidden'>
       <RouterProvider router={router}/>
     </div>
   )

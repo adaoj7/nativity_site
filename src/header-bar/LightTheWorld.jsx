@@ -1,8 +1,12 @@
 ﻿import React from 'react'
+import NativityLogo from '../components/Elements/NativityLogo'
 
 const LightTheWorld = () => {
   return (
-    <div>LightTheWorld</div>
+    <>
+    <NativityLogo/>
+    <div>Contact</div>
+    </>
   )
 }
 

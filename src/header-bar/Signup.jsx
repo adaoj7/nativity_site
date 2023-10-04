@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Formik,Form,Field, } from 'formik';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
+import NativityLogo from '../components/Elements/NativityLogo';
 
 const Signup = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -15,6 +16,7 @@ const Signup = () => {
   
     return (
     <>
+    <img src=''/>
       <Formik
             initialValues={{
                 fname: '',
