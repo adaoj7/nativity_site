@@ -12,7 +12,7 @@ const NativityLogo = () => {
             <div className="hidden sticky desktop:flex pl-12 justify-start ">
                 <img
                     src="src/assets/CFN White-01.png"
-                    className="fixed invert h-20 mt-2"
+                    className="fixed invert h-20 mt-2 "
                 />
             </div>
         </>

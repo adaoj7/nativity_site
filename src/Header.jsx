@@ -30,9 +30,9 @@ function Header() {
     const phoneActiveClassName = "text-black font-bold underline";
 
     const desktopInactive = 'text-black flex align-middle p-4 hover:underline whitespace-nowrap'
-    const desktopActive = 'flex align-middle p-4 bg-third rounded-full whitespace-nowrap shadow-lg'
+    const desktopActive = 'flex align-middle p-4 bg-third rounded-full whitespace-nowrap'
 
-    const loginButtonInactive = 'flex p-4 justify-center align-middle items-center text-black hover:underline hover:text-white hover:bg-third bg-second rounded-full whitespace-nowrap shadow-2xl'
+    const loginButtonInactive = 'flex p-4 justify-center align-middle items-center text-black hover:underline hover:text-white hover:bg-third bg-second/70 rounded-full whitespace-nowrap shadow-2xl'
     const loginButtonActive = 'flex p-4 justify-center align-middle items-center bg-third  rounded-full whitespace-nowrap shadow-gray-500 shadow-2xl'
 
     return (

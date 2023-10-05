@@ -15,11 +15,18 @@ mode: 'jit',
     },
     extend: {
       colors: {
+        // cornsilk
         first: "#FEFAE0",
+        // Peach
         second: "#F7E5B5",
+        // Buff
         third: "#D4A373",
+        // Beaver
         fourth: "#A17C6B",
-        fifth: "#353535"
+        // Jet
+        fifth: "#353535",
+        umber: "#6B5950",
+        darkGreen: "#1F2A13"
       }
     },
   },
