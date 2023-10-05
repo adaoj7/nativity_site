@@ -5,7 +5,9 @@ const Products = () => {
   return (
     <>
     <NativityLogo/>
-    <div>Contact</div>
+    <div className='mt-24'>
+        <div >About</div>
+    </div>
     </>
   )
 }

@@ -1,11 +1,22 @@
-﻿import React from 'react'
+﻿import React from "react";
 
 const NativityLogo = () => {
-  return (
-    <div className='p-4 pl-20'>
-        <img src='public/assets/images/CFN White-01.png' className='invert h-20'/>
-    </div>
-  )
-}
+    return (
+        <>
+            <div className="desktop:hidden sticky flex pl-20">
+                <img
+                    src="src/assets/CFN White-01.png"
+                    className="fixed invert h-20 mt-2"
+                />
+            </div>
+            <div className="hidden sticky desktop:flex pl-12 justify-start ">
+                <img
+                    src="src/assets/CFN White-01.png"
+                    className="fixed invert h-20 mt-2"
+                />
+            </div>
+        </>
+    );
+};
 
-export default NativityLogo
+export default NativityLogo;

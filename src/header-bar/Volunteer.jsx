@@ -6,7 +6,7 @@ const Volunteer = () => {
   return (
     <>
     <NativityLogo/>
-    <nav>
+    <nav className='mt-24'>
         <NavLink to='/volunteer/setup'>Setup</NavLink>
         <NavLink to='/volunteer/host'>Host</NavLink>
         <NavLink to='/volunteer/myShifts'>My Shifts</NavLink>

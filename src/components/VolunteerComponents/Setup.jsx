@@ -6,7 +6,7 @@ import { Formik, Field, Form } from "formik";
 import Dates from "./Dates";
 import * as Yup from "yup";
 import { useSelector } from "react-redux";
-import Image from "../../../public/assets/images/CFN-White-Shadow-01.svg";
+import Image from "../../assets/CFN-White-Shadow-01.svg";
 
 const phoneRegExp =
     /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/;
@@ -58,8 +58,11 @@ const Volunteers = () => {
 
     return (
         <div>
-            <div className="p-4 pl-20">
-                <img src={Image} className="h-20" />
+            <div className="desktop:hidden phone:flex pt-4 phone:justify-center">
+                <img src={Image} className="phone:flex phone:items-center h-20" />
+            </div>
+            <div className="hidden p-4 pl-20 phone:justify-center">
+                <img src={Image} className="phone:flex phone:items-center h-20" />
             </div>
             <h3>
                 Hello, {fname} {lname}

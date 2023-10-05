@@ -11,7 +11,8 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { useEffect, useLayoutEffect } from "react";
-import { IoMenu } from "react-icons/io5";
+import { IoMenu } from "react-icons/io5"
+import NativityLogo from "./components/Elements/NativityLogo";
 
 // Header is needed to get around Browser router functionality bugs
 function Header() {
@@ -25,27 +26,32 @@ function Header() {
             .catch((err) => err);
     }, []);
 
-    const phoneInactive = 'font-bold text-white'
-    const phoneActiveClassName = "text-white font-bold underline";
-    const desktopInactive = 'flex align-middle p-4 hover:underline'
-    const desktopActive = 'flex align-middle p-4 bg-secondLighter rounded-full '
+    const phoneInactive = 'font-bold text-black'
+    const phoneActiveClassName = "text-black font-bold underline";
+
+    const desktopInactive = 'text-black flex align-middle p-4 hover:underline whitespace-nowrap'
+    const desktopActive = 'flex align-middle p-4 bg-third rounded-full whitespace-nowrap shadow-lg'
+
+    const loginButtonInactive = 'flex p-4 justify-center align-middle items-center text-black hover:underline hover:text-white hover:bg-third bg-second rounded-full whitespace-nowrap shadow-2xl'
+    const loginButtonActive = 'flex p-4 justify-center align-middle items-center bg-third  rounded-full whitespace-nowrap shadow-gray-500 shadow-2xl'
 
     return (
         <>
-            <header className="sticky w-full z-20">
+            <header className="sticky w-full z-20 ">
+            
                 <div className="desktop:hidden fixed w-80 z-10 right-2 top-2 p-2">
                     {menu ? (
                         <nav
                             id="mobileHeader"
-                            className="phone:relative phone:z-20 flex justify-center flex-col bg-first rounded-xl border-black border-[1px] p-2"
+                            className="phone:relative phone:z-20 flex flex-col bg-second rounded-xl border-black border-[1px] p-2 shadow-gray-400 shadow-2xl"
                         >
                             <button
-                                className="text-white text-3xl flex justify-end "
+                                className="text-black text-4xl flex items-end justify-end "
                                 onClick={(ele) => setMenu(!menu)}
                             >
                                 <IoMenu className="relative z-20" />
                             </button>
-                            <div className="relative z-20 flex items-end flex-col">
+                            <div className="relative z-20 flex items-center flex-col space-y-4 text-2xl">
                                 <NavLink
                                     to="/home"
                                     className={({ isActive }) =>
@@ -123,11 +129,12 @@ function Header() {
                                     </NavLink>
                                 )}
                             </div>
+                            <div className="h-6"></div>
                         </nav>
                     ) : (
                         <div className="flex justify-end ">
                             <button
-                                className=" justify-end text-gray-50 text-3xl right-2 top-2 p-2 border-2 border-transparent"
+                                className=" justify-end text-black text-4xl right-2 top-2 p-2 border-[1px] border-transparent"
                                 onClick={(ele) => setMenu(!menu)}
                             >
                                 <IoMenu className="" />
@@ -135,14 +142,13 @@ function Header() {
                         </div>
                     )}
                 </div>
-
-                <nav className="hidden desktop:absolute desktop:flex desktop:justify-end desktop:w-screen desktop:font-bold desktop:text-white desktop:z-10 ">
-                    <div className="flex bg-second m-2 p-3 rounded-full justify-between w-2/3 h-20">
+                <nav className="hidden desktop:fixed desktop:flex desktop:justify-end desktop:w-screen desktop:font-bold desktop:text-white desktop:z-10 ">
+                    <div className="flex bg-second/90 m-2 p-3 rounded-full justify-between w-2/3 h-20 shadow-2xl">
                         <NavLink
                             to="/home"
                             className={({ isActive }) =>
                             isActive
-                                ? 'flex align-middle p-4 bg-secondLighter rounded-full '
+                                ? desktopActive
                                 : desktopInactive
                         }
                         >
@@ -152,7 +158,7 @@ function Header() {
                             to="/about"
                             className={({ isActive }) =>
                             isActive
-                                ? 'flex align-middle p-4 bg-secondLighter rounded-full '
+                                ? desktopActive
                                 : desktopInactive
                         }
                         >
@@ -162,7 +168,7 @@ function Header() {
                             to="/volunteer"
                             className={({ isActive }) =>
                             isActive
-                                ? 'flex align-middle p-4 bg-secondLighter rounded-full '
+                                ? desktopActive
                                 : desktopInactive
                         }
                         >
@@ -172,7 +178,7 @@ function Header() {
                             to="/thisYear"
                             className={({ isActive }) =>
                             isActive
-                                ? 'flex align-middle p-4 bg-secondLighter rounded-full '
+                                ? desktopActive
                                 : desktopInactive
                         }
                         >
@@ -182,7 +188,7 @@ function Header() {
                             to="/gallery"
                             className={({ isActive }) =>
                             isActive
-                                ? 'flex align-middle p-4 bg-secondLighter rounded-full '
+                                ? desktopActive
                                 : desktopInactive
                         }
                         >
@@ -192,7 +198,7 @@ function Header() {
                             to="/lightTheWorld"
                             className={({ isActive }) =>
                             isActive
-                                ? 'flex align-middle p-4 bg-secondLighter rounded-full '
+                                ? desktopActive
                                 : desktopInactive
                         }
                         >
@@ -202,7 +208,7 @@ function Header() {
                             to="/contact"
                             className={({ isActive }) =>
                             isActive
-                                ? 'flex align-middle p-4 bg-secondLighter rounded-full '
+                                ? desktopActive
                                 : desktopInactive
                         }
                         >
@@ -212,25 +218,33 @@ function Header() {
                             to="/products"
                             className={({ isActive }) =>
                             isActive
-                                ? 'flex align-middle p-4 bg-secondLighter rounded-full '
-                                : 'flex align-middle p-4 hover:underline'
+                                ? desktopActive
+                                : desktopInactive
                         }
                         >
                             Products
                         </NavLink>
                     </div>
-                    <div className="m-2 p-6 h-20 w-1/12 rounded-full">
+                    <div className="flex justify-center align-middle p-6 h-[96px] w-24 rounded-full">
                         {userId ? (
                             <NavLink
                                 to="/myProfile"
-                                className="align-middle p-4 hover:bg-secondLightest hover:rounded-full focus:underline"
+                                className={({ isActive }) =>
+                                isActive
+                                    ? loginButtonActive
+                                    : loginButtonInactive
+                            }
                             >
                                 My Profile
                             </NavLink>
                         ) : (
                             <NavLink
                                 to="/login"
-                                className="align-middle p-4 hover:bg-secondLightest hover:rounded-full focus:underline"
+                                className={({ isActive }) =>
+                                isActive
+                                    ? loginButtonActive
+                                    : loginButtonInactive
+                            }
                             >
                                 Log In
                             </NavLink>
@@ -238,7 +252,9 @@ function Header() {
                     </div>
                 </nav>
             </header>
-            <Outlet className="" />
+            <div>
+                <Outlet className="desktop:top-24 desktop:absolute" />
+            </div>
         </>
     );
 }

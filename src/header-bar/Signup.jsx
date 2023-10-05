@@ -15,7 +15,7 @@ const Signup = () => {
     };
   
     return (
-    <>
+    <div className='mt-24'>
     <img src=''/>
       <Formik
             initialValues={{
@@ -94,7 +94,7 @@ const Signup = () => {
                 </Form>
             )}
         </Formik>
-    </>
+    </div>
   )
 }
 
