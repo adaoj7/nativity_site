@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { useEffect,useState } from 'react'
 import axios from 'axios'
 import UserShifts from './UserShifts'
+import Image from "../../assets/CFN-White-Shadow-01.svg";
 
 
 const ViewMyShifts = () => {
@@ -24,6 +25,9 @@ const ViewMyShifts = () => {
     // console.log(data)
     return (
     <>
+    <div className="p-4 pl-20">
+                <img src={Image} className="h-20" />
+            </div>
     <h3>My Shifts:</h3>
     <UserShifts shifts={data}/>
     

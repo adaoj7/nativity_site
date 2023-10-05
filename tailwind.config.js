@@ -26,10 +26,13 @@ mode: 'jit',
         // Jet
         fifth: "#353535",
         umber: "#6B5950",
-        darkGreen: "#1F2A13"
+        darkGreen: "#1f2f16",
+        calPoly: "#2E4521",
       }
     },
   },
-  plugins: [],
+  plugins: [
+  
+  ],
 }
 

@@ -56,7 +56,7 @@ const Host = () => {
 
     return (
         <div>
-            <div className="p-4 pl-20">
+            <div className="p-4 pl-20 hidden desktop:flex">
                 <img src={Image} className="h-20" />
             </div>
             <h3>

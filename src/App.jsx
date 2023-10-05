@@ -43,14 +43,14 @@ function App() {
           <Route path='/home' element={<Home/>}/>
           <Route path='/about' element={<About/>}/>
           <Route path='/volunteer' element={<Volunteer/>}/>
-          <Route path='/volunteer/setup' element={userId ? <Setup/> : <Navigate to='/login'/>} 
+          <Route path='/volunteer/setup' element={userId ? <Setup/> : <Login/>} 
           loader={async () => {
             const res = await axios.get('/api/setup')
             // console.log(res.data)
             return {dataAboutShifts: res.data}
           }}
           />
-          <Route path='/volunteer/host' element={userId ? <Host/> : <Navigate to='/login'/>} 
+          <Route path='/volunteer/host' element={userId ? <Host/> : <Login/>} 
           loader={async () => {
             const res = await axios.get('/api/host')
             // console.log(res.data)

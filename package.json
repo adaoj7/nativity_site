@@ -11,12 +11,15 @@
     "seed": "node scripts/seed.js"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
     "@reduxjs/toolkit": "^1.9.6",
     "axios": "^1.5.0",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
+    "flowbite": "^1.8.1",
+    "flowbite-react": "^0.6.4",
     "formik": "^2.4.4",
     "lodash": "^4.17.21",
     "morgan": "^1.10.0",

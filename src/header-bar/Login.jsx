@@ -7,6 +7,7 @@ import { NavLink } from "react-router-dom";
 import App from "../App";
 import { useDispatch } from "react-redux";
 import NativityLogo from "../components/Elements/NativityLogo";
+import Image from "../assets/CFN-White-Shadow-01.svg"
 
 const Login = () => {
     // const [email, setEmail] = useState("");
@@ -21,9 +22,11 @@ const Login = () => {
 
     return (
         <>
-        <NativityLogo />
-        <div className="mt-24">
-            <div className="flex p-24 h-full justify-center align-middle">
+        <div className="hidden desktop:flex p-4 pl-20">
+            <img src={Image} className="h-20" />
+        </div>
+        <div className="mt-12">
+            <div className="hidden desktop:flex p-24 h-full justify-center align-middle">
                 <div className="flex flex-col h-1/2 w-1/2 p-6 bg-second rounded-lg border-2 border-black shadow-gray-500 shadow-2xl">
                     <Formik
                         initialValues={{
@@ -38,7 +41,7 @@ const Login = () => {
                                 console.log(values);
                                 // await sleep(500);
                                 // alert(JSON.stringify(values, null, 2));
-                            const sendNewVolunteer = async () => {
+                            const login = async () => {
                                 let bodyObj = {
                                     email: values.email,
                                     password: values.password,
@@ -61,8 +64,8 @@ const Login = () => {
                                 email: "",
                                 phone: "",
                             });
-                            sendNewVolunteer();
-                            // location.replace('/home')
+                            login();
+                            // location.replace('/volunteer/setup')
                         }}
                     >
                         {({ values, handleChange, handleBlur }) => (
