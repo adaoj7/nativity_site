@@ -178,13 +178,15 @@ function Header() {
                         </div>
                     )}
                 </div>
+                
+                {/* desktop */}
                 <nav className="hidden desktop:fixed desktop:flex desktop:justify-end desktop:w-screen desktop:font-bold desktop:text-white desktop:z-10 mr-10">
                     <div
                         className={`flex ${
                             location.pathname === "/home"
                                 ? "bg-darkGreen shadow-2xl shadow-fifth/50"
                                 : "bg-second"
-                        } m-2 p-3 rounded-3xl justify-between w-2/3 h-20 shadow-2xl`}
+                        } m-2 p-3 rounded-3xl justify-between w-2/3 h-20 shadow-2xl mr-20`}
                     >
                         <NavLink
                             to="/home"
@@ -345,7 +347,7 @@ function Header() {
                             Products
                         </NavLink>
                     </div>
-                    <div className="flex justify-center align-middle p-6 h-[96px] w-24 rounded-full mr-10 ml-6">
+                    <div className="flex justify-center align-middle p-6 h-[96px] w-24 rounded-full mr-12 ml-6">
                         {userId ? (
                             <NavLink
                                 to="/myProfile"

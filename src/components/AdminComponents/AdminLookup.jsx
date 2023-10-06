@@ -92,7 +92,7 @@ const AdminLookup = () => {
                     </label>
                   </div>
       
-              <button type="submit">Submit</button>
+              <button type="submit" className='hover:underline'>Submit</button>
               <QueryResults values={newData}/>
             </Form>
              )}

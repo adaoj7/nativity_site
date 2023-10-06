@@ -89,8 +89,8 @@ const Signup = () => {
                         placeholder="Password"
                         value={values.password}
                     />
-                    <button type='button' onClick={togglePassword}>Show Password</button>
-                    <button type='submit'>Submit</button>
+                    <button type='button' onClick={togglePassword} className='hover:underline'>Show Password</button>
+                    <button type='submit' className='hover:underline'>Submit</button>
                 </Form>
             )}
         </Formik>

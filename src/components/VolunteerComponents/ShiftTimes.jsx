@@ -1,29 +1,34 @@
-﻿import React from 'react'
-import { Form,Field } from 'formik'
-import { useState } from 'react'
-import axios from 'axios'
+﻿import React from "react";
+import { Form, Field } from "formik";
+import { useState } from "react";
+import axios from "axios";
 
-const ShiftTimes = ({shifts,userShifts}) => {
+const ShiftTimes = ({ shifts, userShifts }) => {
     // console.log(userShifts)
 
-    const shift = shifts.map((ele,i) => {
-        if(!userShifts.includes(ele.shiftId))
-        {
-            return(
-            <div key={i}>
-                <input type="hidden" />
-                <Field type='checkbox' name='checked' value={ele.shiftId.toString()} key={ele.shiftId.toString()}/>
-                <label htmlFor={ele.shiftId}>{ele.timeRange}</label>
-            </div>
-    )
-}
-})
+    const shift = shifts.map((ele, i) => {
+        if (!userShifts.includes(ele.shiftId)) {
+            return (
+                <div key={i} className="flex flex-row">
+                    <div className="font-normal">
+                        <input type="hidden" />
+                        <label className="flex flex-row select-none items-center gap-3">
+                            <Field
+                                type="checkbox"
+                                name="checked"
+                                value={ele.shiftId.toString()}
+                                key={ele.shiftId.toString()}
+                                className="flex align-middle h-4 w-4"
+                            />
+                            {ele.timeRange}
+                        </label>
+                    </div>
+                </div>
+            );
+        }
+    });
 
-    return(
-        <>
-            {shift}
-        </>
-    )
-}
+    return <>{shift}</>;
+};
 
-export default ShiftTimes
+export default ShiftTimes;

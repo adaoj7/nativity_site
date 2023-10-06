@@ -127,11 +127,16 @@ const Volunteers = () => {
 
             {/* desktop screen */}
             <div className="hidden desktop:flex desktop:flex-col desktop:justify-center desktop:w-screen desktop:p-4">
-                <div className="w-96 p-2 m-2 border-2 border-black">
+                <div className="flex w-full flex-col items-center">
 
-                <h3 className="flex justify-center">
+                <p className="flex w-96">
+                     This page is for those who would like to sign up for shifts to help with nativity setup and takedown.
+                </p>
+                <div className="h-[604px] w-1/3 px-8 pt-4 m-2 border-2 rounded-2xl border-black bg-second shadow-xl">
+
+                <h2 className="flex justify-center font-semibold text-xl">
                     Hello, {fname} {lname}
-                </h3>
+                </h2>
                 <Formik
                     initialValues={{
                         checked: [],
@@ -155,11 +160,11 @@ const Volunteers = () => {
                                 if (!data.error) {
                                 } else {
                                     console.log(data.error);
-                            }
-                        };
-                        setSubmitting(false);
-                        resetForm({
-                            checked: [],
+                                }
+                            };
+                            setSubmitting(false);
+                            resetForm({
+                                checked: [],
                         });
 
                         sendNewVolunteer();
@@ -167,28 +172,37 @@ const Volunteers = () => {
                     }}
                 >
                     {({ errors, handleSubmit }) => (
+                        
                         <Form
                         onSubmit={handleSubmit}
-                            className="flex flex-col justify-center p-2"
-                            >
-                            <h3 id="checkbox-group" className="w-60 p-2">Setup Shifts:</h3>
-                            <ul role="group" aria-labelledby="checkbox-group" className="w-60">
+                        className="flex h-full flex-col justify-between p-2 py-8"
+                        >
+                            <h2 id="checkbox-group" className="flex justify-start font-semibold">Setup Shifts:</h2>
+                            <div>
+                            <ul role="group" aria-labelledby="checkbox-group" className="flex gap-14 flex-wrap p-4">
                                 <Dates
                                     dates={daysOfShifts}
                                     userShifts={userShiftId}
-                                    className='w-2'
+                                    className='flex w-2 flex-wrap'
                                     />
                                 
                             </ul>
+                            </div>
                             {errors.checked && (
-                                <div>
-                                    {"Must at least check one availability"}
+                                <div className="flex justify-center ">
+                                    {"Please select an availability"}
                                 </div>
                             )}
-                            <button type="submit">Submit</button>
+                            {!errors.checked && (
+                                <div className="flex justify-center select-none text-transparent">This is an easter egg</div>
+                            )}
+                            <div className="flex justify-center px-24 align-bottom mx-8 mb-12">
+                            <button type="submit" className="w-full border-black border-[1px] rounded-lg hover:bg-gray-300 hover:text-white hover:border-gray-700">Submit</button>
+                            </div>
                         </Form>
                     )}
                 </Formik>
+                            </div>
                             </div>
             </div>
         </div>

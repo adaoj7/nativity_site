@@ -28,26 +28,32 @@ const MyProfile = () => {
         <div className="h-screen">
             <NativityLogo />
             <div className="mt-24">
-                <nav className="desktop::hidden">
+                <nav className="desktop:hidden">
                     {userId ? (
+                      <div className="flex justify-end">
+
                         <button
-                            className="flex justify-end p"
+                            className="flex "
                             onClick={handleClick}
-                        >
+                            >
                             Logout
                         </button>
+                          </div>
                     ) : (
                         <NavLink to="/login">Log In</NavLink>
                     )}
                 </nav>
-                <nav className="hidden">
+                <nav className="hidden desktop:flex justify-end pr-8">
                     {userId ? (
+                      <div className="m-8">
+
                         <button
-                            className="flex justify-end p"
+                            className="flex justify-end font-semibold  hover:underline"
                             onClick={handleClick}
-                        >
+                            >
                             Logout
                         </button>
+                          </div>
                     ) : (
                         <NavLink to="/login">Log In</NavLink>
                     )}

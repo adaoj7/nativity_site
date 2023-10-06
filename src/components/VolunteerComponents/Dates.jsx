@@ -8,7 +8,7 @@ const Dates = ({dates,userShifts}) => {
       let shifts = ele.shifts.map((ele) => ele)
       if (shifts.length > 0) 
    { return (
-      <div key={i}>
+      <div key={i} className='flex flex-col font-semibold'>
         {ele.date}
         <ShiftTimes shifts={shifts} userShifts={userShifts}/>
       </div>
