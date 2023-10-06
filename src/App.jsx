@@ -57,7 +57,7 @@ function App() {
             return {dataAboutShifts: res.data}
           }}
           />
-          <Route path='/volunteer/myShifts' element={userId ? <ViewMyShifts/> : <Login/>}/>
+          <Route path='/volunteer/myShifts' element={userId ? <ViewMyShifts/> : <Navigate to='/login'/>}/>
           <Route path='/myProfile' element={userId ? <MyProfile/> : <Login/>}/>
           <Route path='/thisYear' element={<ThisYear/>}/>
           <Route path='/gallery' element={<Gallery/>}/>

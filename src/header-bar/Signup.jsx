@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Formik,Form,Field, } from 'formik';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
+import NativityLogo from '../components/Elements/NativityLogo';
 
 const Signup = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -14,7 +15,8 @@ const Signup = () => {
     };
   
     return (
-    <>
+    <div className='mt-24'>
+    <img src=''/>
       <Formik
             initialValues={{
                 fname: '',
@@ -87,12 +89,12 @@ const Signup = () => {
                         placeholder="Password"
                         value={values.password}
                     />
-                    <button type='button' onClick={togglePassword}>Show Password</button>
-                    <button type='submit'>Submit</button>
+                    <button type='button' onClick={togglePassword} className='hover:underline'>Show Password</button>
+                    <button type='submit' className='hover:underline'>Submit</button>
                 </Form>
             )}
         </Formik>
-    </>
+    </div>
   )
 }
 
