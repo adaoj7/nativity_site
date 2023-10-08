@@ -7,10 +7,17 @@ import { useLayoutEffect } from "react";
 import { IoMenu } from "react-icons/io5";
 import { Menu } from "@headlessui/react";
 import Image from "./assets/CFN-White-Shadow-01.svg";
+import useScrollPosition from "./hooks/useScrollPosition";
 
 // Header is needed to get around Browser router functionality bugs
 function Header() {
     let location = useLocation();
+
+    const classNames = (...classes) => {
+        return classes.filter(Boolean).join(' ')
+    }
+    const scrollPosition = useScrollPosition()
+
     console.log(location);
     const [menu, setMenu] = useState(false);
     const userId = useSelector((state) => state.userId);
@@ -32,7 +39,7 @@ function Header() {
         location.pathname === "/home" ? "bg-calPoly/80" : "bg-third"
     }`;
 
-    const loginButtonInactive = `flex p-4 justify-center align-middle items-center text-black hover:underline hover:text-white rounded-full whitespace-nowrap shadow-2xl ${
+    const loginButtonInactive = `flex p-4 justify-center align-middle items-center text-black hover:underline hover:text-white whitespace-nowrap ${
         location.pathname === "/home"
             ? "text-white"
             : "text-black bg-second hover:bg-third"
@@ -180,13 +187,18 @@ function Header() {
                 </div>
                 
                 {/* desktop */}
-                <nav className="hidden desktop:fixed desktop:flex desktop:justify-end desktop:w-screen desktop:font-bold desktop:text-white desktop:z-10 mr-10">
+                <nav className={`hidden desktop:fixed desktop:flex  desktop:w-screen desktop:font-bold desktop:text-white desktop:z-10 mr-10 ${
+                            location.pathname === "/home"
+                                 ? classNames(scrollPosition > 0 ? 'desktop:bg-darkGreen desktop:h-50' : 'desktop:bg-transparent',
+                                'desktop:justify-between desktop:transition-[background-color,height]' )
+                                : 'desktop:justify-end'
+                        }`}>
                     <div
                         className={`flex ${
                             location.pathname === "/home"
-                                ? "bg-darkGreen shadow-2xl shadow-fifth/50"
-                                : "bg-second"
-                        } m-2 p-3 rounded-3xl justify-between w-2/3 h-20 shadow-2xl mr-20`}
+                                ? "ml-36 m-2 p-3"
+                                : "bg-second m-2 p-3 rounded-3xl justify-between w-2/3 h-20 shadow-2xl mr-20"
+                        } `}
                     >
                         <NavLink
                             to="/home"

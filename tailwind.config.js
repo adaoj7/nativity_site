@@ -16,7 +16,8 @@ mode: 'jit',
     extend: {
       colors: {
         // cornsilk
-        first: "#FEFAE0",
+        first: "#FFFFFF",
+        cornsilk: "#FEFAE0",
         // Peach
         second: "#F7E5B5",
         // Buff
