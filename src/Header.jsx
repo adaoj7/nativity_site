@@ -1,5 +1,5 @@
 ﻿import { useState } from "react";
-import "./App.css";
+
 import { useLocation, NavLink, Outlet } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
@@ -36,10 +36,10 @@ function Header() {
         location.pathname === "/home" ? "text-white" : "text-black"
     }`;
     const desktopActive = `flex align-middle p-4 rounded-3xl whitespace-nowrap ${
-        location.pathname === "/home" ? "bg-calPoly/80" : "bg-third"
+        location.pathname === "/home" ? "underline" : "bg-third rounded-full"
     }`;
 
-    const loginButtonInactive = `flex p-4 justify-center align-middle items-center text-black hover:underline hover:text-white whitespace-nowrap ${
+    const loginButtonInactive = `flex p-4 justify-center align-middle items-center text-black hover:underline hover:rounded-full hover:text-white whitespace-nowrap ${
         location.pathname === "/home"
             ? "text-white"
             : "text-black bg-second hover:bg-third"
@@ -187,17 +187,20 @@ function Header() {
                 </div>
                 
                 {/* desktop */}
-                <nav className={`hidden desktop:fixed desktop:flex  desktop:w-screen desktop:font-bold desktop:text-white desktop:z-10 mr-10 ${
+                <nav className={`hidden desktop:fixed desktop:flex  desktop:w-screen desktop:font-bold desktop:text-white desktop:z--10 mr-10 ${
                             location.pathname === "/home"
                                  ? classNames(scrollPosition > 0 ? 'desktop:bg-darkGreen desktop:h-50' : 'desktop:bg-transparent',
                                 'desktop:justify-between desktop:transition-[background-color,height]' )
-                                : 'desktop:justify-end'
+                                : 'desktop:justify-between bg-second'
                         }`}>
+                    
+                       {location.pathname === '/home' ?<></>:<img src={Image} className="h-24 mx-4 " />}
+                    
                     <div
                         className={`flex ${
                             location.pathname === "/home"
-                                ? "ml-36 m-2 p-3"
-                                : "bg-second m-2 p-3 rounded-3xl justify-between w-2/3 h-20 shadow-2xl mr-20"
+                                ? "ml-28 m-2 p-3 gap-2"
+                                : "m-2 p-3 rounded-3xl justify-between w-2/3 h-20 mr-20"
                         } `}
                     >
                         <NavLink
