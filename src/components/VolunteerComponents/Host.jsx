@@ -56,63 +56,164 @@ const Host = () => {
 
     return (
         <div>
-            <div className="p-4 pl-20 hidden desktop:flex">
+            <div className="mt-2 ml-12 hidden desktop:flex">
                 <img src={Image} className="h-20" />
             </div>
-            <h3>
-                Hello, {fname} {lname}
-            </h3>
-            <Formik
-                initialValues={{
-                    checked: [],
-                }}
-                validationSchema={SignupSchema}
-                onSubmit={async (values, { setSubmitting, resetForm }) => {
-                    // console.log(setupTimes);
-                    console.log(values);
-                    await sleep(500);
-                    // alert(JSON.stringify(values, null, 2));
-                    const sendNewVolunteer = async () => {
-                        let bodyObj = {
-                            userId: userId,
-                            checked: values.checked,
-                        };
 
-                        const { data } = await axios.post(
-                            "/api/newVolunteer",
-                            bodyObj
-                        );
-                        if (!data.error) {
-                        } else {
-                            console.log(data.error);
-                        }
-                    };
-                    setSubmitting(false);
-                    resetForm({
+            {/* Mobile screen */}
+            <div className="desktop:hidden flex">
+                <h3>
+                    Hello, {fname} {lname}
+                </h3>
+                <Formik
+                    initialValues={{
                         checked: [],
-                    });
+                    }}
+                    validationSchema={SignupSchema}
+                    onSubmit={async (values, { setSubmitting, resetForm }) => {
+                        // console.log(setupTimes);
+                        console.log(values);
+                        await sleep(500);
+                        alert(JSON.stringify(values, null, 2));
+                        const sendNewVolunteer = async () => {
+                            let bodyObj = {
+                                userId: userId,
+                                checked: values.checked,
+                            };
 
-                    sendNewVolunteer();
-                    location.replace("/volunteer/myShifts");
-                }}
-            >
-                {({ errors, handleSubmit }) => (
-                    <Form onSubmit={handleSubmit}>
-                        <h3 id="checkbox-group">Host Shifts:</h3>
-                        <ul role="group" aria-labelledby="checkbox-group">
-                            <Dates
-                                dates={daysOfShifts}
-                                userShifts={userShiftId}
-                            />
-                            {/* <component={SetupDates} dates={daysOfShifts}/> */}
-                        </ul>
-                        {errors.checked && (
-                            <div>{"Must at least check one availability"}</div>
-                        )}
-                        <button type="submit">Submit</button>
-                    </Form>
-                )}
-            </Formik>
+                            const { data } = await axios.post(
+                                "/api/newVolunteer",
+                                bodyObj
+                            );
+                            if (!data.error) {
+                            } else {
+                                console.log(data.error);
+                            }
+                        };
+                        setSubmitting(false);
+                        resetForm({
+                            checked: [],
+                        });
+
+                        sendNewVolunteer();
+                    }}
+                >
+                    {({ errors, handleSubmit }) => (
+                        <Form onSubmit={handleSubmit} className="">
+                            <h3 id="checkbox-group">Setup Shifts:</h3>
+                            <ul role="group" aria-labelledby="checkbox-group">
+                                <Dates
+                                    dates={daysOfShifts}
+                                    userShifts={userShiftId}
+                                />
+                                {/* <component={SetupDates} dates={daysOfShifts}/> */}
+                            </ul>
+                            {errors.checked && (
+                                <div>
+                                    {"Must at least check one availability"}
+                                </div>
+                            )}
+                            <button type="submit">Submit</button>
+                        </Form>
+                    )}
+                </Formik>
+            </div>
+
+            {/* desktop screen */}
+            <div className="hidden desktop:flex desktop:flex-col desktop:justify-center desktop:w-screen desktop:p-4">
+                <div className="flex w-full flex-col items-center">
+                    <p className="flex w-96">
+                        This page is for those who would like to sign up for
+                        hosting shifts during the festival.
+                    </p>
+                    <div className="h-[604px] w-1/3 px-8 pt-4 m-2 border-2 rounded-2xl border-black bg-second shadow-xl">
+                        <h2 className="flex justify-center font-semibold text-xl">
+                            Hello, {fname} {lname}
+                        </h2>
+                        <Formik
+                            initialValues={{
+                                checked: [],
+                            }}
+                            validationSchema={SignupSchema}
+                            onSubmit={async (
+                                values,
+                                { setSubmitting, resetForm }
+                            ) => {
+                                // console.log(setupTimes);
+                                console.log(values);
+                                await sleep(500);
+                                // alert(JSON.stringify(values, null, 2));
+                                const sendNewVolunteer = async () => {
+                                    let bodyObj = {
+                                        userId: userId,
+                                        checked: values.checked,
+                                    };
+
+                                    const { data } = await axios.post(
+                                        "/api/newVolunteer",
+                                        bodyObj
+                                    );
+                                    if (!data.error) {
+                                    } else {
+                                        console.log(data.error);
+                                    }
+                                };
+                                setSubmitting(false);
+                                resetForm({
+                                    checked: [],
+                                });
+
+                                sendNewVolunteer();
+                            }}
+                        >
+                            {({ errors, handleSubmit }) => (
+                                <Form
+                                    onSubmit={handleSubmit}
+                                    className="flex h-full flex-col justify-between p-2 py-8"
+                                >
+                                    <h2
+                                        id="checkbox-group"
+                                        className="flex justify-start font-semibold"
+                                    >
+                                        Host Shifts:
+                                    </h2>
+                                    <div>
+                                        <ul
+                                            role="group"
+                                            aria-labelledby="checkbox-group"
+                                            className="flex gap-14 flex-wrap p-4"
+                                        >
+                                            <Dates
+                                                dates={daysOfShifts}
+                                                userShifts={userShiftId}
+                                                className="flex w-2 flex-wrap"
+                                            />
+                                        </ul>
+                                    </div>
+                                    {errors.checked && (
+                                        <div className="flex justify-center ">
+                                            {"Please select an availability"}
+                                        </div>
+                                    )}
+                                    {!errors.checked && (
+                                        <div className="flex justify-center select-none text-transparent">
+                                            This is an easter egg
+                                        </div>
+                                    )}
+                                    <div className="flex justify-center px-24 align-bottom mx-8 mb-12">
+                                        <button
+                                            type="submit"
+                                            className="w-full bg-third text-white border-black border-[1px] rounded-lg  hover:text-black hover:bg-white"
+                                        >
+                                            Submit
+                                        </button>
+                                    </div>
+                                </Form>
+                            )}
+                        </Formik>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

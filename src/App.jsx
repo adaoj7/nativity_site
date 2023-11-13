@@ -1,5 +1,5 @@
 import { useState,useEffect } from 'react'
-
+import './App.css'
 import Header from './Header'
 import axios from 'axios'
 import { createBrowserRouter,createRoutesFromElements,Route,RouterProvider,Routes } from 'react-router-dom'
@@ -8,7 +8,7 @@ import About from './header-bar/About.jsx'
 import Volunteer from './header-bar/Volunteer.jsx'
 import Setup from './components/VolunteerComponents/Setup.jsx'
 import Host from './components/VolunteerComponents/Host.jsx'
-import ViewMyShifts from './components/VolunteerComponents/ViewMyShifts'
+import UserShifts from './components/VolunteerComponents/UserShifts'
 import ThisYear from './header-bar/ThisYear.jsx'
 import Gallery from './header-bar/Gallery.jsx'
 import LightTheWorld from './header-bar/LightTheWorld.jsx'
@@ -57,7 +57,7 @@ function App() {
             return {dataAboutShifts: res.data}
           }}
           />
-          <Route path='/volunteer/myShifts' element={userId ? <ViewMyShifts/> : <Navigate to='/login'/>}/>
+          <Route path='/volunteer/myShifts' element={userId ? <UserShifts/> : <Navigate to='/login'/>}/>
           <Route path='/myProfile' element={userId ? <MyProfile/> : <Login/>}/>
           <Route path='/thisYear' element={<ThisYear/>}/>
           <Route path='/gallery' element={<Gallery/>}/>
