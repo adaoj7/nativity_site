@@ -111,3 +111,4 @@ console.log(shiftsInDB)
 
 await db.close()
 console.log('Finished seeding database!')
+console.log('reverted changes')
