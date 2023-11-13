@@ -13,7 +13,6 @@ import days from "./data/days.json" assert { type: "json" };
 import shifts from "./data/shifts.json" assert { type: "json" };
 import shiftType from "./data/shiftType.json" assert { type: "json" };
 import bcrypt from "bcryptjs";
-import "dotenv/config";
 import connectToDB from "./db.js";
 
 const yearsInDB = await Promise.all(
@@ -106,16 +105,16 @@ const availabilityInDB = await Promise.all(
     })
 );
 
-const { CONNECTION_STRING } = process.env;
-const db = await connectToDB(CONNECTION_STRING);
-await db
-    .sync({ force: true })
-    console.log("Syncing database...")
-    .then(async () => {
-        await Year.bulkCreate(yearsInDB)
-        console.log('Seed data inserted successfully.')
-    })
-    .catch((error) => console.error("Error seeding data:", error))
 
-await db.close();
-console.log("Finished seeding database!");
+
+console.log(usersInDB)
+console.log(availabilityInDB)
+// console.log(volunteersInDB)
+// console.log(daysInDB)
+console.log(shiftsInDB)
+// console.log(shiftTypesInDB)
+// console.log(hostShiftsInDB)
+
+await db.close()
+console.log('Finished seeding database!')
+console.log('reverted changes')
