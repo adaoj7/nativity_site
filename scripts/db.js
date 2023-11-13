@@ -8,7 +8,13 @@ async function connectToDB(dbURI) {
         define: {
             underscored: true,
             timestamps: false
-        }
+        },
+        dialectOptions: {
+            ssl: {
+              require: true,
+              rejectUnauthorized: false, // Set this to true in a production environment with valid certificates
+            },
+          },
     })
 
     try {

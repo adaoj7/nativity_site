@@ -7,10 +7,10 @@ mode: 'jit',
       'phone': '300px',
       // => @media (min-width: 640px) { ... }
 
-      'desktop': '1310px',
+      'desktop': '800px',
       // => @media (min-width: 1024px) { ... }
 
-      'xl': '1280px',
+      // 'xl': '1280px',
       // => @media (min-width: 1280px) { ... }
     },
     extend: {

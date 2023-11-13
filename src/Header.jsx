@@ -18,7 +18,7 @@ function Header() {
     }
     const scrollPosition = useScrollPosition()
 
-    console.log(location);
+    // console.log(location);
     const [menu, setMenu] = useState(false);
     const userId = useSelector((state) => state.userId);
     const dispatch = useDispatch();
