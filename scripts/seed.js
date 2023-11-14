@@ -1,4 +1,4 @@
-﻿﻿import { User, Availability, db, Shift, Year, Day,ShiftType,Volunteer } from "./model.js";
+﻿﻿import { User, Availability, db, Shift, Year, Day,ShiftType } from "./model.js";
 import years from './data/years.json' assert {type: 'json'}
 import days from './data/days.json' assert {type: 'json'}
 import shifts from './data/shifts.json' assert {type: 'json'}
@@ -6,6 +6,8 @@ import shiftType from './data/shiftType.json' assert {type: 'json'}
 import bcrypt from 'bcryptjs'
 
 console.log('Syncing database...')
+
+
 await db.sync({force: true})
 
 const yearsInDB = await Promise.all(

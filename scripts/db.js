@@ -7,18 +7,24 @@ async function connectToDB(dbURI) {
         logging: console.log,
         define: {
             underscored: true,
-            timestamps: false
+            timestamps: false,
         },
-    })
+        dialectOptions: {
+            ssl: {
+                require: true,
+                rejectUnauthorized: false, // Set this to true in a production environment with valid certificates
+            },
+        },
+    });
 
     try {
-        await sequelize.authenticate()
-        console.log('Connected to DB successfully');
+        await sequelize.authenticate();
+        console.log("Connected to DB successfully");
     } catch (error) {
-        console.error('Unable to connect to DB:', error)
+        console.error("Unable to connect to DB:", error);
     }
 
-    return sequelize
+    return sequelize;
 }
 
-export default connectToDB
+export default connectToDB;

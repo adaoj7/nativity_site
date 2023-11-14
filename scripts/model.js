@@ -2,8 +2,10 @@
 import util from 'util'
 import connectToDB from './db.js'
 import Sequelize from "sequelize";
+import 'dotenv/config'
 
-export const db = await connectToDB('postgresql:///natsite')
+const { CONNECTION_STRING } = process.env
+export const db = await connectToDB(CONNECTION_STRING)
 
 export class User extends Model {
     [util.inspect.custom]() {
