@@ -1,5 +1,6 @@
 ﻿import React from 'react'
 import Background from "../assets/107 , Fall Family Showcase 2018-19 -3.jpg"
+import MobileBackground from '../assets/107 , Fall Family Showcase 2018-19 - mobile.jpg'
 
 const Home = () => {
 
@@ -7,7 +8,7 @@ const Home = () => {
     <div>
       <div className=''>
       <div className='desktop:hidden phone:flex phone:relative top-0'>
-        <img src="src\assets\mobile-background-1.jpg" className='z-0'/>
+        <img src={MobileBackground} className='z-0'/>
         {/* <img src="src\assets\CFN-White-Shadow-01.svg" className= 'invert absolute z-11 left-[40px] h-[120px] w-[180px] border-2 border-transparent'/> */}
       </div>
 
