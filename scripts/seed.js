@@ -102,14 +102,12 @@ const availabilityInDB = await Promise.all(
   })
 );
 
-
+console.log(yearsInDB)
+console.log(daysInDB)
 console.log(usersInDB)
 console.log(availabilityInDB)
-// console.log(volunteersInDB)
-// console.log(daysInDB)
 console.log(shiftsInDB)
-// console.log(shiftTypesInDB)
-// console.log(hostShiftsInDB)
+console.log(shiftTypesInDB)
 
 await db.close()
 console.log('Finished seeding database!')

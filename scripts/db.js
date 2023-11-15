@@ -6,8 +6,8 @@ async function connectToDB(dbURI) {
     const sequelize = new Sequelize(dbURI, {
         logging: console.log,
         define: {
-            underscored: true,
             timestamps: false,
+            underscored: true,
         },
         dialectOptions: {
             ssl: {
