@@ -59,6 +59,7 @@ export default {
                     res.status(200).send(req.session.user)
                     console.log('Hello there')
                 } else {
+                    
                     res.status(401).send('Username or password was incorrect')
                 }
             }

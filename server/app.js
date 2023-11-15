@@ -11,6 +11,7 @@ const {register,login,user,logout,} = authCtrlr
 const {signupQuery,allShifts,addAdmin,removeAdmin} = adminCtrlr
 
 const app = express();
+const PORT = 4242
 
 app.use(morgan('dev'))
 app.use(express.urlencoded({extended:false}))
@@ -48,4 +49,5 @@ app.post('/api/userShifts',loadUserShifts)
 app.delete('/api/deleteShift',deleteUserShift)
 
 
-ViteExpress.listen(app,4242,() => console.log('what is the answer? http://localhost:4242'))
+ViteExpress.listen(app,
+    PORT,() => console.log(`what is the answer? http://localhost:${PORT}`))

@@ -1,4 +1,5 @@
 ﻿import React from 'react'
+import Background from "../assets/107 , Fall Family Showcase 2018-19 -3.jpg"
 
 const Home = () => {
 
@@ -11,7 +12,7 @@ const Home = () => {
       </div>
 
       <div className='hidden desktop:flex desktop:relative top-0 desktop:'>
-        <img src="src\assets\107 , Fall Family Showcase 2018-19 -3.jpg "/>
+        <img src={Background}/>
         <img src="src\assets\CFN White-01.png" className='absolute top-1/2 right-44 h-1/4 w-1/3'/>
       </div>
       </div>
