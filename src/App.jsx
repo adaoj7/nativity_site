@@ -63,11 +63,11 @@ function App() {
           <Route path='/lightTheWorld' element={<LightTheWorld/>}/>
           <Route path='/contact' element={<Contact/>}/>
           <Route path='/products' element={<Products/>}/>
-          <Route path='/login' element={userId ? <Navigate to='/home'/> : <Login/>}/>
-          <Route path='/signup' element={userId ? <Navigate to='/home'/> : <Signup/>}/>
+          <Route path='/login' element={userId ? <Navigate to='/'/> : <Login/>}/>
+          <Route path='/signup' element={userId ? <Navigate to='/'/> : <Signup/>}/>
           <Route path='/betaAndPsi' element={isAdmin ? <Admin/> : <Home/>}/>
-          <Route path='/betaAndPsi/newAdmin' element={isAdmin ? <NewAdmin/> : <Navigate to='/home'/>}/>
-          <Route path='/betaAndPsi/query' element={isAdmin ? <AdminLookup/> : <Navigate to='/home'/>}
+          <Route path='/betaAndPsi/newAdmin' element={isAdmin ? <NewAdmin/> : <Navigate to='/'/>}/>
+          <Route path='/betaAndPsi/query' element={isAdmin ? <AdminLookup/> : <Navigate to='/'/>}
           loader={async () => {
             const res = await axios.get('/api/adminQuery')
             // console.log(res.data)

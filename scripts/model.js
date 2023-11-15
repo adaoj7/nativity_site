@@ -5,7 +5,10 @@ import Sequelize from "sequelize";
 import 'dotenv/config'
 
 const { CONNECTION_STRING } = process.env
-export const db = await connectToDB(CONNECTION_STRING)
+const dbURI = CONNECTION_STRING
+
+console.log('dbURI', dbURI)
+export const db = await connectToDB(dbURI)
 
 export class User extends Model {
     [util.inspect.custom]() {
