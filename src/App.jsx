@@ -1,5 +1,4 @@
 import { useState,useEffect } from 'react'
-import './App.css'
 import Header from './Header'
 import axios from 'axios'
 import { createBrowserRouter,createRoutesFromElements,Route,RouterProvider,Routes } from 'react-router-dom'
@@ -40,7 +39,7 @@ function App() {
     createRoutesFromElements(
       // <>
         <Route path='/' element={<Header/>} errorElement={<Login/>}>
-          <Route path='/home' element={<Home/>}/>
+          <Route path='/' element={<Home/>}/>
           <Route path='/about' element={<About/>}/>
           <Route path='/volunteer' element={<Volunteer/>}/>
           <Route path='/volunteer/setup' element={userId ? <Setup/> : <Login/>} 
