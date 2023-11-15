@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon server/app.js -w server/app.js -w src",
+    "pm2": "pm2 start server/app.js --name nat-server",
+    "pm2 restart": "pm2 restart nat-server",
     "tailwind": "npx tailwindcss -i ./src/index.css -o ./dist/output.css --watch",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
