@@ -15,8 +15,8 @@ const Signup = () => {
     };
   
     return (
-    <div className='mt-24'>
-    <img src=''/>
+    <div className='flex flex-col mt-24'>
+        <p className='flex justify-center'>Signing up will allow you to sign up and view volunteer shifts and to register nativities.</p>
       <Formik
             initialValues={{
                 fname: '',
@@ -66,12 +66,15 @@ const Signup = () => {
             {({
                 values, handleChange,handleBlur
             }) => (
-                <Form>
-                    <Field type='text' name='fname' onChange={handleChange} onBlur={handleBlur} required={true} placeholder='First Name' value={values.fname}/>
-                    <Field type='text' name='lname' onChange={handleChange} onBlur={handleBlur} required={true} placeholder='Last Name' value={values.lname}/>
-                    <Field type='text' name='phone' onChange={handleChange} onBlur={handleBlur} required={true} placeholder='Phone' value={values.phone}/>
-                    <Field type='text' name='church' onChange={handleChange} onBlur={handleBlur} required={true} placeholder='Church' value={values.church}/>
+                <div className='flex justify-center'>
+
+                <Form className='flex justify-center flex-col border-2 rounded-md m-4 p-4 py-8 border-black w-[350px] h-[460px]'>
+                    <Field className='border-2 border-black rounded-md p-2 m-2' type='text' name='fname' onChange={handleChange} onBlur={handleBlur} required={true} placeholder='First Name' value={values.fname}/>
+                    <Field className='border-2 border-black rounded-md p-2 m-2' type='text' name='lname' onChange={handleChange} onBlur={handleBlur} required={true} placeholder='Last Name' value={values.lname}/>
+                    <Field className='border-2 border-black rounded-md p-2 m-2' type='text' name='phone' onChange={handleChange} onBlur={handleBlur} required={true} placeholder='Phone' value={values.phone}/>
+                    <Field className='border-2 border-black rounded-md p-2 m-2' type='text' name='church' onChange={handleChange} onBlur={handleBlur} required={true} placeholder='Church Affiliation' value={values.church}/>
                     <Field
+                        className='border-2 border-black rounded-md p-2 m-2'
                         type="text"
                         name='email'
                         onChange={handleChange}
@@ -79,8 +82,9 @@ const Signup = () => {
                         required={true}
                         placeholder="Email"
                         value={values.email}
-                    />
+                        />
                     <Field
+                        className='border-2 border-black rounded-md p-2 m-2'
                         type={showPassword ? "text" : "password"}
                         name='password'
                         onChange={handleChange}
@@ -88,10 +92,14 @@ const Signup = () => {
                         required={true}
                         placeholder="Password"
                         value={values.password}
-                    />
+                        />
                     <button type='button' onClick={togglePassword} className='hover:underline'>Show Password</button>
-                    <button type='submit' className='hover:underline'>Submit</button>
+                    <div className='flex justify-center'>
+
+                    <button type='submit' className='hover:underline font-semibold flex bg-second hover:bg-white justify-center mx-20 my-2 rounded-full p-2 border-[1px] border-black w-[190px]'>Submit</button>
+                    </div>
                 </Form>
+            </div>
             )}
         </Formik>
     </div>
