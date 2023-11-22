@@ -8,9 +8,11 @@ const Admin = () => {
     <div>
 
     <NativityLogo/>
-    <nav className='flex mt-24'>
-        <NavLink to='/betaAndPsi/newAdmin'>Add new Admin</NavLink>
-        <NavLink to='/betaAndPsi/query'>Look up shift times</NavLink>
+    <nav className='flex mt-24 flex-row justify-center'>
+        <div className='m-4'>
+        <NavLink className='rounded-full p-2 m-2 font-semibold bg-second hover:bg-white border-[1px] border-black' to='/betaAndPsi/newAdmin'>Add new Admin</NavLink>
+        <NavLink className='rounded-full p-2 m-2 font-semibold bg-second hover:bg-white border-[1px] border-black' to='/betaAndPsi/query'>Look up shift times</NavLink>
+        </div>
     </nav>
     </div>
   )
