@@ -31,7 +31,7 @@ const AdminLookup = () => {
     return (
         <div>
         <Admin/>
-          <h1>Search shifts</h1>
+          <h1 className='font-semibold flex justify-center'>Search shifts</h1>
           <Formik
             initialValues={{
               date:'',
@@ -68,16 +68,18 @@ const AdminLookup = () => {
             }}
           >
              {({ values }) => (
-            <Form>
-              
-                
+            <Form className='flex justify-center flex-col mx-[400px] p-4  '>
+                <div className='flex justify-center'>
+
+                <div className='flex flex-col justify-center rounded-md p-4 border-[1px] border-black h-[180px] w-[250px]'>
+
                 <label>Shift Date</label>
                 <DateOptions dates={daysOfShifts}/>
 
-                <ShiftOptions shifts={values} />
+                <ShiftOptions shifts={values}/>
                 
                 <div id="checkbox-group">Show:</div>
-                  <div role="group" aria-labelledby="checkbox-group">
+                  <div role="group" aria-labelledby="checkbox-group" className='flex justify-center'>
                     <label>
                       <Field type="checkbox" name="checked" value="Name" />
                       Name
@@ -91,8 +93,12 @@ const AdminLookup = () => {
                       Phone
                     </label>
                   </div>
-      
-              <button type="submit" className='hover:underline'>Submit</button>
+                </div>
+                </div>
+                <div className='flex justify-center'>
+
+              <button type="submit" className='hover:underline font-semibold flex bg-second hover:bg-white justify-center mx-20 my-2 rounded-full p-2 border-[1px] border-black w-[190px]'>Submit</button>
+                </div>
               <QueryResults values={newData}/>
             </Form>
              )}

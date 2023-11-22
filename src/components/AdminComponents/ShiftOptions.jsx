@@ -31,7 +31,7 @@ const ShiftOptions = ({shifts}) => {
             return (
               <>
                 <label>Shift Time</label>  
-                <Field name='time' component='select'>
+                <Field name='time' component='select' className='border-[1px] border-black rounded-md'>
                 <option key='random'>Please Select a time</option>
                     {times}
                 </Field>
