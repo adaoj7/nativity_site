@@ -19,6 +19,7 @@ import MyProfile from './header-bar/MyProfile'
 import Admin from './header-bar/Admin.jsx'
 import NewAdmin from './components/AdminComponents/NewAdmin'
 import AdminLookup from './components/AdminComponents/AdminLookup.jsx'
+import ErrorPage from './Error.jsx'
 import { Navigate } from 'react-router-dom'
 import { useSelector,useDispatch } from 'react-redux'
 
@@ -38,7 +39,7 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       // <>
-        <Route path='/' element={<Header/>} errorElement={<Login/>}>
+        <Route path='/' element={<Header/>} errorElement={<ErrorPage/>}>
           <Route path='/' element={<Home/>}/>
           <Route path='/about' element={<About/>}/>
           <Route path='/volunteer' element={<Volunteer/>}/>

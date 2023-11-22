@@ -142,7 +142,7 @@ const Host = () => {
                                 // console.log(setupTimes);
                                 console.log(values);
                                 await sleep(500);
-                                // alert(JSON.stringify(values, null, 2));
+                                alert(JSON.stringify(values, null, 2)); 
                                 const sendNewVolunteer = async () => {
                                     let bodyObj = {
                                         userId: userId,

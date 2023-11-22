@@ -6,7 +6,7 @@ const Contact = () => {
     <>
     <NativityLogo/>
     <div className='mt-24'>
-        <div >About</div>
+        <div>Contact</div>
     </div>
     </>
   )
