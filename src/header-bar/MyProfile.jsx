@@ -2,7 +2,6 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import Header from "../Header";
 import NativityLogo from "../components/Elements/NativityLogo";
 
 const MyProfile = () => {

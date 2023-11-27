@@ -9,7 +9,7 @@ import Image from "./assets/CFN-White-Shadow-01.svg";
 import useScrollPosition from "./hooks/useScrollPosition";
 
 // Header is needed to get around Browser router functionality bugs
-function Header() {
+function PageLayout() {
     let location = useLocation();
 
     const classNames = (...classes) => {
@@ -389,8 +389,11 @@ function Header() {
             <div>
                 <Outlet className="desktop:top-24 desktop:absolute" />
             </div>
+            <div>
+                <div className="h-48 bg-second">This is a footer</div>
+            </div>
         </>
     );
 }
 
-export default Header;
+export default PageLayout;

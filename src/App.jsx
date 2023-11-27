@@ -1,5 +1,5 @@
 import { useState,useEffect } from 'react'
-import Header from './Header'
+import PageLayout from './PageLayout.jsx'
 import axios from 'axios'
 import { createBrowserRouter,createRoutesFromElements,Route,RouterProvider,Routes } from 'react-router-dom'
 import Home from './header-bar/Home.jsx'
@@ -38,7 +38,7 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       // <>
-        <Route path='/' element={<Header/>} errorElement={<Login/>}>
+        <Route path='/' element={<PageLayout/>} errorElement={<Login/>}>
           <Route path='/' element={<Home/>}/>
           <Route path='/about' element={<About/>}/>
           <Route path='/volunteer' element={<Volunteer/>}/>
