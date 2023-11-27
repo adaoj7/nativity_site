@@ -5,8 +5,8 @@ const Contact = () => {
   return (
     <>
     <NativityLogo/>
-    <div className='mt-24'>
-        <div >About</div>
+    <div className='mt-24 h-[70vh]'>
+        <div >Contact</div>
     </div>
     </>
   )

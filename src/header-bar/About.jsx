@@ -4,7 +4,7 @@ import NativityLogo from '../components/Elements/NativityLogo'
 const About = () => {
   return (
     <>
-    <div className='mt-24 flex items-center flex-col'>
+    <div className='mt-24 flex items-center flex-col h-[70vh]'>
       <h1 className='font-semibold text-lg'>About Us and Our Mission</h1>
       <img src=""/>
       <div className='w-[400px]'>

@@ -13,9 +13,9 @@ function PageLayout() {
     let location = useLocation();
 
     const classNames = (...classes) => {
-        return classes.filter(Boolean).join(' ')
-    }
-    const scrollPosition = useScrollPosition()
+        return classes.filter(Boolean).join(" ");
+    };
+    const scrollPosition = useScrollPosition();
 
     // console.log(location);
     const [menu, setMenu] = useState(false);
@@ -48,8 +48,8 @@ function PageLayout() {
     }`;
 
     return (
-        <>
-            <header className="sticky w-full z-10">
+        <div className="">
+            <header className="sticky w-full z-10 flex">
                 <div className="desktop:hidden fixed ">
                     {menu ? (
                         <nav
@@ -184,15 +184,25 @@ function PageLayout() {
                         </div>
                     )}
                 </div>
-                
+
                 {/* desktop */}
-                <nav className={`hidden desktop:fixed desktop:flex desktop:w-screen desktop:font-bold desktop:text-white desktop:z--10 mr-10 ${
-                            location.pathname === "/"
-                                 ? classNames(scrollPosition > 0 ? 'desktop:bg-darkGreen desktop:h-50' : 'desktop:bg-transparent',
-                                'desktop:justify-between desktop:transition-[background-color,height]' )
-                                : 'desktop:justify-between bg-second'
-                        }`}>
-                            {location.pathname === '/' ?<></>:<img src={Image} className="h-24 mx-4 " />}
+                <nav
+                    className={`hidden desktop:fixed desktop:flex justify-between desktop:w-screen desktop:font-bold desktop:text-white desktop:z--10 mr-10 ${
+                        location.pathname === "/"
+                            ? classNames(
+                                  scrollPosition > 0
+                                      ? "desktop:bg-darkGreen desktop:h-50"
+                                      : "desktop:bg-transparent",
+                                  "desktop:justify-between desktop:transition-[background-color,height]"
+                              )
+                            : "desktop:justify-between bg-second"
+                    }`}
+                >
+                    {location.pathname === "/" ? (
+                        <></>
+                    ) : (
+                        <img src={Image} className="h-24 mx-4 " />
+                    )}
                     <div
                         className={`flex ${
                             location.pathname === "/"
@@ -386,13 +396,23 @@ function PageLayout() {
                     </div>
                 </nav>
             </header>
-            <div>
-                <Outlet className="desktop:top-24 desktop:absolute" />
+            <div className="flex flex-col justify-between w-full">
+                <div>
+                    <Outlet className="desktop:top-24 desktop:absolute " />
+                </div>
+                <div className="desktop:flex justify-end">
+                    <div
+                        className={`h-32 desktop:flex w-full ${
+                            location.pathname === "/"
+                                ? "bg-darkGreen text-white"
+                                : "bg-second"
+                        }`}
+                    >
+                        This is a footer
+                    </div>
+                </div>
             </div>
-            <div>
-                <div className="h-48 bg-second">This is a footer</div>
-            </div>
-        </>
+        </div>
     );
 }
 
