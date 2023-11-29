@@ -1,5 +1,13 @@
 ﻿import React from "react";
 import NativityLogo from "../components/Elements/NativityLogo";
+import Pilot from '../assets/20221201_194615_edited_edited.jpg'
+import Drs from '../assets/2022 Drs Ruskusky_edited_edited.jpg'
+import Claire from '../assets/2022 Claire Crone_edited.jpg'
+import Mayor from '../assets/CFN_LTW_2019_edited_edited.jpg'
+import Senator from '../assets/Light the World 2017_edited.jpg'
+import Sisters from '../assets/Light the World 2016_edited.jpg'
+import Carroll from '../assets/Dr. Carroll.jpg'
+import Gregg from '../assets/Light the World 2018.jpeg'
 
 const LightTheWorld = () => {
     return (
@@ -76,21 +84,37 @@ const LightTheWorld = () => {
                         airplane.</p>
                     </div>
                     <img
-                        src="src\assets\20221201_194615_edited_edited.jpg"
+                        src={Pilot}
                         className="h-96"
                     />
                 </div>
                 <div>
                     <p></p>
-                    <img src="src\assets\2022 Drs Ruskusky_edited_edited.jpg" className="h-96"/>
+                    <img src={Drs} className="h-96"/>
                 </div>
                 <div>
                     <p></p>
-                    <img src="" alt="" />
+                    <img src={Claire} className="h-96"/>
                 </div>
                 <div>
                     <p></p>
-                    <img src="" alt="" />
+                    <img src={Mayor} className="h-96"/>
+                </div>
+                <div>
+                    <p></p>
+                    <img src={Gregg} className="h-96"/>
+                </div>
+                <div>
+                    <p></p>
+                    <img src={Carroll} className="h-96"/>
+                </div>
+                <div>
+                    <p></p>
+                    <img src={Senator} className="h-96"/>
+                </div>
+                <div>
+                    <p></p>
+                    <img src={Sisters} className="h-96"/>
                 </div>
             </div>
         </>
