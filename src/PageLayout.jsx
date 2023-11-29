@@ -400,15 +400,17 @@ function PageLayout() {
                 <div>
                     <Outlet className="desktop:top-24 desktop:absolute " />
                 </div>
+                {/* Footer with links */}
                 <div className="desktop:flex justify-end">
                     <div
-                        className={`h-32 desktop:flex w-full ${
+                        className={`h-28 desktop:flex flex-col w-full ${
                             location.pathname === "/"
                                 ? "bg-darkGreen text-white"
                                 : "bg-second"
                         }`}
                     >
-                        This is a footer
+                        <NavLink to='/gallery' className=''>This is the first footer link</NavLink>
+                        <NavLink to='/about' className=''>This is the second footer link</NavLink>
                     </div>
                 </div>
             </div>
