@@ -1,5 +1,5 @@
 import { useState,useEffect } from 'react'
-import PageLayout from './PageLayout.jsx'
+import Header from './layout/Header.jsx'
 import axios from 'axios'
 import { createBrowserRouter,createRoutesFromElements,Route,RouterProvider,Routes } from 'react-router-dom'
 import Home from './header-bar/Home.jsx'
@@ -21,6 +21,7 @@ import NewAdmin from './components/AdminComponents/NewAdmin'
 import AdminLookup from './components/AdminComponents/AdminLookup.jsx'
 import { Navigate } from 'react-router-dom'
 import { useSelector,useDispatch } from 'react-redux'
+import Layout from './layout/Layout.jsx'
 
 function App() {
   const userId = useSelector((state) => state.userId)
@@ -38,7 +39,7 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       // <>
-        <Route path='/' element={<PageLayout/>} errorElement={<Login/>}>
+        <Route path='/' element={<Layout/>} errorElement={<Login/>}>
           <Route path='/' element={<Home/>}/>
           <Route path='/about' element={<About/>}/>
           <Route path='/volunteer' element={<Volunteer/>}/>

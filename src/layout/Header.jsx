@@ -5,11 +5,11 @@ import axios from "axios";
 import { useLayoutEffect } from "react";
 import { IoMenu } from "react-icons/io5";
 import { Menu } from "@headlessui/react";
-import Image from "./assets/CFN-White-Shadow-01.svg";
-import useScrollPosition from "./hooks/useScrollPosition";
+import Image from "../assets/CFN-White-Shadow-01.svg";
+import useScrollPosition from "../hooks/useScrollPosition";
 
 // Header is needed to get around Browser router functionality bugs
-function PageLayout() {
+function Header() {
     let location = useLocation();
 
     const classNames = (...classes) => {
@@ -396,29 +396,8 @@ function PageLayout() {
                     </div>
                 </nav>
             </header>
-            <div className="flex flex-col justify-between w-full">
-                <div>
-                    <Outlet className="desktop:top-24 desktop:absolute " />
-                </div>
-                {/* Footer with links */}
-                <div className="desktop:flex justify-end">
-                    <div
-                        className={`h-28 desktop:flex flex-col w-full ${
-                            location.pathname === "/"
-                                ? "bg-darkGreen text-white"
-                                : "bg-second"
-                        }`}
-                    >
-                        <div>Contact us: peorianativities@gmail.com</div>
-                        <NavLink to='/about' className=''>About</NavLink>
-                        <NavLink to='/gallery' className=''>Gallery</NavLink>
-                        <Link target={'_blank'} to='https://www.instagram.com/peoria_nativity?igshid=180p3l66ka3x2' className=''>Instagram</Link>
-                        <Link target={'_blank'} to='https://www.facebook.com/photo?fbid=342727541784414&set=pcb.342727635117738' className=''>Facebook</Link>
-                    </div>
-                </div>
-            </div>
         </div>
     );
 }
 
-export default PageLayout;
+export default Header;
