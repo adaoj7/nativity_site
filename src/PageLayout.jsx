@@ -1,5 +1,5 @@
 ﻿import { useState } from "react";
-import { useLocation, NavLink, Outlet } from "react-router-dom";
+import { useLocation, NavLink, Outlet,Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { useLayoutEffect } from "react";
@@ -409,8 +409,11 @@ function PageLayout() {
                                 : "bg-second"
                         }`}
                     >
-                        <NavLink to='/gallery' className=''>This is the first footer link</NavLink>
-                        <NavLink to='/about' className=''>This is the second footer link</NavLink>
+                        <div>Contact us: peorianativities@gmail.com</div>
+                        <NavLink to='/about' className=''>About</NavLink>
+                        <NavLink to='/gallery' className=''>Gallery</NavLink>
+                        <Link target={'_blank'} to='https://www.instagram.com/peoria_nativity?igshid=180p3l66ka3x2' className=''>Instagram</Link>
+                        <Link target={'_blank'} to='https://www.facebook.com/photo?fbid=342727541784414&set=pcb.342727635117738' className=''>Facebook</Link>
                     </div>
                 </div>
             </div>
