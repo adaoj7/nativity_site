@@ -6,11 +6,12 @@ const LightTheWorld = () => {
         <>
             <NativityLogo />
             <div className="mt-24 flex flex-col">
-                <div className="flex justify-center flex-col">
+                <div className="flex items-center flex-col">
                     <h1 className="text-2xl flex justify-center font-bold">
                         Light the World Award
                     </h1>
-                    <p className="flex justify-center w-2/3">
+                    <div className="w-2/3">  
+                    <p className="flex justify-center text-center text-lg mb-6">
                         The “Light the World” award is given to a group or
                         individuals to recognize their exemplary Christ-like
                         service, sacrifice, and ministry in order to alleviate
@@ -21,12 +22,13 @@ const LightTheWorld = () => {
                         and lasting contribution through selfless acts of
                         service that changes lives.
                     </p>
+                    </div>
                 </div>
                 <div className="flex flex-row">
                     <div>
-                        <h2>2022</h2>
-                        <h2>JOBS PARTNERSHIP--OFFERING A HELPING HAND</h2>
-                        <p>The Jobs Partnership is a faith-based program that
+                        <h2 className="flex justify-center">2022</h2>
+                        <h2 className="flex justify-center">JOBS PARTNERSHIP--OFFERING A HELPING HAND</h2>
+                        <p className="p-6">The Jobs Partnership is a faith-based program that
                         brings together local churches and area businesses to
                         train, equip, and employ citizens in the Peoria and
                         surrounding counties. The primary goal is to bring
@@ -47,8 +49,8 @@ const LightTheWorld = () => {
                         communities. Locally, some classes are held at the
                         Federal prison, county jails, and at Heaven's View
                         Christian Fellowship Church.</p>
-                        <h2>NEAL GLASSETT--LIFELINE PILOTS</h2>
-                        <p>Neal Glassett has logged 86 in-flight hours and 11,000
+                        <h2 className="flex justify-center">NEAL GLASSETT--LIFELINE PILOTS</h2>
+                        <p className="p-6">Neal Glassett has logged 86 in-flight hours and 11,000
                         miles transporting medical patients around the country
                         in his first year with LifeLine Pilots. Founded in 1981,
                         by Wanda Whitsitt of Champaign, IL, LifeLine Pilots'
