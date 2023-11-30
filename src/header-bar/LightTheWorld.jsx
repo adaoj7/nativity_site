@@ -348,7 +348,7 @@ const LightTheWorld = () => {
                             Currently, the 23 Sisters serve in volunteer
                             capacities ranging from counseling and spiritual
                             guidance in venues throughout the community
-                            including The Children’s Hospital of Illinois at
+                            including The Children's Hospital of Illinois at
                             Saint Francis Medical Center among others. Other
                             current ministries include adult literacy and
                             tutoring, nursing home management and service, hot
@@ -358,9 +358,7 @@ const LightTheWorld = () => {
                         </p>
                     </div>
                 </div>
-                <div className="h-8">
-
-                </div>
+                <div className="h-8"></div>
             </div>
         </>
     );
