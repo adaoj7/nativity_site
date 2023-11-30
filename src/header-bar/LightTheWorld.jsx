@@ -1,4 +1,5 @@
 ﻿import React from "react";
+import { Link } from "react-router-dom";
 import NativityLogo from "../components/Elements/NativityLogo";
 import Pilot from "../assets/20221201_194615_edited_edited.jpg";
 import Drs from "../assets/2022 Drs Ruskusky_edited_edited.jpg";
@@ -33,7 +34,7 @@ const LightTheWorld = () => {
                         </p>
                     </div>
                 </div>
-                <div className="flex flex-row">
+                <div className="flex flex-row mx-4">
                     <div>
                         <h2 className="flex justify-center">2022</h2>
                         <h2 className="flex justify-center">
@@ -97,7 +98,7 @@ const LightTheWorld = () => {
                     </div>
                     <img src={Pilot} className="h-96" />
                 </div>
-                <div className="flex flex-row">
+                <div className="flex flex-row mx-4">
                     <img src={Drs} className="h-96" />
                     <div>
                         <h2 className="flex justify-center">2022</h2>
@@ -131,11 +132,12 @@ const LightTheWorld = () => {
                             The Peoria Home is one of only three in the nation
                             and is affiliated with OSF Healthcare Children's
                             Hospital of Illinois. For more information please go
-                            to their website: Almost Home Kids
+                            to their website:{' '}
+                            <Link target={'_blank'} to={'https://www.almosthomekids.org/'} className="underline">Almost Home Kids</Link>
                         </p>
                     </div>
                 </div>
-                <div className="flex flex-row">
+                <div className="flex flex-row mx-4">
                     <div>
                         <h2 className="flex justify-center">2021</h2>
                         <h2 className="flex justify-center">
@@ -179,7 +181,7 @@ const LightTheWorld = () => {
                     </div>
                     <img src={Claire} className="h-96" />
                 </div>
-                <div className="flex flex-row">
+                <div className="flex flex-row mx-4">
                     <img src={Carroll} className="h-96" />
                     <div>
                         <h2 className="flex justify-center">2019</h2>
@@ -208,7 +210,7 @@ const LightTheWorld = () => {
                         </p>
                     </div>
                 </div>
-                <div className="flex flex-row">
+                <div className="flex flex-row mx-4">
                     <div>
                         <h2 className="flex justify-center">2019</h2>
                         <h2 className="flex justify-center">VI HEINZ</h2>
@@ -233,7 +235,7 @@ const LightTheWorld = () => {
                     </div>
                     <img src={Mayor} className="h-96" />
                 </div>
-                <div className="flex flex-row">
+                <div className="flex flex-row mx-4">
                     <img src={Gregg} className="h-96" />
                     <div>
                         <h2 className="flex justify-center">2018</h2>
@@ -273,7 +275,7 @@ const LightTheWorld = () => {
                         </p>
                     </div>
                 </div>
-                <div className="flex flex-row">
+                <div className="flex flex-row mx-4">
                     <div>
                         <h2 className="flex justify-center">2017</h2>
                         <h2 className="flex justify-center">
@@ -321,7 +323,7 @@ const LightTheWorld = () => {
                     </div>
                     <img src={Senator} className="h-96" />
                 </div>
-                <div className="flex flex-row">
+                <div className="flex flex-row mx-4">
                     <img src={Sisters} className="h-96" />
                     <div>
                         <h2 className="flex justify-center">2016</h2>
@@ -355,6 +357,9 @@ const LightTheWorld = () => {
                             more.
                         </p>
                     </div>
+                </div>
+                <div className="h-8">
+
                 </div>
             </div>
         </>
