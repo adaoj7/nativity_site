@@ -2,11 +2,8 @@
 import { useState } from "react";
 import { Formik, Field, Form } from "formik";
 import axios from "axios";
-import Signup from "./Signup";
 import { NavLink } from "react-router-dom";
-import App from "../App";
 import { useDispatch } from "react-redux";
-import NativityLogo from "../components/Elements/NativityLogo";
 import Image from "../assets/CFN-White-Shadow-01.svg"
 
 const Login = () => {
@@ -22,10 +19,7 @@ const Login = () => {
 
     return (
         <>
-        <div className="hidden desktop:flex p-4 pl-20">
-            <img src={Image} className="h-20" />
-        </div>
-        <div className="mt-12">
+        <div className="mt-8">
             <div className="hidden desktop:flex p-24 h-full justify-center align-middle">
                 <div className="flex flex-col h-1/2 w-1/2 p-6 bg-second rounded-lg border-2 border-black shadow-gray-500 shadow-2xl">
                     <Formik

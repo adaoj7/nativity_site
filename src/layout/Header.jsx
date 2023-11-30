@@ -1,21 +1,21 @@
 ﻿import { useState } from "react";
-import { useLocation, NavLink, Outlet } from "react-router-dom";
+import { useLocation, NavLink, Outlet,Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { useLayoutEffect } from "react";
 import { IoMenu } from "react-icons/io5";
 import { Menu } from "@headlessui/react";
-import Image from "./assets/CFN-White-Shadow-01.svg";
-import useScrollPosition from "./hooks/useScrollPosition";
+import Image from "../assets/CFN-White-Shadow-01.svg";
+import useScrollPosition from "../hooks/useScrollPosition";
 
 // Header is needed to get around Browser router functionality bugs
 function Header() {
     let location = useLocation();
 
     const classNames = (...classes) => {
-        return classes.filter(Boolean).join(' ')
-    }
-    const scrollPosition = useScrollPosition()
+        return classes.filter(Boolean).join(" ");
+    };
+    const scrollPosition = useScrollPosition();
 
     // console.log(location);
     const [menu, setMenu] = useState(false);
@@ -48,8 +48,8 @@ function Header() {
     }`;
 
     return (
-        <>
-            <header className="sticky w-full z-10">
+        <div className="">
+            <header className="sticky w-full z-10 flex">
                 <div className="desktop:hidden fixed ">
                     {menu ? (
                         <nav
@@ -184,15 +184,25 @@ function Header() {
                         </div>
                     )}
                 </div>
-                
+
                 {/* desktop */}
-                <nav className={`hidden desktop:fixed desktop:flex desktop:w-screen desktop:font-bold desktop:text-white desktop:z--10 mr-10 ${
-                            location.pathname === "/"
-                                 ? classNames(scrollPosition > 0 ? 'desktop:bg-darkGreen desktop:h-50' : 'desktop:bg-transparent',
-                                'desktop:justify-between desktop:transition-[background-color,height]' )
-                                : 'desktop:justify-between bg-second'
-                        }`}>
-                            {location.pathname === '/' ?<></>:<img src={Image} className="h-24 mx-4 " />}
+                <nav
+                    className={`hidden desktop:fixed desktop:flex justify-between desktop:w-screen desktop:font-bold desktop:text-white desktop:z--10 mr-10 ${
+                        location.pathname === "/"
+                            ? classNames(
+                                  scrollPosition > 0
+                                      ? "desktop:bg-darkGreen desktop:h-50"
+                                      : "desktop:bg-transparent",
+                                  "desktop:justify-between desktop:transition-[background-color,height]"
+                              )
+                            : "desktop:justify-between bg-second"
+                    }`}
+                >
+                    {location.pathname === "/" ? (
+                        <></>
+                    ) : (
+                        <img src={Image} className="h-24 mx-4 " />
+                    )}
                     <div
                         className={`flex ${
                             location.pathname === "/"
@@ -386,10 +396,7 @@ function Header() {
                     </div>
                 </nav>
             </header>
-            <div>
-                <Outlet className="desktop:top-24 desktop:absolute" />
-            </div>
-        </>
+        </div>
     );
 }
 

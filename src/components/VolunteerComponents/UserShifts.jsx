@@ -5,21 +5,20 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
 const UserShifts = () => {
-    
     const [deletedShift, setDeletedShift] = useState("");
     const location = useLocation();
 
     // Delete shift
     const handleDelete = (availId, shiftId) => {
-        if(confirm("Did you want to delete?")) {
-        axios.delete("/api/deleteShift", {
-            data: {
-                availabilityId: availId,
-                shiftId: shiftId,
-            },
-        });
-        setDeletedShift(availId);
-    } 
+        if (confirm("Did you want to delete?")) {
+            axios.delete("/api/deleteShift", {
+                data: {
+                    availabilityId: availId,
+                    shiftId: shiftId,
+                },
+            });
+            setDeletedShift(availId);
+        }
     };
 
     // Load shifts
@@ -54,7 +53,7 @@ const UserShifts = () => {
     // console.log(newArr)
     const displayedShifts = newArr.map((ele, i) => {
         let { date, time, availId, shiftId, typeId } = ele;
-        
+
         return (
             <div className="flex justify-between">
                 <p
@@ -63,9 +62,9 @@ const UserShifts = () => {
                 >
                     Date: {date} Time: {time} Shift type:
                     {typeId === 1 ? (
-                        <span className="font-semibold ml-2">{'Setup'}</span>
+                        <span className="font-semibold ml-2">{"Setup"}</span>
                     ) : (
-                        <span className="font-semibold ml-2">{'Host'}</span>
+                        <span className="font-semibold ml-2">{"Host"}</span>
                     )}
                 </p>
                 <div className="flex justify-center">
@@ -82,10 +81,12 @@ const UserShifts = () => {
     });
 
     return (
-        <div className="flex justify-center">
-            <div className=" border-black border-2 p-4 mx-32 mt-32 w-[600px]">
-                <h2 className="text-lg font-semibold">My Shifts:</h2>
-                {displayedShifts}
+        <div className="h-[85vh]">
+            <div className="flex justify-center">
+                <div className=" border-black border-2 p-4 mx-32 mt-32 w-[600px]">
+                    <h2 className="text-lg font-semibold">My Shifts:</h2>
+                    {displayedShifts}
+                </div>
             </div>
         </div>
     );
