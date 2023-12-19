@@ -7,6 +7,7 @@ import About from './header-bar/About.jsx'
 import Volunteer from './header-bar/Volunteer.jsx'
 import Setup from './components/VolunteerComponents/Setup.jsx'
 import Host from './components/VolunteerComponents/Host.jsx'
+import Donate from './components/VolunteerComponents/Donate.jsx'
 import UserShifts from './components/VolunteerComponents/UserShifts'
 import ThisYear from './header-bar/ThisYear.jsx'
 import Gallery from './header-bar/Gallery.jsx'
@@ -58,6 +59,7 @@ function App() {
           }}
           />
           <Route path='/volunteer/myShifts' element={userId ? <UserShifts/> : <Navigate to='/login'/>}/>
+          <Route path='/donate' element={<Donate/>}/>
           <Route path='/myProfile' element={userId ? <MyProfile/> : <Login/>}/>
           <Route path='/thisYear' element={<ThisYear/>}/>
           <Route path='/gallery' element={<Gallery/>}/>
@@ -81,7 +83,7 @@ function App() {
   )
   
   return (
-    <div className='bg-first overflow-x-hidden'>
+    <div className='overflow-x-hidden bg-first'>
       <RouterProvider router={router}/>
     </div>
   )

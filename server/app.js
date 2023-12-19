@@ -5,13 +5,18 @@ import session from "express-session";
 import siteCtrlr from './controllers/siteCtrlr.js';
 import authCtrlr from './controllers/authCtrlr.js'
 import adminCtrlr from "./controllers/adminCtrlr.js";
+import Stripe from "stripe"
+import 'dotenv/config'
+import process from 'process'
+
 
 const { addVolunteer,loadSetupShifts,loadHostShifts,loadUserShifts,deleteUserShift } = siteCtrlr
 const {register,login,user,logout,} = authCtrlr
 const {signupQuery,allShifts,addAdmin,removeAdmin} = adminCtrlr
 
 const app = express();
-const PORT = 4242
+const PORT = 4242;
+const stripe = new Stripe(process.env.STRIPE_SECRET);const domain = process.env.VITE_HOST
 
 app.use(morgan('dev'))
 app.use(express.urlencoded({extended:false}))
@@ -47,6 +52,25 @@ app.get('/api/host',loadHostShifts)
 app.post('/api/newVolunteer',addVolunteer)
 app.post('/api/userShifts',loadUserShifts)
 app.delete('/api/deleteShift',deleteUserShift)
+
+// stripe endpoints
+app.post("/api/create-checkout-session/donate", async (req, res) => {
+    console.log('hit')
+    const session = await stripe.checkout.sessions.create({
+      line_items: [
+        {
+          price: "price_1OOohVB3pG0RBYQkrYs4DXOh",
+          quantity: 1,
+        
+        },
+      ],
+      mode: "payment",
+      success_url: `${domain}?success=true`,
+      cancel_url: `${domain}?canceled=true`,
+    });
+    console.log(session.url)
+    res.status(200).send(session.url);
+  });
 
 
 ViteExpress.listen(app,
