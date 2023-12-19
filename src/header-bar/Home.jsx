@@ -2,6 +2,8 @@
 import Background from "../assets/107 , Fall Family Showcase 2018-19 -3.jpg";
 import MobileBackground from "../assets/107 , Fall Family Showcase 2018-19 - mobile.jpg";
 import Logo from "../assets/CFN White-01.png";
+import About from "./About";
+import { NavLink } from "react-router-dom";
 
 const Home = () => {
     return (
@@ -22,38 +24,49 @@ const Home = () => {
                     </div>
                 </div>
 
-                <section id="location">
-                    <h2>Location</h2>
-                    <p>
-                        Our event will take place at the beautiful XYZ
-                        Convention Center in Draper, Utah. Join us for an
-                        unforgettable experience!
-                    </p>
+                <section className="w-1/3 about-festival" id="about">
+                    {/* <!-- Brief about the festival with a 'Read more' link to the about page --> */}
+                    The Peoria Area Community Festival of Nativities was started
+                    in 2016 by members of the Church of Jesus Christ of
+                    Latter-Day Saints and the Sisters of St. Francis of
+                    Immaculate Conception. Since then the festival has continued
+                    to grow and invite individuals and families to "Come and
+                    See."
+                    {' '}
+                    <NavLink to="/about" className='hover:text-gray-500'>About Us</NavLink>
                 </section>
 
-                <section id="organizers">
-                    <h2>Organizers</h2>
-                    <p>
-                        The event is organized by a passionate team of
-                        professionals who are dedicated to creating an
-                        exceptional gathering for all attendees. Meet our team:
-                    </p>
-                    <ul>
-                        <li>John Doe - Event Director</li>
-                        <li>Jane Smith - Marketing Manager</li>
-                        <li>Michael Johnson - Logistics Coordinator</li>
-                    </ul>
+                <section className="event-calendar" id="events">
+                    {/* <!-- Interactive event scheduler/calendar --> */}
+                    Events
                 </section>
 
-                <section id="theme">
-                    <h2>Theme</h2>
-                    <p>
-                        Our theme for this year's event is "Innovation
-                        Unleashed." We'll explore cutting-edge technologies,
-                        creative solutions, and forward-thinking ideas. Get
-                        ready to be inspired!
-                    </p>
+                <section className="volunteer-section" id="volunteer">
+                    {/* <!-- Information on volunteering and a sign-up form --> */}
+                    Volunteer
                 </section>
+
+                <section className="donation-section" id="donate">
+                    {/* <!-- Quick donation access --> */}
+                    Donate
+                </section>
+
+                <section className="gallery" id="gallery">
+                    {/* <!-- Gallery of past festivals --> */}
+                    Gallery
+                </section>
+
+                <section className="testimonials" id="testimonials">
+                    {/* <!-- Testimonials or story sharing section --> */}
+                    Testimonials
+                </section>
+
+                <aside className="news-updates" id="news">
+                    {/* <!-- Sidebar for news or social media feed --> */}
+                    News
+                </aside>
+
+                <section className=""></section>
             </div>
         </>
     );
