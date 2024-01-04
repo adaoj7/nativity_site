@@ -13,7 +13,7 @@ const About = () => {
         </div>
       <div className='flex flex-col items-center justify-center w-1/3 p-4 mx-12 my-4'>
         <p className='py-4'>
-          The Community Area Festival of Nativities began in 2016 as an attempt to gather those with a love of Christ across denominations during the Christmas holiday. Originally spearheaded by the Church of Jesus Christ of Latter Day Saints and the Sisters of St. Francis of the Immaculate Conception the festival has expanded to include a multitude of congregations, showcasing over 1000 nativities and engaging hundreds of volunteers.
+          The Peoria Area Community Festival of Nativities began in 2016 as an attempt to gather those with a love of Christ across denominations during the Christmas holiday. Originally spearheaded by the Church of Jesus Christ of Latter Day Saints and the Sisters of St. Francis of the Immaculate Conception the festival has expanded to include a multitude of congregations, showcasing over 1000 nativities and engaging hundreds of volunteers.
         </p>
         <p className='py-4'>
         We invite community members in the Peoria, Illinois area to join us in celebrating the birth of Jesus Christ by viewing nativity displays from around the world and enjoying musical performances from local talent. Members from different churches have come together to create this unique and complimentary interfaith nativity exhibit with one simple hope in mind:
