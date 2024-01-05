@@ -33,7 +33,12 @@ mode: 'jit',
     },
   },
   plugins: [
-  
+  require("daisyui")
   ],
+  daisyui:{
+    styled:false,
+    base:true,
+    darkTheme: "light",
+  }
 }
 

@@ -4,7 +4,7 @@ import { NavLink,Link,useLocation } from 'react-router-dom'
 const Footer = () => {
   let location = useLocation();
   return (
-    <div className="desktop:flex justify-end">
+    <div className="justify-end desktop:flex">
     <div
         className={`h-auto desktop:flex flex-col w-full ${
             location.pathname === "/"
@@ -12,7 +12,7 @@ const Footer = () => {
                 : "bg-second"
         }`}
     >
-        <div>Contact us: peorianativities@gmail.com</div>
+        <div>Contact us: <button onClick={() => window.location = 'mailto:peorianativities@gmail.com'}>peorianativities@gmail.com</button></div>
         <NavLink to='/about' className=''>About</NavLink>
         <NavLink to='/gallery' className=''>Gallery</NavLink>
         <Link target={'_blank'} to='https://www.instagram.com/peoria_nativity?igshid=180p3l66ka3x2' className=''>Instagram</Link>
