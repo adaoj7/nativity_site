@@ -32,7 +32,9 @@ const Volunteers = () => {
     const { dataAboutShifts } = useLoaderData();
     //   console.log(dataAboutShifts)
 
-    const years = dataAboutShifts.filter((ele) => ele.year === year);
+    // This is very important. If the year has advanced then new shifts will need to be added to be displayed
+    // Currently this is hard coded but it should be changed to the year function
+    const years = dataAboutShifts.filter((ele) => ele.year === 2023);
 
     const daysOfShifts = years.map(({ days }) => {
         let dates = days.map(({ date, shifts }) => {
@@ -48,7 +50,7 @@ const Volunteers = () => {
 
     const userShift = async () => {
         const { data } = await axios.post("/api/userShifts", { userId });
-        // console.log(res)
+        // console.log(data)
         setData(data);
     };
     useEffect(() => {
@@ -60,12 +62,12 @@ const Volunteers = () => {
 
     return (
         <div>
-            <div className="mt-2 ml-12 hidden desktop:flex">
+            <div className="hidden mt-2 ml-12 desktop:flex">
                 <img src={Image} className="h-20" />
             </div>
 
             {/* Mobile screen */}
-            <div className="desktop:hidden flex">
+            <div className="flex desktop:hidden">
                 <h3>
                     Hello, {fname} {lname}
                 </h3>
@@ -126,13 +128,13 @@ const Volunteers = () => {
 
             {/* desktop screen */}
             <div className="hidden desktop:flex desktop:flex-col desktop:justify-center desktop:w-screen desktop:p-4">
-                <div className="flex w-full flex-col items-center">
+                <div className="flex flex-col items-center w-full">
                     <p className="flex w-96">
                         This page is for those who would like to sign up for
                         shifts to help with nativity setup and takedown.
                     </p>
                     <div className="h-[604px] w-1/3 px-8 pt-4 m-2 border-2 rounded-2xl border-black bg-second shadow-xl">
-                        <h2 className="flex justify-center font-semibold text-xl">
+                        <h2 className="flex justify-center text-xl font-semibold">
                             Hello, {fname} {lname}
                         </h2>
                         <Formik
@@ -176,7 +178,7 @@ const Volunteers = () => {
                             {({ errors, handleSubmit }) => (
                                 <Form
                                     onSubmit={handleSubmit}
-                                    className="flex h-full flex-col justify-between p-2 py-8"
+                                    className="flex flex-col justify-between h-full p-2 py-8"
                                 >
                                     <h2
                                         id="checkbox-group"
@@ -188,12 +190,12 @@ const Volunteers = () => {
                                         <ul
                                             role="group"
                                             aria-labelledby="checkbox-group"
-                                            className="flex gap-14 flex-wrap p-4"
+                                            className="flex flex-wrap p-4 gap-14"
                                         >
                                             <Dates
                                                 dates={daysOfShifts}
                                                 userShifts={userShiftId}
-                                                className="flex w-2 flex-wrap"
+                                                className="flex flex-wrap w-2"
                                             />
                                         </ul>
                                     </div>
@@ -203,11 +205,11 @@ const Volunteers = () => {
                                         </div>
                                     )}
                                     {!errors.checked && (
-                                        <div className="flex justify-center select-none text-transparent">
+                                        <div className="flex justify-center text-transparent select-none">
                                             This is an easter egg
                                         </div>
                                     )}
-                                    <div className="flex justify-center px-24 align-bottom mx-8 mb-12">
+                                    <div className="flex justify-center px-24 mx-8 mb-12 align-bottom">
                                         <button
                                             type="submit"
                                             className="w-full bg-third text-white border-black border-[1px] rounded-lg  hover:text-black hover:bg-white"

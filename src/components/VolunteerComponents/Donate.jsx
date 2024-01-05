@@ -18,7 +18,7 @@ const Donate = () => {
     <form onSubmit={createDonationSession}>
         <button 
         type='submit' 
-        className='bg-green-500 hover:bg-slate-500'
+        className='bg-green-500 btn hover:bg-slate-500'
         >Donate</button>
     </form>
         </div>

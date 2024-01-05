@@ -28,7 +28,7 @@ const Home = () => {
                 <div className="flex flex-row flex-wrap m-4 space-y-3">
                     <div className="flex flex-row justify-between">
                         <section
-                            className="w-1/3 p-4 bg-white border-2 border-black rounded-3xl"
+                            className="w-1/3 p-4 text-lg bg-white border-2 border-black rounded-3xl"
                             id="about"
                         >
                             {/* <!-- Brief about the festival with a 'Read more' link to the about page --> */}
@@ -51,39 +51,39 @@ const Home = () => {
                             id="events"
                         >
                             {/* <!-- Interactive event scheduler/calendar --> */}
-                            <h2 className="flex justify-center font-semibold">
+                            <h2 className="flex justify-center text-lg font-semibold">
                                 Oh Holy Night
                             </h2>
-                            <h2 className="flex justify-center font-semibold">
+                            <h2 className="flex justify-center text-lg font-semibold">
                                 November 30th and December 1st-3rd
                             </h2>
                             <ul className="m-4">
-                                <li className="m-2">
+                                <li className="m-2 ">
                                     Thursday Nov 30th, 3pm-9pm
                                 </li>
-                                <li className="m-2">
+                                <li className="m-2 ">
                                     Friday Dec 1st, 10am-9pm
                                 </li>
-                                <li className="m-2">
+                                <li className="m-2 ">
                                     Saturday, Dec 2nd, 10am-9pm
                                 </li>
-                                <li className="m-2">
+                                <li className="m-2 ">
                                     Sunday, Dec 3rd, 12pm-6pm
                                 </li>
-                                <li className="m-2">
+                                <li className="m-2 ">
                                     There will also be a live nativity on
                                     Thursday night from 4:30 to 6:30pm
                                 </li>
                             </ul>
                             <div className="flex flex-col justify-center mx-6">
-                                <h2 className="font-semibold">Address:</h2>
+                                <h2 className="font-semibold ">Address:</h2>
                                 <button
                                     onClick={() =>
                                         window.open(
                                             `https://www.google.com/maps/place/The+Community+Festival+of+Nativities/@40.7352662,-89.6539589,15.5z/data=!4m6!3m5!1s0x880a5c39a382250d:0x6fcfa24cada00e1b!8m2!3d40.732102!4d-89.651485!16s%2Fg%2F11f63xgxt0?entry=ttu`
                                         )
                                     }
-                                    className="flex justify-center px-4 text-white border-2 border-black bg-slate-600 hover:bg-slate-300 rounded-3xl whitespace-nowrap"
+                                    className="flex justify-center px-4 text-white border-2 border-black btn bg-slate-600 hover:bg-slate-300 rounded-3xl whitespace-nowrap"
                                 >
                                     3700 West Reservoir Boulevard Peoria, IL
                                 </button>
@@ -91,7 +91,7 @@ const Home = () => {
                         </section>
                         <div className="flex flex-col justify-around w-1/3">
                             <section
-                                className="p-4 bg-white border-2 border-black h-1/3 rounded-3xl"
+                                className="p-4 text-lg bg-white border-2 border-black h-1/3 rounded-3xl"
                                 id="volunteer"
                             >
                                 {/* <!-- Information on volunteering and a sign-up form --> */}
@@ -101,17 +101,28 @@ const Home = () => {
                                 Host Shifts.
                             </section>
                             <section
-                                className="p-4 bg-white border-2 border-black rounded-3xl"
+                                className="p-4 text-lg bg-white border-2 border-black rounded-3xl"
                                 id="donate"
                             >
                                 {/* <!-- Quick donation access --> */}
+                                <div>
+
                                 Thank you to our sponsors:
                                 <li>Missy Johnson</li>
                                 <li>Amber Mickelson</li>
                                 <li>Lori Johnson</li>
-                                For more information on how to become a Friend of the Nativity involved{" "}
-                                <NavLink to="/donate"
-                                    className='hover:text-gray-400'>Click Here</NavLink>
+                                For more information on how to become a Friend
+                                of the Nativity{" "}
+                                </div>
+                                <span>
+
+                                <NavLink
+                                    to="/donate"
+                                    className="hover:text-gray-400"
+                                    >
+                                    Click Here
+                                </NavLink>
+                                    </span>
                             </section>
                         </div>
                     </div>
