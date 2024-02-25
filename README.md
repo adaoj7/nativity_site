@@ -1,6 +1,6 @@
-This project is an attempt to rebuild a website for a community nativity festival.
+This project is a rebuild of the website for the Peoria Area Community Festival of Nativities.
 
-The final project will enable them to manage volunteers, store nativities, and other access other important features making the volunteer work more focused on the end goal of a well run program.
+The final project will enable them to manage volunteers, store nativities, and access other important features making the volunteer work more focused on the end goal of a well run program.
 
 Features that have been implemented so far:
 
@@ -10,6 +10,7 @@ User features:
 - If a user has signed up for a shift already that shift is removed from the form where they sign up
 - Users can see all shifts that have been selected
 - User can delete shifts that have been signed up for
+- Stripe API has been set up for better transaction handling
 
 Admin features:
 - The ability to limit number of volunteers who sign up for a specific shift
