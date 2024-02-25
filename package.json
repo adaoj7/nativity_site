@@ -7,8 +7,10 @@
     "dev": "nodemon server/app.js -w server/app.js -w src",
     "pm2": "pm2 start server/app.js --name nat-server",
     "pm2 restart": "pm2 restart nat-server",
+    "tailwindBuild": "npx tailwindcss -o ./dist/output.css",
     "tailwind": "npx tailwindcss -i ./src/index.css -o ./dist/output.css --watch",
     "build": "vite build",
+    "prod": "npm run build && npm run tailwindBuild",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "seed": "node scripts/seed.js"
