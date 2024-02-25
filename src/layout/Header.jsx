@@ -1,5 +1,5 @@
 ﻿import { useState } from "react";
-import { useLocation, NavLink, Outlet,Link } from "react-router-dom";
+import { useLocation, NavLink, Outlet, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { useLayoutEffect } from "react";
@@ -64,7 +64,7 @@ function Header() {
                             </button>
                             <div className="relative z-20 flex flex-col items-center space-y-4 text-2xl">
                                 <NavLink
-                                    to="/home"
+                                    to="/"
                                     className={({ isActive }) =>
                                         isActive
                                             ? phoneActiveClassName
@@ -327,7 +327,7 @@ function Header() {
                                     </Menu.Item>
                                 </div>
                                 <div className="px-1 py-1">
-                                <Menu.Item>
+                                    <Menu.Item>
                                         {({ active }) => (
                                             <NavLink
                                                 to="/donate"
