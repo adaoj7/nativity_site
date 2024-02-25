@@ -154,7 +154,7 @@ const Home = () => {
                 </div>
 
                 {/* Desktop homepage layout */}
-                <div className="hidden desktop:flex flex-row flex-wrap m-4 space-y-3">
+                <div className="hidden desktop:flex flex-row flex-wrap p-4 space-y-3">
                     <div className="flex flex-row justify-between">
                         <section
                             className="w-1/3 p-4 text-lg bg-white border-2 border-black rounded-3xl"

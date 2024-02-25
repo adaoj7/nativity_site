@@ -52,7 +52,7 @@ const Footer = () => {
             {/* Desktop Footer */}
             <div className="hidden justify-end desktop:flex">
                 <div
-                    className={`h-auto desktop:flex flex-col w-full ${
+                    className={`h-auto desktop:flex flex-col w-full p-4 ${
                         location.pathname === "/"
                             ? "bg-darkGreen text-white"
                             : "bg-second"
