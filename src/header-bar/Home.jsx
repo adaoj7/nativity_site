@@ -40,9 +40,9 @@ const Home = () => {
                             individuals and families to "Come and See."{" "}
                             <NavLink
                                 to="/about"
-                                className="hover:text-gray-500"
+                                className="underline text-gray-500"
                             >
-                                - About Us
+                                About Us
                             </NavLink>
                         </section>
 
@@ -76,7 +76,7 @@ const Home = () => {
                                 </li>
                             </ul>
                             <div className="flex flex-col justify-center mx-6">
-                                <h2 className="font-semibold ">Address:</h2>
+                                <h2 className="font-semibold">Address:</h2>
                                 <button
                                     onClick={() =>
                                         window.open(
