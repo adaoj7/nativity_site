@@ -93,6 +93,16 @@ function Header() {
                                 >
                                     Get Involved
                                 </NavLink>
+                                <NavLink
+                                    to="/donate"
+                                    className={({ isActive }) =>
+                                        isActive
+                                            ? phoneActiveClassName
+                                            : phoneInactive
+                                    }
+                                >
+                                    Donate
+                                </NavLink>
 
                                 <NavLink
                                     to="/thisYear"
