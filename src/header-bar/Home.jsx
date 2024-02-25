@@ -25,7 +25,7 @@ const Home = () => {
                 </div>
 
                 {/* Mobile homepage layout */}
-                <div className="desktop:hidden phone:flex flex-row justify-center flex-wrap m-4">
+                <div className="desktop:hidden phone:flex flex-row justify-center flex-wrap mx-4 py-4">
                     <div className="">
                         <section
                             className="p-4 text-lg bg-white border-2 border-black rounded-3xl"
