@@ -2,7 +2,6 @@
 import Background from "../assets/107 , Fall Family Showcase 2018-19 -3.jpg";
 import MobileBackground from "../assets/107 , Fall Family Showcase 2018-19 - mobile.jpg";
 import Logo from "../assets/CFN White-01.png";
-import About from "./About";
 import { NavLink } from "react-router-dom";
 
 const Home = () => {
@@ -26,9 +25,9 @@ const Home = () => {
 
                 {/* Mobile homepage layout */}
                 <div className="desktop:hidden phone:flex flex-row justify-center flex-wrap mx-4 py-4">
-                    <div className="">
+                    <div className="m-4">
                         <section
-                            className="p-4 text-lg bg-white border-2 border-black rounded-3xl"
+                            className="p-4 text-lg bg-white border-2 border-black rounded-3xl mx-4"
                             id="about"
                         >
                             {/* <!-- Brief about the festival with a 'Read more' link to the about page --> */}
@@ -47,14 +46,14 @@ const Home = () => {
                         </section>
 
                         <section
-                            className="p-4 bg-white border-2 border-black rounded-3xl"
+                            className="p-4 bg-white border-2 border-black rounded-3xl m-4"
                             id="events"
                         >
                             {/* <!-- Interactive event scheduler/calendar --> */}
                             <h2 className="flex justify-center text-lg font-semibold">
                                 Oh Holy Night
                             </h2>
-                            <h2 className="flex justify-center text-lg font-semibold">
+                            <h2 className="flex justify-center text-lg font-semibold whitespace-nowrap">
                                 November 30th and December 1st-3rd
                             </h2>
                             <ul className="m-4">
@@ -75,7 +74,7 @@ const Home = () => {
                                     Thursday night from 4:30 to 6:30pm
                                 </li>
                             </ul>
-                            <div className="flex flex-col justify-center mx-6">
+                            <div className="flex flex-col justify-center">
                                 <h2 className="font-semibold">Address:</h2>
                                 <button
                                     onClick={() =>
@@ -89,9 +88,9 @@ const Home = () => {
                                 </button>
                             </div>
                         </section>
-                        <div className="flex flex-col justify-around">
+                        <div className="flex flex-col justify-around mx-4">
                             <section
-                                className="p-4 text-lg bg-white border-2 border-black h-1/3 rounded-3xl"
+                                className="p-4 text-lg bg-white border-2 border-black h-1/3 rounded-3xl mb-4"
                                 id="volunteer"
                             >
                                 {/* <!-- Information on volunteering and a sign-up form --> */}

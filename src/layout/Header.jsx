@@ -50,149 +50,18 @@ function Header() {
     return (
         <div className="">
             <header className="sticky z-10 flex w-full">
+                {/* Mobile Header */}
                 <div className="fixed desktop:hidden ">
-                    {menu ? (
-                        <nav
-                            id="mobileHeader"
-                            className={`phone:relative phone:z-20 flex flex-col  bg-second rounded-xl border-black border-[1px] p-2 shadow-gray-400 shadow-2xl`}
-                        >
-                            <button
-                                className="flex items-end justify-end text-4xl text-black "
-                                onClick={(ele) => setMenu(!menu)}
-                            >
+                    <div id="mobileHeader" className="navbar">
+                        <details className="flex items-end justify-end text-4xl text-black ">
+                            <summary>
                                 <IoMenu className="relative z-20 " />
-                            </button>
-                            <div className="relative z-20 flex flex-col items-center space-y-4 text-2xl">
-                                <NavLink
-                                    to="/"
-                                    className={({ isActive }) =>
-                                        isActive
-                                            ? phoneActiveClassName
-                                            : phoneInactive
-                                    }
-                                >
-                                    Home Page
-                                </NavLink>
-                                <NavLink
-                                    to="/about"
-                                    className={({ isActive }) =>
-                                        isActive
-                                            ? phoneActiveClassName
-                                            : phoneInactive
-                                    }
-                                >
-                                    About
-                                </NavLink>
-                                <NavLink
-                                    to="/volunteer"
-                                    className={({ isActive }) =>
-                                        isActive
-                                            ? phoneActiveClassName
-                                            : phoneInactive
-                                    }
-                                >
-                                    Get Involved
-                                </NavLink>
-                                <NavLink
-                                    to="/donate"
-                                    className={({ isActive }) =>
-                                        isActive
-                                            ? phoneActiveClassName
-                                            : phoneInactive
-                                    }
-                                >
-                                    Donate
-                                </NavLink>
-
-                                <NavLink
-                                    to="/thisYear"
-                                    className={({ isActive }) =>
-                                        isActive
-                                            ? phoneActiveClassName
-                                            : phoneInactive
-                                    }
-                                >
-                                    This Year
-                                </NavLink>
-                                <NavLink
-                                    to="/gallery"
-                                    className={({ isActive }) =>
-                                        isActive
-                                            ? phoneActiveClassName
-                                            : phoneInactive
-                                    }
-                                >
-                                    Gallery
-                                </NavLink>
-                                <NavLink
-                                    to="/lightTheWorld"
-                                    className={({ isActive }) =>
-                                        isActive
-                                            ? phoneActiveClassName
-                                            : phoneInactive
-                                    }
-                                >
-                                    Light the World
-                                </NavLink>
-                                <NavLink
-                                    to="/contact"
-                                    className={({ isActive }) =>
-                                        isActive
-                                            ? phoneActiveClassName
-                                            : phoneInactive
-                                    }
-                                >
-                                    Contact
-                                </NavLink>
-                                <NavLink
-                                    to="/products"
-                                    className={({ isActive }) =>
-                                        isActive
-                                            ? phoneActiveClassName
-                                            : phoneInactive
-                                    }
-                                >
-                                    Products
-                                </NavLink>
-                                {userId ? (
-                                    <NavLink
-                                        to="/myProfile"
-                                        className={({ isActive }) =>
-                                            isActive
-                                                ? phoneActiveClassName
-                                                : phoneInactive
-                                        }
-                                    >
-                                        My Profile
-                                    </NavLink>
-                                ) : (
-                                    <NavLink
-                                        to="/login"
-                                        className={({ isActive }) =>
-                                            isActive
-                                                ? phoneActiveClassName
-                                                : phoneInactive
-                                        }
-                                    >
-                                        Log In
-                                    </NavLink>
-                                )}
-                            </div>
-                            <div className="h-6"></div>
-                        </nav>
-                    ) : (
-                        <div className="flex justify-between w-screen bg-darkGreen">
-                            <div className="m-4 ml-8">
-                                <img src={Image} className="h-20 invert" />
-                            </div>
-                            <button
-                                className=" justify-end text-white text-4xl right-2 top-2 p-2 border-[1px] border-transparent m-4"
-                                onClick={(ele) => setMenu(!menu)}
-                            >
-                                <IoMenu className="" />
-                            </button>
-                        </div>
-                    )}
+                            </summary>
+                            <li>
+                                <a href="/"></a>
+                            </li>
+                        </details>
+                    </div>
                 </div>
 
                 {/* desktop */}

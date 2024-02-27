@@ -6,17 +6,31 @@ const Contact = () => {
     return (
         <>
             <NativityLogo />
-            <div className="mt-24">
+            <div className="mt-24 h-[73vh]">
                 <div className="flex flex-col justify-center">
                     <h2 className="flex justify-center pt-4 my-4 text-2xl font-bold">
                         Contact
                     </h2>
                     <div className="flex flex-row justify-center">
                         <div className="flex flex-col justify-center p-8 m-8 align-middle border-2 border-black rounded-3xl">
-                          <p className="flex justify-center text-lg font-semibold">Email: </p>
-                          <button onClick={() => window.location = 'mailto:peorianativities@gmail.com'} className="flex justify-center text-lg font-semibold underline">peorianativities@gmail.com</button>
-                          <p className="flex justify-center text-lg font-semibold">Ruth Thompson</p>
-                          <p className="flex justify-center text-lg font-semibold">Tel: 309-361-9956</p>
+                            <p className="flex justify-center text-lg font-semibold">
+                                Email:{" "}
+                            </p>
+                            <button
+                                onClick={() =>
+                                    (window.location =
+                                        "mailto:peorianativities@gmail.com")
+                                }
+                                className="flex justify-center text-lg font-semibold underline"
+                            >
+                                peorianativities@gmail.com
+                            </button>
+                            <p className="flex justify-center text-lg font-semibold">
+                                Ruth Thompson
+                            </p>
+                            <p className="flex justify-center text-lg font-semibold">
+                                Tel: 309-361-9956
+                            </p>
                         </div>
                         <div className="w-1/6"></div>
                         <iframe
