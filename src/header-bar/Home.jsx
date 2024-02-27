@@ -33,7 +33,7 @@ const Home = () => {
                             {/* <!-- Brief about the festival with a 'Read more' link to the about page --> */}
                             The Peoria Area Community Festival of Nativities was
                             started in 2016 by members of the Church of Jesus
-                            Christ of Latter-Day Saints and the Sisters of St.
+                            Christ of Latter-day Saints and the Sisters of St.
                             Francis of Immaculate Conception. Since then the
                             festival has continued to grow and invite
                             individuals and families to "Come and See."{" "}
@@ -162,7 +162,7 @@ const Home = () => {
                             {/* <!-- Brief about the festival with a 'Read more' link to the about page --> */}
                             The Peoria Area Community Festival of Nativities was
                             started in 2016 by members of the Church of Jesus
-                            Christ of Latter-Day Saints and the Sisters of St.
+                            Christ of Latter-day Saints and the Sisters of St.
                             Francis of Immaculate Conception. Since then the
                             festival has continued to grow and invite
                             individuals and families to "Come and See."{" "}
