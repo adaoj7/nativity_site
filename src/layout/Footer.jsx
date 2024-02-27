@@ -22,7 +22,7 @@ const Footer = () => {
                                     "mailto:peorianativities@gmail.com")
                             }
                         >
-                            peorianativities@gmail.com
+                            <div className="">peorianativities@gmail.com</div>
                         </button>
                     </div>
                     <div className="flex flex-col">
@@ -42,7 +42,7 @@ const Footer = () => {
                         <Link
                             target={"_blank"}
                             to="https://www.facebook.com/photo?fbid=342727541784414&set=pcb.342727635117738"
-                            className=""
+                            className="hover:underline"
                         >
                             Facebook
                         </Link>
@@ -52,7 +52,7 @@ const Footer = () => {
             {/* Desktop Footer */}
             <div className="hidden justify-end desktop:flex">
                 <div
-                    className={`h-auto desktop:flex flex-col w-full ${
+                    className={`h-auto desktop:flex flex-col w-full p-4 ${
                         location.pathname === "/"
                             ? "bg-darkGreen text-white"
                             : "bg-second"
@@ -66,26 +66,28 @@ const Footer = () => {
                                     "mailto:peorianativities@gmail.com")
                             }
                         >
-                            peorianativities@gmail.com
+                            <div className="hover:underline">
+                                peorianativities@gmail.com
+                            </div>
                         </button>
                     </div>
-                    <NavLink to="/about" className="">
+                    <NavLink to="/about" className="hover:underline">
                         About
                     </NavLink>
-                    <NavLink to="/gallery" className="">
+                    <NavLink to="/gallery" className="hover:underline">
                         Gallery
                     </NavLink>
                     <Link
                         target={"_blank"}
                         to="https://www.instagram.com/peoria_nativity?igshid=180p3l66ka3x2"
-                        className=""
+                        className="hover:underline"
                     >
                         Instagram
                     </Link>
                     <Link
                         target={"_blank"}
                         to="https://www.facebook.com/photo?fbid=342727541784414&set=pcb.342727635117738"
-                        className=""
+                        className="hover:underline"
                     >
                         Facebook
                     </Link>

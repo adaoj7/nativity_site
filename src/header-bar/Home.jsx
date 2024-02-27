@@ -40,9 +40,9 @@ const Home = () => {
                             individuals and families to "Come and See."{" "}
                             <NavLink
                                 to="/about"
-                                className="hover:text-gray-500"
+                                className="underline text-gray-500"
                             >
-                                - About Us
+                                About Us
                             </NavLink>
                         </section>
 
@@ -76,7 +76,7 @@ const Home = () => {
                                 </li>
                             </ul>
                             <div className="flex flex-col justify-center mx-6">
-                                <h2 className="font-semibold ">Address:</h2>
+                                <h2 className="font-semibold">Address:</h2>
                                 <button
                                     onClick={() =>
                                         window.open(
@@ -154,7 +154,7 @@ const Home = () => {
                 </div>
 
                 {/* Desktop homepage layout */}
-                <div className="hidden desktop:flex flex-row flex-wrap m-4 space-y-3">
+                <div className="hidden desktop:flex flex-row flex-wrap p-4 space-y-3">
                     <div className="flex flex-row justify-between">
                         <section
                             className="w-1/3 p-4 text-lg bg-white border-2 border-black rounded-3xl"
