@@ -29,7 +29,7 @@ function Header() {
     }, []);
 
     const phoneInactive = "font-bold text-black";
-    const phoneActiveClassName = "text-black font-bold underline";
+    const phoneActive = "text-black font-bold underline";
 
     const desktopInactive = `text-black flex align-middle p-4 hover:underline whitespace-nowrap ${
         location.pathname === "/" ? "text-white" : "text-black"
@@ -51,17 +51,59 @@ function Header() {
         <div className="">
             <header className="sticky z-10 flex w-full">
                 {/* Mobile Header */}
-                <div className="fixed desktop:hidden ">
-                    <div id="mobileHeader" className="navbar">
-                        <details className="flex items-end justify-end text-4xl text-black ">
-                            <summary>
-                                <IoMenu className="relative z-20 " />
-                            </summary>
-                            <li>
-                                <a href="/"></a>
-                            </li>
-                        </details>
+                <div className="fixed flex justify-between desktop:hidden dropdown dropdown-end bg-darkGreen w-full h-24 items-center">
+                    <img src={Image} className="h-16 ml-6 invert" />
+                    <div tabIndex={0} role="button" className="mr-6">
+                        <IoMenu
+                            className="relative z-20 text-white"
+                            size={40}
+                        />
                     </div>
+                    <ul
+                        tabIndex={0}
+                        className="top-24 mr-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+                    >
+                        <li>
+                            <NavLink
+                                to="/"
+                                className={({ isActive }) =>
+                                    isActive ? phoneActive : phoneInactive
+                                }
+                            >
+                                Home Page
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink
+                                to="/about"
+                                className={({ isActive }) =>
+                                    isActive ? phoneActive : phoneInactive
+                                }
+                            >
+                                About
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink
+                                to="/donate"
+                                className={({ isActive }) =>
+                                    isActive ? phoneActive : phoneInactive
+                                }
+                            >
+                                Donate
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink
+                                to="/thisYear"
+                                className={({ isActive }) =>
+                                    isActive ? phoneActive : phoneInactive
+                                }
+                            >
+                                This Year
+                            </NavLink>
+                        </li>
+                    </ul>
                 </div>
 
                 {/* desktop */}

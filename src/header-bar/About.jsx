@@ -1,5 +1,4 @@
 ﻿import React from "react";
-import NativityLogo from "../components/Elements/NativityLogo";
 import AboutImage from "../assets/MTCNav.jpg";
 
 const About = () => {
