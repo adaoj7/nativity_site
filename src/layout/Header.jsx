@@ -61,7 +61,7 @@ function Header() {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="top-24 mr-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+                        className="top-28 mr-3 z-[1] p-2 shadow menu menu-sm dropdown-content border-[1px] border-black rounded-box w-52 bg-cornsilk"
                     >
                         <li>
                             <NavLink
