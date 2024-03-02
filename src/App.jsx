@@ -29,6 +29,7 @@ import AdminLookup from "./components/AdminComponents/AdminLookup.jsx";
 import { Navigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Layout from "./layout/Layout.jsx";
+import ErrorPage from "./Error.jsx";
 
 function App() {
     const userId = useSelector((state) => state.userId);
@@ -47,7 +48,7 @@ function App() {
     const router = createBrowserRouter(
         createRoutesFromElements(
             // <>
-            <Route path="/" element={<Layout />} errorElement={<Login />}>
+            <Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/volunteer" element={<Volunteer />} />

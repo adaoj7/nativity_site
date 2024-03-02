@@ -103,6 +103,16 @@ function Header() {
                                 This Year
                             </NavLink>
                         </li>
+                        <li>
+                            <NavLink
+                                to="/volunteer/myShifts"
+                                className={({ isActive }) =>
+                                    isActive ? phoneActive : phoneInactive
+                                }
+                            >
+                                My Shifts
+                            </NavLink>
+                        </li>
                     </ul>
                 </div>
 

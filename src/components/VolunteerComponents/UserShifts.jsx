@@ -81,14 +81,24 @@ const UserShifts = () => {
     });
 
     return (
-        <div className="h-[85vh]">
-            <div className="flex justify-center">
-                <div className=" border-black border-2 p-4 mx-32 mt-32 w-[600px]">
-                    <h2 className="text-lg font-semibold">My Shifts:</h2>
-                    {displayedShifts}
+        <>
+            <div className="flex desktop:hidden h-[85vh]">
+                <div className="flex justify-center">
+                    <div className=" border-black border-2 p-4 mx-32 mt-32 w-[600px]">
+                        <h2 className="text-lg font-semibold">My Shifts:</h2>
+                        {displayedShifts}
+                    </div>
                 </div>
             </div>
-        </div>
+            <div className="desktop:flex phone:hidden h-[85vh]">
+                <div className="flex justify-center">
+                    <div className=" border-black border-2 p-4 mx-32 mt-32 w-[600px]">
+                        <h2 className="text-lg font-semibold">My Shifts:</h2>
+                        {displayedShifts}
+                    </div>
+                </div>
+            </div>
+        </>
     );
 };
 
