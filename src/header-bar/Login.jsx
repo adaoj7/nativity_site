@@ -19,10 +19,10 @@ const Login = () => {
 
     return (
         <>
-            <div className="mt-8 h-screen">
+            <div className="mt-8 h-[70vh]">
                 {/* Mobile */}
-                <div className="desktop:hidden phone:flex p-24 h-screen justify-center align-middle">
-                    <div className="flex flex-col h-1/2 w-1/2 p-6 bg-second rounded-lg border-2 border-black shadow-gray-500 shadow-2xl">
+                <div className="desktop:hidden phone:flex mt-32 justify-center align-middle">
+                    <div className="flex flex-col size-5/6 p-6 bg-second rounded-lg border-2 border-black shadow-gray-500 shadow-2xl">
                         <Formik
                             initialValues={{
                                 email: "",
@@ -89,7 +89,7 @@ const Login = () => {
                                     />
                                     <div className="flex justify-center">
                                         <button
-                                            className="w-1/3 m-2 border-2 font-semibold shadow-xl bg-first border-black rounded-full justify-center hover:bg-gray-200 hover:text-black "
+                                            className="btn m-2 border-2 font-semibold shadow-xl bg-first border-black rounded-full justify-center hover:bg-gray-200 hover:text-black "
                                             type="button"
                                             onClick={togglePassword}
                                         >
@@ -98,7 +98,7 @@ const Login = () => {
                                     </div>
                                     <div className="flex justify-center">
                                         <button
-                                            className="w-1/3 m-2 border-2 font-semibold shadow-lg bg-first border-black rounded-full justify-center hover:bg-gray-200 hover:text-black"
+                                            className="btn m-2 border-2 font-semibold shadow-lg bg-first border-black rounded-full justify-center hover:bg-gray-200 hover:text-black"
                                             type="submit"
                                         >
                                             Log In
@@ -107,15 +107,15 @@ const Login = () => {
                                 </Form>
                             )}
                         </Formik>
-                        <div className="flex align-middle justify-center p-12">
-                            <div className="flex w-1/3 border-2 bg-second font-semibold border-black rounded-full justify-center hover:bg-fourth hover:text-white">
+                        <div className="flex align-middle justify-center p-2">
+                            <button className="flex btn border-2 bg-second font-semibold border-black rounded-full justify-center hover:bg-fourth hover:text-white">
                                 <NavLink
                                     className="flex align-middle"
                                     to="/signup"
                                 >
                                     Sign Up
                                 </NavLink>
-                            </div>
+                            </button>
                         </div>
                     </div>
                 </div>
