@@ -11,7 +11,7 @@ const About = () => {
                     <div className="h-1/5">
                         <img src={AboutImage} className="w-full h-full p-4" />
                     </div>
-                    <div className="flex flex-col items-center justify-center p-4 mx-4">
+                    <div className="flex flex-col items-center justify-center px-4 mx-4">
                         <p className="py-4 indent-4">
                             The Peoria Area Community Festival of Nativities
                             began in 2016 as an attempt to gather those with a
