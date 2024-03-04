@@ -113,6 +113,27 @@ function Header() {
                                 My Shifts
                             </NavLink>
                         </li>
+                        <li>
+                            {userId ? (
+                                <NavLink
+                                    to="/myProfile"
+                                    className={({ isActive }) =>
+                                        isActive ? phoneActive : phoneInactive
+                                    }
+                                >
+                                    My Profile
+                                </NavLink>
+                            ) : (
+                                <NavLink
+                                    to="/login"
+                                    className={({ isActive }) =>
+                                        isActive ? phoneActive : phoneInactive
+                                    }
+                                >
+                                    Log In
+                                </NavLink>
+                            )}
+                        </li>
                     </ul>
                 </div>
 

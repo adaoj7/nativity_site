@@ -3,6 +3,7 @@ import axios from "axios";
 import { useLocation, redirect } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { nanoid } from "nanoid";
 
 const UserShifts = () => {
     const [deletedShift, setDeletedShift] = useState("");
@@ -34,7 +35,7 @@ const UserShifts = () => {
         userShift();
     }, [deletedShift]);
 
-    console.log(data);
+    // console.log(data);
     const shift = data.map((ele) => {
         ele.shift.availabilityId = ele.availabilityId;
         return ele.shift;
@@ -53,14 +54,13 @@ const UserShifts = () => {
     // console.log(newArr)
     const displayedShifts = newArr.map((ele, i) => {
         let { date, time, availId, shiftId, typeId } = ele;
-
+        ele.id = nanoid();
+        ele.id2 = nanoid();
+        console.log();
         return (
-            <>
-                <div className="flex flex-col desktop:hidden justify-between">
-                    <p
-                        key={i}
-                        className="flex text-center whitespace-nowrap justify-start items-center"
-                    >
+            <div key={ele.id}>
+                <li className="flex flex-col desktop:hidden justify-between h-20">
+                    <div className="flex text-center whitespace-nowrap justify-start items-center">
                         Date: {date} Time: {time} Shift type:
                         {typeId === 1 ? (
                             <span className="font-semibold ml-2">
@@ -69,22 +69,18 @@ const UserShifts = () => {
                         ) : (
                             <span className="font-semibold ml-2">{"Host"}</span>
                         )}
-                    </p>
+                    </div>
                     <div className="flex justify-start">
                         <button
                             className="flex  border-2 items-center justify-center border-gray-600 p-1 ml-4 my-2 h-8 w-28 whitespace-nowrap bg-slate-300 hover:bg-white"
-                            key={availId}
                             onClick={() => handleDelete(availId, shiftId)}
                         >
                             Remove Shift
                         </button>
                     </div>
-                </div>
-                <div className="desktop:flex phone:hidden justify-between">
-                    <p
-                        key={i}
-                        className="flex text-center whitespace-nowrap justify-center items-center text-xl"
-                    >
+                </li>
+                <li className="desktop:flex phone:hidden justify-between">
+                    <div className="flex text-center whitespace-nowrap justify-center items-center text-xl">
                         Date: {date} Time: {time} Shift type:
                         {typeId === 1 ? (
                             <span className="font-semibold ml-2">
@@ -93,37 +89,36 @@ const UserShifts = () => {
                         ) : (
                             <span className="font-semibold ml-2">{"Host"}</span>
                         )}
-                    </p>
+                    </div>
                     <div className="flex justify-center">
                         <button
                             className="flex  border-2 items-center justify-center border-gray-600 p-1 ml-4 my-2 h-8 w-28 whitespace-nowrap bg-slate-300 hover:bg-white"
-                            key={availId}
                             onClick={() => handleDelete(availId, shiftId)}
                         >
                             Remove Shift
                         </button>
                     </div>
-                </div>
-            </>
+                </li>
+            </div>
         );
     });
 
     return (
         <>
-            <div className="flex desktop:hidden h-[85vh] justify-center">
+            <div className="flex desktop:hidden min-h-[85vh] justify-center">
                 <div className="flex justify-center">
-                    <div className=" border-black border-2 p-4 mt-32 mb-4">
+                    <ul className="p-4 mt-32 mb-4">
                         <h2 className="text-lg font-semibold">My Shifts:</h2>
                         {displayedShifts}
-                    </div>
+                    </ul>
                 </div>
             </div>
-            <div className="desktop:flex phone:hidden h-[85vh]">
+            <div className="desktop:flex phone:hidden min-h-[85vh]">
                 <div className="flex justify-center">
-                    <div className=" border-black border-2 p-4 mx-32 mt-32 w-[600px]">
+                    <ul className=" border-black border-2 p-4 mx-32 mt-32 w-[600px]">
                         <h2 className="text-lg font-semibold">My Shifts:</h2>
                         {displayedShifts}
-                    </div>
+                    </ul>
                 </div>
             </div>
         </>

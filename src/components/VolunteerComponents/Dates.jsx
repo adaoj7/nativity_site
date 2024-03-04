@@ -1,24 +1,22 @@
-﻿import React from 'react'
-import { Field } from 'formik'
-import ShiftTimes from './ShiftTimes'
+﻿import React from "react";
+import { Field } from "formik";
+import ShiftTimes from "./ShiftTimes";
+import { nanoid } from "nanoid";
 
-const Dates = ({dates,userShifts}) => {
-  // console.log(userShifts)
-  let dateMap = dates[0].dates.map((ele,i) => {
-      let shifts = ele.shifts.map((ele) => ele)
-      if (shifts.length > 0) 
-   { return (
-      <div key={i} className='flex flex-col font-semibold'>
-        {ele.date}
-        <ShiftTimes shifts={shifts} userShifts={userShifts}/>
-      </div>
-    )}
+const Dates = ({ dates, userShifts }) => {
+    // console.log(userShifts)
+    let dateMap = dates[0].dates.map((ele, i) => {
+        let shifts = ele.shifts.map((ele) => ele);
+        if (shifts.length > 0) {
+            return (
+                <div key={nanoid()} className="flex flex-col font-semibold">
+                    {ele.date}
+                    <ShiftTimes shifts={shifts} userShifts={userShifts} />
+                </div>
+            );
+        }
+    });
+    return <>{dateMap}</>;
+};
 
-  })
-  return(
-      <>{dateMap}</>
-
-  )
-}
-
-export default Dates
+export default Dates;

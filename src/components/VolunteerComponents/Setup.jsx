@@ -6,7 +6,6 @@ import { Formik, Field, Form } from "formik";
 import Dates from "./Dates";
 import * as Yup from "yup";
 import { useSelector } from "react-redux";
-import Image from "../../assets/CFN-White-Shadow-01.svg";
 import { redirect } from "react-router-dom";
 
 const phoneRegExp =
@@ -19,18 +18,16 @@ const SignupSchema = Yup.object().shape({
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const Volunteers = () => {
-    const [myShifts, setMyShifts] = useState({})
+    const [myShifts, setMyShifts] = useState([]);
     const fname = useSelector((state) => state.fname);
     const lname = useSelector((state) => state.lname);
     const userId = useSelector((state) => state.userId);
     const [data, setData] = useState([100]);
-    console.log(lname);
 
     const volunteerYear = new Date();
     const year = volunteerYear.getFullYear();
 
     const { dataAboutShifts } = useLoaderData();
-    //   console.log(dataAboutShifts)
 
     // This is very important. If the year has advanced then new shifts will need to be added to be displayed
     // Currently this is hard coded but it should be changed to the year function
@@ -46,11 +43,9 @@ const Volunteers = () => {
         return { dates };
     });
 
-    console.log(daysOfShifts);
-
     const userShift = async () => {
         const { data } = await axios.post("/api/userShifts", { userId });
-        // console.log(data)
+        console.log(data);
         setData(data);
     };
     useEffect(() => {
@@ -62,10 +57,6 @@ const Volunteers = () => {
 
     return (
         <div>
-            <div className="hidden mt-2 ml-12 desktop:flex">
-                <img src={Image} className="h-20" />
-            </div>
-
             {/* Mobile screen */}
             <div className="flex desktop:hidden">
                 <h3>
@@ -102,7 +93,6 @@ const Volunteers = () => {
                         });
 
                         sendNewVolunteer();
-                        
                     }}
                 >
                     {({ errors, handleSubmit }) => (
@@ -155,8 +145,9 @@ const Volunteers = () => {
                                         userId: userId,
                                         checked: values.checked,
                                     };
-                                    setMyShifts(values)
-                                    
+                                    // console.log(values);
+                                    await setMyShifts(values.checked);
+
                                     const { data } = await axios.post(
                                         "/api/newVolunteer",
                                         bodyObj
@@ -172,7 +163,6 @@ const Volunteers = () => {
                                 });
 
                                 sendNewVolunteer();
-                                
                             }}
                         >
                             {({ errors, handleSubmit }) => (

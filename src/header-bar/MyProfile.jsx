@@ -25,34 +25,31 @@ const MyProfile = () => {
 
     return (
         <div className="h-screen">
-            <NativityLogo />
-            <div className="mt-24">
-                <nav className="desktop:hidden">
+            <div className="mt-32">
+                <nav className="flex desktop:hidden justify-center">
                     {userId ? (
-                      <div className="flex justify-end">
-
-                        <button
-                            className="flex "
-                            onClick={handleClick}
+                        <div className="flex justify-center">
+                            <button
+                                className="flex btn btn-info"
+                                onClick={handleClick}
                             >
-                            Logout
-                        </button>
-                          </div>
+                                Logout
+                            </button>
+                        </div>
                     ) : (
                         <NavLink to="/login">Log In</NavLink>
                     )}
                 </nav>
                 <nav className="hidden desktop:flex justify-end pr-8">
                     {userId ? (
-                      <div className="m-8">
-
-                        <button
-                            className="flex justify-end font-semibold  hover:underline"
-                            onClick={handleClick}
+                        <div className="m-8">
+                            <button
+                                className="flex justify-end font-semibold  hover:underline"
+                                onClick={handleClick}
                             >
-                            Logout
-                        </button>
-                          </div>
+                                Logout
+                            </button>
+                        </div>
                     ) : (
                         <NavLink to="/login">Log In</NavLink>
                     )}

@@ -32,7 +32,7 @@ const Login = () => {
                             { setSubmitting, resetForm }
                         ) => {
                             // console.log(setupTimes);
-                            console.log(values);
+                            // console.log(values);
                             // await sleep(500);
                             // alert(JSON.stringify(values, null, 2));
                             const login = async () => {
@@ -45,7 +45,7 @@ const Login = () => {
                                     "/api/login",
                                     bodyObj
                                 );
-                                console.log(data);
+                                // console.log(data);
                                 dispatch({ type: "LOGIN", payload: data });
                                 if (!data.error) {
                                 } else {
