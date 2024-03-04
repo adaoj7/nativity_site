@@ -55,36 +55,64 @@ const UserShifts = () => {
         let { date, time, availId, shiftId, typeId } = ele;
 
         return (
-            <div className="flex justify-between">
-                <p
-                    key={i}
-                    className="flex text-center whitespace-nowrap justify-center items-center text-xl"
-                >
-                    Date: {date} Time: {time} Shift type:
-                    {typeId === 1 ? (
-                        <span className="font-semibold ml-2">{"Setup"}</span>
-                    ) : (
-                        <span className="font-semibold ml-2">{"Host"}</span>
-                    )}
-                </p>
-                <div className="flex justify-center">
-                    <button
-                        className="flex  border-2 items-center justify-center border-gray-600 p-1 ml-4 my-2 h-8 w-28 whitespace-nowrap bg-slate-300 hover:bg-white"
-                        key={availId}
-                        onClick={() => handleDelete(availId, shiftId)}
+            <>
+                <div className="flex flex-col desktop:hidden justify-between">
+                    <p
+                        key={i}
+                        className="flex text-center whitespace-nowrap justify-start items-center"
                     >
-                        Remove Shift
-                    </button>
+                        Date: {date} Time: {time} Shift type:
+                        {typeId === 1 ? (
+                            <span className="font-semibold ml-2">
+                                {"Setup"}
+                            </span>
+                        ) : (
+                            <span className="font-semibold ml-2">{"Host"}</span>
+                        )}
+                    </p>
+                    <div className="flex justify-start">
+                        <button
+                            className="flex  border-2 items-center justify-center border-gray-600 p-1 ml-4 my-2 h-8 w-28 whitespace-nowrap bg-slate-300 hover:bg-white"
+                            key={availId}
+                            onClick={() => handleDelete(availId, shiftId)}
+                        >
+                            Remove Shift
+                        </button>
+                    </div>
                 </div>
-            </div>
+                <div className="desktop:flex phone:hidden justify-between">
+                    <p
+                        key={i}
+                        className="flex text-center whitespace-nowrap justify-center items-center text-xl"
+                    >
+                        Date: {date} Time: {time} Shift type:
+                        {typeId === 1 ? (
+                            <span className="font-semibold ml-2">
+                                {"Setup"}
+                            </span>
+                        ) : (
+                            <span className="font-semibold ml-2">{"Host"}</span>
+                        )}
+                    </p>
+                    <div className="flex justify-center">
+                        <button
+                            className="flex  border-2 items-center justify-center border-gray-600 p-1 ml-4 my-2 h-8 w-28 whitespace-nowrap bg-slate-300 hover:bg-white"
+                            key={availId}
+                            onClick={() => handleDelete(availId, shiftId)}
+                        >
+                            Remove Shift
+                        </button>
+                    </div>
+                </div>
+            </>
         );
     });
 
     return (
         <>
-            <div className="flex desktop:hidden h-[85vh]">
+            <div className="flex desktop:hidden h-[85vh] justify-center">
                 <div className="flex justify-center">
-                    <div className=" border-black border-2 p-4 mx-32 mt-32 w-[600px]">
+                    <div className=" border-black border-2 p-4 mt-32 mb-4">
                         <h2 className="text-lg font-semibold">My Shifts:</h2>
                         {displayedShifts}
                     </div>
