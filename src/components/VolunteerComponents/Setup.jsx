@@ -19,11 +19,12 @@ const SignupSchema = Yup.object().shape({
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const Volunteers = () => {
-    const [myShifts, setMyShifts] = useState([]);
+    const [updateUI, setUpdateUI] = useState(0);
     const fname = useSelector((state) => state.fname);
     const lname = useSelector((state) => state.lname);
     const userId = useSelector((state) => state.userId);
     const [data, setData] = useState([100]);
+    const [userShiftId, setUserShiftId] = useState([]);
 
     const volunteerYear = new Date();
     const year = volunteerYear.getFullYear();
@@ -51,10 +52,10 @@ const Volunteers = () => {
     };
     useEffect(() => {
         userShift();
-    }, [myShifts]);
-
-    const userShiftId = data.map((ele) => ele.shiftId);
-    // console.log(userShiftId);
+    }, [updateUI]);
+    useEffect(() => {
+        setUserShiftId(data.map((ele) => ele.shiftId));
+    }, [data]);
 
     return (
         <div>
@@ -119,13 +120,13 @@ const Volunteers = () => {
             </div>
 
             {/* desktop screen */}
-            <div className="hidden desktop:flex desktop:flex-col desktop:justify-center desktop:w-screen desktop:p-4">
+            <div className="hidden desktop:flex flex-col justify-center w-screen p-4 min-h-[85vh]">
                 <div className="flex flex-col items-center w-full">
                     <p className="flex w-96">
                         This page is for those who would like to sign up for
                         shifts to help with nativity setup and takedown.
                     </p>
-                    <div className="h-[604px] w-1/3 px-8 pt-4 m-2 border-2 rounded-2xl border-black bg-second shadow-xl">
+                    <div className="h-[604px] m-w-2/3 px-8 pt-4 m-2 border-2 rounded-2xl border-black bg-second shadow-xl">
                         <h2 className="flex justify-center text-xl font-semibold">
                             Hello, {fname} {lname}
                         </h2>
@@ -134,17 +135,26 @@ const Volunteers = () => {
                                 checked: [],
                             }}
                             validationSchema={SignupSchema}
-                            onSubmit={(
+                            onSubmit={async (
                                 values,
                                 { setSubmitting, resetForm }
                             ) => {
-                                sleep(500);
-
+                                const numberValues = values.checked.map(
+                                    (value) => {
+                                        return +value;
+                                    }
+                                );
+                                setUserShiftId([
+                                    ...userShiftId,
+                                    ...numberValues,
+                                ]);
+                                console.log(numberValues);
+                                console.log(userShiftId);
+                                console.log(values.checked);
+                                setUpdateUI((updateUI) => updateUI + 1);
                                 document
                                     .getElementById("my_modal_1")
                                     .showModal();
-                                console.log(values.checked);
-                                setMyShifts(values.checked);
 
                                 const sendNewVolunteer = async () => {
                                     let bodyObj = {
@@ -166,7 +176,7 @@ const Volunteers = () => {
                                     checked: [],
                                 });
 
-                                sendNewVolunteer();
+                                await sendNewVolunteer();
                                 userShift();
                             }}
                         >
