@@ -10,7 +10,7 @@ import "dotenv/config";
 import process from "process";
 
 const {
-    addVolunteer,
+    newVolunteer,
     loadSetupShifts,
     loadHostShifts,
     loadUserShifts,
@@ -54,7 +54,7 @@ app.post("/api/removeAdmin", removeAdmin);
 // volunteer form endpoints
 app.get("/api/setup", loadSetupShifts);
 app.get("/api/host", loadHostShifts);
-app.post("/api/newVolunteer", addVolunteer);
+app.post("/api/newVolunteer", newVolunteer);
 app.post("/api/userShifts", loadUserShifts);
 app.delete("/api/deleteShift", deleteUserShift);
 

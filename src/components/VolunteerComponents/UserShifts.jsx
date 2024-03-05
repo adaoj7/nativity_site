@@ -6,35 +6,46 @@ import { useSelector } from "react-redux";
 import { nanoid } from "nanoid";
 
 const UserShifts = () => {
-    const [deletedShift, setDeletedShift] = useState("");
-    // console.log(deletedShift);
+    let [deletedShift, setDeletedShift] = useState(0);
+    const [data, setData] = useState([]);
 
     // Delete shift
     const handleDelete = async (availId, shiftId) => {
-        console.log(availId);
-        setDeletedShift(availId);
         if (confirm("Did you want to delete this shift?")) {
-            await axios.delete("/api/deleteShift", {
-                data: {
-                    availabilityId: availId,
-                    shiftId: shiftId,
-                },
-            });
+            try {
+                setDeletedShift((deletedShift) => deletedShift + 1);
+                console.log(deletedShift);
+                setData((data) =>
+                    data.filter((shift) => shift.shiftId !== shiftId)
+                );
+                console.log(data);
+                await axios.delete("/api/deleteShift", {
+                    data: {
+                        availabilityId: availId,
+                        shiftId: shiftId,
+                    },
+                });
+            } catch (err) {
+                console.log(err);
+            }
         }
     };
 
     // Load shifts
     const userId = useSelector((state) => state.userId);
-    const [data, setData] = useState([]);
 
     const userShift = async () => {
-        const { data } = await axios.post("/api/userShifts", { userId });
+        try {
+            const { data } = await axios.post("/api/userShifts", { userId });
+            setData(data);
+        } catch (err) {
+            console.log(err);
+        }
         // console.log(res)
-        setData(data);
     };
     useEffect(() => {
         userShift();
-    }, [deletedShift]);
+    }, []);
 
     // console.log(data);
     const shift = data.map((ele) => {
