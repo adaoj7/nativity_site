@@ -70,11 +70,15 @@ const Volunteers = () => {
                     }}
                     validationSchema={SignupSchema}
                     onSubmit={async (values, { setSubmitting, resetForm }) => {
-                        // console.log(setupTimes);
-                        // console.log(values);
-                        await sleep(500);
-                        // alert(JSON.stringify(values, null, 2));
+                        const numberValues = values.checked.map((value) => {
+                            return +value;
+                        });
+                        setUserShiftId([...userShiftId, ...numberValues]);
+
+                        setUpdateUI((updateUI) => updateUI + 1);
+
                         document.getElementById("my_modal_1").showModal();
+
                         const sendNewVolunteer = async () => {
                             let bodyObj = {
                                 userId: userId,
@@ -120,7 +124,7 @@ const Volunteers = () => {
             </div>
 
             {/* desktop screen */}
-            <div className="hidden desktop:flex flex-col justify-center w-screen p-4 min-h-[85vh]">
+            <div className="hidden desktop:flex flex-col justify-center w-screen p-4 mt-16 min-h-[85vh]">
                 <div className="flex flex-col items-center w-full">
                     <p className="flex w-96">
                         This page is for those who would like to sign up for
@@ -148,12 +152,11 @@ const Volunteers = () => {
                                     ...userShiftId,
                                     ...numberValues,
                                 ]);
-                                console.log(numberValues);
-                                console.log(userShiftId);
-                                console.log(values.checked);
+
                                 setUpdateUI((updateUI) => updateUI + 1);
+
                                 document
-                                    .getElementById("my_modal_1")
+                                    .getElementById("my_modal_2")
                                     .showModal();
 
                                 const sendNewVolunteer = async () => {
@@ -229,6 +232,24 @@ const Volunteers = () => {
                 </div>
             </div>
             <dialog id="my_modal_1" className="modal">
+                <div className="modal-box">
+                    <h3 className="font-bold text-lg">Hello!</h3>
+                    <p className="py-4">
+                        Thank you for signing up as a volunteer to setup
+                        nativities.
+                    </p>
+                    <NavLink to="/volunteer/myShifts" className="btn">
+                        Click here to see your shifts{" "}
+                    </NavLink>
+                    <div className="modal-action">
+                        <form method="dialog">
+                            {/* if there is a button in form, it will close the modal */}
+                            <button className="btn">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
+            <dialog id="my_modal_2" className="modal">
                 <div className="modal-box">
                     <h3 className="font-bold text-lg">Hello!</h3>
                     <p className="py-4">
