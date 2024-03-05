@@ -55,8 +55,6 @@ const UserShifts = () => {
     const displayedShifts = newArr.map((ele, i) => {
         let { date, time, availId, shiftId, typeId } = ele;
         ele.id = nanoid();
-        ele.id2 = nanoid();
-        console.log();
         return (
             <div key={ele.id}>
                 <li className="flex flex-col desktop:hidden justify-between h-20">

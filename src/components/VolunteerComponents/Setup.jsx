@@ -7,6 +7,7 @@ import Dates from "./Dates";
 import * as Yup from "yup";
 import { useSelector } from "react-redux";
 import { redirect } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const phoneRegExp =
     /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/;
@@ -23,6 +24,7 @@ const Volunteers = () => {
     const lname = useSelector((state) => state.lname);
     const userId = useSelector((state) => state.userId);
     const [data, setData] = useState([100]);
+    const [submittedShifts, setSubmittedShifts] = useState([]);
 
     const volunteerYear = new Date();
     const year = volunteerYear.getFullYear();
@@ -53,7 +55,7 @@ const Volunteers = () => {
     }, [myShifts]);
 
     const userShiftId = data.map((ele) => ele.shiftId);
-    // console.log(userShiftId)
+    // console.log(userShiftId);
 
     return (
         <div>
@@ -69,9 +71,10 @@ const Volunteers = () => {
                     validationSchema={SignupSchema}
                     onSubmit={async (values, { setSubmitting, resetForm }) => {
                         // console.log(setupTimes);
-                        console.log(values);
+                        // console.log(values);
                         await sleep(500);
-                        alert(JSON.stringify(values, null, 2));
+                        // alert(JSON.stringify(values, null, 2));
+                        document.getElementById("my_modal_1").showModal();
                         const sendNewVolunteer = async () => {
                             let bodyObj = {
                                 userId: userId,
@@ -137,9 +140,12 @@ const Volunteers = () => {
                                 { setSubmitting, resetForm }
                             ) => {
                                 // console.log(setupTimes);
-                                console.log(values);
+                                // console.log(values);
                                 await sleep(500);
-                                alert(JSON.stringify(values, null, 2));
+                                // alert(JSON.stringify(values, null, 2));
+                                document
+                                    .getElementById("my_modal_1")
+                                    .showModal();
                                 const sendNewVolunteer = async () => {
                                     let bodyObj = {
                                         userId: userId,
@@ -202,7 +208,7 @@ const Volunteers = () => {
                                     <div className="flex justify-center px-24 mx-8 mb-12 align-bottom">
                                         <button
                                             type="submit"
-                                            className="w-full bg-third text-white border-black border-[1px] rounded-lg  hover:text-black hover:bg-white"
+                                            className="btn w-full bg-third text-white border-black border-[1px]  hover:text-black hover:bg-white"
                                         >
                                             Submit
                                         </button>
@@ -213,6 +219,24 @@ const Volunteers = () => {
                     </div>
                 </div>
             </div>
+            <dialog id="my_modal_1" className="modal">
+                <div className="modal-box">
+                    <h3 className="font-bold text-lg">Hello!</h3>
+                    <p className="py-4">
+                        Thank you for signing up as a volunteer to setup
+                        nativities.
+                    </p>
+                    <NavLink to="/volunteer/myShifts" className="btn">
+                        Click here to see your shifts{" "}
+                    </NavLink>
+                    <div className="modal-action">
+                        <form method="dialog">
+                            {/* if there is a button in form, it will close the modal */}
+                            <button className="btn">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
         </div>
     );
 };
