@@ -52,7 +52,8 @@ const Volunteers = () => {
     };
     useEffect(() => {
         userShift();
-    }, [updateUI]);
+    }, []);
+
     useEffect(() => {
         setUserShiftId(data.map((ele) => ele.shiftId));
     }, [data]);
@@ -74,8 +75,6 @@ const Volunteers = () => {
                             return +value;
                         });
                         setUserShiftId([...userShiftId, ...numberValues]);
-
-                        setUpdateUI((updateUI) => updateUI + 1);
 
                         document.getElementById("my_modal_1").showModal();
 
@@ -126,14 +125,14 @@ const Volunteers = () => {
             {/* desktop screen */}
             <div className="hidden desktop:flex flex-col justify-center w-screen p-4 mt-16 min-h-[85vh]">
                 <div className="flex flex-col items-center w-full">
-                    <p className="flex w-96">
-                        This page is for those who would like to sign up for
-                        shifts to help with nativity setup and takedown.
-                    </p>
                     <div className="h-[604px] m-w-2/3 px-8 pt-4 m-2 border-2 rounded-2xl border-black bg-second shadow-xl">
                         <h2 className="flex justify-center text-xl font-semibold">
                             Hello, {fname} {lname}
                         </h2>
+                        <p className="flex">
+                            Please use this form to sign up for shifts to help
+                            with nativity setup and takedown.
+                        </p>
                         <Formik
                             initialValues={{
                                 checked: [],
@@ -152,8 +151,6 @@ const Volunteers = () => {
                                     ...userShiftId,
                                     ...numberValues,
                                 ]);
-
-                                setUpdateUI((updateUI) => updateUI + 1);
 
                                 document
                                     .getElementById("my_modal_2")
