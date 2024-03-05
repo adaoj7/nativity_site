@@ -24,7 +24,6 @@ const Volunteers = () => {
     const lname = useSelector((state) => state.lname);
     const userId = useSelector((state) => state.userId);
     const [data, setData] = useState([100]);
-    const [submittedShifts, setSubmittedShifts] = useState([]);
 
     const volunteerYear = new Date();
     const year = volunteerYear.getFullYear();
@@ -47,7 +46,7 @@ const Volunteers = () => {
 
     const userShift = async () => {
         const { data } = await axios.post("/api/userShifts", { userId });
-        console.log(data);
+        // console.log(data);
         setData(data);
     };
     useEffect(() => {
@@ -135,24 +134,23 @@ const Volunteers = () => {
                                 checked: [],
                             }}
                             validationSchema={SignupSchema}
-                            onSubmit={async (
+                            onSubmit={(
                                 values,
                                 { setSubmitting, resetForm }
                             ) => {
-                                // console.log(setupTimes);
-                                // console.log(values);
-                                await sleep(500);
-                                // alert(JSON.stringify(values, null, 2));
+                                sleep(500);
+
                                 document
                                     .getElementById("my_modal_1")
                                     .showModal();
+                                console.log(values.checked);
+                                setMyShifts(values.checked);
+
                                 const sendNewVolunteer = async () => {
                                     let bodyObj = {
                                         userId: userId,
                                         checked: values.checked,
                                     };
-                                    // console.log(values);
-                                    await setMyShifts(values.checked);
 
                                     const { data } = await axios.post(
                                         "/api/newVolunteer",
@@ -169,6 +167,7 @@ const Volunteers = () => {
                                 });
 
                                 sendNewVolunteer();
+                                userShift();
                             }}
                         >
                             {({ errors, handleSubmit }) => (

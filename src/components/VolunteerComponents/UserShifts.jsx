@@ -1,24 +1,25 @@
 ﻿import React from "react";
 import axios from "axios";
 import { useLocation, redirect } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import { useSelector } from "react-redux";
 import { nanoid } from "nanoid";
 
 const UserShifts = () => {
     const [deletedShift, setDeletedShift] = useState("");
-    const location = useLocation();
+    // console.log(deletedShift);
 
     // Delete shift
-    const handleDelete = (availId, shiftId) => {
-        if (confirm("Did you want to delete?")) {
-            axios.delete("/api/deleteShift", {
+    const handleDelete = async (availId, shiftId) => {
+        console.log(availId);
+        setDeletedShift(availId);
+        if (confirm("Did you want to delete this shift?")) {
+            await axios.delete("/api/deleteShift", {
                 data: {
                     availabilityId: availId,
                     shiftId: shiftId,
                 },
             });
-            setDeletedShift(availId);
         }
     };
 
