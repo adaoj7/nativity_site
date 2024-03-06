@@ -94,9 +94,15 @@ const UserShifts = () => {
                         className="grid grid-cols-3 gap-4 items-center text-xl text-start"
                         style={{
                             gridTemplateColumns:
-                                "minmax(125px, auto) minmax(225px, auto) minmax(150px, auto)",
+                                "minmax(175px, auto) minmax(125px, auto) minmax(225px, auto)",
                         }}
                     >
+                        <div>
+                            <span className="font-semibold">Shift type:</span>
+                            <span className="ml-2">
+                                {typeId === 1 ? "Setup" : "Host"}
+                            </span>
+                        </div>
                         <div>
                             <span className="font-semibold">Date:</span>
                             <span className="ml-2">{date}</span>
@@ -104,12 +110,6 @@ const UserShifts = () => {
                         <div>
                             <span className="font-semibold">Time:</span>
                             <span className="ml-2">{time}</span>
-                        </div>
-                        <div>
-                            <span className="font-semibold">Shift type:</span>
-                            <span className="ml-2">
-                                {typeId === 1 ? "Setup" : "Host"}
-                            </span>
                         </div>
                     </div>
                     <div className="flex justify-center">
