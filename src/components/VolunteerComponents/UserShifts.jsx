@@ -90,15 +90,27 @@ const UserShifts = () => {
                     </div>
                 </li>
                 <li className="desktop:flex phone:hidden justify-between">
-                    <div className="flex text-center whitespace-nowrap justify-center items-center text-xl">
-                        Date: {date} Time: {time} Shift type:
-                        {typeId === 1 ? (
-                            <span className="font-semibold ml-2">
-                                {"Setup"}
+                    <div
+                        className="grid grid-cols-3 gap-4 items-center text-xl text-start"
+                        style={{
+                            gridTemplateColumns:
+                                "minmax(125px, auto) minmax(225px, auto) minmax(150px, auto)",
+                        }}
+                    >
+                        <div>
+                            <span className="font-semibold">Date:</span>
+                            <span className="ml-2">{date}</span>
+                        </div>
+                        <div>
+                            <span className="font-semibold">Time:</span>
+                            <span className="ml-2">{time}</span>
+                        </div>
+                        <div>
+                            <span className="font-semibold">Shift type:</span>
+                            <span className="ml-2">
+                                {typeId === 1 ? "Setup" : "Host"}
                             </span>
-                        ) : (
-                            <span className="font-semibold ml-2">{"Host"}</span>
-                        )}
+                        </div>
                     </div>
                     <div className="flex justify-center">
                         <button
@@ -123,9 +135,9 @@ const UserShifts = () => {
                     </ul>
                 </div>
             </div>
-            <div className="desktop:flex phone:hidden min-h-[85vh]">
+            <div className="desktop:flex phone:hidden min-h-[85vh] justify-center">
                 <div className="flex justify-center">
-                    <ul className=" border-black border-2 p-4 mx-32 mt-32 w-[600px]">
+                    <ul className=" p-4 mx-32 mt-32">
                         <h2 className="text-lg font-semibold">My Shifts:</h2>
                         {displayedShifts}
                     </ul>
