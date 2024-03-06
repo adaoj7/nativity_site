@@ -81,14 +81,18 @@ export default {
     user: async (req, res) => {
         if (req.session.user) {
             res.status(200).send(req.session.user);
+        } else {
+            res.status(400).send("No user is signed in");
         }
-        // else {
-        //     res.status(400).send("No user is signed in");
-        // }
     },
     logout: async (req, res) => {
         console.log("logout");
-        req.session.destroy();
-        res.sendStatus(200);
+        try {
+            req.session.destroy();
+            res.sendStatus(200);
+        } catch (err) {
+            console.log(err);
+            res.status();
+        }
     },
 };

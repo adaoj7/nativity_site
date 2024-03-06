@@ -9,7 +9,10 @@ const Dates = ({ dates, userShifts }) => {
         let shifts = ele.shifts.map((ele) => ele);
         if (shifts.length > 0) {
             return (
-                <div key={nanoid()} className="flex flex-col font-semibold">
+                <div
+                    key={nanoid()}
+                    className="flex flex-col font-semibold text-lg"
+                >
                     {ele.date}
                     <ShiftTimes shifts={shifts} userShifts={userShifts} />
                 </div>

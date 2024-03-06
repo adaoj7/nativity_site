@@ -22,6 +22,7 @@ export default {
                 second: "#F7E5B5",
                 // Buff
                 third: "#D4A373",
+                thirdInverted: "#2b5c8c",
                 // Beaver
                 fourth: "#A17C6B",
                 // Jet

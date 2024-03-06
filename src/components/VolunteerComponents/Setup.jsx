@@ -61,7 +61,7 @@ const Volunteers = () => {
     return (
         <div>
             {/* Mobile screen */}
-            <div className="flex desktop:hidden">
+            <div className="flex desktop:hidden mt-32 min-h-[85vh]">
                 <h3>
                     Hello, {fname} {lname}
                 </h3>
@@ -123,13 +123,13 @@ const Volunteers = () => {
             </div>
 
             {/* desktop screen */}
-            <div className="hidden desktop:flex flex-col justify-center w-screen p-4 mt-16 min-h-[85vh]">
+            <div className="hidden desktop:flex flex-col justify-center w-screen p-4 mt-24 min-h-[85vh]">
                 <div className="flex flex-col items-center w-full">
-                    <div className="h-[604px] m-w-2/3 px-8 pt-4 m-2 border-2 rounded-2xl border-black bg-second shadow-xl">
-                        <h2 className="flex justify-center text-xl font-semibold">
+                    <div className="min-h-[66vh] px-8 pt-4 m-2 border-2 rounded-2xl border-black bg-second shadow-xl">
+                        <h2 className="flex justify-center text-2xl font-semibold">
                             Hello, {fname} {lname}
                         </h2>
-                        <p className="flex">
+                        <p className="flex justify-center ">
                             Please use this form to sign up for shifts to help
                             with nativity setup and takedown.
                         </p>
@@ -187,7 +187,7 @@ const Volunteers = () => {
                                 >
                                     <h2
                                         id="checkbox-group"
-                                        className="flex justify-start font-semibold"
+                                        className="flex justify-start font-semibold text-lg"
                                     >
                                         Setup Shifts:
                                     </h2>
@@ -205,19 +205,19 @@ const Volunteers = () => {
                                         </ul>
                                     </div>
                                     {errors.checked && (
-                                        <div className="flex justify-center ">
+                                        <div className="flex justify-center mb-4 font-semibold">
                                             {"Please select an availability"}
                                         </div>
                                     )}
                                     {!errors.checked && (
-                                        <div className="flex justify-center text-transparent select-none">
+                                        <div className="flex justify-center text-transparent select-none mb-4">
                                             This is an easter egg
                                         </div>
                                     )}
                                     <div className="flex justify-center px-24 mx-8 mb-12 align-bottom">
                                         <button
                                             type="submit"
-                                            className="btn w-full bg-third text-white border-black border-[1px]  hover:text-black hover:bg-white"
+                                            className="btn w-full bg-third text-white border-black border-[1px]  hover:text-black hover:bg-white text-lg"
                                         >
                                             Submit
                                         </button>
@@ -235,7 +235,10 @@ const Volunteers = () => {
                         Thank you for signing up as a volunteer to setup
                         nativities.
                     </p>
-                    <NavLink to="/volunteer/myShifts" className="btn">
+                    <NavLink
+                        to="/volunteer/myShifts"
+                        className="btn flex justify-center"
+                    >
                         Click here to see your shifts{" "}
                     </NavLink>
                     <div className="modal-action">
@@ -249,17 +252,20 @@ const Volunteers = () => {
             <dialog id="my_modal_2" className="modal">
                 <div className="modal-box">
                     <h3 className="font-bold text-lg">Hello!</h3>
-                    <p className="py-4">
+                    <p className="py-4 text-lg">
                         Thank you for signing up as a volunteer to setup
                         nativities.
                     </p>
-                    <NavLink to="/volunteer/myShifts" className="btn">
+                    <NavLink
+                        to="/volunteer/myShifts"
+                        className="btn flex justify-center px-10 text-lg"
+                    >
                         Click here to see your shifts{" "}
                     </NavLink>
                     <div className="modal-action">
                         <form method="dialog">
                             {/* if there is a button in form, it will close the modal */}
-                            <button className="btn">Close</button>
+                            <button className="btn text-lg">Close</button>
                         </form>
                     </div>
                 </div>

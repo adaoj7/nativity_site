@@ -1,6 +1,6 @@
 ﻿import { useState, useEffect } from "react";
 import axios from "axios";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, NavLink } from "react-router-dom";
 import React from "react";
 import { Formik, Field, Form } from "formik";
 import Dates from "./Dates";
@@ -22,7 +22,8 @@ const Host = () => {
     const fname = useSelector((state) => state.fname);
     const lname = useSelector((state) => state.lname);
     const userId = useSelector((state) => state.userId);
-    const [data, setData] = useState([]);
+    const [data, setData] = useState([100]);
+    const [userShiftId, setUserShiftId] = useState([]);
 
     const volunteerYear = new Date();
     const year = volunteerYear.getFullYear();
@@ -30,7 +31,7 @@ const Host = () => {
     const { dataAboutShifts } = useLoaderData();
     //   console.log(dataAboutShifts)
 
-     // This is very important. If the year has advanced then new shifts will need to be added to be displayed
+    // This is very important. If the year has advanced then new shifts will need to be added to be displayed
     // Currently this is hard coded but it should be changed to the year function
     const years = dataAboutShifts.filter((ele) => ele.year === 2023);
 
@@ -53,17 +54,14 @@ const Host = () => {
         userShift();
     }, []);
 
-    const userShiftId = data.map((ele) => ele.shiftId);
-    // console.log(userShiftId);
+    useEffect(() => {
+        setUserShiftId(data.map((ele) => ele.shiftId));
+    }, [data]);
 
     return (
         <div>
-            <div className="hidden mt-2 ml-12 desktop:flex">
-                <img src={Image} className="h-20" />
-            </div>
-
             {/* Mobile screen */}
-            <div className="flex desktop:hidden">
+            <div className="flex desktop:hidden mt-32 min-h-[85vh]">
                 <h3>
                     Hello, {fname} {lname}
                 </h3>
@@ -73,10 +71,13 @@ const Host = () => {
                     }}
                     validationSchema={SignupSchema}
                     onSubmit={async (values, { setSubmitting, resetForm }) => {
-                        // console.log(setupTimes);
-                        console.log(values);
-                        await sleep(500);
-                        alert(JSON.stringify(values, null, 2));
+                        const numberValues = values.checked.map((value) => {
+                            return +value;
+                        });
+                        setUserShiftId([...userShiftId, ...numberValues]);
+
+                        document.getElementById("my_modal_1").showModal();
+
                         const sendNewVolunteer = async () => {
                             let bodyObj = {
                                 userId: userId,
@@ -122,16 +123,16 @@ const Host = () => {
             </div>
 
             {/* desktop screen */}
-            <div className="hidden desktop:flex desktop:flex-col desktop:justify-center desktop:w-screen desktop:p-4">
+            <div className="hidden desktop:flex flex-col justify-center w-screen p-4 mt-24 min-h-[85vh]">
                 <div className="flex flex-col items-center w-full">
-                    <p className="flex w-96">
-                        This page is for those who would like to sign up for
-                        hosting shifts during the festival.
-                    </p>
-                    <div className="h-[604px] w-1/3 px-8 pt-4 m-2 border-2 rounded-2xl border-black bg-second shadow-xl">
+                    <div className="min-h-[66vh] px-8 pt-4 m-2 border-2 rounded-2xl border-black bg-second shadow-2xl">
                         <h2 className="flex justify-center text-xl font-semibold">
                             Hello, {fname} {lname}
                         </h2>
+                        <p className="flex justify-center">
+                            Please use this form to sign up for hosting shifts
+                            during the festival.
+                        </p>
                         <Formik
                             initialValues={{
                                 checked: [],
@@ -141,10 +142,20 @@ const Host = () => {
                                 values,
                                 { setSubmitting, resetForm }
                             ) => {
-                                // console.log(setupTimes);
-                                console.log(values);
-                                await sleep(500);
-                                // alert(JSON.stringify(values, null, 2));
+                                const numberValues = values.checked.map(
+                                    (value) => {
+                                        return +value;
+                                    }
+                                );
+                                setUserShiftId([
+                                    ...userShiftId,
+                                    ...numberValues,
+                                ]);
+
+                                document
+                                    .getElementById("my_modal_2")
+                                    .showModal();
+
                                 const sendNewVolunteer = async () => {
                                     let bodyObj = {
                                         userId: userId,
@@ -193,19 +204,19 @@ const Host = () => {
                                         </ul>
                                     </div>
                                     {errors.checked && (
-                                        <div className="flex justify-center ">
+                                        <div className="flex justify-center mb-4 font-semibold">
                                             {"Please select an availability"}
                                         </div>
                                     )}
                                     {!errors.checked && (
-                                        <div className="flex justify-center text-transparent select-none">
+                                        <div className="flex justify-center text-transparent select-none mb-4">
                                             This is an easter egg
                                         </div>
                                     )}
                                     <div className="flex justify-center px-24 mx-8 mb-12 align-bottom">
                                         <button
                                             type="submit"
-                                            className="w-full bg-third text-white border-black border-[1px] rounded-lg  hover:text-black hover:bg-white"
+                                            className="btn w-full bg-third text-white border-black border-[1px] rounded-lg  hover:text-black hover:bg-white"
                                         >
                                             Submit
                                         </button>
@@ -216,6 +227,42 @@ const Host = () => {
                     </div>
                 </div>
             </div>
+            <dialog id="my_modal_1" className="modal">
+                <div className="modal-box">
+                    <h3 className="font-bold text-lg">Hello!</h3>
+                    <p className="py-4">
+                        Thank you for signing up as a volunteer to setup
+                        nativities.
+                    </p>
+                    <NavLink to="/volunteer/myShifts" className="btn">
+                        Click here to see your shifts{" "}
+                    </NavLink>
+                    <div className="modal-action">
+                        <form method="dialog">
+                            {/* if there is a button in form, it will close the modal */}
+                            <button className="btn">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
+            <dialog id="my_modal_2" className="modal">
+                <div className="modal-box">
+                    <h3 className="font-bold text-lg">Hello!</h3>
+                    <p className="py-4">
+                        Thank you for signing up as a volunteer to setup
+                        nativities.
+                    </p>
+                    <NavLink to="/volunteer/myShifts" className="btn">
+                        Click here to see your shifts{" "}
+                    </NavLink>
+                    <div className="modal-action">
+                        <form method="dialog">
+                            {/* if there is a button in form, it will close the modal */}
+                            <button className="btn">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
         </div>
     );
 };

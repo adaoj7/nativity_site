@@ -42,7 +42,7 @@ function App() {
         axios
             .get("/api/user")
             .then((res) => dispatch({ type: "LOGIN", payload: res.data }))
-            .catch((err) => err);
+            .catch((err) => console.log(err));
     }, [isAdmin]);
     // console.log(userId)
     const router = createBrowserRouter(
