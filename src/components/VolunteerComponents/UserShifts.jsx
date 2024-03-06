@@ -137,8 +137,8 @@ const UserShifts = () => {
             </div>
             <div className="desktop:flex phone:hidden min-h-[85vh] justify-center">
                 <div className="flex justify-center">
-                    <ul className=" p-4 mx-32 mt-32">
-                        <h2 className="text-lg font-semibold">My Shifts:</h2>
+                    <ul className=" p-4 mt-24">
+                        <h2 className="text-xl font-bold">My Shifts:</h2>
                         {displayedShifts}
                     </ul>
                 </div>
