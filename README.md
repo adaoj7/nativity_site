@@ -5,15 +5,18 @@ The final project will enable them to manage volunteers, store nativities, and a
 Features that have been implemented so far:
 
 User features:
-- Users can create an account
-- Users can sign up for shifts either of the Setup or Host type
-- If a user has signed up for a shift already that shift is removed from the form where they sign up
-- Users can see all shifts that have been selected
-- User can delete shifts that have been signed up for
-- Stripe API has been set up for better transaction handling
+
+-   Users can create an account
+-   Users can sign up for shifts either of the Setup or Host type
+-   If a user has signed up for a shift already that shift is removed from the form where they sign up
+-   Users can see all shifts that have been selected
+-   User can delete shifts that have been signed up for
+-   Stripe API has been set up for better transaction handling
+-   Mobile and desktop both have styling applied
 
 Admin features:
-- The ability to limit number of volunteers who sign up for a specific shift
-- Allow admin to be able to query the database in order to know who has signed up for shifts already
-giving names, phone numbers, and emails to admins for communication purposes
-- Allow superusers to designate new admins (has not yet been moved onto superuser page)
+
+-   The ability to limit number of volunteers who sign up for a specific shift
+-   Allow admin to be able to query the database in order to know who has signed up for shifts already
+    giving names, phone numbers, and emails to admins for communication purposes
+-   Allow superusers to designate new admins (has not yet been moved onto superuser page)
