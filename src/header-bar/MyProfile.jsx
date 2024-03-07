@@ -2,11 +2,13 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import NativityLogo from "../components/Elements/NativityLogo";
+import { NavLink } from "react-router-dom";
 
 const MyProfile = () => {
     const dispatch = useDispatch();
     const userId = useSelector((state) => state.userId);
+    const fname = useSelector((state) => state.fname);
+    const lname = useSelector((state) => state.lname);
 
     const handleClick = async (req, res) => {
         try {
@@ -24,13 +26,40 @@ const MyProfile = () => {
     }, []);
 
     return (
-        <div className="h-screen">
+        <div className="min-h-[80vh]">
             <div className="mt-32">
                 <nav className="flex desktop:hidden justify-center">
                     {userId ? (
-                        <div className="flex justify-center">
+                        <div className="flex flex-col justify-center items-center">
+                            <div className="text-3xl">
+                                Hello, {fname} {lname}
+                            </div>
+                            <div className="text-xl mt-4">
+                                Sign up for shifts here
+                            </div>
+                            <div className="flex flex-row">
+                                <NavLink
+                                    to="/volunteer/setup"
+                                    className="btn btn-neutral m-4"
+                                >
+                                    Setup
+                                </NavLink>
+                                <NavLink
+                                    to="/volunteer/host"
+                                    className="btn btn-neutral m-4"
+                                >
+                                    Host
+                                </NavLink>
+                            </div>
+                            <div className="text-xl">Check out your shifts</div>
+                            <NavLink
+                                to="/volunteer/myShifts"
+                                className="btn btn-neutral m-4"
+                            >
+                                My Shifts
+                            </NavLink>
                             <button
-                                className="flex btn btn-info"
+                                className="flex btn btn-info m-4"
                                 onClick={handleClick}
                             >
                                 Logout
@@ -43,8 +72,35 @@ const MyProfile = () => {
                 <nav className="hidden desktop:flex justify-end pr-8">
                     {userId ? (
                         <div className="m-8">
+                            <div className="text-3xl">
+                                Hello, {fname} {lname}
+                            </div>
+                            <div className="text-xl mt-4">
+                                Sign up for shifts here
+                            </div>
+                            <div className="flex flex-row">
+                                <NavLink
+                                    to="/volunteer/setup"
+                                    className="btn btn-neutral m-4"
+                                >
+                                    Setup
+                                </NavLink>
+                                <NavLink
+                                    to="/volunteer/host"
+                                    className="btn btn-neutral m-4"
+                                >
+                                    Host
+                                </NavLink>
+                            </div>
+                            <div className="text-xl">Check out your shifts</div>
+                            <NavLink
+                                to="/volunteer/myShifts"
+                                className="btn btn-neutral m-4"
+                            >
+                                My Shifts
+                            </NavLink>
                             <button
-                                className="flex justify-end font-semibold  hover:underline"
+                                className="btn btn-neutral flex justify-end font-semibold"
                                 onClick={handleClick}
                             >
                                 Logout

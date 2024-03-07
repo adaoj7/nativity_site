@@ -20,7 +20,18 @@ function Header() {
     // console.log(location);
     const [menu, setMenu] = useState(false);
     const userId = useSelector((state) => state.userId);
+    const fname = useSelector((state) => state.fname);
+    const lname = useSelector((state) => state.lname);
     const dispatch = useDispatch();
+
+    const handleClick = async (req, res) => {
+        try {
+            const deleted = await axios
+                .delete("/api/logout")
+                .then((res) => dispatch({ type: "LOGOUT" }));
+        } catch (err) {}
+    };
+
     useLayoutEffect(() => {
         axios
             .get("/api/user")
@@ -84,6 +95,61 @@ function Header() {
                             </NavLink>
                         </li>
                         <li>
+                            <details open className={phoneInactive}>
+                                <summary>Volunteer</summary>
+                                <ul>
+                                    <li>
+                                        <NavLink
+                                            to="/volunteer"
+                                            className={({ isActive }) =>
+                                                isActive
+                                                    ? phoneActive
+                                                    : phoneInactive
+                                            }
+                                        >
+                                            Get Involved
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink
+                                            to="/volunteer/setup"
+                                            className={({ isActive }) =>
+                                                isActive
+                                                    ? phoneActive
+                                                    : phoneInactive
+                                            }
+                                        >
+                                            Setup
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink
+                                            to="/volunteer/host"
+                                            className={({ isActive }) =>
+                                                isActive
+                                                    ? phoneActive
+                                                    : phoneInactive
+                                            }
+                                        >
+                                            Host
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink
+                                            to="/volunteer/myShifts"
+                                            className={({ isActive }) =>
+                                                isActive
+                                                    ? phoneActive
+                                                    : phoneInactive
+                                            }
+                                        >
+                                            My Shifts
+                                        </NavLink>
+                                    </li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li>
                             <NavLink
                                 to="/donate"
                                 className={({ isActive }) =>
@@ -101,16 +167,6 @@ function Header() {
                                 }
                             >
                                 This Year
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                to="/volunteer/myShifts"
-                                className={({ isActive }) =>
-                                    isActive ? phoneActive : phoneInactive
-                                }
-                            >
-                                My Shifts
                             </NavLink>
                         </li>
                         <li>
@@ -195,7 +251,7 @@ function Header() {
                                 </Menu.Button>
                             </div>
                             <Menu.Items
-                                className={`absolute right-0  w-32 origin-top-right rounded-xl divide-y divide-black/50 ring-1 ring-black ring-opacity-50 focus:outline-none ${
+                                className={`absolute right-0 mt-8 w-32 origin-top-right rounded-xl  ring-opacity-50 focus:outline-none ${
                                     location.pathname === "/"
                                         ? "bg-darkGreen "
                                         : "bg-second"
@@ -349,16 +405,61 @@ function Header() {
                     </div>
                     <div className="flex justify-center align-middle p-6 h-[96px] w-24 rounded-full mr-12 ml-6">
                         {userId ? (
-                            <NavLink
-                                to="/myProfile"
-                                className={({ isActive }) =>
-                                    isActive
-                                        ? loginButtonActive
-                                        : loginButtonInactive
-                                }
-                            >
-                                My Profile
-                            </NavLink>
+                            <div className="dropdown dropdown-end flex align-middle">
+                                <div
+                                    tabIndex={0}
+                                    role="button"
+                                    className={`flex items-center align-middle whitespace-nowrap ${
+                                        location.pathname === "/"
+                                            ? " text-white"
+                                            : " text-black"
+                                    }`}
+                                >
+                                    My Profile
+                                </div>
+                                <div
+                                    tabIndex={0}
+                                    className="card card-normal dropdown-content mt-24"
+                                >
+                                    <div className="card-body rounded-xl bg-second text-black">
+                                        <div className="text-xl whitespace-nowrap">
+                                            Hello, {fname} {lname}
+                                        </div>
+                                        <div className="text-xl mt-4 whitespace-nowrap">
+                                            Sign up for shifts here
+                                        </div>
+                                        <div className="flex flex-row">
+                                            <NavLink
+                                                to="/volunteer/setup"
+                                                className="btn hover:bg-third hover:border-third hover:text-white m-4"
+                                            >
+                                                Setup
+                                            </NavLink>
+                                            <NavLink
+                                                to="/volunteer/host"
+                                                className="btn hover:bg-third hover:border-third hover:text-white m-4"
+                                            >
+                                                Host
+                                            </NavLink>
+                                        </div>
+                                        <div className="text-xl">
+                                            Check out your shifts
+                                        </div>
+                                        <NavLink
+                                            to="/volunteer/myShifts"
+                                            className="btn hover:bg-third hover:border-third hover:text-white m-4"
+                                        >
+                                            My Shifts
+                                        </NavLink>
+                                        <button
+                                            className="btn hover:bg-third hover:border-third hover:text-white flex font-semibold "
+                                            onClick={handleClick}
+                                        >
+                                            Logout
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         ) : (
                             <NavLink
                                 to="/login"
