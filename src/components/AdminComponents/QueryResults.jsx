@@ -33,8 +33,9 @@ const QueryResults = ({ values }) => {
         emailList = volunteersAvail.map((ele, i) => {
             return (emailString += `${ele.email},`);
         });
+        emailString = emailString.slice(0, -1);
     }
-
+    console.log(typeof emailString);
     return (
         <>
             <ul>{names}</ul>
