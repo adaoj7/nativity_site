@@ -43,6 +43,7 @@ const QueryResults = ({ values }) => {
             <ul>{phones}</ul>
             {emailList.length ? (
                 <button
+                    className="btn btn-sm hover:btn-success"
                     onClick={() =>
                         (window.location = `mailto:?cc=${emailString}`)
                     }
