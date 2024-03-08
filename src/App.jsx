@@ -92,16 +92,16 @@ function App() {
                     path="/signup"
                     element={userId ? <Navigate to="/" /> : <Signup />}
                 />
-                <Route
+                {/* <Route
                     path="/betaAndPsi"
                     element={isAdmin ? <Admin /> : <Home />}
-                />
+                /> */}
                 <Route
                     path="/betaAndPsi/newAdmin"
                     element={isAdmin ? <NewAdmin /> : <Navigate to="/" />}
                 />
                 <Route
-                    path="/betaAndPsi/query"
+                    path="/betaAndPsi"
                     element={isAdmin ? <AdminLookup /> : <Navigate to="/" />}
                     loader={async () => {
                         const res = await axios.get("/api/adminQuery");

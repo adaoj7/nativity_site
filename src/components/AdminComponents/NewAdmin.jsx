@@ -5,19 +5,18 @@ import { useState } from "react";
 import axios from "axios";
 
 const NewAdmin = () => {
-
-    const [added,setAdded] = useState([])
-    const [removed,setRemoved] = useState([])
+    const [added, setAdded] = useState([]);
+    const [removed, setRemoved] = useState([]);
 
     return (
-        <>
+        <div className="mt-24 min-h-[75vh]">
             <Admin />
             <div>Add an Admin</div>
             <Formik
                 initialValues={{
                     email: "",
                 }}
-                onSubmit={async (values,{resetForm}) => {
+                onSubmit={async (values, { resetForm }) => {
                     const sendNewAdmin = async () => {
                         let bodyObj = {
                             email: values.email,
@@ -28,15 +27,15 @@ const NewAdmin = () => {
                             bodyObj
                         );
                         if (!data.error) {
-                            setAdded(data)
+                            setAdded(data);
                         } else {
                             console.log(data.error);
                         }
                     };
                     sendNewAdmin();
                     resetForm({
-                        email: ''
-                    })
+                        email: "",
+                    });
                 }}
             >
                 {({ values, handleSubmit }) => (
@@ -52,14 +51,19 @@ const NewAdmin = () => {
                 )}
             </Formik>
 
-
-            {added.length === 0 ? <></> : <>{added.fname} {added.lname} was added as an Admin</>}
+            {added.length === 0 ? (
+                <></>
+            ) : (
+                <>
+                    {added.fname} {added.lname} was added as an Admin
+                </>
+            )}
             <div>Remove an Admin</div>
             <Formik
                 initialValues={{
                     email: "",
                 }}
-                onSubmit={async (values,{resetForm}) => {
+                onSubmit={async (values, { resetForm }) => {
                     const sendNewAdmin = async () => {
                         let bodyObj = {
                             email: values.email,
@@ -70,15 +74,15 @@ const NewAdmin = () => {
                             bodyObj
                         );
                         if (!data.error) {
-                            setRemoved(data)
+                            setRemoved(data);
                         } else {
                             console.log(data.error);
                         }
                     };
                     sendNewAdmin();
                     resetForm({
-                        email: ''
-                    })
+                        email: "",
+                    });
                 }}
             >
                 {({ values, handleSubmit }) => (
@@ -93,8 +97,14 @@ const NewAdmin = () => {
                     </Form>
                 )}
             </Formik>
-            {removed.length === 0 ? <></> : <>{removed.fname} {removed.lname} was removed as an Admin</>}
-        </>
+            {removed.length === 0 ? (
+                <></>
+            ) : (
+                <>
+                    {removed.fname} {removed.lname} was removed as an Admin
+                </>
+            )}
+        </div>
     );
 };
 

@@ -29,11 +29,10 @@ const AdminLookup = () => {
         });
         return { dates };
     });
-    // console.log(daysOfShifts)
+    console.log(daysOfShifts);
 
     return (
-        <div>
-            <Admin />
+        <div className="mt-32 min-h-[75vh]">
             <h1 className="font-semibold flex justify-center">Search shifts</h1>
             <Formik
                 initialValues={{
@@ -64,7 +63,7 @@ const AdminLookup = () => {
 
                         console.log(data);
                         setNewData(data);
-                        //   console.log(values)
+                        console.log(values);
                     };
                     sendAdminQuery();
                 }}
@@ -123,6 +122,7 @@ const AdminLookup = () => {
                     </Form>
                 )}
             </Formik>
+            <Admin />
         </div>
     );
 };
