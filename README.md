@@ -20,3 +20,8 @@ Admin features:
 -   Allow admin to be able to query the database in order to know who has signed up for shifts already
     giving names, phone numbers, and emails to admins for communication purposes
 -   Allow superusers to designate new admins (has not yet been moved onto superuser page)
+
+
+Things to adjust:
+-   I need to find a way to compress the pictures so that load times are down and so that the usage rates are down too.
+-   
