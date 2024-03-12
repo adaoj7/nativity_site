@@ -35,8 +35,8 @@ const AdminLookup = () => {
             <div className="mt-32 min-h-[75vh] flex flex-row">
                 <Admin />
                 <div>
-                    <h1 className="font-semibold flex justify-center ml-[400px]">
-                        Search shifts
+                    <h1 className="font-semibold flex justify-center ml-[400px] text-xl">
+                        Search Shifts
                     </h1>
                     <Formik
                         initialValues={{
@@ -71,9 +71,9 @@ const AdminLookup = () => {
                         }}
                     >
                         {({ values }) => (
-                            <Form className="flex justify-center flex-col ml-[400px] p-4  ">
-                                <div className="flex justify-center">
-                                    <div className="flex flex-col justify-center rounded-md p-4 h-[180px] w-[250px]">
+                            <Form className="flex justify-center flex-col ml-[400px] p-4 border-2 rounded-md border-gray-500">
+                                <div className="flex justify-center min-h-[220px]">
+                                    <div className="flex flex-col justify-around rounded-md p-4 min-h-[180px] w-[250px]">
                                         <label className="text-xl">
                                             Shift Date
                                         </label>
@@ -81,11 +81,13 @@ const AdminLookup = () => {
 
                                         <ShiftOptions shifts={values} />
 
-                                        <div id="checkbox-group">Show:</div>
+                                        <div id="checkbox-group">
+                                            Choose to Display:
+                                        </div>
                                         <div
                                             role="group"
                                             aria-labelledby="checkbox-group"
-                                            className="flex justify-center"
+                                            className="flex justify-around"
                                         >
                                             <label>
                                                 <Field
