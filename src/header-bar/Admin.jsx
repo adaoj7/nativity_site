@@ -8,13 +8,13 @@ const Admin = () => {
             <nav className="flex flex-col justify-center">
                 <div className="m-4 flex flex-col">
                     <NavLink
-                        className="btn rounded-full p-2 m-2 font-semibold bg-second hover:bg-white border-2 border-black"
+                        className="btn rounded-full p-2 m-2 font-semibold bg-second hover:bg-white hover:border-second shadow-sm"
                         to="/betaAndPsi/newAdmin"
                     >
                         Add new Admin
                     </NavLink>
                     <NavLink
-                        className="btn rounded-full p-2 m-2 font-semibold bg-second hover:bg-white border-2 border-black"
+                        className="btn rounded-full p-2 m-2 font-semibold bg-second hover:bg-white hover:border-second shadow-sm"
                         to="/betaAndPsi"
                     >
                         Look up shift times

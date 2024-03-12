@@ -3,55 +3,65 @@ import { Op } from "sequelize";
 
 export default {
     allShifts: async (req, res) => {
-        const shift = await Year.findAll({
-            include: [
-                {
-                    model: Day,
-                    separate: true,
-                    order: ["dateId"],
-                    include: [
-                        { model: Shift, separate: true, order: ["shiftId"] },
-                    ],
-                },
-            ],
-        });
-        res.json(shift);
+        try {
+            const shift = await Year.findAll({
+                include: [
+                    {
+                        model: Day,
+                        separate: true,
+                        order: ["dateId"],
+                        include: [
+                            {
+                                model: Shift,
+                                separate: true,
+                                order: ["shiftId"],
+                            },
+                        ],
+                    },
+                ],
+            });
+            res.json(shift);
+        } catch (err) {
+            console.log(err);
+            res.sendStatus(400);
+        }
     },
     signupQuery: async (req, res) => {
         // console.log(req.body)
-        const { date, time, checked } = req.body;
-        // console.log(checked)
-        console.log(time);
-        const nameArr = checked.filter((e) => e === "Name");
-        const name = nameArr[0];
-        const emailArr = checked.filter((e) => e === "Email");
-        const email = emailArr[0];
-        const phoneArr = checked.filter((e) => e === "Phone");
-        const phone = phoneArr[0];
-        const { dateId } = await Day.findOne({ where: { date: date } });
-        console.log(dateId);
-        const { shiftId } = await Shift.findOne({
-            where: { timeRange: time, dateId: dateId },
-        });
-        console.log(shiftId);
-        const volunteersAvail = await User.findAll({
-            include: [
-                {
-                    model: Availability,
-                    where: { shiftId: shiftId },
-                    include: [
-                        {
-                            model: Shift,
-                        },
-                    ],
-                },
-            ],
-        });
-        for (let i = 0; i < volunteersAvail.length; i++) {
-            console.log(volunteersAvail);
-        }
+        try {
+            const { date, time, checked } = req.body;
+            // console.log(checked)
+            console.log(time);
+            const nameArr = checked.filter((e) => e === "Name");
+            const name = nameArr[0];
+            const emailArr = checked.filter((e) => e === "Email");
+            const email = emailArr[0];
+            const phoneArr = checked.filter((e) => e === "Phone");
+            const phone = phoneArr[0];
+            const { dateId } = await Day.findOne({ where: { date: date } });
+            const { shiftId } = await Shift.findOne({
+                where: { timeRange: time, dateId: dateId },
+            });
+            const volunteersAvail = await User.findAll({
+                include: [
+                    {
+                        model: Availability,
+                        where: { shiftId: shiftId },
+                        include: [
+                            {
+                                model: Shift,
+                            },
+                        ],
+                    },
+                ],
+            });
+            for (let i = 0; i < volunteersAvail.length; i++) {}
 
-        res.json({ volunteersAvail, name, email, phone });
+            res.json({ volunteersAvail, name, email, phone });
+        } catch (err) {
+            console.log(err);
+            res.sendStatus(400);
+        }
     },
     addAdmin: async (req, res) => {
         const { email } = req.body;

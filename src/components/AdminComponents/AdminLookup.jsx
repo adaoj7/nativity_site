@@ -29,7 +29,6 @@ const AdminLookup = () => {
         });
         return { dates };
     });
-    console.log(daysOfShifts);
 
     return (
         <>
@@ -66,9 +65,7 @@ const AdminLookup = () => {
                                     console.log(data.error);
                                 }
 
-                                console.log(data);
                                 setNewData(data);
-                                console.log(values);
                             };
                             sendAdminQuery();
                         }}
@@ -76,7 +73,7 @@ const AdminLookup = () => {
                         {({ values }) => (
                             <Form className="flex justify-center flex-col ml-[400px] p-4  ">
                                 <div className="flex justify-center">
-                                    <div className="flex flex-col justify-center rounded-md p-4 border-2 border-black h-[180px] w-[250px]">
+                                    <div className="flex flex-col justify-center rounded-md p-4 h-[180px] w-[250px]">
                                         <label className="text-xl">
                                             Shift Date
                                         </label>
@@ -120,7 +117,7 @@ const AdminLookup = () => {
                                 <div className="flex justify-center">
                                     <button
                                         type="submit"
-                                        className="btn font-semibold flex bg-second hover:bg-white justify-center mx-20 my-2 rounded-full p-2 border-[1px] border-black w-[190px]"
+                                        className="btn font-semibold flex bg-gray-300 hover:bg-gray-400 justify-center mx-20 my-2 rounded-full p-2  w-[190px]"
                                     >
                                         Submit
                                     </button>

@@ -18,13 +18,11 @@ const ShiftOptions = ({ shifts }) => {
         });
         return { dates };
     });
-    console.log(daysOfShifts);
 
     const { date } = shifts;
-    // console.log(date)
     let times = [];
     const timesOfShifts = daysOfShifts[0].dates.filter((e) => e.date === date);
-    // console.log(timesOfShifts)
+
     if (timesOfShifts.length > 0) {
         times = timesOfShifts[0].shifts.map((ele, i) => {
             return (
@@ -47,7 +45,6 @@ const ShiftOptions = ({ shifts }) => {
             </>
         );
     }
-    console.log(times);
     return <>{times}</>;
 };
 

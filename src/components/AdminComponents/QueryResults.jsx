@@ -35,7 +35,6 @@ const QueryResults = ({ values }) => {
         });
         emailString = emailString.slice(0, -1);
     }
-    console.log(typeof emailString);
     return (
         <>
             <ul>{names}</ul>
@@ -43,7 +42,7 @@ const QueryResults = ({ values }) => {
             <ul>{phones}</ul>
             {emailList.length ? (
                 <button
-                    className="btn btn-sm hover:btn-success"
+                    className="btn btn-sm bg-gray-300 hover:bg-gray-400"
                     onClick={() =>
                         (window.location = `mailto:?cc=${emailString}`)
                     }
@@ -51,7 +50,6 @@ const QueryResults = ({ values }) => {
                     Send to these emails
                 </button>
             ) : null}
-            {console.log(emailString)}
         </>
     );
 };
