@@ -20,7 +20,7 @@ const Login = () => {
     return (
         <>
             {/* Mobile */}
-            <div className="desktop:hidden phone:flex mt-32 justify-center align-middle h-[70vh]">
+            <div className="desktop:hidden phone:flex mt-32 justify-center align-middle min-h-[70vh]">
                 <div className="flex flex-col w-5/6 h-2/3 p-6 bg-second rounded-lg border-2 border-black shadow-gray-500 shadow-2xl">
                     <Formik
                         initialValues={{
@@ -114,7 +114,7 @@ const Login = () => {
                 </div>
             </div>
             {/* Desktop */}
-            <div className="hidden desktop:flex p-24 mt-10 h-[80vh] justify-center align-middle">
+            <div className="hidden desktop:flex p-24 mt-10 min-h-[80vh] justify-center align-middle">
                 <div className="flex flex-col h-2/3 w-1/2 p-6 bg-second rounded-lg border-2 border-black shadow-gray-500 shadow-2xl">
                     <Formik
                         initialValues={{

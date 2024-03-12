@@ -33,7 +33,7 @@ const ShiftOptions = ({ shifts }) => {
         });
         return (
             <>
-                <label>Shift Time</label>
+                <label className="text-xl">Shift Time</label>
                 <Field
                     name="time"
                     component="select"
