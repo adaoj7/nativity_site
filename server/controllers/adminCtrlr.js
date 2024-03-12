@@ -55,7 +55,6 @@ export default {
     },
     addAdmin: async (req, res) => {
         const { email } = req.body;
-        // if (email) {
         try {
             console.log(email);
             const newAdmin = await User.findOne({
@@ -66,7 +65,6 @@ export default {
             if (newAdmin) {
                 await newAdmin.update({ isAdmin: true });
                 console.log(newAdmin);
-                // res.json(newAdmin);
                 res.status(200).send(newAdmin);
             } else {
                 res.status(404).send("No user matches that email");
@@ -75,9 +73,6 @@ export default {
             console.log(err);
             res.status(404);
         }
-        // } else {
-        //     res.status(400);
-        // }
     },
     removeAdmin: async (req, res) => {
         const { email } = req.body;
@@ -93,7 +88,6 @@ export default {
             } else {
                 res.status(404).send("No user matches that email");
             }
-            //need to create a check to see if isAdmin is already false
         } catch (err) {
             console.log(err);
             res.status(404);

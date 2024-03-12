@@ -76,8 +76,10 @@ const AdminLookup = () => {
                         {({ values }) => (
                             <Form className="flex justify-center flex-col ml-[400px] p-4  ">
                                 <div className="flex justify-center">
-                                    <div className="flex flex-col justify-center rounded-md p-4 border-[1px] border-black h-[180px] w-[250px]">
-                                        <label>Shift Date</label>
+                                    <div className="flex flex-col justify-center rounded-md p-4 border-2 border-black h-[180px] w-[250px]">
+                                        <label className="text-xl">
+                                            Shift Date
+                                        </label>
                                         <DateOptions dates={daysOfShifts} />
 
                                         <ShiftOptions shifts={values} />
