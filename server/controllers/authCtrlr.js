@@ -82,7 +82,7 @@ export default {
         if (req.session.user) {
             res.status(200).send(req.session.user);
         } else {
-            res.status(400).send("No user is signed in");
+            res.status(404).send("No user is signed in");
         }
     },
     logout: async (req, res) => {

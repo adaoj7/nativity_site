@@ -32,98 +32,104 @@ const AdminLookup = () => {
     console.log(daysOfShifts);
 
     return (
-        <div className="mt-32 min-h-[75vh]">
-            <h1 className="font-semibold flex justify-center">Search shifts</h1>
-            <Formik
-                initialValues={{
-                    date: "",
-                    time: "",
-                    checked: [],
-                    data: "",
-                }}
-                onSubmit={async (values) => {
-                    // alert(JSON.stringify(values, null, 2));
-                    //   console.log(values)
+        <>
+            <div className="mt-32 min-h-[75vh] flex flex-row">
+                <Admin />
+                <div>
+                    <h1 className="font-semibold flex justify-center ml-[400px]">
+                        Search shifts
+                    </h1>
+                    <Formik
+                        initialValues={{
+                            date: "",
+                            time: "",
+                            checked: [],
+                            data: "",
+                        }}
+                        onSubmit={async (values) => {
+                            // alert(JSON.stringify(values, null, 2));
+                            //   console.log(values)
 
-                    const sendAdminQuery = async () => {
-                        let bodyObj = {
-                            date: values.date,
-                            time: values.time,
-                            checked: values.checked,
-                        };
+                            const sendAdminQuery = async () => {
+                                let bodyObj = {
+                                    date: values.date,
+                                    time: values.time,
+                                    checked: values.checked,
+                                };
 
-                        const { data } = await axios.post(
-                            "/api/adminQuery",
-                            bodyObj
-                        );
-                        if (!data.error) {
-                        } else {
-                            console.log(data.error);
-                        }
+                                const { data } = await axios.post(
+                                    "/api/adminQuery",
+                                    bodyObj
+                                );
+                                if (!data.error) {
+                                } else {
+                                    console.log(data.error);
+                                }
 
-                        console.log(data);
-                        setNewData(data);
-                        console.log(values);
-                    };
-                    sendAdminQuery();
-                }}
-            >
-                {({ values }) => (
-                    <Form className="flex justify-center flex-col mx-[400px] p-4  ">
-                        <div className="flex justify-center">
-                            <div className="flex flex-col justify-center rounded-md p-4 border-[1px] border-black h-[180px] w-[250px]">
-                                <label>Shift Date</label>
-                                <DateOptions dates={daysOfShifts} />
+                                console.log(data);
+                                setNewData(data);
+                                console.log(values);
+                            };
+                            sendAdminQuery();
+                        }}
+                    >
+                        {({ values }) => (
+                            <Form className="flex justify-center flex-col ml-[400px] p-4  ">
+                                <div className="flex justify-center">
+                                    <div className="flex flex-col justify-center rounded-md p-4 border-[1px] border-black h-[180px] w-[250px]">
+                                        <label>Shift Date</label>
+                                        <DateOptions dates={daysOfShifts} />
 
-                                <ShiftOptions shifts={values} />
+                                        <ShiftOptions shifts={values} />
 
-                                <div id="checkbox-group">Show:</div>
-                                <div
-                                    role="group"
-                                    aria-labelledby="checkbox-group"
-                                    className="flex justify-center"
-                                >
-                                    <label>
-                                        <Field
-                                            type="checkbox"
-                                            name="checked"
-                                            value="Name"
-                                        />
-                                        Name
-                                    </label>
-                                    <label>
-                                        <Field
-                                            type="checkbox"
-                                            name="checked"
-                                            value="Email"
-                                        />
-                                        Email
-                                    </label>
-                                    <label>
-                                        <Field
-                                            type="checkbox"
-                                            name="checked"
-                                            value="Phone"
-                                        />
-                                        Phone
-                                    </label>
+                                        <div id="checkbox-group">Show:</div>
+                                        <div
+                                            role="group"
+                                            aria-labelledby="checkbox-group"
+                                            className="flex justify-center"
+                                        >
+                                            <label>
+                                                <Field
+                                                    type="checkbox"
+                                                    name="checked"
+                                                    value="Name"
+                                                />
+                                                Name
+                                            </label>
+                                            <label>
+                                                <Field
+                                                    type="checkbox"
+                                                    name="checked"
+                                                    value="Email"
+                                                />
+                                                Email
+                                            </label>
+                                            <label>
+                                                <Field
+                                                    type="checkbox"
+                                                    name="checked"
+                                                    value="Phone"
+                                                />
+                                                Phone
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div className="flex justify-center">
-                            <button
-                                type="submit"
-                                className="hover:underline font-semibold flex bg-second hover:bg-white justify-center mx-20 my-2 rounded-full p-2 border-[1px] border-black w-[190px]"
-                            >
-                                Submit
-                            </button>
-                        </div>
-                        <QueryResults values={newData} />
-                    </Form>
-                )}
-            </Formik>
-            <Admin />
-        </div>
+                                <div className="flex justify-center">
+                                    <button
+                                        type="submit"
+                                        className="btn font-semibold flex bg-second hover:bg-white justify-center mx-20 my-2 rounded-full p-2 border-[1px] border-black w-[190px]"
+                                    >
+                                        Submit
+                                    </button>
+                                </div>
+                                <QueryResults values={newData} />
+                            </Form>
+                        )}
+                    </Formik>
+                </div>
+            </div>
+        </>
     );
 };
 

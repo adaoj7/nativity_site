@@ -5,8 +5,8 @@ import NativityLogo from "../components/Elements/NativityLogo";
 const Admin = () => {
     return (
         <div>
-            <nav className="flex flex-row justify-center">
-                <div className="m-4">
+            <nav className="flex flex-col justify-center">
+                <div className="m-4 flex flex-col">
                     <NavLink
                         className="btn rounded-full p-2 m-2 font-semibold bg-second hover:bg-white border-[1px] border-black"
                         to="/betaAndPsi/newAdmin"
