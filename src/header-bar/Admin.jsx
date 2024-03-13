@@ -9,15 +9,21 @@ const Admin = () => {
                 <div className="m-4 flex flex-col">
                     <NavLink
                         className="btn rounded-full p-2 m-2 font-semibold bg-second hover:bg-white hover:border-second shadow-sm"
-                        to="/betaAndPsi/newAdmin"
+                        to="/betaAndPsi"
                     >
-                        Add new Admin
+                        Look up shift times
                     </NavLink>
                     <NavLink
                         className="btn rounded-full p-2 m-2 font-semibold bg-second hover:bg-white hover:border-second shadow-sm"
                         to="/betaAndPsi"
                     >
-                        Look up shift times
+                        Add shifts for year (not built)
+                    </NavLink>
+                    <NavLink
+                        className="btn rounded-full p-2 m-2 font-semibold bg-second hover:bg-white hover:border-second shadow-sm"
+                        to="/betaAndPsi/newAdmin"
+                    >
+                        Add new Admin
                     </NavLink>
                 </div>
             </nav>

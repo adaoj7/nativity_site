@@ -56,10 +56,10 @@ const Footer = () => {
                     className={`h-auto desktop:flex flex-col w-full p-4 ${
                         location.pathname === "/"
                             ? "bg-darkGreen text-white"
-                            : "bg-second"
+                            : "bg-second text-black"
                     }`}
                 >
-                    <div>
+                    <div className="">
                         Contact us:{" "}
                         <button
                             onClick={() =>
@@ -67,7 +67,7 @@ const Footer = () => {
                                     "mailto:peorianativities@gmail.com")
                             }
                         >
-                            <div className="hover:underline">
+                            <div className="hover:underline ">
                                 peorianativities@gmail.com
                             </div>
                         </button>

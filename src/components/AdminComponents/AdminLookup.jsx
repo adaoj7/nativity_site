@@ -7,6 +7,12 @@ import Admin from "../../header-bar/Admin.jsx";
 import ShiftOptions from "./ShiftOptions";
 import QueryResults from "./QueryResults";
 import { useState } from "react";
+import * as Yup from "yup";
+
+// const LookupSchema = Yup.object().shape({
+//     checked: Yup.array().min(1),
+//     time: Yup.string().min(1),
+// });
 
 const AdminLookup = () => {
     const [newData, setNewData] = useState([]);
@@ -17,7 +23,6 @@ const AdminLookup = () => {
 
     const year = 2023;
     const { dataAboutShifts } = useLoaderData();
-    // console.log(dataAboutShifts)
 
     const years = dataAboutShifts.filter((ele) => ele.year === year);
 
@@ -36,9 +41,6 @@ const AdminLookup = () => {
             <div className="mt-32 min-h-[75vh] flex flex-row">
                 <Admin />
                 <div>
-                    <h1 className="font-semibold flex justify-center ml-[400px] text-xl">
-                        Search Shifts
-                    </h1>
                     <Formik
                         initialValues={{
                             date: "",
@@ -46,15 +48,13 @@ const AdminLookup = () => {
                             checked: [],
                             data: "",
                         }}
+                        // validationSchema={LookupSchema}
                         onSubmit={async (values) => {
-                            // alert(JSON.stringify(values, null, 2));
-                            //   console.log(values)
-
                             const sendAdminQuery = async () => {
                                 let bodyObj = {
                                     date: values.date,
                                     time: values.time,
-                                    checked: values.checked,
+                                    checked: ["Name", "Phone", "Email"],
                                 };
 
                                 const { data } = await axios.post(
@@ -71,50 +71,22 @@ const AdminLookup = () => {
                             sendAdminQuery();
                         }}
                     >
-                        {({ values }) => (
-                            <Form className="flex justify-center flex-col ml-[400px] p-4 border-2 rounded-md border-gray-500">
-                                <div className="flex justify-center min-h-[220px]">
-                                    <div className="flex flex-col justify-around rounded-md p-4 min-h-[180px] w-[250px]">
+                        {({ values, errors }) => (
+                            <Form className="flex justify-center flex-col ml-[200px] p-4 border-2 rounded-md border-gray-500">
+                                <h1 className="font-semibold flex justify-center text-xl">
+                                    Search Shifts
+                                </h1>
+                                <div className="flex justify-center min-h-[150px]">
+                                    <div className="flex flex-col justify-start gap-3 rounded-md p-4 min-h-[180px] w-[250px]">
                                         <label className="text-xl">
                                             Shift Date
                                         </label>
                                         <DateOptions dates={daysOfShifts} />
 
                                         <ShiftOptions shifts={values} />
-
-                                        <div id="checkbox-group">
-                                            Choose to Display:
-                                        </div>
-                                        <div
-                                            role="group"
-                                            aria-labelledby="checkbox-group"
-                                            className="flex justify-around"
-                                        >
-                                            <label>
-                                                <Field
-                                                    type="checkbox"
-                                                    name="checked"
-                                                    value="Name"
-                                                />
-                                                Name
-                                            </label>
-                                            <label>
-                                                <Field
-                                                    type="checkbox"
-                                                    name="checked"
-                                                    value="Email"
-                                                />
-                                                Email
-                                            </label>
-                                            <label>
-                                                <Field
-                                                    type="checkbox"
-                                                    name="checked"
-                                                    value="Phone"
-                                                />
-                                                Phone
-                                            </label>
-                                        </div>
+                                        {errors.time && (
+                                            <div>{"Please select a time"}</div>
+                                        )}
                                     </div>
                                 </div>
                                 <div className="flex justify-center">
@@ -125,11 +97,11 @@ const AdminLookup = () => {
                                         Submit
                                     </button>
                                 </div>
-                                <QueryResults values={newData} />
                             </Form>
                         )}
                     </Formik>
                 </div>
+                <QueryResults values={newData} />
             </div>
         </>
     );

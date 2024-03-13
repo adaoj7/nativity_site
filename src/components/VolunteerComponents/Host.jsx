@@ -6,8 +6,6 @@ import { Formik, Field, Form } from "formik";
 import Dates from "./Dates";
 import * as Yup from "yup";
 import { useSelector } from "react-redux";
-import NativityLogo from "../Elements/NativityLogo";
-import Image from "../../assets/CFN-White-Shadow-01.svg";
 
 const phoneRegExp =
     /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/;
