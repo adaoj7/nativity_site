@@ -4,6 +4,7 @@ import { NavLink, Link, useLocation } from "react-router-dom";
 const Footer = () => {
     let location = useLocation();
     return (
+        // not sure why this isn't letting me make the text black?
         <>
             {/* Mobile Footer */}
             <div className="desktop:hidden justify-end phone:flex flex-col">
