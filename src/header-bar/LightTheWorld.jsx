@@ -1,19 +1,17 @@
 ﻿import React from "react";
 import { Link } from "react-router-dom";
-import NativityLogo from "../components/Elements/NativityLogo";
-import Pilot from "../assets/20221201_194615_edited_edited.jpg";
-import Drs from "../assets/2022 Drs Ruskusky_edited_edited.jpg";
-import Claire from "../assets/2022 Claire Crone_edited.jpg";
-import Mayor from "../assets/CFN_LTW_2019_edited_edited.jpg";
-import Senator from "../assets/Light the World 2017_edited.jpg";
-import Sisters from "../assets/Light the World 2016_edited.jpg";
-import Carroll from "../assets/Dr. Carroll.jpg";
-import Gregg from "../assets/Light the World 2018.jpeg";
+import Pilot from "../assets/DualAward-PSO.jpg";
+import Drs from "../assets/2022-Drs-Ruskusky-PSO.jpg";
+import Claire from "../assets/2022-Claire-Crone-PSO.jpg";
+import Mayor from "../assets/CFN_LTW_2019-PSO.jpg";
+import Senator from "../assets/Light-the-World-2017-PSO.jpg";
+import Sisters from "../assets/Light-the-World-2016-PSO.jpg";
+import Carroll from "../assets/Dr_Carroll-PSO.jpg";
+import Gregg from "../assets/Light-the-World-2018-PSO.jpg";
 
 const LightTheWorld = () => {
     return (
         <>
-            <NativityLogo />
             <div className="mt-24 flex flex-col">
                 <div className="flex items-center flex-col">
                     <h1 className="text-2xl flex justify-center font-bold">
@@ -132,8 +130,14 @@ const LightTheWorld = () => {
                             The Peoria Home is one of only three in the nation
                             and is affiliated with OSF Healthcare Children's
                             Hospital of Illinois. For more information please go
-                            to their website:{' '}
-                            <Link target={'_blank'} to={'https://www.almosthomekids.org/'} className="underline">Almost Home Kids</Link>
+                            to their website:{" "}
+                            <Link
+                                target={"_blank"}
+                                to={"https://www.almosthomekids.org/"}
+                                className="underline"
+                            >
+                                Almost Home Kids
+                            </Link>
                         </p>
                     </div>
                 </div>

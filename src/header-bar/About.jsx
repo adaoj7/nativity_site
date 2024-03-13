@@ -1,5 +1,5 @@
 ﻿import React from "react";
-import AboutImage from "../assets/MTCNav.jpg";
+import AboutImage from "../assets/MTCNav-PSO.jpg";
 
 const About = () => {
     return (

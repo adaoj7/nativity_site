@@ -1,6 +1,6 @@
 ﻿import React from "react";
-import Background from "../assets/107 , Fall Family Showcase 2018-19 -3.jpg";
-import MobileBackground from "../assets/107 , Fall Family Showcase 2018-19 - mobile.jpg";
+import Background from "../assets/Background-Desktop-PSO.jpg";
+import MobileBackground from "../assets/Background-Mobile-PSO.jpg";
 import Logo from "../assets/CFN White-01.png";
 import { NavLink } from "react-router-dom";
 
