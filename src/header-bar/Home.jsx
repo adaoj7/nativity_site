@@ -254,14 +254,14 @@ const Home = () => {
                                     <span className="flex justify-center items-center">
                                         <NavLink
                                             to={"/volunteer/setup"}
-                                            className="btn bg-slate-200 border-slate-200 hover:bg-slate-300 hover:border-slate-300"
+                                            className="btn font-bold bg-slate-200 border-slate-200 hover:bg-slate-300 hover:border-slate-300"
                                         >
                                             Setup Shifts
                                         </NavLink>{" "}
-                                        <span className="m-2">and</span>{" "}
+                                        <span className="m-3">and</span>{" "}
                                         <NavLink
                                             to={"/volunteer/host"}
-                                            className="btn bg-slate-200 border-slate-200 hover:bg-slate-300 hover:border-slate-300"
+                                            className="btn font-bold bg-slate-200 border-slate-200 hover:bg-slate-300 hover:border-slate-300"
                                         >
                                             Host Shifts
                                         </NavLink>
