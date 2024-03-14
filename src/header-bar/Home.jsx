@@ -174,6 +174,9 @@ const Home = () => {
                             id="about"
                         >
                             <div className="card-body">
+                                <h1 className="flex justify-center text-lg font-semibold">
+                                    About
+                                </h1>
                                 {/* <!-- Brief about the festival with a 'Read more' link to the about page --> */}
                                 The Peoria Area Community Festival of Nativities
                                 was started in 2016 by members of the Church of
@@ -198,7 +201,7 @@ const Home = () => {
                             className="card w-[30%] p-4 bg-beigeGreen-100 rounded-3xl shadow-sm"
                             id="events"
                         >
-                            <div className="card-body">
+                            <div className="flex card-body justify-around">
                                 {/* <!-- Interactive event scheduler/calendar --> */}
                                 <h2 className="flex justify-center text-lg font-semibold">
                                     Oh Holy Night
@@ -206,7 +209,7 @@ const Home = () => {
                                 <h2 className="flex justify-center text-lg font-semibold">
                                     November 30th and December 1st-3rd
                                 </h2>
-                                <ul className="m-4">
+                                <ul className="m-4 text-lg">
                                     <li className="m-2 ">
                                         Thursday Nov 30th, 3pm-9pm
                                     </li>
@@ -224,7 +227,7 @@ const Home = () => {
                                         Thursday night from 4:30 to 6:30pm
                                     </li>
                                 </ul>
-                                <h2 className="flex items-start font-semibold ml-6">
+                                <h2 className="flex items-start font-semibold text-lg ml-6">
                                     Address:
                                 </h2>
                                 <div className="flex flex-col justify-center card-actions items-center">
@@ -234,20 +237,24 @@ const Home = () => {
                                                 `https://www.google.com/maps/place/The+Community+Festival+of+Nativities/@40.7352662,-89.6539589,15.5z/data=!4m6!3m5!1s0x880a5c39a382250d:0x6fcfa24cada00e1b!8m2!3d40.732102!4d-89.651485!16s%2Fg%2F11f63xgxt0?entry=ttu`
                                             )
                                         }
-                                        className="flex justify-center text-black btn bg-slate-200 border-slate-200 hover:border-slate-300 hover:bg-slate-300 rounded-3xl whitespace-nowrap shadow-sm"
+                                        className="flex justify-center text-black font-bold btn bg-slate-200 border-slate-200 hover:border-slate-300 hover:bg-slate-300 whitespace-nowrap shadow-sm"
+                                        title="Address in Google Maps"
                                     >
-                                        3700 West Reservoir Boulevard Peoria, IL
+                                        3700 West Reservoir Boulevard
                                     </button>
                                 </div>
                             </div>
                         </section>
-                        <div className="flex flex-col justify-between w-1/3 gap-6">
+                        <div className="flex flex-col justify-between w-1/3 gap-4">
                             <section
-                                className="card p-4 text-lg bg-gradient-to-l from-beigeGreen-200 to-beigeGreen-100 h-[38%] rounded-3xl shadow-sm"
+                                className="card text-lg bg-gradient-to-l from-beigeGreen-200 to-beigeGreen-100 rounded-3xl shadow-sm"
                                 id="volunteer"
                             >
                                 {/* <!-- Information on volunteering and a sign-up form --> */}
                                 <div className="card-body text-lg">
+                                    <h1 className="flex justify-center font-semibold">
+                                        Get Involved
+                                    </h1>
                                     We are always looking for those who are
                                     interested in getting involved. We offer two
                                     main types of volunteering:
@@ -274,20 +281,19 @@ const Home = () => {
                             >
                                 {/* <!-- Quick donation access --> */}
                                 <div className="card-body">
-                                    <div>
-                                        Thank you to our sponsors:
-                                        <li>Missy Johnson</li>
-                                        <li>Amber Mickelson</li>
-                                        <li>Lori Johnson</li>
-                                        For more information on how to become a
-                                        Friend of the Nativity{" "}
-                                    </div>
+                                    Thank you to some of our sponsors:
+                                    <ul>
+                                        <li>- Missy Johnson</li>
+                                        <li>- Amber Mickelson</li>
+                                        <li>- Lori Johnson</li>
+                                    </ul>
                                     <span>
+                                        For more information on how to become a{" "}
                                         <NavLink
                                             to="/donate"
                                             className="hover:text-darkGreenLight hover:underline"
                                         >
-                                            Click Here
+                                            Friend of the Nativity{" "}
                                         </NavLink>
                                     </span>
                                 </div>
