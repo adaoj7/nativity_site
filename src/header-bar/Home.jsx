@@ -170,7 +170,7 @@ const Home = () => {
                 <div className="hidden desktop:flex flex-row flex-wrap p-20 bg-beigeGreen-400 min-h-screen">
                     <div className="flex flex-row justify-between">
                         <section
-                            className=" card w-1/3 p-4 text-lg bg-gradient-to-r from-beigeGreen-200 to-beigeGreen-100 rounded-3xl shadow-sm"
+                            className=" card w-[28%] p-4 text-lg bg-gradient-to-r from-beigeGreen-200 to-beigeGreen-100 rounded-3xl shadow-sm"
                             id="about"
                         >
                             <div className="card-body">
@@ -195,7 +195,7 @@ const Home = () => {
                         </section>
 
                         <section
-                            className="card w-1/4 p-4 bg-beigeGreen-100 rounded-3xl shadow-sm"
+                            className="card w-[30%] p-4 bg-beigeGreen-100 rounded-3xl shadow-sm"
                             id="events"
                         >
                             <div className="card-body">
@@ -224,42 +224,44 @@ const Home = () => {
                                         Thursday night from 4:30 to 6:30pm
                                     </li>
                                 </ul>
-                                <div className="flex flex-col justify-center mx-6 card-actions">
-                                    <h2 className="font-semibold ">Address:</h2>
+                                <h2 className="flex items-start font-semibold ml-6">
+                                    Address:
+                                </h2>
+                                <div className="flex flex-col justify-center card-actions items-center">
                                     <button
                                         onClick={() =>
                                             window.open(
                                                 `https://www.google.com/maps/place/The+Community+Festival+of+Nativities/@40.7352662,-89.6539589,15.5z/data=!4m6!3m5!1s0x880a5c39a382250d:0x6fcfa24cada00e1b!8m2!3d40.732102!4d-89.651485!16s%2Fg%2F11f63xgxt0?entry=ttu`
                                             )
                                         }
-                                        className="flex justify-center px-4 text-black btn border-slate-300 hover:border-slate-400 bg-slate-300 hover:bg-slate-400 rounded-3xl whitespace-nowrap shadow-lg"
+                                        className="flex justify-center text-black btn bg-slate-200 border-slate-200 hover:border-slate-300 hover:bg-slate-300 rounded-3xl whitespace-nowrap shadow-sm"
                                     >
                                         3700 West Reservoir Boulevard Peoria, IL
                                     </button>
                                 </div>
                             </div>
                         </section>
-                        <div className="flex flex-col justify-between w-1/3">
+                        <div className="flex flex-col justify-between w-1/3 gap-6">
                             <section
-                                className="card p-4 text-lg bg-gradient-to-l from-beigeGreen-200 to-beigeGreen-100 h-1/3 rounded-3xl shadow-sm"
+                                className="card p-4 text-lg bg-gradient-to-l from-beigeGreen-200 to-beigeGreen-100 h-[38%] rounded-3xl shadow-sm"
                                 id="volunteer"
                             >
                                 {/* <!-- Information on volunteering and a sign-up form --> */}
-                                <div className="card-body">
+                                <div className="card-body text-lg">
                                     We are always looking for those who are
                                     interested in getting involved. We offer two
                                     main types of volunteering:
-                                    <span>
+                                    <span className="flex justify-center items-center">
                                         <NavLink
                                             to={"/volunteer/setup"}
-                                            className="hover:text-darkGreenLight hover:underline"
+                                            className="btn bg-slate-200 border-slate-200 hover:bg-slate-300 hover:border-slate-300"
                                         >
                                             Setup Shifts
                                         </NavLink>{" "}
-                                        <span>and</span>{" "}
+                                        <span className="m-2">and</span>{" "}
                                         <NavLink
                                             to={"/volunteer/host"}
-                                            className="hover:text-darkGreenLight hover:underline"
+                                            className="btn bg-slate-200 border-slate-200 hover:bg-slate-300 hover:border-slate-300"
                                         >
                                             Host Shifts
                                         </NavLink>
