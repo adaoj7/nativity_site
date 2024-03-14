@@ -3,11 +3,25 @@ import Background from "../assets/Background-Desktop-PSO.jpg";
 import MobileBackground from "../assets/Background-Mobile-PSO.jpg";
 import Logo from "../assets/CFN White-01.png";
 import { NavLink } from "react-router-dom";
+import Gallery from "../components/Elements/Gallery";
+
+const carouselItems = [
+    "https://daisyui.com/images/stock/photo-1494253109108-2e30c049369b.jpg",
+    "https://daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg",
+    "https://daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.jpg",
+    "https://daisyui.com/images/stock/photo-1494253109108-2e30c049369b.jpg",
+    "https://daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.jpg",
+    "https://daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg",
+    "https://daisyui.com/images/stock/photo-1494253109108-2e30c049369b.jpg",
+    "https://daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.jpg",
+    "https://daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg",
+    "https://daisyui.com/images/stock/photo-1494253109108-2e30c049369b.jpg",
+];
 
 const Home = () => {
     return (
         <>
-            <div className="bg-darkGreen">
+            <div className="bg-white">
                 <div className="">
                     <div className="top-0 desktop:hidden phone:flex phone:relative">
                         <img src={MobileBackground} className="h-full" />
@@ -153,132 +167,160 @@ const Home = () => {
                 </div>
 
                 {/* Desktop homepage layout */}
-                <div className="hidden desktop:flex flex-row flex-wrap p-4 space-y-3">
+                <div className="hidden desktop:flex flex-row flex-wrap p-20 bg-beigeGreen-400 min-h-screen">
                     <div className="flex flex-row justify-between">
                         <section
-                            className="w-1/3 p-4 text-lg bg-white border-2 border-black rounded-3xl"
+                            className=" card w-1/3 p-4 text-lg bg-gradient-to-r from-beigeGreen-200 to-beigeGreen-100 rounded-3xl shadow-sm"
                             id="about"
                         >
-                            {/* <!-- Brief about the festival with a 'Read more' link to the about page --> */}
-                            The Peoria Area Community Festival of Nativities was
-                            started in 2016 by members of the Church of Jesus
-                            Christ of Latter-day Saints and the Sisters of St.
-                            Francis of Immaculate Conception. Since then the
-                            festival has continued to grow and invite
-                            individuals and families to "Come and See."{" "}
-                            <NavLink
-                                to="/about"
-                                className="hover:text-gray-500"
-                            >
-                                - About Us
-                            </NavLink>
+                            <div className="card-body">
+                                {/* <!-- Brief about the festival with a 'Read more' link to the about page --> */}
+                                The Peoria Area Community Festival of Nativities
+                                was started in 2016 by members of the Church of
+                                Jesus Christ of Latter-day Saints and the
+                                Sisters of St. Francis of Immaculate Conception.
+                                Since then the festival has continued to grow
+                                and invite individuals and families to "Come and
+                                See."
+                                <div className="flex flex-row">
+                                    <span>-</span>{" "}
+                                    <NavLink
+                                        to="/about"
+                                        className="hover:text-darkGreenLight hover:underline card-actions"
+                                    >
+                                        About Us
+                                    </NavLink>
+                                </div>
+                            </div>
                         </section>
 
                         <section
-                            className="w-1/4 p-4 bg-white border-2 border-black rounded-3xl"
+                            className="card w-1/4 p-4 bg-beigeGreen-100 rounded-3xl shadow-sm"
                             id="events"
                         >
-                            {/* <!-- Interactive event scheduler/calendar --> */}
-                            <h2 className="flex justify-center text-lg font-semibold">
-                                Oh Holy Night
-                            </h2>
-                            <h2 className="flex justify-center text-lg font-semibold">
-                                November 30th and December 1st-3rd
-                            </h2>
-                            <ul className="m-4">
-                                <li className="m-2 ">
-                                    Thursday Nov 30th, 3pm-9pm
-                                </li>
-                                <li className="m-2 ">
-                                    Friday Dec 1st, 10am-9pm
-                                </li>
-                                <li className="m-2 ">
-                                    Saturday, Dec 2nd, 10am-9pm
-                                </li>
-                                <li className="m-2 ">
-                                    Sunday, Dec 3rd, 12pm-6pm
-                                </li>
-                                <li className="m-2 ">
-                                    There will also be a live nativity on
-                                    Thursday night from 4:30 to 6:30pm
-                                </li>
-                            </ul>
-                            <div className="flex flex-col justify-center mx-6">
-                                <h2 className="font-semibold ">Address:</h2>
-                                <button
-                                    onClick={() =>
-                                        window.open(
-                                            `https://www.google.com/maps/place/The+Community+Festival+of+Nativities/@40.7352662,-89.6539589,15.5z/data=!4m6!3m5!1s0x880a5c39a382250d:0x6fcfa24cada00e1b!8m2!3d40.732102!4d-89.651485!16s%2Fg%2F11f63xgxt0?entry=ttu`
-                                        )
-                                    }
-                                    className="flex justify-center px-4 text-white border-2 border-black btn bg-slate-600 hover:bg-slate-300 rounded-3xl whitespace-nowrap"
-                                >
-                                    3700 West Reservoir Boulevard Peoria, IL
-                                </button>
+                            <div className="card-body">
+                                {/* <!-- Interactive event scheduler/calendar --> */}
+                                <h2 className="flex justify-center text-lg font-semibold">
+                                    Oh Holy Night
+                                </h2>
+                                <h2 className="flex justify-center text-lg font-semibold">
+                                    November 30th and December 1st-3rd
+                                </h2>
+                                <ul className="m-4">
+                                    <li className="m-2 ">
+                                        Thursday Nov 30th, 3pm-9pm
+                                    </li>
+                                    <li className="m-2 ">
+                                        Friday Dec 1st, 10am-9pm
+                                    </li>
+                                    <li className="m-2 ">
+                                        Saturday, Dec 2nd, 10am-9pm
+                                    </li>
+                                    <li className="m-2 ">
+                                        Sunday, Dec 3rd, 12pm-6pm
+                                    </li>
+                                    <li className="m-2 ">
+                                        There will also be a live nativity on
+                                        Thursday night from 4:30 to 6:30pm
+                                    </li>
+                                </ul>
+                                <div className="flex flex-col justify-center mx-6 card-actions">
+                                    <h2 className="font-semibold ">Address:</h2>
+                                    <button
+                                        onClick={() =>
+                                            window.open(
+                                                `https://www.google.com/maps/place/The+Community+Festival+of+Nativities/@40.7352662,-89.6539589,15.5z/data=!4m6!3m5!1s0x880a5c39a382250d:0x6fcfa24cada00e1b!8m2!3d40.732102!4d-89.651485!16s%2Fg%2F11f63xgxt0?entry=ttu`
+                                            )
+                                        }
+                                        className="flex justify-center px-4 text-black btn border-slate-300 hover:border-slate-400 bg-slate-300 hover:bg-slate-400 rounded-3xl whitespace-nowrap shadow-lg"
+                                    >
+                                        3700 West Reservoir Boulevard Peoria, IL
+                                    </button>
+                                </div>
                             </div>
                         </section>
-                        <div className="flex flex-col justify-around w-1/3">
+                        <div className="flex flex-col justify-between w-1/3">
                             <section
-                                className="p-4 text-lg bg-white border-2 border-black h-1/3 rounded-3xl"
+                                className="card p-4 text-lg bg-gradient-to-l from-beigeGreen-200 to-beigeGreen-100 h-1/3 rounded-3xl shadow-sm"
                                 id="volunteer"
                             >
                                 {/* <!-- Information on volunteering and a sign-up form --> */}
-                                We are always looking for those who are
-                                interested in getting involved. We offer two
-                                main types of volunteering: Setup Shifts and
-                                Host Shifts.
+                                <div className="card-body">
+                                    We are always looking for those who are
+                                    interested in getting involved. We offer two
+                                    main types of volunteering:
+                                    <span>
+                                        <NavLink
+                                            to={"/volunteer/setup"}
+                                            className="hover:text-darkGreenLight hover:underline"
+                                        >
+                                            Setup Shifts
+                                        </NavLink>{" "}
+                                        <span>and</span>{" "}
+                                        <NavLink
+                                            to={"/volunteer/host"}
+                                            className="hover:text-darkGreenLight hover:underline"
+                                        >
+                                            Host Shifts
+                                        </NavLink>
+                                    </span>
+                                </div>
                             </section>
                             <section
-                                className="p-4 text-lg bg-white border-2 border-black rounded-3xl"
+                                className="card p-4 text-lg bg-gradient-to-l from-beigeGreen-200 to-beigeGreen-100 rounded-3xl shadow-sm"
                                 id="donate"
                             >
                                 {/* <!-- Quick donation access --> */}
-                                <div>
-                                    Thank you to our sponsors:
-                                    <li>Missy Johnson</li>
-                                    <li>Amber Mickelson</li>
-                                    <li>Lori Johnson</li>
-                                    For more information on how to become a
-                                    Friend of the Nativity{" "}
+                                <div className="card-body">
+                                    <div>
+                                        Thank you to our sponsors:
+                                        <li>Missy Johnson</li>
+                                        <li>Amber Mickelson</li>
+                                        <li>Lori Johnson</li>
+                                        For more information on how to become a
+                                        Friend of the Nativity{" "}
+                                    </div>
+                                    <span>
+                                        <NavLink
+                                            to="/donate"
+                                            className="hover:text-darkGreenLight hover:underline"
+                                        >
+                                            Click Here
+                                        </NavLink>
+                                    </span>
                                 </div>
-                                <span>
-                                    <NavLink
-                                        to="/donate"
-                                        className="hover:text-gray-400"
-                                    >
-                                        Click Here
-                                    </NavLink>
-                                </span>
                             </section>
                         </div>
                     </div>
 
-                    <div className="flex flex-row w-full h-full">
-                        <section
-                            className="flex w-1/2 p-4 bg-white border-2 border-black h-1/5 rounded-3xl"
-                            id="gallery"
+                    <div className="flex flex-row justify-between mt-10 w-full">
+                        <div className="flex items-center card shadow-sm bg-beigeGreen-200 w-[500px]">
+                            <section
+                                className="card-body flex justify-center p-4 text-center rounded-3xl"
+                                id="gallery"
+                            >
+                                <Gallery carouselItems={carouselItems} />
+                            </section>
+                        </div>
+                        <div className="card bg-beigeGreen-200 shadow-sm w-1/3">
+                            <section
+                                className="card-body flex  p-4 text-center  h-1/5 rounded-3xl"
+                                id="testimonials"
+                            >
+                                {/* <!-- Testimonials or story sharing section --> */}
+                                Testimonials
+                            </section>
+                        </div>
+                        <aside
+                            className="p-4 bg-beigeGreen-200 rounded-3xl shadow-sm w-1/4"
+                            id="news"
                         >
-                            {/* <!-- Gallery of past festivals --> */}
-                            Gallery
-                        </section>
-
-                        <section
-                            className="flex w-1/2 p-4 text-center bg-white border-2 border-black h-1/5 rounded-3xl"
-                            id="testimonials"
-                        >
-                            {/* <!-- Testimonials or story sharing section --> */}
-                            Testimonials
-                        </section>
+                            {/* <!-- Sidebar for news or social media feed --> */}
+                            News
+                        </aside>
                     </div>
-                    <aside
-                        className="w-1/4 p-4 bg-white border-2 border-black h-1/5 rounded-3xl"
-                        id="news"
-                    >
-                        {/* <!-- Sidebar for news or social media feed --> */}
-                        News
-                    </aside>
 
-                    <section className="bg-white"></section>
+                    <section className="bg-beigeGreen-100"></section>
                 </div>
             </div>
         </>

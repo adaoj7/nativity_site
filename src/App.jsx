@@ -16,7 +16,7 @@ import Host from "./components/VolunteerComponents/Host.jsx";
 import Donate from "./components/VolunteerComponents/Donate.jsx";
 import UserShifts from "./components/VolunteerComponents/UserShifts";
 import ThisYear from "./header-bar/ThisYear.jsx";
-import Gallery from "./header-bar/Gallery.jsx";
+import GalleryPage from "./header-bar/GalleryPage.jsx";
 import LightTheWorld from "./header-bar/LightTheWorld.jsx";
 import Contact from "./header-bar/Contact.jsx";
 import Products from "./header-bar/Products.jsx";
@@ -80,7 +80,7 @@ function App() {
                     element={userId ? <MyProfile /> : <Login />}
                 />
                 <Route path="/thisYear" element={<ThisYear />} />
-                <Route path="/gallery" element={<Gallery />} />
+                <Route path="/gallery" element={<GalleryPage />} />
                 <Route path="/lightTheWorld" element={<LightTheWorld />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/products" element={<Products />} />

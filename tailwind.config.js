@@ -15,21 +15,26 @@ export default {
         },
         extend: {
             colors: {
+                //light
+                firstLight: "#FFFFFF",
+                //light
+                secondLight: "#F7E5B5",
                 // cornsilk
-                first: "#FFFFFF",
-                cornsilk: "#FEFAE0",
-                // Peach
-                second: "#F7E5B5",
+                cornsilkLight: "#FEFAE0",
                 // Buff
-                third: "#D4A373",
-                thirdInverted: "#2b5c8c",
-                // Beaver
-                fourth: "#A17C6B",
-                // Jet
-                fifth: "#353535",
-                umber: "#6B5950",
-                darkGreen: "#1f2f16",
+                thirdLight: "#D4A373",
+                // Beige (green) ^^
+                "beigeGreen-400": "#D5DCBC",
+                // Dark green
+                darkGreenLight: "#1f2f16",
+                //calPoly
                 calPoly: "#2E4521",
+
+                // Alternate color attempts
+                "beigeGreen-300": "#E5EAD7",
+                "beigeGreen-200": "#E6EAD7",
+                "beigeGreen-100": "#EEF1E4",
+                "beigeGreen-50": "#F7F8F2",
             },
         },
     },

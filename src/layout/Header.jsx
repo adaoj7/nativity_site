@@ -46,23 +46,23 @@ function Header() {
         location.pathname === "/" ? "text-white" : "text-black"
     }`;
     const desktopActive = `flex align-middle p-4 rounded-3xl whitespace-nowrap ${
-        location.pathname === "/" ? "underline" : "bg-third rounded-full"
+        location.pathname === "/" ? "underline" : "bg-thirdLight rounded-full"
     }`;
 
     const loginButtonInactive = `flex p-4 justify-center align-middle items-center text-black hover:underline hover:rounded-full hover:text-white whitespace-nowrap ${
         location.pathname === "/"
             ? "text-white"
-            : "text-black bg-second hover:bg-third"
+            : "text-black bg-secondLight hover:bg-thirdLight"
     }`;
     const loginButtonActive = `flex p-4 justify-center align-middle items-center rounded-full whitespace-nowrap shadow-gray-500 shadow-2xl ${
-        location.pathname === "/" ? undefined : "bg-third"
+        location.pathname === "/" ? undefined : "bg-thirdLight"
     }`;
 
     return (
         <div className="">
             <header className="sticky z-10 flex w-full">
                 {/* Mobile Header */}
-                <div className="fixed flex justify-between desktop:hidden dropdown dropdown-end bg-darkGreen w-full h-24 items-center">
+                <div className="fixed flex justify-between desktop:hidden dropdown dropdown-end bg-darkGreenLight w-full h-24 items-center">
                     <img src={Image} className="h-16 ml-6 invert" />
                     <div tabIndex={0} role="button" className="mr-6">
                         <IoMenu
@@ -72,7 +72,7 @@ function Header() {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="top-28 mr-3 z-[1] p-2 shadow menu menu-sm dropdown-content border-[1px] border-black rounded-box w-52 bg-cornsilk"
+                        className="top-28 mr-3 z-[1] p-2 shadow menu menu-sm dropdown-content border-[1px] border-black rounded-box w-52 bg-cornsilkLight"
                     >
                         <li>
                             <NavLink
@@ -199,11 +199,11 @@ function Header() {
                         location.pathname === "/"
                             ? classNames(
                                   scrollPosition > 0
-                                      ? "desktop:bg-darkGreen desktop:h-50"
+                                      ? "desktop:bg-darkGreenLight desktop:h-50"
                                       : "desktop:bg-transparent",
                                   "desktop:justify-between desktop:transition-[background-color,height]"
                               )
-                            : "desktop:justify-between bg-second"
+                            : "desktop:justify-between bg-secondLight"
                     }`}
                 >
                     {location.pathname === "/" ? (
@@ -253,8 +253,8 @@ function Header() {
                             <Menu.Items
                                 className={`absolute right-0 mt-8 w-32 origin-top-right rounded-xl  ring-opacity-50 focus:outline-none ${
                                     location.pathname === "/"
-                                        ? "bg-darkGreen "
-                                        : "bg-second"
+                                        ? "bg-darkGreenLight "
+                                        : "bg-secondLight"
                                 }`}
                             >
                                 <div className="px-1 py-1 ">
@@ -268,7 +268,7 @@ function Header() {
                                                               location.pathname ===
                                                               "/"
                                                                   ? "bg-calPoly/80 text-white"
-                                                                  : "bg-third text-white"
+                                                                  : "bg-thirdLight text-white"
                                                           }`
                                                         : `${
                                                               location.pathname ===
@@ -293,7 +293,7 @@ function Header() {
                                                               location.pathname ===
                                                               "/"
                                                                   ? "bg-calPoly text-white"
-                                                                  : "bg-third text-white"
+                                                                  : "bg-thirdLight text-white"
                                                           }`
                                                         : `${
                                                               location.pathname ===
@@ -319,7 +319,7 @@ function Header() {
                                                               location.pathname ===
                                                               "/"
                                                                   ? "bg-calPoly text-white"
-                                                                  : "bg-third text-white"
+                                                                  : "bg-thirdLight text-white"
                                                           }`
                                                         : `${
                                                               location.pathname ===
@@ -345,7 +345,7 @@ function Header() {
                                                               location.pathname ===
                                                               "/"
                                                                   ? "bg-calPoly text-white"
-                                                                  : "bg-third text-white"
+                                                                  : "bg-thirdLight text-white"
                                                           }`
                                                         : `${
                                                               location.pathname ===
@@ -421,7 +421,7 @@ function Header() {
                                     tabIndex={0}
                                     className="card card-normal dropdown-content mt-24"
                                 >
-                                    <div className="card-body rounded-xl bg-second text-black">
+                                    <div className="card-body rounded-xl bg-secondLight text-black">
                                         <div className="text-xl whitespace-nowrap">
                                             Hello, {fname} {lname}
                                         </div>
@@ -431,13 +431,13 @@ function Header() {
                                         <div className="flex flex-row">
                                             <NavLink
                                                 to="/volunteer/setup"
-                                                className="btn hover:bg-third hover:border-third hover:text-white m-4"
+                                                className="btn hover:bg-thirdLight hover:border-thirdLight hover:text-white m-4"
                                             >
                                                 Setup
                                             </NavLink>
                                             <NavLink
                                                 to="/volunteer/host"
-                                                className="btn hover:bg-third hover:border-third hover:text-white m-4"
+                                                className="btn hover:bg-thirdLight hover:border-thirdLight hover:text-white m-4"
                                             >
                                                 Host
                                             </NavLink>
@@ -447,12 +447,12 @@ function Header() {
                                         </div>
                                         <NavLink
                                             to="/volunteer/myShifts"
-                                            className="btn hover:bg-third hover:border-third hover:text-white m-4"
+                                            className="btn hover:bg-thirdLight hover:border-thirdLight hover:text-white m-4"
                                         >
                                             My Shifts
                                         </NavLink>
                                         <button
-                                            className="btn hover:bg-third hover:border-third hover:text-white flex font-semibold "
+                                            className="btn hover:bg-thirdLight hover:border-thirdLight hover:text-white flex font-semibold "
                                             onClick={handleClick}
                                         >
                                             Logout

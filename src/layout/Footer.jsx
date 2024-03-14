@@ -55,8 +55,8 @@ const Footer = () => {
                 <div
                     className={`h-auto desktop:flex flex-col w-full p-4 ${
                         location.pathname === "/"
-                            ? "bg-darkGreen text-white"
-                            : "bg-second text-black"
+                            ? "bg-darkGreenLight text-white"
+                            : "bg-secondLight text-black"
                     }`}
                 >
                     <div className="">
