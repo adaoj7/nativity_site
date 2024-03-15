@@ -3,10 +3,14 @@ import { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import NativityLogo from "../components/Elements/NativityLogo";
+import * as Yup from "yup";
+import Input from "react-phone-number-input";
+import CustomInput from "./SignupInput";
+import "react-phone-number-input/style.css";
 
 const Signup = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const [phoneValue, setPhoneValue] = useState();
     const dispatch = useDispatch();
 
     const togglePassword = (e) => {
@@ -38,7 +42,7 @@ const Signup = () => {
                         let bodyObj = {
                             fname: values.fname,
                             lname: values.lname,
-                            phone: values.phone,
+                            phone: phoneValue,
                             church: values.church,
                             email: values.email,
                             password: values.password,
@@ -89,7 +93,7 @@ const Signup = () => {
                                 placeholder="Last Name"
                                 value={values.lname}
                             />
-                            <Field
+                            {/* <Field
                                 className="border-2 border-black rounded-md p-2 m-2"
                                 type="text"
                                 name="phone"
@@ -98,6 +102,20 @@ const Signup = () => {
                                 required={true}
                                 placeholder="Phone"
                                 value={values.phone}
+                            /> */}
+                            <Input
+                                className="border-2 border-black rounded-md p-2 m-2 h-full"
+                                countrySelectComponent={"disabled:true"}
+                                inputComponent={CustomInput}
+                                limitMaxLength={true}
+                                placeholder="Enter phone number"
+                                defaultCountry="US"
+                                countries={["US"]}
+                                initialValueFormat="national"
+                                smartCaret={true}
+                                international={false}
+                                value={phoneValue}
+                                onChange={setPhoneValue}
                             />
                             <Field
                                 className="border-2 border-black rounded-md p-2 m-2"

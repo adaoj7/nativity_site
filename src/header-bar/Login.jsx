@@ -105,11 +105,12 @@ const Login = () => {
                         )}
                     </Formik>
                     <div className="flex align-middle justify-center p-2">
-                        <button className="flex btn border-2 bg-second font-semibold border-black rounded-full justify-center hover:bg-fourth hover:text-white">
-                            <NavLink className="flex align-middle" to="/signup">
-                                Sign Up
-                            </NavLink>
-                        </button>
+                        <NavLink
+                            className="flex btn align-middle border-2 bg-second font-semibold border-black rounded-full justify-center hover:bg-fourth hover:text-white"
+                            to="/signup"
+                        >
+                            Sign Up
+                        </NavLink>
                     </div>
                 </div>
             </div>
@@ -199,11 +200,12 @@ const Login = () => {
                         )}
                     </Formik>
                     <div className="flex align-middle justify-center p-2">
-                        <button className="flex btn w-1/3 border-2 font-semibold border-black rounded-full justify-center hover:btn-neutral">
-                            <NavLink className="flex align-middle" to="/signup">
-                                Sign Up
-                            </NavLink>
-                        </button>
+                        <NavLink
+                            className="btn flex align-middle w-1/3 border-2 font-semibold border-black rounded-full justify-center hover:btn-neutral"
+                            to="/signup"
+                        >
+                            Sign Up
+                        </NavLink>
                     </div>
                 </div>
             </div>
