@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import * as Yup from "yup";
 import Input from "react-phone-number-input";
 import CustomInput from "./SignupInput";
 import "react-phone-number-input/style.css";
@@ -34,10 +33,6 @@ const Signup = () => {
                     password: "",
                 }}
                 onSubmit={async (values, { setSubmitting, resetForm }) => {
-                    // console.log(setupTimes);
-                    console.log(values);
-                    // await sleep(500);
-                    // alert(JSON.stringify(values, null, 2));
                     const sendNewVolunteer = async () => {
                         let bodyObj = {
                             fname: values.fname,
@@ -93,16 +88,7 @@ const Signup = () => {
                                 placeholder="Last Name"
                                 value={values.lname}
                             />
-                            {/* <Field
-                                className="border-2 border-black rounded-md p-2 m-2"
-                                type="text"
-                                name="phone"
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                required={true}
-                                placeholder="Phone"
-                                value={values.phone}
-                            /> */}
+                            {/* This is a custom component that allows for input validation. It isn't formik and points to the useState instead of formik maintained state */}
                             <Input
                                 className="border-2 border-black rounded-md p-2 m-2 h-full"
                                 countrySelectComponent={"disabled:true"}
