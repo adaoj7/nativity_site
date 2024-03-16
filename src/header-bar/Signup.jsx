@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import Input from "react-phone-number-input";
 import CustomInput from "./SignupInput";
 import "react-phone-number-input/style.css";
+import { NavLink } from "react-router-dom";
 
 const Signup = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -47,13 +48,15 @@ const Signup = () => {
                             "/api/register",
                             bodyObj
                         );
+
+                        document.getElementById("modal_signup").showModal();
+
                         dispatch({ type: "LOGIN", payload: data });
                         if (!data.error) {
                         } else {
                             console.log(data.error);
                         }
                     };
-                    console.log(values.fname);
                     console.log("User created");
                     setSubmitting(false);
                     resetForm({
@@ -62,7 +65,6 @@ const Signup = () => {
                     });
 
                     sendNewVolunteer();
-                    location.replace("/");
                 }}
             >
                 {({ values, handleChange, handleBlur }) => (
@@ -152,6 +154,33 @@ const Signup = () => {
                     </div>
                 )}
             </Formik>
+            <dialog id="modal_signup" className="modal">
+                <div className="modal-box">
+                    <h3 className="font-bold text-lg">Hello!</h3>
+                    <p className="py-4 text-lg">
+                        Thank you for registering. Please feel free to sign up
+                        for shifts as a volunteer.
+                    </p>
+                    <NavLink
+                        to="/volunteer/setup"
+                        className="btn flex justify-center px-10 text-lg"
+                    >
+                        Setup Shifts{" "}
+                    </NavLink>
+                    <NavLink
+                        to="/volunteer/host"
+                        className="btn flex justify-center px-10 text-lg"
+                    >
+                        Host Shifts{" "}
+                    </NavLink>
+                    <div className="modal-action">
+                        <form method="dialog">
+                            {/* if there is a button in form, it will close the modal */}
+                            <button className="btn text-lg">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
         </div>
     );
 };

@@ -42,17 +42,17 @@ function Header() {
     const phoneInactive = "font-bold text-black";
     const phoneActive = "text-black font-bold underline";
 
-    const desktopInactive = `text-black flex align-middle p-4 hover:underline whitespace-nowrap ${
-        location.pathname === "/" ? "text-white" : "text-black"
+    const desktopInactive = `text-white flex align-middle p-4 hover:underline whitespace-nowrap ${
+        location.pathname === "/" ? "text-white" : "text-white"
     }`;
     const desktopActive = `flex align-middle p-4 rounded-3xl whitespace-nowrap ${
         location.pathname === "/" ? "underline" : "bg-thirdLight rounded-full"
     }`;
 
-    const loginButtonInactive = `flex p-4 justify-center align-middle items-center text-black hover:underline hover:rounded-full hover:text-white whitespace-nowrap ${
+    const loginButtonInactive = `flex p-4 justify-center align-middle items-center text-white hover:underline hover:rounded-full hover:text-white whitespace-nowrap ${
         location.pathname === "/"
             ? "text-white"
-            : "text-black bg-secondLight hover:bg-thirdLight"
+            : "text-white bg-secondLight hover:bg-thirdLight"
     }`;
     const loginButtonActive = `flex p-4 justify-center align-middle items-center rounded-full whitespace-nowrap shadow-gray-500 shadow-2xl ${
         location.pathname === "/" ? undefined : "bg-thirdLight"
@@ -203,13 +203,13 @@ function Header() {
                                       : "desktop:bg-transparent",
                                   "desktop:justify-between desktop:transition-[background-color,height]"
                               )
-                            : "desktop:justify-between bg-secondLight"
+                            : "desktop:justify-between bg-darkGreenLight"
                     }`}
                 >
                     {location.pathname === "/" ? (
                         <></>
                     ) : (
-                        <img src={Image} className="h-24 mx-4 " />
+                        <img src={Image} className="h-24 mx-4 invert" />
                     )}
                     <div
                         className={`flex ${
@@ -241,10 +241,10 @@ function Header() {
                         >
                             <div>
                                 <Menu.Button
-                                    className={`text-black flex align-middle p-4 hover:underline whitespace-nowrap ${
+                                    className={`text-white flex align-middle p-4 hover:underline whitespace-nowrap ${
                                         location.pathname === "/"
                                             ? "text-white"
-                                            : "text-black"
+                                            : "text-white"
                                     }`}
                                 >
                                     Get Involved
@@ -274,7 +274,7 @@ function Header() {
                                                               location.pathname ===
                                                               "/"
                                                                   ? " text-white"
-                                                                  : " text-black"
+                                                                  : " text-white"
                                                           }`
                                                 } group flex w-full items-center rounded-lg px-2 py-2 text-sm`}
                                             >
@@ -299,7 +299,7 @@ function Header() {
                                                               location.pathname ===
                                                               "/"
                                                                   ? " text-white"
-                                                                  : " text-black"
+                                                                  : " text-white"
                                                           }`
                                                 } group flex w-full items-center rounded-lg px-2 py-2 text-sm`}
                                             >
@@ -325,7 +325,7 @@ function Header() {
                                                               location.pathname ===
                                                               "/"
                                                                   ? " text-white"
-                                                                  : " text-black"
+                                                                  : " text-white"
                                                           }`
                                                 } group flex w-full items-center rounded-lg px-2 py-2 text-sm`}
                                             >
@@ -351,7 +351,7 @@ function Header() {
                                                               location.pathname ===
                                                               "/"
                                                                   ? " text-white"
-                                                                  : " text-black"
+                                                                  : " text-white"
                                                           }`
                                                 } group flex w-full items-center rounded-lg px-2 py-2 text-sm`}
                                             >
@@ -412,7 +412,7 @@ function Header() {
                                     className={`flex items-center align-middle whitespace-nowrap ${
                                         location.pathname === "/"
                                             ? " text-white"
-                                            : " text-black"
+                                            : " text-white"
                                     }`}
                                 >
                                     My Profile
