@@ -31,10 +31,15 @@ export default {
                 calPoly: "#2E4521",
 
                 // Alternate color attempts
+                "beigeGreen-400": "#CBD5AF",
                 "beigeGreen-300": "#E5EAD7",
                 "beigeGreen-200": "#E6EAD7",
                 "beigeGreen-100": "#EEF1E4",
                 "beigeGreen-50": "#F7F8F2",
+                "olivineGreen-300": "#A9B979",
+                "olivineGreen-200": "#B1C087",
+                "olivineGreen-100": "#B9C794",
+                "olivineGreen-50": "#C2CEA1",
             },
         },
     },
