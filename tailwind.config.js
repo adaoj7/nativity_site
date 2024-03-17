@@ -29,6 +29,7 @@ export default {
                 darkGreenLight: "#1f2f16",
                 //calPoly
                 calPoly: "#2E4521",
+                // I need to make some better greens for contrast with the top
 
                 // Alternate color attempts
                 "beigeGreen-400": "#CBD5AF",
