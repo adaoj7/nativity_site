@@ -9,11 +9,8 @@ const Footer = () => {
             {/* Mobile Footer */}
             <div className="desktop:hidden justify-end phone:flex flex-col">
                 <div
-                    className={`h-auto desktop:flex flex-col w-full p-4 ${
-                        location.pathname === "/"
-                            ? "bg-darkGreen text-white"
-                            : "bg-second text-black"
-                    }`}
+                    className={`h-auto desktop:flex flex-col w-full p-4 bg-darkGreen text-white
+                    `}
                 >
                     <div className="">
                         Contact us:{" "}
@@ -53,11 +50,8 @@ const Footer = () => {
             {/* Desktop Footer */}
             <div className="hidden justify-end desktop:flex">
                 <div
-                    className={`h-auto desktop:flex flex-col w-full p-4 ${
-                        location.pathname === "/"
-                            ? "bg-darkGreenLight text-white"
-                            : "bg-secondLight text-black"
-                    }`}
+                    className={`h-auto desktop:flex flex-col w-full p-4 bg-darkGreenLight text-white
+                    `}
                 >
                     <div className="">
                         Contact us:{" "}

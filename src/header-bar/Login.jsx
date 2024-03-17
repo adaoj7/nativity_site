@@ -140,7 +140,7 @@ const Login = () => {
                                     "/api/login",
                                     bodyObj
                                 );
-                                console.log(data);
+
                                 dispatch({ type: "LOGIN", payload: data });
                                 if (!data.error) {
                                 } else {

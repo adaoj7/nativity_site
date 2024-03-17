@@ -123,7 +123,7 @@ const Host = () => {
             {/* desktop screen */}
             <div className="hidden desktop:flex flex-col justify-center w-screen p-4 mt-24 min-h-[85vh]">
                 <div className="flex flex-col items-center w-full">
-                    <div className="min-h-[66vh] px-8 pt-4 m-2 border-2 rounded-2xl border-black bg-second shadow-2xl">
+                    <div className="min-h-[66vh] px-8 pt-4 m-2 border-2 rounded-2xl border-black bg-beigeGreen-300 shadow-2xl">
                         <h2 className="flex justify-center text-xl font-semibold">
                             Hello, {fname} {lname}
                         </h2>
@@ -214,7 +214,7 @@ const Host = () => {
                                     <div className="flex justify-center px-24 mx-8 mb-12 align-bottom">
                                         <button
                                             type="submit"
-                                            className="btn w-full bg-third text-white border-black border-[1px] rounded-lg  hover:text-black hover:bg-white"
+                                            className="btn w-full bg-beigeGreen-50 text-black border-black border-[1px] rounded-lg  hover:text-black hover:bg-beigeGreen-400 hover:border-black text-lg"
                                         >
                                             Submit
                                         </button>

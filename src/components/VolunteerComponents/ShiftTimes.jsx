@@ -18,7 +18,7 @@ const ShiftTimes = ({ shifts, userShifts }) => {
                                 name="checked"
                                 value={ele.shiftId.toString()}
                                 key={ele.shiftId.toString()}
-                                className="flex align-middle rounded-sm h-4 w-4 text-white checked:accent-third "
+                                className="flex align-middle rounded-sm h-4 w-4 text-white checked:accent-beigeGreen-400 hover:accent-beigeGreen-300"
                             />
                             {ele.timeRange}
                         </label>

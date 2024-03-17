@@ -3,10 +3,10 @@ import { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import * as Yup from "yup";
 import Input from "react-phone-number-input";
 import CustomInput from "./SignupInput";
 import "react-phone-number-input/style.css";
+import { NavLink } from "react-router-dom";
 
 const Signup = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -34,10 +34,6 @@ const Signup = () => {
                     password: "",
                 }}
                 onSubmit={async (values, { setSubmitting, resetForm }) => {
-                    // console.log(setupTimes);
-                    console.log(values);
-                    // await sleep(500);
-                    // alert(JSON.stringify(values, null, 2));
                     const sendNewVolunteer = async () => {
                         let bodyObj = {
                             fname: values.fname,
@@ -52,13 +48,15 @@ const Signup = () => {
                             "/api/register",
                             bodyObj
                         );
+
+                        document.getElementById("modal_signup").showModal();
+
                         dispatch({ type: "LOGIN", payload: data });
                         if (!data.error) {
                         } else {
                             console.log(data.error);
                         }
                     };
-                    console.log(values.fname);
                     console.log("User created");
                     setSubmitting(false);
                     resetForm({
@@ -67,7 +65,6 @@ const Signup = () => {
                     });
 
                     sendNewVolunteer();
-                    location.replace("/");
                 }}
             >
                 {({ values, handleChange, handleBlur }) => (
@@ -93,16 +90,7 @@ const Signup = () => {
                                 placeholder="Last Name"
                                 value={values.lname}
                             />
-                            {/* <Field
-                                className="border-2 border-black rounded-md p-2 m-2"
-                                type="text"
-                                name="phone"
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                required={true}
-                                placeholder="Phone"
-                                value={values.phone}
-                            /> */}
+                            {/* This is a custom component that allows for input validation. It isn't formik and points to the useState instead of formik maintained state */}
                             <Input
                                 className="border-2 border-black rounded-md p-2 m-2 h-full"
                                 countrySelectComponent={"disabled:true"}
@@ -166,6 +154,33 @@ const Signup = () => {
                     </div>
                 )}
             </Formik>
+            <dialog id="modal_signup" className="modal">
+                <div className="modal-box">
+                    <h3 className="font-bold text-lg">Hello!</h3>
+                    <p className="py-4 text-lg">
+                        Thank you for registering. Please feel free to sign up
+                        for shifts as a volunteer.
+                    </p>
+                    <NavLink
+                        to="/volunteer/setup"
+                        className="btn flex justify-center px-10 text-lg"
+                    >
+                        Setup Shifts{" "}
+                    </NavLink>
+                    <NavLink
+                        to="/volunteer/host"
+                        className="btn flex justify-center px-10 text-lg"
+                    >
+                        Host Shifts{" "}
+                    </NavLink>
+                    <div className="modal-action">
+                        <form method="dialog">
+                            {/* if there is a button in form, it will close the modal */}
+                            <button className="btn text-lg">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
         </div>
     );
 };
