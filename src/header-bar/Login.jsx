@@ -116,7 +116,7 @@ const Login = () => {
             </div>
             {/* Desktop */}
             <div className="hidden desktop:flex p-24 mt-10 min-h-[80vh] justify-center align-middle">
-                <div className="flex flex-col h-2/3 w-1/2 p-6 bg-second rounded-lg border-2 border-black shadow-gray-500 shadow-2xl">
+                <div className="flex flex-col h-2/3 w-1/2 p-6 bg-beigeGreen-200 rounded-lg border-2 border-black shadow-2xl">
                     <Formik
                         initialValues={{
                             email: "",
@@ -181,7 +181,7 @@ const Login = () => {
                                 />
                                 <div className="flex justify-center">
                                     <button
-                                        className="btn w-1/3 m-2 border-2 font-semibold shadow-xl bg-first border-black rounded-full justify-center hover:bg-gray-200 hover:text-black "
+                                        className="btn btn-sm w-1/3 m-2 border-2 font-semibold shadow-xl bg-first border-black rounded-full justify-center hover:bg-beigeGreen-400/80 hover:text-black"
                                         type="button"
                                         onClick={togglePassword}
                                     >
@@ -190,7 +190,7 @@ const Login = () => {
                                 </div>
                                 <div className="flex justify-center">
                                     <button
-                                        className="btn w-1/3 m-2 border-2 font-semibold shadow-lg bg-first border-black rounded-full justify-center hover:bg-gray-200 hover:text-black"
+                                        className="btn w-1/3 m-2 border-2 font-semibold shadow-lg bg-first border-black rounded-full justify-center hover:bg-beigeGreen-400/80 hover:text-black"
                                         type="submit"
                                     >
                                         Log In
@@ -199,9 +199,10 @@ const Login = () => {
                             </Form>
                         )}
                     </Formik>
-                    <div className="flex align-middle justify-center p-2">
+                    <div className="flex align-middle justify-center p-2 flex-col items-center">
+                        Don't have an account?
                         <NavLink
-                            className="btn flex align-middle w-1/3 border-2 font-semibold border-black rounded-full justify-center hover:btn-neutral"
+                            className="btn flex align-middle w-1/3 border-2 font-semibold border-black rounded-full justify-center hover:bg-beigeGreen-400"
                             to="/signup"
                         >
                             Sign Up

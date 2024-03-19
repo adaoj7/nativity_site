@@ -49,14 +49,8 @@ function Header() {
         location.pathname === "/" ? "underline" : "bg-calPoly rounded-full"
     }`;
 
-    const loginButtonInactive = `flex p-4 justify-center align-middle items-center text-white hover:underline hover:rounded-full hover:text-white whitespace-nowrap ${
-        location.pathname === "/"
-            ? "text-white"
-            : "text-white bg-secondLight hover:bg-thirdLight"
-    }`;
-    const loginButtonActive = `flex p-4 justify-center align-middle items-center rounded-full whitespace-nowrap shadow-gray-500 shadow-2xl ${
-        location.pathname === "/" ? undefined : "bg-thirdLight"
-    }`;
+    const loginButtonInactive = `flex p-4 justify-center align-middle items-center text-white hover:underline hover:rounded-full hover:text-white whitespace-nowrap`;
+    const loginButtonActive = `flex p-4 justify-center align-middle items-center rounded-full whitespace-nowrap underline`;
 
     return (
         <div className="">
@@ -267,8 +261,8 @@ function Header() {
                                                         ? `${
                                                               location.pathname ===
                                                               "/"
-                                                                  ? "bg-beigeGreen-200/80 text-black"
-                                                                  : "bg-beigeGreen-200/80 text-black"
+                                                                  ? "bg-beigeGreen-400/80 text-black"
+                                                                  : "bg-beigeGreen-400/80 text-black"
                                                           }`
                                                         : `${
                                                               location.pathname ===
@@ -292,8 +286,8 @@ function Header() {
                                                         ? `${
                                                               location.pathname ===
                                                               "/"
-                                                                  ? "bg-beigeGreen-200/80 text-black"
-                                                                  : "bg-beigeGreen-200/80 text-black"
+                                                                  ? "bg-beigeGreen-400/80 text-black"
+                                                                  : "bg-beigeGreen-400/80 text-black"
                                                           }`
                                                         : `${
                                                               location.pathname ===
@@ -318,8 +312,8 @@ function Header() {
                                                         ? `${
                                                               location.pathname ===
                                                               "/"
-                                                                  ? "bg-beigeGreen-200/80 text-black"
-                                                                  : "bg-beigeGreen-200/80 text-black"
+                                                                  ? "bg-beigeGreen-400/80 text-black"
+                                                                  : "bg-beigeGreen-400/80 text-black"
                                                           }`
                                                         : `${
                                                               location.pathname ===
@@ -344,8 +338,8 @@ function Header() {
                                                         ? `${
                                                               location.pathname ===
                                                               "/"
-                                                                  ? "bg-beigeGreen-200/80 text-black"
-                                                                  : "bg-beigeGreen-200/80 text-black"
+                                                                  ? "bg-beigeGreen-400/80 text-black"
+                                                                  : "bg-beigeGreen-400/80 text-black"
                                                           }`
                                                         : `${
                                                               location.pathname ===
@@ -431,13 +425,13 @@ function Header() {
                                         <div className="flex flex-row">
                                             <NavLink
                                                 to="/volunteer/setup"
-                                                className="btn hover:bg-beigeGreen-200/80 hover:border-beigeGreen-200/80 hover:text-black m-4"
+                                                className="btn hover:bg-beigeGreen-400/80 hover:border-beigeGreen-400/80 hover:text-black m-4"
                                             >
                                                 Setup
                                             </NavLink>
                                             <NavLink
                                                 to="/volunteer/host"
-                                                className="btn hover:bg-beigeGreen-200/80 hover:border-beigeGreen-200/80 hover:text-black m-4"
+                                                className="btn hover:bg-beigeGreen-400/80 hover:border-beigeGreen-400/80 hover:text-black m-4"
                                             >
                                                 Host
                                             </NavLink>
@@ -447,12 +441,12 @@ function Header() {
                                         </div>
                                         <NavLink
                                             to="/volunteer/myShifts"
-                                            className="btn hover:bg-beigeGreen-200/80 hover:border-beigeGreen-200/80 hover:text-black m-4"
+                                            className="btn hover:bg-beigeGreen-400/80 hover:border-beigeGreen-400/80 hover:text-black m-4"
                                         >
                                             My Shifts
                                         </NavLink>
                                         <button
-                                            className="btn hover:bg-beigeGreen-200/80 hover:border-beigeGreen-200/80 hover:text-black flex font-semibold "
+                                            className="btn hover:bg-beigeGreen-400/80 hover:border-beigeGreen-400/80 hover:text-black flex font-semibold "
                                             onClick={handleClick}
                                         >
                                             Logout

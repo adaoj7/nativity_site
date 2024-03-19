@@ -8,17 +8,18 @@ import Senator from "../assets/Light-the-World-2017-PSO.jpg";
 import Sisters from "../assets/Light-the-World-2016-PSO.jpg";
 import Carroll from "../assets/Dr_Carroll-PSO.jpg";
 import Gregg from "../assets/Light-the-World-2018-PSO.jpg";
+import { NavLink } from "react-router-dom";
 
 const LightTheWorld = () => {
     return (
         <>
-            <div className="mt-24 flex flex-col">
+            <div className="mt-32 flex flex-col">
                 <div className="flex items-center flex-col">
-                    <h1 className="text-2xl flex justify-center font-bold">
+                    <h1 className="text-4xl flex justify-center font-bold my-4">
                         Light the World Award
                     </h1>
-                    <div className="w-2/3">
-                        <p className="flex justify-center text-center text-lg mb-6">
+                    <div className="w-[67%] pt-16 pb-20">
+                        <p className="flex justify-center text-center text-xl mb-6">
                             The “Light the World” award is given to a group or
                             individuals to recognize their exemplary Christ-like
                             service, sacrifice, and ministry in order to
@@ -30,18 +31,27 @@ const LightTheWorld = () => {
                             contribution through selfless acts of service that
                             changes lives.
                         </p>
+                        <div className="flex flex-row justify-center items-center">
+                            <p className="mr-8">
+                                To nominate an individual or organization please
+                                click here
+                            </p>
+                            <NavLink to={"/home"} className="btn btn-disabled">
+                                Nominate
+                            </NavLink>
+                        </div>
                     </div>
                 </div>
                 <div className="">
                     <h2 className="flex justify-center text-3xl font-semibold mb-4">
                         2022
                     </h2>
-                    <div className="card card-side bg-beigeGreen-200 flex flex-row mx-6 mb-6">
-                        <div className="card-body w-[350%]">
-                            <h2 className="flex justify-center text-xl">
-                                JOBS PARTNERSHIP--OFFERING A HELPING HAND
+                    <div className="card card-side bg-beigeGreen-200 min-h-[30rem] flex flex-row mx-8 mb-8">
+                        <div className="card-body w-[300%]">
+                            <h2 className="card-title flex justify-center">
+                                Jobs Partnership--Offering A Helping Hand
                             </h2>
-                            <p className="p-6">
+                            <p className="">
                                 The Jobs Partnership is a faith-based program
                                 that brings together local churches and area
                                 businesses to train, equip, and employ citizens
@@ -68,10 +78,10 @@ const LightTheWorld = () => {
                                 and at Heaven's View Christian Fellowship
                                 Church.
                             </p>
-                            <h2 className="flex justify-center text-xl">
-                                NEAL GLASSETT--LIFELINE PILOTS
+                            <h2 className="card-title flex justify-center">
+                                Neal Glassett--Lifeline Pilots
                             </h2>
-                            <p className="p-6">
+                            <p className=" ">
                                 Neal Glassett has logged 86 in-flight hours and
                                 11,000 miles transporting medical patients
                                 around the country in his first year with
@@ -102,119 +112,128 @@ const LightTheWorld = () => {
                                 and pets in his Piper airplane.
                             </p>
                         </div>
-                        <figure>
-                            <img src={Pilot} className="h-full" />
+                        <figure className="p-8">
+                            <img src={Pilot} className="" />
                         </figure>
                     </div>
-                    <div className="card card-side bg-beigeGreen-200 flex flex-row mx-6 mb-6">
-                        <figure>
-                            <img src={Drs} className="h-full" />
+                    <div className="card card-side bg-beigeGreen-200 h-[30rem] flex flex-row m-8">
+                        <figure className="p-8">
+                            <img src={Drs} className="" />
                         </figure>
-                        <div className="card-body w-[350%]">
-                            <h2 className="flex justify-center text-xl">
-                                Dr. JEFF and Dr. SUZANNE WHITE RUSKUSKY - ALMOST
-                                HOME KIDS
+                        <div className="card-body w-[300%]">
+                            <h2 className="card-title flex justify-center">
+                                Dr. Jeff and Dr. Suzanne White Ruskusky - Almost
+                                Home Kids
                             </h2>
-                            <p className="p-6">
-                                Drs. Jeff and Suzanne are local podiatrists who
-                                were very instrumental in establishing Almost
-                                Home Kids in Peoria which is located at 5200 N.
-                                Hamilton Rd. Peoria, IL 61614. Jeff and Suzanne
-                                were the driving force behind this home being
-                                built through their dedication, their fund
-                                raising, and their loving care for children with
-                                special needs. While raising two sons (Garrett
-                                and Gabriel) with special needs they saw the
-                                need for this home to be here in Peoria not only
-                                for their sons but for other special needs
-                                children in our area.
-                            </p>
-                            <p className="p-6">
-                                Almost Home Kids provides a bridge from hospital
-                                to home through an innovative community-based
-                                care system for children with medical
-                                complexities. Almost Home Kids responds to the
-                                needs of families, train caregivers, offer
-                                respite care, advocate for accessibility and
-                                inclusion and educate healthcare professionals.
-                            </p>
-                            <p className="p-6">
-                                The Peoria Home is one of only three in the
-                                nation and is affiliated with OSF Healthcare
-                                Children's Hospital of Illinois. For more
-                                information please go to their website:{" "}
-                                <Link
-                                    target={"_blank"}
-                                    to={"https://www.almosthomekids.org/"}
-                                    className="underline"
-                                >
-                                    Almost Home Kids
-                                </Link>
-                            </p>
+                            <div className="flex flex-col items-center mt-4">
+                                <p className="my-4">
+                                    Drs. Jeff and Suzanne are local podiatrists
+                                    who were very instrumental in establishing
+                                    Almost Home Kids in Peoria which is located
+                                    at 5200 N. Hamilton Rd. Peoria, IL 61614.
+                                    Jeff and Suzanne were the driving force
+                                    behind this home being built through their
+                                    dedication, their fund raising, and their
+                                    loving care for children with special needs.
+                                    While raising two sons (Garrett and Gabriel)
+                                    with special needs they saw the need for
+                                    this home to be here in Peoria not only for
+                                    their sons but for other special needs
+                                    children in our area.
+                                </p>
+                                <p className="my-4">
+                                    Almost Home Kids provides a bridge from
+                                    hospital to home through an innovative
+                                    community-based care system for children
+                                    with medical complexities. Almost Home Kids
+                                    responds to the needs of families, train
+                                    caregivers, offer respite care, advocate for
+                                    accessibility and inclusion and educate
+                                    healthcare professionals.
+                                </p>
+                                <p className="my-4">
+                                    The Peoria Home is one of only three in the
+                                    nation and is affiliated with OSF Healthcare
+                                    Children's Hospital of Illinois. For more
+                                    information please go to their website:{" "}
+                                    <Link
+                                        target={"_blank"}
+                                        to={"https://www.almosthomekids.org/"}
+                                        className="underline"
+                                    >
+                                        Almost Home Kids
+                                    </Link>
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    <h2 className="flex justify-center text-3xl font-semibold mb-4">
+                    <h2 className="flex justify-center text-3xl font-semibold my-4">
                         2021
                     </h2>
-                    <div className="card card-side flex flex-row bg-beigeGreen-200 mx-4">
-                        <div className="card-body w-[350%]">
-                            <h2 className="flex justify-center">
-                                SOPHIA'S KITCHEN
+                    <div className="card card-side flex flex-row bg-beigeGreen-200 min-h-[30rem] m-8">
+                        <div className="card-body w-[300%]">
+                            <h2 className="card-title flex justify-center">
+                                Sophia's Kitchen
                             </h2>
-                            <p className="p-6">
-                                Inspired by the spirit of St. Francis and under
-                                the pastoral leadership of Sacred Heart/St.
-                                Joseph Parish, this mission is an outward
-                                expression of our Catholic/ Christian beliefs.
-                            </p>
+                            <div className="mt-4">
+                                <p className="my-4">
+                                    Inspired by the spirit of St. Francis and
+                                    under the pastoral leadership of Sacred
+                                    Heart/St. Joseph Parish, this mission is an
+                                    outward expression of our Catholic/
+                                    Christian beliefs.
+                                </p>
 
-                            <p className="p-6">
-                                Volunteers make hundreds of peanut butter and
-                                jelly sandwiches daily. The rest of the menu
-                                varies day by day as God provides. Local grocery
-                                stores and restaurants donate liberally to help
-                                provide filling and nutritious food.
-                            </p>
+                                <p className="my-4">
+                                    Volunteers make hundreds of peanut butter
+                                    and jelly sandwiches daily. The rest of the
+                                    menu varies day by day as God provides.
+                                    Local grocery stores and restaurants donate
+                                    liberally to help provide filling and
+                                    nutritious food.
+                                </p>
 
-                            <p className="p-6">
-                                "Who do we serve? Homeless, underemployed,
-                                unemployed, veterans, elderly, and the broken.
-                                What do we serve? Peanut butter and jelly
-                                sandwiches, hot soup, vegetables, fruits,
-                                treats, and hope. Guests at Sophia's Kitchen are
-                                treated with dignity as we show Christ's love.
-                                Anyone who is hungry is served. Our bag lunch
-                                may be taken to go, or guests may join us in our
-                                Spiritual Center where volunteers share their
-                                faith. All are welcome."
-                            </p>
+                                <p className="my-4">
+                                    "Who do we serve? Homeless, underemployed,
+                                    unemployed, veterans, elderly, and the
+                                    broken. What do we serve? Peanut butter and
+                                    jelly sandwiches, hot soup, vegetables,
+                                    fruits, treats, and hope. Guests at Sophia's
+                                    Kitchen are treated with dignity as we show
+                                    Christ's love. Anyone who is hungry is
+                                    served. Our bag lunch may be taken to go, or
+                                    guests may join us in our Spiritual Center
+                                    where volunteers share their faith. All are
+                                    welcome."
+                                </p>
 
-                            <p className="p-6">
-                                Sophia's Kitchen is located next to Historic St.
-                                Joseph Church, 103 Richard Pryor Place in
-                                Peoria. Sophia's Kitchen is staffed by a
-                                dedicated group of volunteers, who give
-                                generously of their time so that no one goes
-                                hungry. Donations are accepted Monday through
-                                Friday from 8 AM to 3 PM.
-                            </p>
+                                <p className="my-4">
+                                    Sophia's Kitchen is located next to Historic
+                                    St. Joseph Church, 103 Richard Pryor Place
+                                    in Peoria. Sophia's Kitchen is staffed by a
+                                    dedicated group of volunteers, who give
+                                    generously of their time so that no one goes
+                                    hungry. Donations are accepted Monday
+                                    through Friday from 8 AM to 3 PM.
+                                </p>
+                            </div>
                         </div>
-                        <figure>
-                            <img src={Claire} className="h-full" />
+                        <figure className="p-8">
+                            <img src={Claire} className="" />
                         </figure>
                     </div>
                     <h2 className="flex justify-center text-3xl font-semibold mb-4">
                         2019
                     </h2>
-                    <div className="card card-side bg-beigeGreen-200 flex flex-row mx-4">
-                        <figure>
-                            <img src={Carroll} className="h-full" />
+                    <div className="card card-side bg-beigeGreen-200 min-h-[30rem] flex flex-row m-8">
+                        <figure className="p-8">
+                            <img src={Carroll} className="" />
                         </figure>
-                        <div className="card-body w-[300%]">
-                            <h2 className="flex justify-center">
+                        <div className="card-body w-[100%]">
+                            <h2 className="card-title flex justify-center">
                                 Dr. John Carroll
                             </h2>
-                            <p className="p-6">
+                            <p className="flex items-center">
                                 Dr. John Carroll started the Haitian Hearts
                                 Organization in the 1990's. Haitian Hearts has
                                 brought more than 200 children and young adults
@@ -237,10 +256,12 @@ const LightTheWorld = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="flex flex-row mx-4">
-                        <div>
-                            <h2 className="flex justify-center">VI HEINZ</h2>
-                            <p className="p-6">
+                    <div className="card card-side bg-beigeGreen-200 min-h-[30rem] flex flex-row m-8">
+                        <div className="card-body w-[100%]">
+                            <h2 className="card-title flex justify-center">
+                                Vi Heinz
+                            </h2>
+                            <p className="flex items-center">
                                 Violet Heinz, 91 years old, has been a volunteer
                                 in the pre-op department at Methodist Hospital
                                 for 31 years and is just short of 10,000 hours
@@ -260,139 +281,163 @@ const LightTheWorld = () => {
                                 organizations that assist the poor and hungry.
                             </p>
                         </div>
-                        <img src={Mayor} className="h-96" />
+                        <figure className="p-8">
+                            <img src={Mayor} className=" " />
+                        </figure>
                     </div>
                     <h2 className="flex justify-center text-3xl font-semibold mb-4">
                         2018
                     </h2>
-                    <div className="flex flex-row mx-4">
-                        <img src={Gregg} className="h-96" />
-                        <div>
-                            <h2 className="flex justify-center">
+                    <div className="card card-side bg-beigeGreen-200 min-h-[30rem] flex flex-row m-8">
+                        {" "}
+                        <figure className="p-8">
+                            <img src={Gregg} className="" />
+                        </figure>
+                        <div className="card-body w-[100%]">
+                            <h2 className="card-title flex justify-center">
                                 Dr. Gregg Stoner
                             </h2>
-                            <p className="p-6">
-                                In 2000, Dr. Gregg Stoner was involved in a
-                                faith-based program at his parish, St. Thomas
-                                the Apostle, which had a theme of social
-                                justice. The program, called JustFaith, was a
-                                nine-month program based on scripture that
-                                immersed the participants in justice and peace
-                                ideas and efforts. At the conclusion of the
-                                program, the participants were asked to discern
-                                in what way he or she was willing to make a
-                                concrete effort on behalf of justice and peace.
-                            </p>
-                            <p className="p-6">
-                                As the program concluded, Dr. Stoner made the
-                                decision to leave his very successful private
-                                practice in medicine and join an emerging Health
-                                Care Clinic for the uninsured in Peoria. This
-                                clinic had been founded by a former bishop of
-                                the Catholic diocese of Peoria, and was
-                                beginning to have an impact on the Peoria area.
-                                Its mission is to provide high quality,
-                                affordable, comprehensive primary health care
-                                for those who were unable to afford it. Dr.
-                                Stoner is now the chief medical officer for
-                                Heartland Health Clinic. The clinic has grown
-                                from one location to the present eight locations
-                                in the tri-county area to better serve the
-                                community.
-                            </p>
-                            <p className="p-6">
-                                For his selfless, community-minded service, Dr.
-                                Gregg Stoner was the 2018 Light the World
-                                recipient.
-                            </p>
+                            <div className="mt-4">
+                                <p className="my-4">
+                                    In 2000, Dr. Gregg Stoner was involved in a
+                                    faith-based program at his parish, St.
+                                    Thomas the Apostle, which had a theme of
+                                    social justice. The program, called
+                                    JustFaith, was a nine-month program based on
+                                    scripture that immersed the participants in
+                                    justice and peace ideas and efforts. At the
+                                    conclusion of the program, the participants
+                                    were asked to discern in what way he or she
+                                    was willing to make a concrete effort on
+                                    behalf of justice and peace.
+                                </p>
+                                <p className="my-4">
+                                    As the program concluded, Dr. Stoner made
+                                    the decision to leave his very successful
+                                    private practice in medicine and join an
+                                    emerging Health Care Clinic for the
+                                    uninsured in Peoria. This clinic had been
+                                    founded by a former bishop of the Catholic
+                                    diocese of Peoria, and was beginning to have
+                                    an impact on the Peoria area. Its mission is
+                                    to provide high quality, affordable,
+                                    comprehensive primary health care for those
+                                    who were unable to afford it. Dr. Stoner is
+                                    now the chief medical officer for Heartland
+                                    Health Clinic. The clinic has grown from one
+                                    location to the present eight locations in
+                                    the tri-county area to better serve the
+                                    community.
+                                </p>
+                                <p className="my-4">
+                                    For his selfless, community-minded service,
+                                    Dr. Gregg Stoner was the 2018 Light the
+                                    World recipient.
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    <div className="flex flex-row mx-4">
-                        <div>
-                            <h2 className="flex justify-center">2017</h2>
-                            <h2 className="flex justify-center">
-                                DREAM CENTER PEORIA
+                    <h2 className="flex justify-center text-3xl font-semibold mb-4">
+                        2017
+                    </h2>
+                    <div className="card card-side bg-beigeGreen-200 min-h-[30rem] flex flex-row m-8">
+                        {" "}
+                        <div className="card-body w-[250%]">
+                            <h2 className="card-title flex justify-center">
+                                Dream Center Peoria
                             </h2>
-                            <p className="p-6">
-                                For excellence in Christ-like service,
-                                sacrifice, and life-changing ministry within the
-                                Peoria community, Senator Chuck Weaver presented
-                                the 2017 Light the World award to Dream Center
-                                Peoria.
-                            </p>
+                            <div className="">
+                                <p className="my-4">
+                                    For excellence in Christ-like service,
+                                    sacrifice, and life-changing ministry within
+                                    the Peoria community, Senator Chuck Weaver
+                                    presented the 2017 Light the World award to
+                                    Dream Center Peoria.
+                                </p>
 
-                            <p className="p-6">
-                                “I cannot think of an organization more worthy
-                                and fitting of this award,” Phil Luciano, award
-                                nominator, said of Dream Center Peoria. “Like no
-                                other organization, Dream Center Peoria has
-                                succeeded in lifting up Peoria, especially those
-                                most vulnerable and in need of help.”
-                            </p>
+                                <p className="my-4">
+                                    “I cannot think of an organization more
+                                    worthy and fitting of this award,” Phil
+                                    Luciano, award nominator, said of Dream
+                                    Center Peoria. “Like no other organization,
+                                    Dream Center Peoria has succeeded in lifting
+                                    up Peoria, especially those most vulnerable
+                                    and in need of help.”
+                                </p>
 
-                            <p className="p-6">
-                                Operating since 2002, Dream Center Peoria is a
-                                faith-based, non-profit organization intent on
-                                helping individuals break out of poverty through
-                                several programs that fall under their
-                                three-pronged approach: Basic Human Needs, Youth
-                                Development and Community Outreach. From
-                                2012-2016 alone, 122,276 nights of sleep to
-                                1,324 individuals, of which 390 were children
-                                were achieved in the homeless shelter with
-                                thousands more being impacted through their
-                                multiplicity of programs from school backpacks
-                                filled with supplies to youth vocational
-                                training and mentoring.
-                            </p>
+                                <p className="my-4">
+                                    Operating since 2002, Dream Center Peoria is
+                                    a faith-based, non-profit organization
+                                    intent on helping individuals break out of
+                                    poverty through several programs that fall
+                                    under their three-pronged approach: Basic
+                                    Human Needs, Youth Development and Community
+                                    Outreach. From 2012-2016 alone, 122,276
+                                    nights of sleep to 1,324 individuals, of
+                                    which 390 were children were achieved in the
+                                    homeless shelter with thousands more being
+                                    impacted through their multiplicity of
+                                    programs from school backpacks filled with
+                                    supplies to youth vocational training and
+                                    mentoring.
+                                </p>
 
-                            <p className="p-6">
-                                “The impact of Dream Center Peoria is so evident
-                                because of the hearts of those who have
-                                consistently served this city, without fanfare,
-                                for 15 years,” Brian Uhlenhopp, Dream Center
-                                Peoria Development Director said. “Thank you to
-                                all who share in the great story of Dream Center
-                                Peoria.”
-                            </p>
+                                <p className="my-4">
+                                    “The impact of Dream Center Peoria is so
+                                    evident because of the hearts of those who
+                                    have consistently served this city, without
+                                    fanfare, for 15 years,” Brian Uhlenhopp,
+                                    Dream Center Peoria Development Director
+                                    said. “Thank you to all who share in the
+                                    great story of Dream Center Peoria.”
+                                </p>
+                            </div>
                         </div>
-                        <img src={Senator} className="h-96" />
+                        <figure className="p-8">
+                            <img src={Senator} className="" />
+                        </figure>
                     </div>
-                    <div className="flex flex-row mx-4">
-                        <img src={Sisters} className="h-96" />
-                        <div>
-                            <h2 className="flex justify-center">2016</h2>
-                            <h2 className="flex justify-center">
-                                SISTERS OF ST FRANCIS OF IMMACULATE CONCEPTION
+                    <h2 className="flex justify-center text-3xl font-semibold mb-4">
+                        2016
+                    </h2>
+                    <div className="card card-side bg-beigeGreen-200 min-h-[30rem] flex flex-row m-8">
+                        <figure className="p-8">
+                            <img src={Sisters} className=" " />
+                        </figure>
+                        <div className="card-body w-[250%] gap-8">
+                            <h2 className="card-title flex justify-center">
+                                Sisters Of St Francis Of Immaculate Conception
                             </h2>
-                            <p className="p-6">
-                                In recognition for their past 125 years of
-                                unfailing ministry within the Central Illinois
-                                community, the 2016 Light the World Award was
-                                presented to the Sisters of St. Francis of the
-                                Immaculate Conception.
-                            </p>
-
-                            <p className="p-6">
-                                These Sisters have blessed thousands of lives
-                                since their 1891 inception by Mother Mary
-                                Pacifica, baptized Margaret Forrestal, when she
-                                responded to a call to staff an orphanage in
-                                Metamora, Illinois. From there, the scope and
-                                breadth of the sisterhood has continually
-                                increased to include teaching in parish schools
-                                and staffing homes for the aging. Currently, the
-                                23 Sisters serve in volunteer capacities ranging
-                                from counseling and spiritual guidance in venues
-                                throughout the community including The
-                                Children's Hospital of Illinois at Saint Francis
-                                Medical Center among others. Other current
-                                ministries include adult literacy and tutoring,
-                                nursing home management and service, hot meal
-                                delivery to homebound individuals, citizenship
-                                classes, vocational training, school teaching,
-                                and more.
-                            </p>
+                            <div className="mt-4">
+                                <p className="flex items-center mb-8">
+                                    In recognition for their past 125 years of
+                                    unfailing ministry within the Central
+                                    Illinois community, the 2016 Light the World
+                                    Award was presented to the Sisters of St.
+                                    Francis of the Immaculate Conception.
+                                </p>
+                                <p className="flex items-center">
+                                    These Sisters have blessed thousands of
+                                    lives since their 1891 inception by Mother
+                                    Mary Pacifica, baptized Margaret Forrestal,
+                                    when she responded to a call to staff an
+                                    orphanage in Metamora, Illinois. From there,
+                                    the scope and breadth of the sisterhood has
+                                    continually increased to include teaching in
+                                    parish schools and staffing homes for the
+                                    aging. Currently, the 23 Sisters serve in
+                                    volunteer capacities ranging from counseling
+                                    and spiritual guidance in venues throughout
+                                    the community including The Children's
+                                    Hospital of Illinois at Saint Francis
+                                    Medical Center among others. Other current
+                                    ministries include adult literacy and
+                                    tutoring, nursing home management and
+                                    service, hot meal delivery to homebound
+                                    individuals, citizenship classes, vocational
+                                    training, school teaching, and more.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
