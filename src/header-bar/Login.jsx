@@ -20,8 +20,9 @@ const Login = () => {
     return (
         <>
             {/* Mobile */}
-            <div className="desktop:hidden phone:flex-auto justify-center align-middle min-h-[70vh]">
-                <div className="flex flex-col w-5/6 h-2/3 p-6 mt-32 bg-second rounded-lg border-2 border-black shadow-gray-500 shadow-2xl">
+            <div className="desktop:hidden phone:flex items-center justify-center align-middle min-h-[80vh]">
+                <div className="h-32"></div>
+                <div className="flex justify-center flex-col w-5/6 h-2/3 p-6 bg-beigeGreen-200 rounded-lg border-2 border-black shadow-2xl">
                     <Formik
                         initialValues={{
                             email: "",
