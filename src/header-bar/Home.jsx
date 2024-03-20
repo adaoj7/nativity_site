@@ -178,13 +178,15 @@ const Home = () => {
                                     About
                                 </h1>
                                 {/* <!-- Brief about the festival with a 'Read more' link to the about page --> */}
-                                The Peoria Area Community Festival of Nativities
-                                was started in 2016 by members of the Church of
-                                Jesus Christ of Latter-day Saints and the
-                                Sisters of St. Francis of Immaculate Conception.
-                                Since then the festival has continued to grow
-                                and invite individuals and families to "Come and
-                                See."
+                                <div>
+                                    The Peoria Area Community Festival of
+                                    Nativities was started in 2016 by members of
+                                    the Church of Jesus Christ of Latter-day
+                                    Saints and the Sisters of St. Francis of
+                                    Immaculate Conception. Since then the
+                                    festival has continued to grow and invite
+                                    individuals and families to "Come and See."
+                                </div>
                                 <div className="flex flex-row">
                                     <span>-</span>{" "}
                                     <NavLink
@@ -206,7 +208,7 @@ const Home = () => {
                                 <h2 className="flex justify-center text-lg font-semibold">
                                     Oh Holy Night
                                 </h2>
-                                <h2 className="flex justify-center text-lg font-semibold">
+                                <h2 className="flex justify-center text-lg font-semibold whitespace-nowrap">
                                     November 30th and December 1st-3rd
                                 </h2>
                                 <ul className="m-4 text-lg">
