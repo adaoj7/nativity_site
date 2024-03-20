@@ -5,8 +5,8 @@ import NativityLogo from "../components/Elements/NativityLogo";
 const Volunteer = () => {
     return (
         <>
-            <div className="mt-24 min-h-[80vh] flex flex-col">
-                <div className="text-xl p-6">
+            <div className="min-h-[80vh] flex flex-col">
+                <div className="text-xl p-6 mt-24">
                     We need volunteers to help us with setup and takedown of the
                     nativities before and after the festival as well as those
                     willing to host those who come.

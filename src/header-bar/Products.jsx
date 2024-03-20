@@ -6,7 +6,7 @@ const Products = () => {
     <>
     <NativityLogo/>
     <div className='mt-24 h-[70vh]'>
-        <div >Products</div>
+        <div className='mt-24'>Products</div>
     </div>
     </>
   )

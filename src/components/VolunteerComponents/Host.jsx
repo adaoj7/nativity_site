@@ -59,8 +59,8 @@ const Host = () => {
     return (
         <div>
             {/* Mobile screen */}
-            <div className="flex desktop:hidden mt-32 min-h-[85vh]">
-                <h3>
+            <div className="flex flex-col text-lg items-center desktop:hidden min-h-[85vh]">
+                <h3 className="mt-32">
                     Hello, {fname} {lname}
                 </h3>
                 <Formik

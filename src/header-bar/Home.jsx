@@ -21,7 +21,7 @@ const carouselItems = [
 const Home = () => {
     return (
         <>
-            <div className="bg-white">
+            <div className="">
                 <div className="">
                     <div className="top-0 desktop:hidden phone:flex phone:relative">
                         <img src={MobileBackground} className="h-full" />
@@ -41,7 +41,7 @@ const Home = () => {
                 <div className="desktop:hidden phone:flex flex-row justify-center flex-wrap mx-4 py-4">
                     <div className="m-4">
                         <section
-                            className="p-4 text-lg bg-white border-2 border-black rounded-3xl mx-4"
+                            className="p-4 text-lg bg-beigeGreen-200 border-2 border-black rounded-3xl mx-4"
                             id="about"
                         >
                             {/* <!-- Brief about the festival with a 'Read more' link to the about page --> */}
@@ -60,7 +60,7 @@ const Home = () => {
                         </section>
 
                         <section
-                            className="p-4 bg-white border-2 border-black rounded-3xl m-4"
+                            className="p-4 bg-beigeGreen-200 border-2 border-black rounded-3xl m-4"
                             id="events"
                         >
                             {/* <!-- Interactive event scheduler/calendar --> */}
@@ -104,7 +104,7 @@ const Home = () => {
                         </section>
                         <div className="flex flex-col justify-around mx-4">
                             <section
-                                className="p-4 text-lg bg-white border-2 border-black h-1/3 rounded-3xl mb-4"
+                                className="p-4 text-lg bg-beigeGreen-200 border-2 border-black h-1/3 rounded-3xl mb-4"
                                 id="volunteer"
                             >
                                 {/* <!-- Information on volunteering and a sign-up form --> */}
@@ -114,7 +114,7 @@ const Home = () => {
                                 Host Shifts.
                             </section>
                             <section
-                                className="p-4 text-lg bg-white border-2 border-black rounded-3xl"
+                                className="p-4 text-lg bg-beigeGreen-200 border-2 border-black rounded-3xl"
                                 id="donate"
                             >
                                 {/* <!-- Quick donation access --> */}
@@ -140,7 +140,7 @@ const Home = () => {
 
                     <div className="flex flex-row w-full h-full">
                         <section
-                            className="flex w-1/2 p-4 bg-white border-2 border-black h-1/5 rounded-3xl"
+                            className="flex w-1/2 p-4 bg-beigeGreen-200 border-2 border-black h-1/5 rounded-3xl"
                             id="gallery"
                         >
                             {/* <!-- Gallery of past festivals --> */}
@@ -148,7 +148,7 @@ const Home = () => {
                         </section>
 
                         <section
-                            className="flex w-1/2 p-4 text-center bg-white border-2 border-black h-1/5 rounded-3xl"
+                            className="flex w-1/2 p-4 text-center bg-beigeGreen-200 border-2 border-black h-1/5 rounded-3xl"
                             id="testimonials"
                         >
                             {/* <!-- Testimonials or story sharing section --> */}
@@ -156,7 +156,7 @@ const Home = () => {
                         </section>
                     </div>
                     <aside
-                        className="w-1/4 p-4 bg-white border-2 border-black h-1/5 rounded-3xl"
+                        className="w-1/4 p-4 bg-beigeGreen-200 border-2 border-black h-1/5 rounded-3xl"
                         id="news"
                     >
                         {/* <!-- Sidebar for news or social media feed --> */}

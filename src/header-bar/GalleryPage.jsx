@@ -3,8 +3,8 @@
 const Gallery = () => {
     return (
         <>
-            <div className="mt-24 min-h-[73vh] flex justify-center">
-                <div className="flex justify-center flex-col w-2/3">
+            <div className="min-h-[73vh] flex justify-center">
+                <div className="flex justify-center flex-col w-2/3 mt-24">
                     <div className=" w-full carousel rounded-box">
                         <div
                             id="item1"

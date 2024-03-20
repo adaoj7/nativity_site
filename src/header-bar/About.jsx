@@ -5,8 +5,10 @@ const About = () => {
     return (
         <>
             {/* Mobile */}
-            <div className="flex desktop:hidden flex-col items-center mt-28">
-                <h1 className="text-2xl font-bold">About Us and Our Mission</h1>
+            <div className="flex desktop:hidden flex-col items-center">
+                <h1 className="text-2xl font-bold mt-28">
+                    About Us and Our Mission
+                </h1>
                 <div className="flex flex-col justify-center">
                     <div className="h-1/5">
                         <img src={AboutImage} className="w-full h-full p-4" />

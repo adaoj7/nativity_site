@@ -5,8 +5,8 @@ const ThisYear = () => {
     return (
         <>
             {/* Mobile */}
-            <div className="flex desktop:hidden mt-24 h-[73vh]">
-                <div className="flex flex-col">
+            <div className="flex desktop:hidden h-[73vh]">
+                <div className="flex flex-col mt-24">
                     <h2 className="flex text-3xl font-bold justify-center pt-4">
                         This year
                     </h2>
