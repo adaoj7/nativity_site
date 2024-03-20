@@ -13,6 +13,12 @@ export default {
             // 'xl': '1280px',
             // => @media (min-width: 1280px) { ... }
         },
+        fontFamily: {
+            Roboto: ['"Roboto Slab"', "serif"],
+            OpenSans: ['"Open Sans"', "sans-serif"],
+            Playfair: ['"Playfair Display"', "serif"],
+            Montserrat: ['"Montserrat"', "sans-serif"],
+        },
         extend: {
             colors: {
                 //light

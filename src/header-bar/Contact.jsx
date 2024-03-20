@@ -1,51 +1,48 @@
 ﻿import React from "react";
-import NativityLogo from "../components/Elements/NativityLogo";
-import { Link } from "react-router-dom";
+import MapPicture from "../assets/Screenshot 2024-03-19 212513.png";
+import { NavLink } from "react-router-dom";
 
 const Contact = () => {
     return (
         <>
-            <NativityLogo />
-            <div className="mt-24 h-[73vh]">
-                <div className="flex flex-col justify-center">
-                    <h2 className="flex justify-center pt-4 my-4 text-2xl font-bold">
-                        Contact
-                    </h2>
-                    <div className="flex flex-row justify-center">
-                        <div className="flex flex-col justify-center p-8 m-8 align-middle border-2 border-black rounded-3xl">
-                            <p className="flex justify-center text-lg font-semibold">
-                                Email:{" "}
-                            </p>
-                            <button
-                                onClick={() =>
-                                    (window.location =
-                                        "mailto:peorianativities@gmail.com")
-                                }
-                                className="flex justify-center text-lg font-semibold underline"
-                            >
-                                peorianativities@gmail.com
-                            </button>
-                            <p className="flex justify-center text-lg font-semibold">
-                                Ruth Thompson
-                            </p>
-                            <p className="flex justify-center text-lg font-semibold">
-                                Tel: 309-361-9956
-                            </p>
-                        </div>
-                        <div className="w-1/6"></div>
-                        <iframe
-                            defer
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.359880354713!2d-89.65405992450053!3d40.73210603638536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880a5c39a382250d%3A0x6fcfa24cada00e1b!2sThe%20Community%20Festival%20of%20Nativities!5e0!3m2!1sen!2sus!4v1701326064004!5m2!1sen!2sus"
-                            width="600"
-                            height="450"
-                            className="border-0"
-                            allowFullScreen=""
-                            loading="lazy"
-                            referrerPolicy="no-referrer-when-downgrade"
-                        ></iframe>
+            <div className="mt-40 min-h-[73vh]">
+                <div className="flex flex-col justify-center mx-20 mt-10 mb-4">
+                    <div className="flex flex-row justify-center items-center">
+                        <section className="card w-1/3 h-72 rounded-3xl bg-beigeGreen-200 mx-10">
+                            <div className="card-body flex flex-col justify-center align-middle">
+                                <h2 className="card-title flex justify-center">
+                                    Contact
+                                </h2>
+                                <p className="">
+                                    Email:{" "}
+                                    <button
+                                        onClick={() =>
+                                            (window.location =
+                                                "mailto:peorianativities@gmail.com")
+                                        }
+                                        className=""
+                                    >
+                                        peorianativities@gmail.com
+                                    </button>
+                                </p>
+                                <p className="">Ruth Thompson</p>
+                                <p className="">Tel: 309-361-9956</p>
+                            </div>
+                        </section>
+
+                        <button
+                            onClick={() =>
+                                window.open(
+                                    `https://www.google.com/maps/place/The+Community+Festival+of+Nativities/@40.7352662,-89.6539589,15.5z/data=!4m6!3m5!1s0x880a5c39a382250d:0x6fcfa24cada00e1b!8m2!3d40.732102!4d-89.651485!16s%2Fg%2F11f63xgxt0?entry=ttu`
+                                )
+                            }
+                            title="Link to Google Maps"
+                            className="flex justify-end w-1/3 mx-10"
+                        >
+                            <img src={MapPicture} className="w-full" />
+                        </button>
                     </div>
                 </div>
-                <div className="h-8"></div>
             </div>
         </>
     );
