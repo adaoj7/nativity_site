@@ -29,10 +29,10 @@ const Home = () => {
                     </div>
 
                     <div className="top-0 hidden desktop:flex desktop:relative">
-                        <img src={Background} />
+                        <img src={Background} className="min-h-screen" />
                         <img
                             src={Logo}
-                            className="absolute w-1/3 top-1/2 right-44 h-1/4"
+                            className="absolute w-1/3 top-1/2 right-44 min-h-1/4"
                         />
                     </div>
                 </div>
