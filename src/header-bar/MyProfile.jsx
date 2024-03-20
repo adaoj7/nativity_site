@@ -28,10 +28,10 @@ const MyProfile = () => {
     return (
         <div className="min-h-[80vh]">
             <div className="">
-                <nav className="flex desktop:hidden justify-center mt-32">
+                <nav className="flex desktop:hidden justify-center">
                     {userId ? (
                         <div className="flex flex-col justify-center items-center">
-                            <div className="text-3xl">
+                            <div className="text-3xl mt-32">
                                 Hello, {fname} {lname}
                             </div>
                             <div className="text-xl mt-4">
