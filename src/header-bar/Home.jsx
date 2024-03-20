@@ -167,7 +167,7 @@ const Home = () => {
                 </div>
 
                 {/* Desktop homepage layout */}
-                <div className="hidden desktop:flex flex-row flex-wrap p-20 bg-beigeGreen-400 min-h-screen">
+                <div className="hidden desktop:flex flex-row flex-wrap px-20 py-10 bg-beigeGreen-400 min-h-screen">
                     <div className="flex flex-row justify-between">
                         <section
                             className=" card w-[28%] p-4 text-lg bg-gradient-to-r from-beigeGreen-200 to-beigeGreen-100 rounded-3xl shadow-sm"
