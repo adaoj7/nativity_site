@@ -16,8 +16,8 @@ const createDonationSession = async (e) => {
 const Donate = () => {
     return (
         <>
-            <div className="flex desktop:hidden flex-col mt-24 h-[73vh] overflow-hidden">
-                <div className="flex justify-center items-center h-40 font-medium text-2xl px-6 ">
+            <div className="flex desktop:hidden flex-col min-h-[85vh] overflow-hidden">
+                <div className="flex justify-center items-center h-40 mt-24 font-medium text-2xl px-6 ">
                     Click here to be taken to a secure payment powered by Stripe
                 </div>
                 <form

@@ -9,7 +9,7 @@ const Footer = () => {
             {/* Mobile Footer */}
             <div className="desktop:hidden justify-end phone:flex flex-col">
                 <div
-                    className={`h-auto desktop:flex flex-col w-full p-4 bg-darkGreen text-white
+                    className={`h-auto desktop:flex flex-col w-full p-4 bg-darkGreenLight text-white
                     `}
                 >
                     <div className="">
