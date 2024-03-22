@@ -56,135 +56,149 @@ function Header() {
         <div className="">
             <header className="sticky z-10 flex w-full">
                 {/* Mobile Header */}
-                <div className="fixed flex justify-between desktop:hidden dropdown dropdown-end bg-darkGreenLight w-full h-24 items-center">
+                <div className="fixed flex justify-between desktop:hidden drawer drawer-end bg-darkGreenLight w-full h-24 items-center">
                     <img src={Image} className="h-16 ml-6 invert" />
-                    <div tabIndex={0} role="button" className="mr-6">
-                        <IoMenu
-                            className="relative z-20 text-white"
-                            size={40}
-                        />
+                    <input
+                        id="mobileDrawer"
+                        type="checkbox"
+                        className="mr-6 drawer-toggle"
+                    />
+                    <div className="drawer-content">
+                        <label htmlFor="mobileDrawer">
+                            <IoMenu
+                                className="relative text-white right-4"
+                                size={40}
+                            />
+                        </label>
                     </div>
-                    <ul
-                        tabIndex={0}
-                        className="top-28 mr-3 z-[1] p-2 shadow menu menu-sm dropdown-content border-[1px] border-black rounded-box w-52 bg-cornsilkLight"
-                    >
-                        <li>
-                            <NavLink
-                                to="/"
-                                className={({ isActive }) =>
-                                    isActive ? phoneActive : phoneInactive
-                                }
-                            >
-                                Home Page
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                to="/about"
-                                className={({ isActive }) =>
-                                    isActive ? phoneActive : phoneInactive
-                                }
-                            >
-                                About
-                            </NavLink>
-                        </li>
-                        <li>
-                            <details open className={phoneInactive}>
-                                <summary>Volunteer</summary>
-                                <ul>
-                                    <li>
-                                        <NavLink
-                                            to="/volunteer"
-                                            className={({ isActive }) =>
-                                                isActive
-                                                    ? phoneActive
-                                                    : phoneInactive
-                                            }
-                                        >
-                                            Get Involved
-                                        </NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink
-                                            to="/volunteer/setup"
-                                            className={({ isActive }) =>
-                                                isActive
-                                                    ? phoneActive
-                                                    : phoneInactive
-                                            }
-                                        >
-                                            Setup
-                                        </NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink
-                                            to="/volunteer/host"
-                                            className={({ isActive }) =>
-                                                isActive
-                                                    ? phoneActive
-                                                    : phoneInactive
-                                            }
-                                        >
-                                            Host
-                                        </NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink
-                                            to="/volunteer/myShifts"
-                                            className={({ isActive }) =>
-                                                isActive
-                                                    ? phoneActive
-                                                    : phoneInactive
-                                            }
-                                        >
-                                            My Shifts
-                                        </NavLink>
-                                    </li>
-                                </ul>
-                            </details>
-                        </li>
-                        <li>
-                            <NavLink
-                                to="/donate"
-                                className={({ isActive }) =>
-                                    isActive ? phoneActive : phoneInactive
-                                }
-                            >
-                                Donate
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                to="/thisYear"
-                                className={({ isActive }) =>
-                                    isActive ? phoneActive : phoneInactive
-                                }
-                            >
-                                This Year
-                            </NavLink>
-                        </li>
-                        <li>
-                            {userId ? (
+                    <div className="drawer-side">
+                        <label
+                            htmlFor="mobileDrawer"
+                            className="drawer-overlay"
+                        ></label>
+                        <ul className="menu p-4 w-80 min-h-full bg-cornsilkLight text-base-content">
+                            <li>
                                 <NavLink
-                                    to="/myProfile"
+                                    to="/"
                                     className={({ isActive }) =>
                                         isActive ? phoneActive : phoneInactive
                                     }
                                 >
-                                    My Profile
+                                    Home Page
                                 </NavLink>
-                            ) : (
+                            </li>
+                            <li>
                                 <NavLink
-                                    to="/login"
+                                    to="/about"
                                     className={({ isActive }) =>
                                         isActive ? phoneActive : phoneInactive
                                     }
                                 >
-                                    Log In
+                                    About
                                 </NavLink>
-                            )}
-                        </li>
-                    </ul>
+                            </li>
+                            <li>
+                                <details open className={phoneInactive}>
+                                    <summary>Volunteer</summary>
+                                    <ul>
+                                        <li>
+                                            <NavLink
+                                                to="/volunteer"
+                                                className={({ isActive }) =>
+                                                    isActive
+                                                        ? phoneActive
+                                                        : phoneInactive
+                                                }
+                                            >
+                                                Get Involved
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink
+                                                to="/volunteer/setup"
+                                                className={({ isActive }) =>
+                                                    isActive
+                                                        ? phoneActive
+                                                        : phoneInactive
+                                                }
+                                            >
+                                                Setup
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink
+                                                to="/volunteer/host"
+                                                className={({ isActive }) =>
+                                                    isActive
+                                                        ? phoneActive
+                                                        : phoneInactive
+                                                }
+                                            >
+                                                Host
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink
+                                                to="/volunteer/myShifts"
+                                                className={({ isActive }) =>
+                                                    isActive
+                                                        ? phoneActive
+                                                        : phoneInactive
+                                                }
+                                            >
+                                                My Shifts
+                                            </NavLink>
+                                        </li>
+                                    </ul>
+                                </details>
+                            </li>
+                            <li>
+                                <NavLink
+                                    to="/donate"
+                                    className={({ isActive }) =>
+                                        isActive ? phoneActive : phoneInactive
+                                    }
+                                >
+                                    Donate
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    to="/thisYear"
+                                    className={({ isActive }) =>
+                                        isActive ? phoneActive : phoneInactive
+                                    }
+                                >
+                                    This Year
+                                </NavLink>
+                            </li>
+                            <li>
+                                {userId ? (
+                                    <NavLink
+                                        to="/myProfile"
+                                        className={({ isActive }) =>
+                                            isActive
+                                                ? phoneActive
+                                                : phoneInactive
+                                        }
+                                    >
+                                        My Profile
+                                    </NavLink>
+                                ) : (
+                                    <NavLink
+                                        to="/login"
+                                        className={({ isActive }) =>
+                                            isActive
+                                                ? phoneActive
+                                                : phoneInactive
+                                        }
+                                    >
+                                        Log In
+                                    </NavLink>
+                                )}
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
                 {/* desktop */}

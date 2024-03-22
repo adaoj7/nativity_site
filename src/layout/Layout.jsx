@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 
 const Layout = () => {
     return (
-        <div className="bg-beigeGreen-400 font-OpenSans">
+        <div className="bg-beigeGreen-400 font-OpenSans phone:text-black">
             <Header />
             <Outlet />
             <Footer />
