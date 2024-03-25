@@ -37,40 +37,49 @@ const QueryResults = ({ values }) => {
     }
     return (
         <>
-            <div className="desktop:hidden phone:grid grid-cols-3 gap-4 ml-10 my-10">
-                <div>
-                    {emailList.length ? (
-                        <div className="text-xl font-semibold">Name:</div>
-                    ) : null}
-                    <ul>{names}</ul>
+            {/* Mobile version */}
+            <div className="desktop:hidden phone:flex flex-col px-8 my-4 text-sm">
+                <div className="flex flex-row justify-between">
+                    <div className="">
+                        {emailList.length ? (
+                            <div className="text-xl font-semibold">Names:</div>
+                        ) : null}
+                        <ul className="mb-4">{names}</ul>
+                    </div>
+                    <div className="mr-10">
+                        {emailList.length ? (
+                            <div className="text-xl font-semibold">Phone:</div>
+                        ) : null}
+                        <ul className="mb-4">{phones}</ul>
+                    </div>
                 </div>
-                <div className="flex-col mr-4">
+                <div className="">
                     {emailList.length ? (
                         <div className="text-xl font-semibold">Emails:</div>
                     ) : null}
                     <ul className="mb-4">{emails}</ul>
-                    {emailList.length ? (
-                        <button
-                            className="btn bg-gray-300 hover:bg-gray-400"
-                            onClick={() =>
-                                (window.location = `mailto:?cc=${emailString}`)
-                            }
-                        >
-                            Send to these emails
-                        </button>
-                    ) : null}
                 </div>
                 <div>
                     {emailList.length ? (
-                        <div className="text-xl font-semibold">Phone:</div>
+                        <div className="flex justify-center my-8">
+                            <button
+                                className="btn bg-gray-300 hover:bg-gray-400"
+                                onClick={() =>
+                                    (window.location = `mailto:?cc=${emailString}`)
+                                }
+                            >
+                                Send to these emails
+                            </button>
+                        </div>
                     ) : null}
-                    <ul>{phones}</ul>
+                    {/* {emailList.length ? (div) : null} */}
                 </div>
             </div>
+            {/* Desktop version */}
             <div className="phone:hidden desktop:grid grid-cols-3 gap-4 ml-10 mt-10">
                 <div>
                     {emailList.length ? (
-                        <div className="text-xl font-semibold">Name:</div>
+                        <div className="text-xl font-semibold">Names:</div>
                     ) : null}
                     <ul>{names}</ul>
                 </div>

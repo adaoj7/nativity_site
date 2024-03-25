@@ -33,15 +33,28 @@ const ShiftOptions = ({ shifts }) => {
         });
         return (
             <>
-                <label className="text-xl">Shift Time</label>
-                <Field
-                    name="time"
-                    component="select"
-                    className="border-[1px] border-black rounded-md"
-                >
-                    <option key="random">Please Select a time</option>
-                    {times}
-                </Field>
+                <div className="hidden phone:flex flex-col">
+                    <label className="text-xl mb-4">Shift Time</label>
+                    <Field
+                        name="time"
+                        component="select"
+                        className="border-[1px] border-gray-300 rounded-md p-2 w-full"
+                    >
+                        <option key="random">Please Select a time</option>
+                        {times}
+                    </Field>
+                </div>
+                <div className="desktop:flex phone:hidden flex-col">
+                    <label className="text-xl">Shift Time</label>
+                    <Field
+                        name="time"
+                        component="select"
+                        className="border-[1px] border-black rounded-md"
+                    >
+                        <option key="random">Please Select a time</option>
+                        {times}
+                    </Field>
+                </div>
             </>
         );
     }

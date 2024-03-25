@@ -41,7 +41,7 @@ const AdminLookup = () => {
             {/* Mobile version */}
             <div className="mt-32 min-h-[75vh] desktop:hidden phone:flex flex-col">
                 <Admin />
-                <div className="p-4">
+                <div className="p-8">
                     <Formik
                         initialValues={{
                             date: "",
@@ -73,11 +73,11 @@ const AdminLookup = () => {
                         }}
                     >
                         {({ values, errors }) => (
-                            <Form className="flex justify-center flex-col p-4 border-2 rounded-md bg-beigeGreen-200">
+                            <Form className="flex justify-center flex-col p-6 border-2 rounded-md bg-beigeGreen-200">
                                 <h1 className="font-semibold flex justify-center text-xl">
                                     Search Shifts
                                 </h1>
-                                <div className="flex justify-center min-h-[150px]">
+                                <div className="flex justify-center min-h-[220px]">
                                     <div className="flex flex-col justify-start gap-3 rounded-md p-4 min-h-[180px] w-[250px]">
                                         <label className="text-xl">
                                             Shift Date
