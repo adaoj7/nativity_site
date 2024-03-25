@@ -38,8 +38,8 @@ const Home = () => {
                 </div>
 
                 {/* Mobile homepage layout */}
-                <div className="desktop:hidden phone:flex flex-row justify-center flex-wrap mx-4 py-4">
-                    <div className="m-4">
+                <div className="desktop:hidden phone:flex flex-row justify-center flex-wrap mx-4 my-6">
+                    <div className="">
                         <section
                             className="p-4 text-lg bg-beigeGreen-200 border-2 border-black rounded-3xl mx-4"
                             id="about"
@@ -67,7 +67,7 @@ const Home = () => {
                             <h2 className="flex justify-center text-lg font-semibold">
                                 Oh Holy Night
                             </h2>
-                            <h2 className="flex justify-center text-lg font-semibold whitespace-nowrap">
+                            <h2 className="flex justify-center text-lg font-semibold">
                                 November 30th and December 1st-3rd
                             </h2>
                             <ul className="m-4">
@@ -98,7 +98,7 @@ const Home = () => {
                                     }
                                     className="flex justify-center px-4 text-white border-2 border-black btn bg-slate-600 hover:bg-slate-300 rounded-3xl whitespace-nowrap"
                                 >
-                                    3700 West Reservoir Boulevard Peoria, IL
+                                    3700 West Reservoir Boulevard
                                 </button>
                             </div>
                         </section>
