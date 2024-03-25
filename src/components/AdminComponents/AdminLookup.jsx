@@ -93,7 +93,7 @@ const AdminLookup = () => {
                                 <div className="flex justify-center">
                                     <button
                                         type="submit"
-                                        className="btn font-semibold flex bg-gray-300 hover:bg-gray-400 justify-center mx-20 my-2 rounded-full p-2  w-[190px]"
+                                        className="btn font-semibold flex active:bg-gray-300 justify-center mx-20 my-2 p-2 w-[190px]"
                                     >
                                         Submit
                                     </button>

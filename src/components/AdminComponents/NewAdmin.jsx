@@ -12,9 +12,9 @@ const NewAdmin = () => {
         <>
             <div className="mt-32 min-h-[75vh] desktop:hidden phone:flex flex-col">
                 <Admin />
-                <div className="flex flex-col items-center w-[400px]">
-                    <div className="flex flex-col justify-center rounded-md pt-2 pb-6 bg-beigeGreen-200">
-                        <div className="flex justify-center py-2 text-xl">
+                <div className="flex flex-col items-center p-8">
+                    <div className="flex flex-col justify-center w-full rounded-md p-6 bg-beigeGreen-200">
+                        <div className="flex justify-center text-xl font-semibold">
                             Add an Admin
                         </div>
                         <Formik
@@ -72,7 +72,7 @@ const NewAdmin = () => {
                                 Admin
                             </div>
                         )}
-                        <div className="flex justify-center py-2 text-xl">
+                        <div className="flex justify-center py-2 text-xl font-semibold">
                             Remove an Admin
                         </div>
                         <Formik

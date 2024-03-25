@@ -15,15 +15,15 @@ const Admin = () => {
                     </NavLink>
                     <NavLink
                         className="font-semibold whitespace-nowrap"
-                        to="/betaAndPsi"
-                    >
-                        Add shifts for year (not built)
-                    </NavLink>
-                    <NavLink
-                        className="font-semibold whitespace-nowrap"
                         to="/betaAndPsi/newAdmin"
                     >
                         Add new Admin
+                    </NavLink>
+                    <NavLink
+                        className="font-semibold whitespace-nowrap"
+                        to="/betaAndPsi"
+                    >
+                        Add shifts for year (not built)
                     </NavLink>
                 </div>
             </nav>
