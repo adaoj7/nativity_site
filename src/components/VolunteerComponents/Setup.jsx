@@ -119,7 +119,7 @@ const Volunteers = () => {
                                     {/* <component={SetupDates} dates={daysOfShifts}/> */}
                                 </ul>
                                 {errors.checked && (
-                                    <div>
+                                    <div className="my-4">
                                         {"Must at least check one availability"}
                                     </div>
                                 )}

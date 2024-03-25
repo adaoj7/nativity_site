@@ -60,64 +60,78 @@ const Host = () => {
         <div>
             {/* Mobile screen */}
             <div className="flex flex-col text-lg items-center desktop:hidden min-h-[85vh]">
-                <h3 className="mt-32">
-                    Hello, {fname} {lname}
-                </h3>
-                <Formik
-                    initialValues={{
-                        checked: [],
-                    }}
-                    validationSchema={SignupSchema}
-                    onSubmit={async (values, { setSubmitting, resetForm }) => {
-                        const numberValues = values.checked.map((value) => {
-                            return +value;
-                        });
-                        setUserShiftId([...userShiftId, ...numberValues]);
-
-                        document.getElementById("my_modal_1").showModal();
-
-                        const sendNewVolunteer = async () => {
-                            let bodyObj = {
-                                userId: userId,
-                                checked: values.checked,
-                            };
-
-                            const { data } = await axios.post(
-                                "/api/newVolunteer",
-                                bodyObj
-                            );
-                            if (!data.error) {
-                            } else {
-                                console.log(data.error);
-                            }
-                        };
-                        setSubmitting(false);
-                        resetForm({
+                <div className="w-3/4 mt-32 mb-8 border-2 bg-beigeGreen-200 p-6 rounded-2xl">
+                    <h3 className="flex justify-center text-xl font-semibold">
+                        Hello, {fname} {lname}
+                    </h3>
+                    <Formik
+                        initialValues={{
                             checked: [],
-                        });
+                        }}
+                        validationSchema={SignupSchema}
+                        onSubmit={async (
+                            values,
+                            { setSubmitting, resetForm }
+                        ) => {
+                            const numberValues = values.checked.map((value) => {
+                                return +value;
+                            });
+                            setUserShiftId([...userShiftId, ...numberValues]);
 
-                        sendNewVolunteer();
-                    }}
-                >
-                    {({ errors, handleSubmit }) => (
-                        <Form onSubmit={handleSubmit} className="">
-                            <h3 id="checkbox-group">Setup Shifts:</h3>
-                            <ul role="group" aria-labelledby="checkbox-group">
-                                <Dates
-                                    dates={daysOfShifts}
-                                    userShifts={userShiftId}
-                                />
-                                {/* <component={SetupDates} dates={daysOfShifts}/> */}
-                            </ul>
-                            {errors.checked && (
-                                <div>
-                                    {"Must at least check one availability"}
+                            document.getElementById("my_modal_1").showModal();
+
+                            const sendNewVolunteer = async () => {
+                                let bodyObj = {
+                                    userId: userId,
+                                    checked: values.checked,
+                                };
+
+                                const { data } = await axios.post(
+                                    "/api/newVolunteer",
+                                    bodyObj
+                                );
+                                if (!data.error) {
+                                } else {
+                                    console.log(data.error);
+                                }
+                            };
+                            setSubmitting(false);
+                            resetForm({
+                                checked: [],
+                            });
+
+                            sendNewVolunteer();
+                        }}
+                    >
+                        {({ errors, handleSubmit }) => (
+                            <Form onSubmit={handleSubmit} className="">
+                                <h3 id="checkbox-group" className="my-4">
+                                    Setup Shifts:
+                                </h3>
+                                <ul
+                                    role="group"
+                                    aria-labelledby="checkbox-group"
+                                >
+                                    <Dates
+                                        dates={daysOfShifts}
+                                        userShifts={userShiftId}
+                                    />
+                                    {/* <component={SetupDates} dates={daysOfShifts}/> */}
+                                </ul>
+                                {errors.checked && (
+                                    <div className="my-4">
+                                        {"Must at least check one availability"}
+                                    </div>
+                                )}
+                                <div className="flex justify-center mt-6">
+                                    <button className="btn" type="submit">
+                                        Submit
+                                    </button>
                                 </div>
-                            )}
-                            <button type="submit">Submit</button>
-                        </Form>
-                    )}
-                </Formik>
+                            </Form>
+                        )}
+                    </Formik>
+                </div>
             </div>
 
             {/* desktop screen */}
